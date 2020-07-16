@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+struct  OrderTrackingResponse : Codable {
+    var  orderList : [OrderTrack]?
+    
+    
+   enum CodingKeys: String, CodingKey {
+      case  orderList = "list"
+    }
+    
+    init(){
+     orderList = []
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        do { orderList = try container.decodeIfPresent(.orderList) ?? [] }
+        catch { orderList = [] }
+    }
+}

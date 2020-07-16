@@ -9,10 +9,21 @@
 //
 
 import UIKit
-
+import Moya
 class ForgetPasswordInteractor : PresenterToIntetractorForgetPasswordProtocol {
     
     var presenter: InteractorToPresenterForgetPasswordProtocol?
-    
+    private let provider = MoyaProvider<UserDataSource>()
+      func checkIfPhoneExist(phone: String) {
+        provider.request(.checkPhoneIsExist(phone, "")) { [weak self] result in
+                   guard let self = self else { return }
+                   switch result {
+                   case .success(_):
+                     self.presenter?.phoneIsExist()
+                   case .failure(let error):
+                    self.presenter?.phoneNotExist()
+                }
+               }
+           }
 }
 

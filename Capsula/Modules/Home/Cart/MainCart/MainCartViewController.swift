@@ -9,20 +9,210 @@
 //
 
 import UIKit
+import Intercom
 
 class MainCartViewController: UIViewController {
     
+    
+    var initialSetupViewController: PTFWInitialSetupViewController!
+    @IBOutlet weak var  headerView : UIView!
+    @IBOutlet weak var  containerView : UIView!
+    @IBOutlet weak var  cartProgressImage : UIImageView!
+    var items = [Item]()
     var presenter : ViewToPresenterMainCartProtocol?
-
+    
+    
+    lazy var cartListVC : UIViewController = {
+        let vc = CartItemListRouter.createModule() as! CartItemListViewController
+        
+        vc.nextPressed = {
+            self.openDetailsScreen()
+            self.cartProgressImage.image = UIImage(named: "cart_second")
+            //         cartProgressImage.image = UIImage(named: "cart_first")
+            //         cartProgressImage.image = UIImage(named: "cart_third")
+        }
+        return vc
+    }()
+    
+    lazy var cartListWithItemsVC : UIViewController = {
+        let vc = CartItemListRouter.createModule() as! CartItemListViewController
+        vc.items = items
+        vc.nextPressed = {
+            self.openDetailsScreen()
+            self.cartProgressImage.image = UIImage(named: "cart_second")
+            //         cartProgressImage.image = UIImage(named: "cart_first")
+            //         cartProgressImage.image = UIImage(named: "cart_third")
+        }
+        return vc
+    }()
+    
+    
+    lazy var cartDetailsViewController : UIViewController = {
+        let vc = CartDetailsRouter.createModule() as! CartDetailsViewController
+        vc.nextPressed = {
+            self.openCongratScreen()
+            self.cartProgressImage.image = UIImage(named: "cart_third")
+            
+        }
+        
+        vc.openPaymentScreen = {
+            self.openPayTabs()
+        }
+        
+        
+        return vc
+    }()
+    
+    lazy var cartCongratViewController : UIViewController = {
+        let vc = CartCongratViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+        
+        return vc
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        if items.count > 0 {
+            self.add(childViewContoller: cartListWithItemsVC)
+        }else{
+            self.add(childViewContoller: cartListVC)
+
+        }
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            if Utils.loadUser()?.accessToken ?? "" != "" {
+               Intercom.setLauncherVisible(true)
+            }
+        }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        headerView.clipsToBounds = true
+        headerView.layer.cornerRadius = 70
+        headerView.layer.maskedCorners = [.layerMinXMaxYCorner]
+    }
+    
+    
+    func openPayTabs(){
+        
+        let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
+             
+             
+             self.initialSetupViewController = PTFWInitialSetupViewController.init(
+                 bundle: bundle,
+                 andWithViewFrame: self.view.frame,
+                 andWithAmount: 5.0,
+                 andWithCustomerTitle: "PayTabs Sample App",
+                 andWithCurrencyCode: "USD",
+                 andWithTaxAmount: 0.0,
+                 andWithSDKLanguage: "en",
+                 andWithShippingAddress: "Manama",
+                 andWithShippingCity: "Manama",
+                 andWithShippingCountry: "BHR",
+                 andWithShippingState: "Manama",
+                 andWithShippingZIPCode: "123456",
+                 andWithBillingAddress: "Manama",
+                 andWithBillingCity: "Manama",
+                 andWithBillingCountry: "BHR",
+                 andWithBillingState: "Manama",
+                 andWithBillingZIPCode: "12345",
+                 andWithOrderID: "12345",
+                 andWithPhoneNumber: "0097333109781",
+                 andWithCustomerEmail: "rhegazy@paytabs.com",
+                 andIsTokenization:false,
+                 andIsPreAuth: false,
+                 andWithMerchantEmail: "rhegazy@paytabs.com",
+                 andWithMerchantSecretKey: "BIueZNfPLblJnMmPYARDEoP5x1WqseI3XciX0yNLJ8v7URXTrOw6dmbKn8bQnTUk6ch6L5SudnC8fz2HozNBVZlj7w9uq4Pwg7D1",
+                 andWithAssigneeCode: "SDK",
+                 andWithThemeColor:UIColor.init(codeString: "#37B6FF"),
+                 andIsThemeColorLight: false)
+             
+             
+             self.initialSetupViewController.didReceiveBackButtonCallback = {
+                 
+             }
+             
+             self.initialSetupViewController.didStartPreparePaymentPage = {
+                 // Start Prepare Payment Page
+                 // Show loading indicator
+             }
+             self.initialSetupViewController.didFinishPreparePaymentPage = {
+                 // Finish Prepare Payment Page
+                 // Stop loading indicator
+             }
+             
+             self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
+                 print("Response Code: \(responseCode)")
+                 print("Response Result: \(result)")
+                 
+                 // In Case you are using tokenization
+                 print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
+                 print("Tokenization Customer Password: \(tokenizedCustomerPassword)");
+                 print("TOkenization Token: \(token)");
+             }
+         
+                         
+             self.view.addSubview(self.initialSetupViewController.view)
+             self.addChild(self.initialSetupViewController)
+             self.initialSetupViewController.didMove(toParent: self)
+
+             
+             
+        
+    }
+    
+    func openCongratScreen() {
+        add(childViewContoller: cartCongratViewController)
+        remove(childViewContoller: cartListWithItemsVC)
+        remove(childViewContoller: cartListVC)
+        remove(childViewContoller: cartDetailsViewController)
+    }
+    
+    
+    func openDetailsScreen() {
+        add(childViewContoller: cartDetailsViewController)
+        remove(childViewContoller: cartListWithItemsVC)
+        remove(childViewContoller: cartCongratViewController)
+        remove(childViewContoller: cartListVC)
+    }
+    
+    func openCartListScreen() {
+        add(childViewContoller: cartListVC)
+        remove(childViewContoller: cartCongratViewController)
+        remove(childViewContoller: cartDetailsViewController)
+        
+    }
+    
+    
+    
+    private func add(childViewContoller : UIViewController){
+        
+        addChild(childViewContoller)
+        self.containerView.addSubview(childViewContoller.view)
+        
+        childViewContoller.view.anchor(top: containerView.topAnchor, bottom: containerView.bottomAnchor, left: containerView.leadingAnchor, right: containerView.trailingAnchor, topPadding: 0, bottomPadding: 0, leftPadding: 0, rightPadding: 0, width: 0, height: 0)
+        
+        childViewContoller.view.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        childViewContoller.didMove(toParent: self)
+    }
+    
+    private func remove(childViewContoller : UIViewController){
+        
+        childViewContoller.willMove(toParent: nil)
+        childViewContoller.view.removeFromSuperview()
+        childViewContoller.removeFromParent()
     }
     
     
 }
 extension MainCartViewController : PresenterToViewMainCartProtocol {
     
-
+    
 }

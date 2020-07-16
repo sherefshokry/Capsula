@@ -10,21 +10,45 @@
 
 import UIKit
 
-
-    class MainRegisterRouter : PresenterToRouterMainRegisterProtocol {
+class MainRegisterRouter : PresenterToRouterMainRegisterProtocol {
+    
+    
+    
+    
+    static func createModule(isDeliveryMan : Bool) -> UIViewController {
         
-        static func createModule() -> UIViewController {
-            
-            let view = MainRegisterViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
-            let presenter : ViewToPresenterMainRegisterProtocol & InteractorToPresenterMainRegisterProtocol = MainRegisterPresenter()
-            let interactor : PresenterToIntetractorMainRegisterProtocol = MainRegisterInteractor()
-            let router : PresenterToRouterMainRegisterProtocol = MainRegisterRouter()
-            
-            view.presenter = presenter
-            presenter.interactor = interactor
-            presenter.view = view
-            presenter.router = router
-            interactor.presenter = presenter
-            return view
+        let view = MainRegisterViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        view.isDeliveryMan = isDeliveryMan 
+        let presenter : ViewToPresenterMainRegisterProtocol & InteractorToPresenterMainRegisterProtocol = MainRegisterPresenter()
+        let interactor : PresenterToIntetractorMainRegisterProtocol = MainRegisterInteractor()
+        let router : PresenterToRouterMainRegisterProtocol = MainRegisterRouter()
+        
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
+    }
+    
+    
+    func openCompleteProfile(from sourceView: PresenterToViewMainRegisterProtocol?, user: User) {
+            let vc = CompleteProfileRouter.createModule(user: user)
+                if let sourceView = sourceView as? UIViewController {
+                    sourceView.present(vc, animated: true, completion: nil)
+                }
+    }
+    
+    func openAddAddress(from sourceView: PresenterToViewMainRegisterProtocol?) {
+        
+        let vc = AddAddressViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        if let sourceView = sourceView as? UIViewController {
+            sourceView.present(vc, animated: true, completion: nil)
         }
     }
+    
+    
+    
+    
+    
+}

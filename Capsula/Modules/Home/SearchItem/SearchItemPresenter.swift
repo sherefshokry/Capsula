@@ -15,11 +15,67 @@ class SearchItemPresenter : ViewToPresenterSearchItemProtocol{
     var view: PresenterToViewSearchItemProtocol?
     var interactor: PresenterToIntetractorSearchItemProtocol?
     var router: PresenterToRouterSearchItemProtocol?
+    var itemsData = [Item]()
+    var filterType = -1
+    var searchText = ""
+    var numberOfRows : Int {
+        return itemsData.count
+    }
     
+    
+    func configureItemCell(cell: ItemCell, indexPath: IndexPath) {
+        cell.setData(item: itemsData[indexPath.item])
+        cell.addToCardPressed = { (selectedItem) in
+            Utils.updateUserCart(list: [selectedItem]){
+                if Utils.loadUser()?.accessToken ?? "" != "" {
+                    self.view?.changeState(state: .loading)
+                    self.interactor?.addItemsToCart(itemData: selectedItem)
+                }}
+            
+        }
+        
+    }
+    
+    func setSearchText(searchText : String){
+        self.searchText = searchText
+    }
+    
+    func setFilterType(type : Int){
+        self.filterType = type
+    }
+    
+    func itemsSearch() {
+        self.view?.changeState(state: .loading)
+        self.interactor?.itemsSearch(searchText: self.searchText, filterType: self.filterType)
+    }
+    
+    func didSelectItem(indexPath: IndexPath) {
+        self.router?.openItemDetailsScreen(from: self.view, item: itemsData[indexPath.row])
+    }
 }
 
 extension SearchItemPresenter : InteractorToPresenterSearchItemProtocol {
+    func itemsDataFetchedSuccessfully(itemsResponse: [Item]) {
+        self.itemsData = itemsResponse
+        self.view?.changeState(state: .ready)
+    }
     
- 
+    func itemsDataFailedToFetch(error: String) {
+        self.view?.changeState(state: .error(error))
+    }
+    
+    func  itemsDataAddedToCartSuccessfully(itemsResponse: [Item]){
+        
+        var user =  Utils.loadUser()
+        user?.user?.cartContent = itemsResponse
+        Utils.saveUser(user: user ?? UserResponse())
+        NotificationCenter.default.post(name: Notification.Name(Constants.CART_UPDATE_NOTIFICATION), object: nil)
+        self.view?.changeState(state: .ready)
+        self.view?.showPopup(message: Strings.itemAdded)
+        
+        
+    }
+    
+    
 }
 

@@ -7,3 +7,28 @@
 //
 
 import Foundation
+import UIKit
+
+public class RegisterRequest  : Codable {
+    
+    var name = ""
+    var phone = ""
+    var email = ""
+    var password = ""
+    var deviceToken = ""
+
+    init(){
+    }    
+    
+    func getParams() -> [String : Any]{
+        var params = [String : Any]()
+        params["name"] = name
+        params["phone"] = phone
+        params["email"] = email
+        params["password"] = password
+  //      params["device_token"] = deviceToken
+  //      params["device_id"] = Utils.getDeviceID()
+  //      params["device_type"] = 1
+       return params
+    }
+}

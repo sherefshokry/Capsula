@@ -9,29 +9,48 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterItemsListProtocol: class {
     
     var view : PresenterToViewItemsListProtocol? {get set}
     var interactor : PresenterToIntetractorItemsListProtocol? {get set}
     var router : PresenterToRouterItemsListProtocol? {get set}
+    var numberOfRows : Int { get }
+    var storeId : Int { get  set }
+    var specialItemsType : Int {set get}
+    var brand : Brand {set get}
+    var category : Category {set get}
+    func configureItemCell(cell : ItemCell , indexPath : IndexPath)
+    func getItemsData()
+    func didSelectItem(indexPath : IndexPath)
 }
 
 protocol PresenterToViewItemsListProtocol: class {
-  
+    func changeState(state : State)
 }
 
 protocol PresenterToIntetractorItemsListProtocol: class {
     var presenter: InteractorToPresenterItemsListProtocol? { get set }
-    
+    func getItemsData(brandId : Int)
+    func getItemsData(categoryId : Int)
+    func getItemsData(categoryId : Int, storeId : Int) 
+    func getTopRatingItems()
+    func getBestSellerItems()
+    func getFreeDliveryItems()
+    func addItemsToCart(itemData : Item)
 }
 
 protocol PresenterToRouterItemsListProtocol: class  {
-    static func createModule() -> UIViewController
-    
+    static func createModule(brand : Brand) -> UIViewController
+    static func createModule(category : Category) -> UIViewController
+    static func createModule(category : Category,storeId : Int) -> UIViewController
+    static func createModule(specialItemsType : Int) -> UIViewController
+    func openItemDetailsScreen(from sourceView: PresenterToViewItemsListProtocol?, item: Item)
 }
 
 protocol InteractorToPresenterItemsListProtocol: class {
-   
+   func  itemsDataFetchedSuccessfully(itemsResponse: [Item])
+   func  itemsDataAddedToCartSuccessfully(itemsResponse: [Item])
+   func  itemsDataFailedToFetch(error : String)
 }

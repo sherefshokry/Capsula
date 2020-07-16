@@ -15,7 +15,7 @@ import UIKit
         
         static func createModule() -> UIViewController {
             
-            let view = SearchItemViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = SearchItemViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
             let presenter : ViewToPresenterSearchItemProtocol & InteractorToPresenterSearchItemProtocol = SearchItemPresenter()
             let interactor : PresenterToIntetractorSearchItemProtocol = SearchItemInteractor()
             let router : PresenterToRouterSearchItemProtocol = SearchItemRouter()
@@ -27,4 +27,17 @@ import UIKit
             interactor.presenter = presenter
             return view
         }
+        
+        func openItemDetailsScreen(from sourceView: PresenterToViewSearchItemProtocol?, item: Item) {
+           
+            let vc = ItemDetailsRouter.createModule(item: item)
+                                      if let sourceView = sourceView as? UIViewController {
+                                          sourceView.present(vc,animated: true, completion: nil)
+                                      }
+        }
+        
+        
+     
+        
+        
     }

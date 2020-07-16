@@ -15,7 +15,7 @@ class MainCartPresenter : ViewToPresenterMainCartProtocol{
     var view: PresenterToViewMainCartProtocol?
     var interactor: PresenterToIntetractorMainCartProtocol?
     var router: PresenterToRouterMainCartProtocol?
-    
+   
 }
 
 extension MainCartPresenter : InteractorToPresenterMainCartProtocol {

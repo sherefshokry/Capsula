@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol ViewToPresenterResetPasswordProtocol: class {
@@ -16,22 +17,26 @@ protocol ViewToPresenterResetPasswordProtocol: class {
     var view : PresenterToViewResetPasswordProtocol? {get set}
     var interactor : PresenterToIntetractorResetPasswordProtocol? {get set}
     var router : PresenterToRouterResetPasswordProtocol? {get set}
+    var phone : String { set get }
+    func resetPassword(password : String)
 }
 
 protocol PresenterToViewResetPasswordProtocol: class {
-  
+      func changeState(state : State)
+     func showSuccessMsg(msg : String)
 }
 
 protocol PresenterToIntetractorResetPasswordProtocol: class {
     var presenter: InteractorToPresenterResetPasswordProtocol? { get set }
-    
+    func resetPassword(phone : String , password : String)
 }
 
 protocol PresenterToRouterResetPasswordProtocol: class  {
-    static func createModule() -> UIViewController
+    static func createModule(phone : String) -> UIViewController
     
 }
 
 protocol InteractorToPresenterResetPasswordProtocol: class {
-   
+   func  passwordUpdatedSuccessfully()
+   func  passwordFailedToUpdate(error : String)
 }

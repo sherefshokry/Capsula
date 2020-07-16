@@ -9,10 +9,21 @@
 //
 
 import UIKit
-
+import Moya
 class CompleteProfileInteractor : PresenterToIntetractorCompleteProfileProtocol {
     
     var presenter: InteractorToPresenterCompleteProfileProtocol?
-    
+        private let provider = MoyaProvider<UserDataSource>()
+    func checkIfPhoneExist(phone: String,email :String) {
+        provider.request(.checkPhoneIsExist(phone, email)) { [weak self] result in
+               guard let self = self else { return }
+               switch result {
+               case .success(_):
+                  self.presenter?.phoneIsExist()
+               case .failure(let error):
+                  //error.response?.statusCode ?? 0
+                  self.presenter?.phoneNotExist()
+               }
+           }
+       }
 }
-

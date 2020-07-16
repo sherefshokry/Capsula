@@ -6,4 +6,17 @@
 //  Copyright © 2020 SherifShokry. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SideMenu : NSObject {
+    var elementText = ""
+    var elementIcon = UIImage()
+   
+    
+    init(elementText: String, elementIcon : UIImage) {
+        super.init()
+        self.elementText = elementText
+        self.elementIcon = elementIcon
+    }
+
+}

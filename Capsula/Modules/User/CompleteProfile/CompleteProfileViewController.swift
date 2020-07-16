@@ -9,20 +9,101 @@
 //
 
 import UIKit
+import KVNProgress
+import Intercom
 
 class CompleteProfileViewController: UIViewController {
     
     var presenter : ViewToPresenterCompleteProfileProtocol?
-
+    @IBOutlet weak var nameField : CapsulaInputFeild!
+    @IBOutlet weak var emailField : CapsulaInputFeild!
+    @IBOutlet weak var phoneField : CapsulaInputFeild!
+    @IBOutlet weak var containerView : UIView!
+    private var state: State = .loading {
+        didSet {
+            switch state {
+            case .ready:
+                KVNProgress.dismiss()
+            case .loading:
+                KVNProgress.show()
+            case .error(let error):
+                KVNProgress.dismiss()
+                self.showMessage(error)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.presenter?.viewDidLoad()
+        setupInputFields()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Intercom.setLauncherVisible(false)
+    }
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        containerView.clipsToBounds = true
+        containerView.layer.cornerRadius = 70
+        containerView.layer.maskedCorners = [.layerMaxXMinYCorner]
+    }
+    
+    
+    func setupInputFields(){
+        nameField.type = .name
+        emailField.type = .email
+        phoneField.type = .phoneNumber
+        nameField.setTextFeildSpecs()
+        emailField.setTextFeildSpecs()
+        phoneField.setTextFeildSpecs()
+    }
+    
+    
+    func validate() -> Bool {
+        var isValid = true
+        
+        isValid =   nameField.validate() && isValid
+        isValid =  emailField.validate() && isValid
+        isValid =  phoneField.validate() && isValid
+        
+        return isValid
+    }
+    
+    
+    
+    @IBAction func completeProfilePressed(_ sender : UIButton){
+        
+        
+        if !validate(){
+            return
+        }
+        
+        self.presenter?.setNameField(name : nameField.getText())
+        self.presenter?.setPhoneFiled(phone: phoneField.getText())
+        self.presenter?.setEmailField(email: emailField.getText())
+        self.presenter?.checkIfPhoneExist(phone: phoneField.getText())
+        
+        
     }
     
     
 }
 extension CompleteProfileViewController : PresenterToViewCompleteProfileProtocol {
+    func changeState(state: State) {
+        self.state = state
+    }
     
-
+    func setUserData(user: User) {
+        nameField.field.text = user.name
+        emailField.field.text = user.email
+        phoneField.field.text = user.phone
+    }
+    
+    
+    
+    
 }

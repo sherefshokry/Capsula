@@ -15,11 +15,23 @@ class ResetPasswordPresenter : ViewToPresenterResetPasswordProtocol{
     var view: PresenterToViewResetPasswordProtocol?
     var interactor: PresenterToIntetractorResetPasswordProtocol?
     var router: PresenterToRouterResetPasswordProtocol?
-    
+    var phone = ""
+       
+    func resetPassword(password : String) {
+           self.view?.changeState(state: .loading)
+           self.interactor?.resetPassword(phone: phone, password: password)
+       }
 }
 
 extension ResetPasswordPresenter : InteractorToPresenterResetPasswordProtocol {
-    
+      func passwordUpdatedSuccessfully() {
+           self.view?.changeState(state: .ready)
+           self.view?.showSuccessMsg(msg: Strings.resetPasswordSuccessMsg)
+       }
+       
+       func passwordFailedToUpdate(error: String) {
+           self.view?.changeState(state: .error(error))
+       }
  
 }
 

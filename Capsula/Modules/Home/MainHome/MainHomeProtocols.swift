@@ -9,29 +9,37 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterMainHomeProtocol: class {
-    
     var view : PresenterToViewMainHomeProtocol? {get set}
     var interactor : PresenterToIntetractorMainHomeProtocol? {get set}
     var router : PresenterToRouterMainHomeProtocol? {get set}
+    var numberOfRows : Int { get }
+    func configureStoreCell(cell : CategoryCell , indexPath : IndexPath)
+    func getStoresData()
+    func didSelectStore(indexPath : IndexPath)
+    
 }
 
 protocol PresenterToViewMainHomeProtocol: class {
-  
+     func changeState(state :  State)
 }
 
 protocol PresenterToIntetractorMainHomeProtocol: class {
-    var presenter: InteractorToPresenterMainHomeProtocol? { get set }
+     var presenter: InteractorToPresenterMainHomeProtocol? { get set }
+     func  getStoresData()
+     func updateUserData()
     
 }
 
 protocol PresenterToRouterMainHomeProtocol: class  {
-    static func createModule() -> UIViewController
-    
+     static func createModule() -> UIViewController
+     func openCategoriesScreen(from sourceView: PresenterToViewMainHomeProtocol?,storeId : Int)
 }
 
 protocol InteractorToPresenterMainHomeProtocol: class {
-   
+    func  storesDataFetchedSuccessfully(storesResponse: [Store])
+    func  storesDataFailedToFetch(error : String)
+    func  homeDataFailedToFetch(error: String)
 }

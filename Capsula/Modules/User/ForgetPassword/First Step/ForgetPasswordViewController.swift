@@ -9,15 +9,38 @@
 //
 
 import UIKit
+import KVNProgress
+import Intercom
 
 class ForgetPasswordViewController: UIViewController {
     
     var presenter : ViewToPresenterForgetPasswordProtocol?
     @IBOutlet weak var phoneField : CapsulaInputFeild!
     @IBOutlet weak var containerView : UIView!
+    private var state: State = .loading {
+           didSet {
+               switch state {
+               case .ready:
+                   KVNProgress.dismiss()
+               case .loading:
+                    KVNProgress.show()
+               case .error(let error):
+                   KVNProgress.dismiss()
+                   self.showMessage(error)
+               }
+           }
+       }
+      
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        setupInputField()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Intercom.setLauncherVisible(false)
     }
     
     override func viewWillLayoutSubviews() {
@@ -47,7 +70,7 @@ class ForgetPasswordViewController: UIViewController {
             return
         }
         
-        //
+           self.presenter?.checkIfPhoneExist(phone: phoneField.getText())
         
     }
     
@@ -58,5 +81,8 @@ class ForgetPasswordViewController: UIViewController {
 }
 extension ForgetPasswordViewController : PresenterToViewForgetPasswordProtocol {
     
-
+    func changeState(state: State) {
+           self.state = state
+       }
+       
 }

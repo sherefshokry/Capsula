@@ -11,11 +11,12 @@
 import UIKit
 
 
-    class CategoriesListRouter : PresenterToRouterCategoriesListProtocol {
-        
+class CategoriesListRouter : PresenterToRouterCategoriesListProtocol {
+   
+    
+    
         static func createModule() -> UIViewController {
-            
-            let view = CategoriesListViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = CategoriesListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
             let presenter : ViewToPresenterCategoriesListProtocol & InteractorToPresenterCategoriesListProtocol = CategoriesListPresenter()
             let interactor : PresenterToIntetractorCategoriesListProtocol = CategoriesListInteractor()
             let router : PresenterToRouterCategoriesListProtocol = CategoriesListRouter()
@@ -27,4 +28,31 @@ import UIKit
             interactor.presenter = presenter
             return view
         }
+    
+    
+    static func createModule(storeId : Int) -> UIViewController {
+             let view = CategoriesListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+             let presenter : ViewToPresenterCategoriesListProtocol & InteractorToPresenterCategoriesListProtocol = CategoriesListPresenter()
+             let interactor : PresenterToIntetractorCategoriesListProtocol = CategoriesListInteractor()
+             let router : PresenterToRouterCategoriesListProtocol = CategoriesListRouter()
+             
+             view.presenter = presenter
+             presenter.interactor = interactor
+             presenter.storeId = storeId
+             presenter.view = view
+             presenter.router = router
+             interactor.presenter = presenter
+             return view
+         }
+
+    
+    func openItemsScreen(from sourceView: PresenterToViewCategoriesListProtocol?, category: Category, storeId: Int) {
+           let  vc = ItemsListRouter.createModule(category: category, storeId: storeId)
+                     if let sourceView = sourceView as? UIViewController {
+                         sourceView.present(vc,animated: true, completion: nil)
+                     }
+        
+       }
+        
+        
     }

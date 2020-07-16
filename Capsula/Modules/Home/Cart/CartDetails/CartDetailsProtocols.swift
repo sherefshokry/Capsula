@@ -9,22 +9,27 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterCartDetailsProtocol: class {
     
     var view : PresenterToViewCartDetailsProtocol? {get set}
     var interactor : PresenterToIntetractorCartDetailsProtocol? {get set}
     var router : PresenterToRouterCartDetailsProtocol? {get set}
+    func checkout()
+    func setPreprictionImage(image : String)
+    func setInsuranceImage(image : String)
+    func setPaymentMethod(method : Int)
 }
 
 protocol PresenterToViewCartDetailsProtocol: class {
-  
+   func changeState(state : State)
+   func moveToSuccessScreen()
 }
 
 protocol PresenterToIntetractorCartDetailsProtocol: class {
     var presenter: InteractorToPresenterCartDetailsProtocol? { get set }
-    
+    func checkout(request: CheckoutRequest)
 }
 
 protocol PresenterToRouterCartDetailsProtocol: class  {
@@ -33,5 +38,6 @@ protocol PresenterToRouterCartDetailsProtocol: class  {
 }
 
 protocol InteractorToPresenterCartDetailsProtocol: class {
-   
+   func checkoutDoneSuccessfully()
+   func checkoutFailed(error: String)
 }

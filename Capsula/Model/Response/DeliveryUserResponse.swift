@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+struct DeliveryUserResponse : Codable {
+    var  user : DeliveryUser?
+    var  accessToken : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case user = "authUserData"
+        case accessToken = "token"
+    }
+    
+    init(){
+      user = DeliveryUser()
+      accessToken = ""
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        do { user = try container.decodeIfPresent(.user) ?? DeliveryUser() }
+        catch { user = DeliveryUser() }
+        do { accessToken = try container.decodeIfPresent(.accessToken) ?? "" }
+        catch { accessToken = "" }
+    }
+}

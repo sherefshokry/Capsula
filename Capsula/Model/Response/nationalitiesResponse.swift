@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+struct NationalitiesResponse : Codable {
+    var  nationalityList : [Nationality]?
+    
+    
+   enum CodingKeys: String, CodingKey {
+      case  nationalityList = "list"
+    }
+    
+    init(){
+     nationalityList = []
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        do { nationalityList = try container.decodeIfPresent(.nationalityList) ?? [] }
+        catch { nationalityList = [] }
+    }
+}

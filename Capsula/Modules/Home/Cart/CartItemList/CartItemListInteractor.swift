@@ -9,10 +9,157 @@
 //
 
 import UIKit
-
+import Moya
 class CartItemListInteractor : PresenterToIntetractorCartItemListProtocol {
     
     var presenter: InteractorToPresenterCartItemListProtocol?
+    private let provider = MoyaProvider<CartDataSource>()
+    
+    
+    func addItems(itemsData : [Item]){
+            var cartItemsList = [CartItem]()
+        itemsData.forEach { (item) in
+            var cartItem = CartItem()
+            cartItem.mainId = item.mainId ?? -1
+            cartItem.quantity = item.itemQuantity ?? 0
+            cartItemsList.append(cartItem)
+        }
+         
+        provider.request(.addCart(cartItemsList)) { [weak self] result in
+                             guard let self = self else { return }
+                             switch result {
+                             case .success(let response):
+                                 do {
+                                     let itemsResponse = try response.map(BaseResponse<ItemsResponse>.self)
+                                  self.presenter?.itemsDataFetchedSuccessfully(itemsResponse: itemsResponse.data?.itemsList ?? [])
+                                 } catch(let catchError) {
+                                     self.presenter?.itemsDataFailedToFetch(error: catchError.localizedDescription)
+                                 }
+                             case .failure(let error):
+                                 do{
+                                     if let body = try error.response?.mapJSON(){
+                                         let errorData = (body as! [String:Any])
+                                         self.presenter?.itemsDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                                     }
+                                 }catch{
+                                     self.presenter?.itemsDataFailedToFetch(error: error.localizedDescription)
+                                 }
+                             }
+                         }
+       }
+       
+    
+    
+    
+    
+    
+    
+    func updateItem(item : Item){
+        var cartItem = CartItem()
+        cartItem.mainId = item.mainId ?? -1
+        cartItem.quantity = item.itemQuantity ?? 0
+        provider.request(.updateCart(cartItem)) { [weak self] result in
+                          guard let self = self else { return }
+                          switch result {
+                          case .success(let response):
+                              do {
+                                  let itemsResponse = try response.map(BaseResponse<ItemsResponse>.self)
+                               self.presenter?.itemsDataFetchedSuccessfully(itemsResponse: itemsResponse.data?.itemsList ?? [])
+                              } catch(let catchError) {
+                                  self.presenter?.itemsDataFailedToFetch(error: catchError.localizedDescription)
+                              }
+                          case .failure(let error):
+                              do{
+                                  if let body = try error.response?.mapJSON(){
+                                      let errorData = (body as! [String:Any])
+                                      self.presenter?.itemsDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                                  }
+                              }catch{
+                                  self.presenter?.itemsDataFailedToFetch(error: error.localizedDescription)
+                              }
+                          }
+                      }
+    }
+    
+    
+    
+    
+    func deleteItem(itemId: Int) {
+        
+        provider.request(.deleteItem(itemId)) { [weak self] result in
+                   guard let self = self else { return }
+                   switch result {
+                   case .success(let response):
+                       do {
+            
+                           let itemsResponse = try response.map(BaseResponse<ItemsResponse>.self)
+                           self.presenter?.itemsDataFetchedSuccessfully(itemsResponse: itemsResponse.data?.itemsList ?? [])
+                       } catch(let catchError) {
+                           self.presenter?.itemsDataFailedToFetch(error: catchError.localizedDescription)
+                       }
+                   case .failure(let error):
+                       do{
+                           if let body = try error.response?.mapJSON(){
+                               let errorData = (body as! [String:Any])
+                               self.presenter?.itemsDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                           }
+                       }catch{
+                           self.presenter?.itemsDataFailedToFetch(error: error.localizedDescription)
+                       }
+                   }
+               }
+        
+      }
+    
+    
+    func deleteAll() {
+        
+        provider.request(.deleteAll) { [weak self] result in
+                   guard let self = self else { return }
+                   switch result {
+                   case .success(let response):
+                       self.presenter?.itemsDeletedSuccessfully()
+                   case .failure(let error):
+                       do{
+                           if let body = try error.response?.mapJSON(){
+                               let errorData = (body as! [String:Any])
+                               self.presenter?.itemsDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                           }
+                       }catch{
+                           self.presenter?.itemsDataFailedToFetch(error: error.localizedDescription)
+                       }
+                   }
+               }
+      }
+      
+      
+    
+    
+    
+    func validateItems() {
+         
+        provider.request(.validate) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(_):
+                        self.presenter?.itemsValidatedSuccessfully()
+                    case .failure(let error):
+                        do{
+                            if let body = try error.response?.mapJSON(){
+                                let errorData = (body as! [String:Any])
+                                self.presenter?.itemsDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                            }
+                        }catch{
+                            self.presenter?.itemsDataFailedToFetch(error: error.localizedDescription)
+                        }
+                    }
+                }
+       }
+       
+    
+    
+    
+    
     
 }
 

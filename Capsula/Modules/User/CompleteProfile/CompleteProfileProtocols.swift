@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol ViewToPresenterCompleteProfileProtocol: class {
@@ -16,22 +17,33 @@ protocol ViewToPresenterCompleteProfileProtocol: class {
     var view : PresenterToViewCompleteProfileProtocol? {get set}
     var interactor : PresenterToIntetractorCompleteProfileProtocol? {get set}
     var router : PresenterToRouterCompleteProfileProtocol? {get set}
+    var user : User {set get}
+    func viewDidLoad()
+    func setNameField(name : String)
+    func setEmailField(email : String)
+    func setPhoneFiled(phone : String)
+    func checkIfPhoneExist(phone : String)
 }
 
+
 protocol PresenterToViewCompleteProfileProtocol: class {
-  
+    func setUserData(user : User)
+    func changeState(state : State)
 }
 
 protocol PresenterToIntetractorCompleteProfileProtocol: class {
     var presenter: InteractorToPresenterCompleteProfileProtocol? { get set }
+    func checkIfPhoneExist(phone : String,email : String)
     
 }
 
 protocol PresenterToRouterCompleteProfileProtocol: class  {
-    static func createModule() -> UIViewController
+    static func createModule(user : User) -> UIViewController
+    func openVerificationScreen(from sourceView: PresenterToViewCompleteProfileProtocol?, request : RegisterRequest)
     
 }
 
 protocol InteractorToPresenterCompleteProfileProtocol: class {
-   
+     func phoneIsExist()
+     func phoneNotExist()
 }

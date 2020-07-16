@@ -15,11 +15,29 @@ class ForgetPasswordPresenter : ViewToPresenterForgetPasswordProtocol{
     var view: PresenterToViewForgetPasswordProtocol?
     var interactor: PresenterToIntetractorForgetPasswordProtocol?
     var router: PresenterToRouterForgetPasswordProtocol?
+    var phone = ""
+      
+      func checkIfPhoneExist(phone: String) {
+            self.phone = phone
+            self.view?.changeState(state: .loading)
+            self.interactor?.checkIfPhoneExist(phone: phone)
+        }
+    
+    
     
 }
 
 extension ForgetPasswordPresenter : InteractorToPresenterForgetPasswordProtocol {
     
- 
+ func phoneNotExist() {
+       self.view?.changeState(state: .error(Strings.notExist))
+ }
+   
+   func phoneIsExist() {
+    self.view?.changeState(state: .ready)
+    self.router?.openVerificationScreen(from: self.view, phone : phone)
+  
+   }
+    
 }
 

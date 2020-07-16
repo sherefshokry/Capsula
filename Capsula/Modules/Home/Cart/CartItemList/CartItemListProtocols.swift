@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol ViewToPresenterCartItemListProtocol: class {
@@ -16,15 +17,31 @@ protocol ViewToPresenterCartItemListProtocol: class {
     var view : PresenterToViewCartItemListProtocol? {get set}
     var interactor : PresenterToIntetractorCartItemListProtocol? {get set}
     var router : PresenterToRouterCartItemListProtocol? {get set}
+    var numberOfRows : Int { get }
+    var itemsData : [Item] {set get}
+    func configureCartCell(cell : CartITemCell , indexPath : IndexPath)
+    func viewDidLoad()
+    func emptyList()
+    func deleteItem(indexPath: IndexPath)
+    func validateCartItems()
+    
 }
 
 protocol PresenterToViewCartItemListProtocol: class {
-  
+   func changeState(state : State)
+    func reloadTableView()
+    func setNumberOfItemsLabel(numberOfItems :Int)
+    func setTotalPrice(totalPrice : Double)
+    func navigateToCartDetails()
 }
 
 protocol PresenterToIntetractorCartItemListProtocol: class {
     var presenter: InteractorToPresenterCartItemListProtocol? { get set }
-    
+     func addItems(itemsData : [Item])
+     func updateItem(item : Item)
+     func deleteItem(itemId : Int)
+     func deleteAll()
+     func validateItems()
 }
 
 protocol PresenterToRouterCartItemListProtocol: class  {
@@ -33,5 +50,8 @@ protocol PresenterToRouterCartItemListProtocol: class  {
 }
 
 protocol InteractorToPresenterCartItemListProtocol: class {
-   
+     func  itemsDataFetchedSuccessfully(itemsResponse: [Item])
+     func itemsDataFailedToFetch(error : String)
+     func itemsDeletedSuccessfully()
+     func itemsValidatedSuccessfully()
 }

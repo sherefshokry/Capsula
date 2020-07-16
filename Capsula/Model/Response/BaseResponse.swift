@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class BaseResponse<T : Codable> : Codable {
+ 
+    var data : T?
+    
+    
+}
+

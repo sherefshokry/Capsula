@@ -9,10 +9,70 @@
 //
 
 import UIKit
+import Moya
 
 class CategoriesListInteractor : PresenterToIntetractorCategoriesListProtocol {
     
     var presenter: InteractorToPresenterCategoriesListProtocol?
+    private let provider = MoyaProvider<CategoriesDataSource>()
+         
+         func getCategoriesData() {
+    
+             provider.request(.getCategoriesData) { [weak self] result in
+                  guard let self = self else { return }
+                  switch result {
+                  case .success(let response):
+                      do {
+                       let categoriesResponse = try response.map(BaseResponse<CategoriesResponse>.self)
+                     self.presenter?.categoriesDataFetchedSuccessfully(categoriesResponse: categoriesResponse.data?.categoriesList ?? [])
+                      } catch(let catchError) {
+                          self.presenter?.categoriesDataFailedToFetch(error: catchError.localizedDescription)
+                      }
+                  case .failure(let error):
+                      do{
+                          if let body = try error.response?.mapJSON(){
+                              let errorData = (body as! [String:Any])
+                              self.presenter?.categoriesDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                          }
+                      }catch{
+                          self.presenter?.categoriesDataFailedToFetch(error: error.localizedDescription)
+                      }
+                  }
+              }
+              
+          }
+    
+    
+    
+    func getCategoriesData(storeId : Int) {
+        
+        provider.request(.getCategoriesDataWithStoreId(storeId)) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let response):
+                    do {
+                        
+                     let categoriesResponse = try response.map(BaseResponse<CategoriesResponse>.self)
+                    
+                    self.presenter?.categoriesDataFetchedSuccessfully(categoriesResponse: categoriesResponse.data?.categoriesList ?? [])
+                    } catch(let catchError) {
+                        self.presenter?.categoriesDataFailedToFetch(error: catchError.localizedDescription)
+                    }
+                case .failure(let error):
+                    do{
+                        if let body = try error.response?.mapJSON(){
+                            let errorData = (body as! [String:Any])
+                            self.presenter?.categoriesDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                        }
+                    }catch{
+                        self.presenter?.categoriesDataFailedToFetch(error: error.localizedDescription)
+                    }
+                }
+            }
+            
+        }
+         
+    
     
 }
 

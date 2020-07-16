@@ -14,8 +14,7 @@ import UIKit
     class MainCartRouter : PresenterToRouterMainCartProtocol {
         
         static func createModule() -> UIViewController {
-            
-            let view = MainCartViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = MainCartViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
             let presenter : ViewToPresenterMainCartProtocol & InteractorToPresenterMainCartProtocol = MainCartPresenter()
             let interactor : PresenterToIntetractorMainCartProtocol = MainCartInteractor()
             let router : PresenterToRouterMainCartProtocol = MainCartRouter()
@@ -27,4 +26,23 @@ import UIKit
             interactor.presenter = presenter
             return view
         }
+        
+        
+        static func createModule(items : [Item]) -> UIViewController {
+                   let view = MainCartViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+                   let presenter : ViewToPresenterMainCartProtocol & InteractorToPresenterMainCartProtocol = MainCartPresenter()
+                   let interactor : PresenterToIntetractorMainCartProtocol = MainCartInteractor()
+                   let router : PresenterToRouterMainCartProtocol = MainCartRouter()
+                   
+                   view.presenter = presenter
+                   presenter.interactor = interactor
+                   presenter.view = view
+                   presenter.router = router
+                   interactor.presenter = presenter
+                   return view
+               }
+        
+        
+        
+        
     }

@@ -9,29 +9,34 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterLogInProtocol: class {
     
     var view : PresenterToViewLogInProtocol? {get set}
     var interactor : PresenterToIntetractorLogInProtocol? {get set}
     var router : PresenterToRouterLogInProtocol? {get set}
+    func setEmailOrPhone(text : String)
+    func setPassword(password : String)
+    func logIn()
+    func clearLoginRequest()
 }
 
 protocol PresenterToViewLogInProtocol: class {
-  
+    func changeState(state :  State)
 }
 
 protocol PresenterToIntetractorLogInProtocol: class {
     var presenter: InteractorToPresenterLogInProtocol? { get set }
-    
+    func logIn(logInRequest : LoginRequest)
 }
 
 protocol PresenterToRouterLogInProtocol: class  {
     static func createModule() -> UIViewController
-    
+    func openAddAddress(from sourceView: PresenterToViewLogInProtocol?)
 }
 
 protocol InteractorToPresenterLogInProtocol: class {
-   
+    func userLoggedInSuccessfully(user : User)
+    func userFailedToLoggedIn(error : String)
 }

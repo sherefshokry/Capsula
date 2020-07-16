@@ -10,21 +10,30 @@
 
 import UIKit
 
+class MainHomeRouter : PresenterToRouterMainHomeProtocol {
 
-    class MainHomeRouter : PresenterToRouterMainHomeProtocol {
+    
+    static func createModule() -> UIViewController {
         
-        static func createModule() -> UIViewController {
-            
-            let view = MainHomeViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
-            let presenter : ViewToPresenterMainHomeProtocol & InteractorToPresenterMainHomeProtocol = MainHomePresenter()
-            let interactor : PresenterToIntetractorMainHomeProtocol = MainHomeInteractor()
-            let router : PresenterToRouterMainHomeProtocol = MainHomeRouter()
-            
-            view.presenter = presenter
-            presenter.interactor = interactor
-            presenter.view = view
-            presenter.router = router
-            interactor.presenter = presenter
-            return view
-        }
+        let view = MainHomeViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+        let presenter : ViewToPresenterMainHomeProtocol & InteractorToPresenterMainHomeProtocol = MainHomePresenter()
+        let interactor : PresenterToIntetractorMainHomeProtocol = MainHomeInteractor()
+        let router : PresenterToRouterMainHomeProtocol = MainHomeRouter()
+        
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
     }
+    
+    
+    func openCategoriesScreen(from sourceView: PresenterToViewMainHomeProtocol?, storeId: Int) {
+         let vc = CategoriesListRouter.createModule(storeId: storeId)
+         if let sourceView = sourceView as? UIViewController {
+                sourceView.present(vc,animated: true, completion: nil)
+          }
+     }
+    
+}

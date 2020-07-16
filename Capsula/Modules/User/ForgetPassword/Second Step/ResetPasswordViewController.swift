@@ -9,20 +9,92 @@
 //
 
 import UIKit
+import KVNProgress
+import Intercom
 
 class ResetPasswordViewController: UIViewController {
     
     var presenter : ViewToPresenterResetPasswordProtocol?
-
+    @IBOutlet weak var passwordField : CapsulaInputFeild!
+    @IBOutlet weak var confirmPasswordField : CapsulaInputFeild!
+    @IBOutlet weak var containerView : UIView!
+    private var state: State = .loading {
+        didSet {
+            switch state {
+            case .ready:
+                KVNProgress.dismiss()
+            case .loading:
+                 KVNProgress.show()
+            case .error(let error):
+                KVNProgress.dismiss()
+                self.showMessage(error)
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       setupInputFields()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       Intercom.setLauncherVisible(false)
+    }
+    
+    override func viewWillLayoutSubviews() {
+             super.viewWillLayoutSubviews()
+             containerView.clipsToBounds = true
+             containerView.layer.cornerRadius = 70
+             containerView.layer.maskedCorners = [.layerMaxXMinYCorner]
+         }
+         
+    
+    func setupInputFields(){
+        passwordField.type = .password
+        confirmPasswordField.type = .confirmPassword
+        passwordField.setTextFeildSpecs()
+        confirmPasswordField.setTextFeildSpecs()
+        
+    }
+    
+    
+         func validate() -> Bool {
+         var isValid = true
+             isValid = passwordField.validate() && isValid
+             
+                 if confirmPasswordField.getText() != passwordField.getText() {
+                     isValid = false
+                     self.showMessage(Strings.Validation.phoneMatched)
+                 }
+             
+             return isValid
+         }
+         
+    @IBAction func resetPasswordPressed(_ sender :  UIButton){
+        
+        if !validate() {
+            return
+        }
+        
+      self.presenter?.resetPassword(password: passwordField.getText())
+      
     }
     
     
 }
 extension ResetPasswordViewController : PresenterToViewResetPasswordProtocol {
     
-
+    func changeState(state: State) {
+          self.state = state
+      }
+      
+      func showSuccessMsg(msg : String){
+          self.showMessage(msg) {
+            Utils.openLoginScreen(isDeliveryMan: false)
+          }
+      }
+    
+    
 }

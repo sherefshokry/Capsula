@@ -9,29 +9,36 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterItemDetailsProtocol: class {
     
     var view : PresenterToViewItemDetailsProtocol? {get set}
     var interactor : PresenterToIntetractorItemDetailsProtocol? {get set}
     var router : PresenterToRouterItemDetailsProtocol? {get set}
+    var selectedItem : Item  {set get}
+    func viewDidLoad()
+    func addItemToCart()
+    
 }
 
 protocol PresenterToViewItemDetailsProtocol: class {
-  
+    func setItemDetails(item : Item)
+    func showPopup(message : String)
+        func changeState(state : State)
 }
 
 protocol PresenterToIntetractorItemDetailsProtocol: class {
     var presenter: InteractorToPresenterItemDetailsProtocol? { get set }
-    
+    func addItemsToCart(itemData : Item)
 }
 
 protocol PresenterToRouterItemDetailsProtocol: class  {
-    static func createModule() -> UIViewController
+    static func createModule(item : Item) -> UIViewController
     
 }
 
 protocol InteractorToPresenterItemDetailsProtocol: class {
-   
+      func  itemsDataAddedToCartSuccessfully(itemsResponse: [Item])
+      func  itemsDataFailedToFetch(error : String)
 }

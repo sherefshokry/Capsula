@@ -11,20 +11,30 @@
 import UIKit
 
 
-    class RegisterRouter : PresenterToRouterRegisterProtocol {
+class RegisterRouter : PresenterToRouterRegisterProtocol {
+    
+    static func createModule() -> UIViewController {
         
-        static func createModule() -> UIViewController {
-            
-            let view = RegisterViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
-            let presenter : ViewToPresenterRegisterProtocol & InteractorToPresenterRegisterProtocol = RegisterPresenter()
-            let interactor : PresenterToIntetractorRegisterProtocol = RegisterInteractor()
-            let router : PresenterToRouterRegisterProtocol = RegisterRouter()
-            
-            view.presenter = presenter
-            presenter.interactor = interactor
-            presenter.view = view
-            presenter.router = router
-            interactor.presenter = presenter
-            return view
+        let view = RegisterViewController.instantiateFromStoryBoard(appStoryBoard:  .PreLogin)
+        let presenter : ViewToPresenterRegisterProtocol & InteractorToPresenterRegisterProtocol = RegisterPresenter()
+        let interactor : PresenterToIntetractorRegisterProtocol = RegisterInteractor()
+        let router : PresenterToRouterRegisterProtocol = RegisterRouter()
+        
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
+    }
+    
+    
+    func openVerificationScreen(from sourceView: PresenterToViewRegisterProtocol?, request : RegisterRequest) {
+        let vc = VerificationRouter.createModule(request: request)
+        if let sourceView = sourceView as? UIViewController {
+            sourceView.present(vc,animated: true, completion: nil)
         }
     }
+    
+    
+}

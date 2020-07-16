@@ -11,15 +11,46 @@
 import Foundation
 
 class BrandsListPresenter : ViewToPresenterBrandsListProtocol{
+   
     
     var view: PresenterToViewBrandsListProtocol?
     var interactor: PresenterToIntetractorBrandsListProtocol?
     var router: PresenterToRouterBrandsListProtocol?
+    var brandsData : [Brand] = []
+
+       var numberOfRows : Int {
+           return brandsData.count
+       }
+       
+       func configureBrandCell(cell: BrandCell, indexPath: IndexPath) {
+           cell.setData(brand: brandsData[indexPath.item])
+       }
+       
+       
+       func getBrandsData() {
+         self.view?.changeState(state: .loading)
+         self.interactor?.getBrandsData()
+           
+       }
+       
+    
+    func didSelectBrand(indexPath: IndexPath) {
+            self.router?.openItemsScreen(from: self.view, Brand: brandsData[indexPath.item])
+       }
     
 }
 
 extension BrandsListPresenter : InteractorToPresenterBrandsListProtocol {
     
+    func brandsDataFetchedSuccessfully(brandResponse brandsResponse: [Brand]) {
+           self.brandsData = brandsResponse
+           self.view?.changeState(state: .ready)
+       }
+       
+       func brandsDataFailedToFetch(error: String) {
+           self.view?.changeState(state: .error(error))
+       }
+       
  
 }
 

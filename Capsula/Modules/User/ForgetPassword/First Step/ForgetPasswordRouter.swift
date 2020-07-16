@@ -10,21 +10,28 @@
 
 import UIKit
 
-
-    class ForgetPasswordRouter : PresenterToRouterForgetPasswordProtocol {
+class ForgetPasswordRouter : PresenterToRouterForgetPasswordProtocol {
+    
+    static func createModule() -> UIViewController {
         
-        static func createModule() -> UIViewController {
-            
-            let view = ForgetPasswordViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
-            let presenter : ViewToPresenterForgetPasswordProtocol & InteractorToPresenterForgetPasswordProtocol = ForgetPasswordPresenter()
-            let interactor : PresenterToIntetractorForgetPasswordProtocol = ForgetPasswordInteractor()
-            let router : PresenterToRouterForgetPasswordProtocol = ForgetPasswordRouter()
-            
-            view.presenter = presenter
-            presenter.interactor = interactor
-            presenter.view = view
-            presenter.router = router
-            interactor.presenter = presenter
-            return view
-        }
+        let view = ForgetPasswordViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        let presenter : ViewToPresenterForgetPasswordProtocol & InteractorToPresenterForgetPasswordProtocol = ForgetPasswordPresenter()
+        let interactor : PresenterToIntetractorForgetPasswordProtocol = ForgetPasswordInteractor()
+        let router : PresenterToRouterForgetPasswordProtocol = ForgetPasswordRouter()
+        
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
     }
+    
+    func openVerificationScreen(from sourceView: PresenterToViewForgetPasswordProtocol?, phone: String) {
+                    let vc = VerificationRouter.createModule(phone: phone)
+                    if let sourceView = sourceView as? UIViewController {
+                        sourceView.present(vc,animated: true, completion: nil)
+                    }
+    }
+    
+}

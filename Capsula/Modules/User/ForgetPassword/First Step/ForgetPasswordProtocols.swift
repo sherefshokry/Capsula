@@ -13,26 +13,27 @@ import UIKit
 
 
 protocol ViewToPresenterForgetPasswordProtocol: class {
-    
     var view : PresenterToViewForgetPasswordProtocol? {get set}
     var interactor : PresenterToIntetractorForgetPasswordProtocol? {get set}
     var router : PresenterToRouterForgetPasswordProtocol? {get set}
+    func checkIfPhoneExist(phone : String)
 }
 
 protocol PresenterToViewForgetPasswordProtocol: class {
-  
+   func changeState(state : State)
 }
 
 protocol PresenterToIntetractorForgetPasswordProtocol: class {
     var presenter: InteractorToPresenterForgetPasswordProtocol? { get set }
-    
+    func checkIfPhoneExist(phone : String)
 }
 
 protocol PresenterToRouterForgetPasswordProtocol: class  {
     static func createModule() -> UIViewController
-    
+    func openVerificationScreen(from sourceView: PresenterToViewForgetPasswordProtocol?,phone : String)
 }
 
 protocol InteractorToPresenterForgetPasswordProtocol: class {
-   
+   func phoneIsExist()
+   func phoneNotExist()
 }

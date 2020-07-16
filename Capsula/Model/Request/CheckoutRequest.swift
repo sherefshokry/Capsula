@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import UIKit
+
+public class CheckoutRequest  : Codable {
+    
+    var paymentMethod = 1
+    var prescriptionImage = ""
+    var insuranceNumberImage = ""
+
+    
+    init(){
+    }
+ 
+    func getParams() -> [String : Any]{
+        var params = [String : Any]()
+        params["paymentMethodType"] = paymentMethod
+        params["prescriptionImage"] = prescriptionImage
+        params["insuranceNumberImage"] = insuranceNumberImage
+        return params
+    }
+}

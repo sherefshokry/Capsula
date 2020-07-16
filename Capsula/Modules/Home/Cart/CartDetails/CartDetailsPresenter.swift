@@ -11,14 +11,48 @@
 import Foundation
 
 class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
+ 
     
     var view: PresenterToViewCartDetailsProtocol?
     var interactor: PresenterToIntetractorCartDetailsProtocol?
     var router: PresenterToRouterCartDetailsProtocol?
+    var checkoutRequest = CheckoutRequest()
+    
+    func checkout() {
+        self.view?.changeState(state: .loading)
+        self.interactor?.checkout(request: checkoutRequest)
+     }
+     
+     func setPreprictionImage(image: String) {
+        
+        checkoutRequest.prescriptionImage  = image
+     }
+     
+     func setInsuranceImage(image: String) {
+        
+        checkoutRequest.insuranceNumberImage = image
+     }
+     
+     func setPaymentMethod(method: Int) {
+         
+     }
+     
+    
+    
     
 }
 
 extension CartDetailsPresenter : InteractorToPresenterCartDetailsProtocol {
+    func checkoutDoneSuccessfully() {
+        Utils.emptyLocalCart()
+        self.view?.changeState(state: .ready)
+        self.view?.moveToSuccessScreen()
+    }
+    
+    func checkoutFailed(error: String) {
+        self.view?.changeState(state: .error(error))
+    }
+    
     
  
 }

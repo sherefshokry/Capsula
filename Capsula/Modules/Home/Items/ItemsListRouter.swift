@@ -11,20 +11,77 @@
 import UIKit
 
 
-    class ItemsListRouter : PresenterToRouterItemsListProtocol {
+class ItemsListRouter : PresenterToRouterItemsListProtocol {
+    
+    static func createModule(brand : Brand) -> UIViewController {
         
-        static func createModule() -> UIViewController {
-            
-            let view = ItemsListViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
-            let presenter : ViewToPresenterItemsListProtocol & InteractorToPresenterItemsListProtocol = ItemsListPresenter()
-            let interactor : PresenterToIntetractorItemsListProtocol = ItemsListInteractor()
-            let router : PresenterToRouterItemsListProtocol = ItemsListRouter()
-            
-            view.presenter = presenter
-            presenter.interactor = interactor
-            presenter.view = view
-            presenter.router = router
-            interactor.presenter = presenter
-            return view
-        }
+        let view = ItemsListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+        let presenter : ViewToPresenterItemsListProtocol & InteractorToPresenterItemsListProtocol = ItemsListPresenter()
+        let interactor : PresenterToIntetractorItemsListProtocol = ItemsListInteractor()
+        let router : PresenterToRouterItemsListProtocol = ItemsListRouter()
+        view.presenter = presenter
+        presenter.brand = brand
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
     }
+    
+    static func createModule(category : Category) -> UIViewController {
+        let view = ItemsListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+        let presenter : ViewToPresenterItemsListProtocol & InteractorToPresenterItemsListProtocol = ItemsListPresenter()
+        let interactor : PresenterToIntetractorItemsListProtocol = ItemsListInteractor()
+        let router : PresenterToRouterItemsListProtocol = ItemsListRouter()
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.category = category
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
+    }
+    
+    
+    static func createModule(category : Category,storeId : Int) -> UIViewController {
+           let view = ItemsListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+           let presenter : ViewToPresenterItemsListProtocol & InteractorToPresenterItemsListProtocol = ItemsListPresenter()
+           let interactor : PresenterToIntetractorItemsListProtocol = ItemsListInteractor()
+           let router : PresenterToRouterItemsListProtocol = ItemsListRouter()
+           view.presenter = presenter
+           presenter.interactor = interactor
+           presenter.category = category
+           presenter.storeId = storeId
+           presenter.view = view
+           presenter.router = router
+           interactor.presenter = presenter
+           return view
+       }
+    
+    
+    
+    static func createModule(specialItemsType : Int) -> UIViewController {
+        let view = ItemsListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+        let presenter : ViewToPresenterItemsListProtocol & InteractorToPresenterItemsListProtocol = ItemsListPresenter()
+        let interactor : PresenterToIntetractorItemsListProtocol = ItemsListInteractor()
+        let router : PresenterToRouterItemsListProtocol = ItemsListRouter()
+        view.presenter = presenter
+        presenter.specialItemsType = specialItemsType
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
+    }
+    
+    func openItemDetailsScreen(from sourceView: PresenterToViewItemsListProtocol?, item: Item) {
+        
+                let vc = ItemDetailsRouter.createModule(item: item)
+                           if let sourceView = sourceView as? UIViewController {
+                               sourceView.present(vc,animated: true, completion: nil)
+                           }
+    }
+    
+    
+    
+}

@@ -9,29 +9,39 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterMainRegisterProtocol: class {
     
     var view : PresenterToViewMainRegisterProtocol? {get set}
     var interactor : PresenterToIntetractorMainRegisterProtocol? {get set}
     var router : PresenterToRouterMainRegisterProtocol? {get set}
+    func loginWithFacebook(token : String)
+    func loginWithGoogle(token : String)
+    func loginWithTwitter(token : String, secretKey : String)
+
 }
 
 protocol PresenterToViewMainRegisterProtocol: class {
-  
+    func changeState(state  : State)
 }
 
 protocol PresenterToIntetractorMainRegisterProtocol: class {
     var presenter: InteractorToPresenterMainRegisterProtocol? { get set }
-    
+    func loginWithFacebook(token : String)
+    func loginWithGoogle(token : String)
+    func loginWithTwitter(token : String, secretKey : String)
+
 }
 
 protocol PresenterToRouterMainRegisterProtocol: class  {
-    static func createModule() -> UIViewController
+    static func createModule(isDeliveryMan : Bool) -> UIViewController
+    func openCompleteProfile(from sourceView: PresenterToViewMainRegisterProtocol?, user : User)
+    func openAddAddress(from sourceView: PresenterToViewMainRegisterProtocol?)
     
 }
 
 protocol InteractorToPresenterMainRegisterProtocol: class {
-   
+    func loggedInSuccussfully(userResponse  : UserResponse)
+    func failedToLogin(error : String)
 }

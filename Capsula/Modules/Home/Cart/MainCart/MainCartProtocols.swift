@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol ViewToPresenterMainCartProtocol: class {
@@ -16,6 +17,8 @@ protocol ViewToPresenterMainCartProtocol: class {
     var view : PresenterToViewMainCartProtocol? {get set}
     var interactor : PresenterToIntetractorMainCartProtocol? {get set}
     var router : PresenterToRouterMainCartProtocol? {get set}
+    
+    
 }
 
 protocol PresenterToViewMainCartProtocol: class {

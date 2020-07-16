@@ -9,10 +9,40 @@
 //
 
 import UIKit
-
+import Moya
 class LogInInteractor : PresenterToIntetractorLogInProtocol {
     
     var presenter: InteractorToPresenterLogInProtocol?
+    private let provider = MoyaProvider<AuthDataSource>()
     
+    func logIn(logInRequest: LoginRequest) {
+        provider.request(.LogIn(logInRequest)) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                do {
+                    let userResponse = try response.map(BaseResponse<UserResponse>.self).data ?? UserResponse()
+                    Utils.saveUser(user: userResponse)
+                    Utils.updateUserCart(list : userResponse.user?.cartContent ?? []){
+                        
+                    }
+                    UserDefaults.standard.set(false, forKey: "isDelivery")
+                    self.presenter?.userLoggedInSuccessfully(user: userResponse.user ?? User())
+                } catch(let catchError) {
+                    self.presenter?.userFailedToLoggedIn(error: catchError.localizedDescription)
+                }
+            case .failure(let error):
+                do{
+                    if let body = try error.response?.mapJSON(){
+                        let errorData = (body as! [String:Any])
+                        self.presenter?.userFailedToLoggedIn(error: (errorData["errors"] as? String) ?? "")
+                    }
+                }catch{
+                    self.presenter?.userFailedToLoggedIn(error: error.localizedDescription)
+                }
+            }
+        }
+        
+    }
 }
 

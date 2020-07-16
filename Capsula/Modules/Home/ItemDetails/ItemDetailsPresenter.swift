@@ -12,14 +12,53 @@ import Foundation
 
 class ItemDetailsPresenter : ViewToPresenterItemDetailsProtocol{
     
+    
+    
     var view: PresenterToViewItemDetailsProtocol?
     var interactor: PresenterToIntetractorItemDetailsProtocol?
     var router: PresenterToRouterItemDetailsProtocol?
+    var selectedItem: Item = Item()
+    
+    
+    func viewDidLoad() {
+        self.view?.setItemDetails(item: selectedItem)
+    }
+    
+    func addItemToCart(){
+        Utils.updateUserCart(list: [self.selectedItem]) {
+            
+            if Utils.loadUser()?.accessToken ?? "" != "" {
+                self.view?.changeState(state: .loading)
+                self.interactor?.addItemsToCart(itemData: self.selectedItem)
+            }
+        }
+        
+        
+    }
+    
     
 }
 
 extension ItemDetailsPresenter : InteractorToPresenterItemDetailsProtocol {
     
- 
+    
+    func  itemsDataAddedToCartSuccessfully(itemsResponse: [Item]){
+        
+        var user =  Utils.loadUser()
+        user?.user?.cartContent = itemsResponse
+        Utils.saveUser(user: user ?? UserResponse())
+        NotificationCenter.default.post(name: Notification.Name(Constants.CART_UPDATE_NOTIFICATION), object: nil)
+        self.view?.changeState(state: .ready)
+        self.view?.showPopup(message: Strings.itemAdded)
+        
+        
+    }
+    
+    
+    func itemsDataFailedToFetch(error: String) {
+        self.view?.changeState(state: .error(error))
+    }
+    
+    
 }
 

@@ -9,10 +9,32 @@
 //
 
 import UIKit
-
+import Moya
 class ResetPasswordInteractor : PresenterToIntetractorResetPasswordProtocol {
     
     var presenter: InteractorToPresenterResetPasswordProtocol?
+    private let provider = MoyaProvider<UserDataSource>()
+       
+       func resetPassword(phone: String,password : String) {
+       
+           provider.request(.resetPassword(phone, password)) { [weak self] result in
+               guard let self = self else { return }
+               switch result {
+               case .success(_):
+                   self.presenter?.passwordUpdatedSuccessfully()
+               case .failure(let error):
+                   do{
+                       if let body = try error.response?.mapJSON(){
+                           let errorData = (body as! [String:Any])
+                           self.presenter?.passwordFailedToUpdate(error: (errorData["errors"] as? String) ?? "")
+                       }
+                   }catch{
+                       self.presenter?.passwordFailedToUpdate(error: error.localizedDescription)
+                   }
+               }
+           }
+       }
+    
     
 }
 

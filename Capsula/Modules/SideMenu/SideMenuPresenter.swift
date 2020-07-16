@@ -9,17 +9,83 @@
 //
 
 import Foundation
+import UIKit
 
 class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
+    
+    
     
     var view: PresenterToViewSideMenuProtocol?
     var interactor: PresenterToIntetractorSideMenuProtocol?
     var router: PresenterToRouterSideMenuProtocol?
+    var sideMenuItems = [SideMenu]()
     
+    
+    var numberOfMenuElementsRows : Int {
+        return sideMenuItems.count
+    }
+    
+    func logOut() {
+        self.view?.changeState(state: .loading)
+        self.interactor?.logOut()
+    }
+    
+    func configureMenuElementCell(cell: SideMenuCell, indexPath: IndexPath) {
+        cell.setData(sideMenuItem: sideMenuItems[indexPath.row])
+    }
+    
+    func didSelectElement(itemIndex: Int) {
+//        let user = Utils.loadUser()
+//        if user != nil {
+//            self.interactor?.navigate(item: sideMenuItems[itemIndex])
+//        }else{
+//          //  self.interactor?.navigate(item: sideMenuItems[itemIndex])
+//        }
+        
+          self.interactor?.navigate(item: sideMenuItems[itemIndex])
+    }
+    
+    func populateSideMenuList(sideMenuItems: [SideMenu]) {
+        self.sideMenuItems = sideMenuItems
+        self.view?.reloadData()
+    }
+    
+    
+    func viewDidLoad() {
+        let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
+        
+        if isDeliveryMan {
+          sideMenuItems =   self.interactor?.getSideMenuItemsForDeliveryMan() ?? []
+        }else{
+            if Utils.loadUser()?.accessToken ?? "" == "" {
+                 sideMenuItems = self.interactor?.getSideMenuItemsForGuestUser() ?? []
+            }else{
+               sideMenuItems = self.interactor?.getSideMenuItemsForUser() ?? []
+            }
+           
+        }
+        self.view?.reloadData()
+    }
+
 }
 
 extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
+
+    func logOutSuccessfully() {
+        self.view?.changeState(state: .ready)
+        Utils.saveUser(user: nil)
+        Utils.openLoginScreen(isDeliveryMan: false)
+    }
     
- 
+    func failedToLogout(error: String) {
+        self.view?.changeState(state: .error(error))
+    }
+    
+
+    func navigate(viewController: UIViewController, animation: Bool) {
+        self.router?.navigate(from: self.view, to: viewController, animation: animation)
+    }
+    
+    
 }
 

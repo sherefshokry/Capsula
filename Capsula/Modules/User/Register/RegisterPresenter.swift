@@ -15,11 +15,44 @@ class RegisterPresenter : ViewToPresenterRegisterProtocol{
     var view: PresenterToViewRegisterProtocol?
     var interactor: PresenterToIntetractorRegisterProtocol?
     var router: PresenterToRouterRegisterProtocol?
+    var registerRequest = RegisterRequest()
+    func clearRegisterRequest(){
+        registerRequest = RegisterRequest()
+    }
+    
+    func setNameField(name : String) {
+        registerRequest.name = name
+    }
+    
+    func setPasswordField(password : String) {
+        registerRequest.password = password
+    }
+    
+    func setEmailField(email : String) {
+        registerRequest.email = email
+    }
+    
+    func setPhoneFiled(phone : String) {
+        registerRequest.phone = phone
+    }
+    
+   
+    func checkIfPhoneExist(phone: String) {
+         self.view?.changeState(state: .loading)
+         self.interactor?.checkIfPhoneExist(phone: phone, email: registerRequest.email)
+    }
     
 }
 
 extension RegisterPresenter : InteractorToPresenterRegisterProtocol {
+    func phoneNotExist() {
+        self.view?.changeState(state: .ready)
+        self.router?.openVerificationScreen(from: self.view,request : registerRequest)
+    }
     
- 
+    func phoneIsExist() {
+        self.view?.changeState(state: .error(Strings.alreadyExist))
+    }
+    
 }
 

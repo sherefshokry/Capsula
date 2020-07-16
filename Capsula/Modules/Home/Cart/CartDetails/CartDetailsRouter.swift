@@ -15,7 +15,7 @@ import UIKit
         
         static func createModule() -> UIViewController {
             
-            let view = CartDetailsViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = CartDetailsViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
             let presenter : ViewToPresenterCartDetailsProtocol & InteractorToPresenterCartDetailsProtocol = CartDetailsPresenter()
             let interactor : PresenterToIntetractorCartDetailsProtocol = CartDetailsInteractor()
             let router : PresenterToRouterCartDetailsProtocol = CartDetailsRouter()

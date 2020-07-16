@@ -9,10 +9,42 @@
 //
 
 import UIKit
-
+import Moya
 class BrandsListInteractor : PresenterToIntetractorBrandsListProtocol {
     
     var presenter: InteractorToPresenterBrandsListProtocol?
+    private let provider = MoyaProvider<BrandsDataSource>()
+            
+            func getBrandsData() {
+                provider.request(.getBrandsData) { [weak self] result in
+                     guard let self = self else { return }
+                     switch result {
+                     case .success(let response):
+                         do {
+                          let brandsResponse = try response.map(BaseResponse<BrandsResponse>.self)
+                            self.presenter?.brandsDataFetchedSuccessfully(brandResponse: brandsResponse.data?.brandsList ?? [])
+                            
+                         } catch(let catchError) {
+                             self.presenter?.brandsDataFailedToFetch(error: catchError.localizedDescription)
+                         }
+                     case .failure(let error):
+                         do{
+                             if let body = try error.response?.mapJSON(){
+                                 let errorData = (body as! [String:Any])
+                                 self.presenter?.brandsDataFailedToFetch(error: (errorData["errors"] as? String) ?? "")
+                             }
+                         }catch{
+                             self.presenter?.brandsDataFailedToFetch(error: error.localizedDescription)
+                         }
+                     }
+                 }
+                 
+             }
+    
+    
+ 
+    
+    
     
 }
 

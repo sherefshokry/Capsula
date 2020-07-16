@@ -13,9 +13,9 @@ import UIKit
 
     class CompleteProfileRouter : PresenterToRouterCompleteProfileProtocol {
         
-        static func createModule() -> UIViewController {
+        static func createModule(user : User) -> UIViewController {
             
-            let view = CompleteProfileViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = CompleteProfileViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
             let presenter : ViewToPresenterCompleteProfileProtocol & InteractorToPresenterCompleteProfileProtocol = CompleteProfilePresenter()
             let interactor : PresenterToIntetractorCompleteProfileProtocol = CompleteProfileInteractor()
             let router : PresenterToRouterCompleteProfileProtocol = CompleteProfileRouter()
@@ -24,7 +24,15 @@ import UIKit
             presenter.interactor = interactor
             presenter.view = view
             presenter.router = router
+            presenter.user = user
             interactor.presenter = presenter
             return view
         }
+        
+        func openVerificationScreen(from sourceView: PresenterToViewCompleteProfileProtocol?, request : RegisterRequest) {
+               let vc = VerificationRouter.createModule(request: request)
+               if let sourceView = sourceView as? UIViewController {
+                   sourceView.present(vc,animated: true, completion: nil)
+               }
+           }
     }

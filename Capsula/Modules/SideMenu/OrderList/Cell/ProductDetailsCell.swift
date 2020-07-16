@@ -6,4 +6,36 @@
 //  Copyright © 2020 SherifShokry. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class ProductDetailsCell : UICollectionViewCell {
+    
+    
+    @IBOutlet weak var productImage : UIImageView!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productPieces : UILabel!
+    @IBOutlet weak var productPrice : UILabel!
+    @IBOutlet weak var productVat : UILabel!
+    
+    
+    
+    
+   func setData(item : Item) {
+        
+    productImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
+    productName.text = item.productName ?? ""
+    productPrice.text = Strings.RSD +  " \(item.price ?? 0.0)"
+    productVat.text = Strings.VAT  + " \(item.vat ?? 0)%"
+        
+    }
+    
+    override func layoutSubviews() {
+          super.layoutSubviews()
+          self.productImage.layer.cornerRadius = 20
+          self.productImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+      }
+    
+    
+    
+}

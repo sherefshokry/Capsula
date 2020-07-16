@@ -6,4 +6,73 @@
 //  Copyright © 2020 SherifShokry. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SDWebImage
+
+class ItemCell : UICollectionViewCell {
+
+    @IBOutlet weak var itemImage : UIImageView!
+    @IBOutlet weak var itemTitle : UILabel!
+    @IBOutlet weak var itemPrice : UILabel!
+    @IBOutlet weak var offerLabel : UILabel!
+    @IBOutlet weak var offerView : UIView!
+    var selectedItem = Item()
+    var addToCardPressed : ((Item) -> ())?
+    
+    
+   
+    
+    func setData(item : Item){
+        selectedItem = item
+        itemImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
+        itemTitle.text =  item.productName
+        itemPrice.text = "\(item.price ?? 0.0)" + Strings.rsd
+        
+        
+        if item.offerType == -1 {
+            offerView.isHidden = true
+            offerLabel.isHidden = true
+        }else{
+            offerView.isHidden = false
+            offerLabel.isHidden = false
+            
+            switch item.offerType {
+                case 1:
+                offerLabel.text = Strings.freeDelivery
+                break
+                case 2:
+                offerLabel.text = Strings.offer
+                break
+                case 3:
+                offerLabel.text = Strings.discount
+                break
+            default:
+                offerLabel.text = ""
+            }
+            
+            
+        }
+        
+        
+    }
+
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
+  
+    @IBAction func addToCart(_ sender : UIButton){
+        
+        if addToCardPressed != nil {
+        self.addToCardPressed?(selectedItem) }
+        
+    }
+    
+    
+    override func layoutSubviews() {
+            super.layoutSubviews()
+            self.itemImage.layer.cornerRadius = 20
+            self.itemImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+
+    
+}

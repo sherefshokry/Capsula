@@ -11,11 +11,11 @@
 import UIKit
 
 
-    class StoresListRouter : PresenterToRouterStoresListProtocol {
+class StoresListRouter : PresenterToRouterStoresListProtocol {
+ 
         
         static func createModule() -> UIViewController {
-            
-            let view = StoresListViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = StoresListViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
             let presenter : ViewToPresenterStoresListProtocol & InteractorToPresenterStoresListProtocol = StoresListPresenter()
             let interactor : PresenterToIntetractorStoresListProtocol = StoresListInteractor()
             let router : PresenterToRouterStoresListProtocol = StoresListRouter()
@@ -27,4 +27,13 @@ import UIKit
             interactor.presenter = presenter
             return view
         }
+    
+    
+    func openCategoriesScreen(from sourceView: PresenterToViewStoresListProtocol?, storeId: Int) {
+         let vc = CategoriesListRouter.createModule(storeId: storeId)
+         if let sourceView = sourceView as? UIViewController {
+                sourceView.present(vc,animated: true, completion: nil)
+          }
+     }
+    
     }

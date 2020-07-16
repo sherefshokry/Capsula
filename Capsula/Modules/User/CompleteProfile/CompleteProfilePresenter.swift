@@ -15,11 +15,42 @@ class CompleteProfilePresenter : ViewToPresenterCompleteProfileProtocol{
     var view: PresenterToViewCompleteProfileProtocol?
     var interactor: PresenterToIntetractorCompleteProfileProtocol?
     var router: PresenterToRouterCompleteProfileProtocol?
+    var user : User = User()
+    var registerRequest : RegisterRequest = RegisterRequest()
+
+    func viewDidLoad(){
+        self.view?.setUserData(user : user)
+    }
+
+    func setNameField(name : String) {
+        registerRequest.name = name
+    }
+    
+    
+    func setEmailField(email : String) {
+        registerRequest.email = email
+    }
+    
+    func setPhoneFiled(phone : String) {
+        registerRequest.phone = phone
+    }
+        
+    func checkIfPhoneExist(phone: String) {
+           self.view?.changeState(state: .loading)
+        self.interactor?.checkIfPhoneExist(phone: phone, email: registerRequest.email)
+      }
+
     
 }
 
 extension CompleteProfilePresenter : InteractorToPresenterCompleteProfileProtocol {
-    
- 
+     func phoneNotExist() {
+          self.view?.changeState(state: .ready)
+          self.router?.openVerificationScreen(from: self.view,request : registerRequest)
+      }
+      
+      func phoneIsExist() {
+          self.view?.changeState(state: .error(Strings.alreadyExist))
+      }
 }
 

@@ -9,29 +9,37 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterCategoriesListProtocol: class {
     
     var view : PresenterToViewCategoriesListProtocol? {get set}
     var interactor : PresenterToIntetractorCategoriesListProtocol? {get set}
     var router : PresenterToRouterCategoriesListProtocol? {get set}
+    var numberOfRows : Int { get }
+    var storeId : Int {set get}
+    func configureCategoryCell(cell : CategoryCell , indexPath : IndexPath)
+    func getCategoriesData()
+    func didSelectCategory(indexPath : IndexPath)
 }
 
 protocol PresenterToViewCategoriesListProtocol: class {
-  
+   func changeState(state : State)
 }
 
 protocol PresenterToIntetractorCategoriesListProtocol: class {
     var presenter: InteractorToPresenterCategoriesListProtocol? { get set }
-    
+    func getCategoriesData()
+    func getCategoriesData(storeId : Int)
 }
 
 protocol PresenterToRouterCategoriesListProtocol: class  {
     static func createModule() -> UIViewController
-    
+    static func createModule(storeId : Int) -> UIViewController
+    func openItemsScreen(from sourceView: PresenterToViewCategoriesListProtocol?, category: Category,storeId : Int)
 }
 
 protocol InteractorToPresenterCategoriesListProtocol: class {
-   
+   func  categoriesDataFetchedSuccessfully(categoriesResponse: [Category])
+   func  categoriesDataFailedToFetch(error : String)
 }

@@ -5,5 +5,121 @@
 //  Created by SherifShokry on 7/11/20.
 //  Copyright © 2020 SherifShokry. All rights reserved.
 //
-
 import Foundation
+
+struct DeliveryUser : Codable {
+    
+    let fullName : String?
+    let email : String?
+    let phoneNumber : String?
+    let nationalId : String?
+    let vehiclePlateLetters : String?
+    let vehiclePlateNumber : Int?
+    let bankAccountNumber : String?
+    let accountHolderAddress : String?
+    let personalPicture  : String?
+    let driverLicensePicture : String?
+    let idCardPicture : String?
+    let carFromBehindPicture : String?
+    let carFromFrontPicture  : String?
+    let carRegistrationPicture :String?
+    let nationalityDesc : String?
+    let addressDesc : String?
+    let vehicleTypeDesc : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case fullName , email , phoneNumber , nationalId ,vehiclePlateLetters
+        case vehiclePlateNumber,bankAccountNumber, accountHolderAddress,personalPicture,driverLicensePicture,idCardPicture,carFromBehindPicture,carFromFrontPicture,carRegistrationPicture,nationalityDesc,addressDesc, vehicleTypeDesc
+    }
+    
+    init(){
+      fullName = ""
+      email  = ""
+      phoneNumber  = ""
+      nationalId  = ""
+      vehiclePlateLetters  = ""
+      vehiclePlateNumber  = -1
+      bankAccountNumber = ""
+      accountHolderAddress  = ""
+      personalPicture   = ""
+      driverLicensePicture  = ""
+      idCardPicture  = ""
+      carFromBehindPicture  = ""
+      carFromFrontPicture  = ""
+      carRegistrationPicture  = ""
+      nationalityDesc  = ""
+      addressDesc  = ""
+      vehicleTypeDesc  = ""
+     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+      
+        do {  fullName = try container.decodeIfPresent(.fullName) ?? ""}
+        catch { fullName = "" }
+        do {  email = try container.decodeIfPresent(.email) ?? ""}
+        catch { email = "" }
+        
+        do {  phoneNumber = try container.decodeIfPresent(.phoneNumber) ?? ""}
+              catch { phoneNumber = "" }
+        
+        do {  nationalId = try container.decodeIfPresent(.nationalId) ?? ""}
+        catch { nationalId = "" }
+        
+        
+        do {  vehiclePlateLetters = try container.decodeIfPresent(.vehiclePlateLetters) ?? ""}
+             catch { vehiclePlateLetters = "" }
+        
+        do {  vehiclePlateNumber = try container.decodeIfPresent(.vehiclePlateNumber) ?? -1}
+             catch { vehiclePlateNumber = -1  }
+        
+        do {  accountHolderAddress = try container.decodeIfPresent(.accountHolderAddress) ?? ""}
+             catch { accountHolderAddress = "" }
+        
+        
+        do { personalPicture = try container.decodeIfPresent(.personalPicture) ?? ""}
+             catch { personalPicture = "" }
+        
+        
+        do {  driverLicensePicture = try container.decodeIfPresent(.driverLicensePicture) ?? ""}
+             catch { driverLicensePicture = "" }
+        
+        
+        do {  idCardPicture = try container.decodeIfPresent(.idCardPicture) ?? ""}
+             catch { idCardPicture = "" }
+        
+        
+        do {  carFromBehindPicture = try container.decodeIfPresent(.carFromBehindPicture) ?? ""}
+             catch { carFromBehindPicture = "" }
+        
+        
+        do { carFromFrontPicture = try container.decodeIfPresent(.carFromFrontPicture) ?? ""}
+             catch { carFromFrontPicture = "" }
+        
+        
+        do {  carRegistrationPicture = try container.decodeIfPresent(.carRegistrationPicture) ?? ""}
+             catch { carRegistrationPicture = "" }
+        
+        do {  nationalityDesc = try container.decodeIfPresent(.nationalityDesc) ?? ""}
+             catch { nationalityDesc = "" }
+        
+        do {   addressDesc = try container.decodeIfPresent(.addressDesc) ?? ""}
+        catch {  addressDesc = "" }
+        
+        do {  vehicleTypeDesc = try container.decodeIfPresent(.vehicleTypeDesc) ?? ""}
+        catch { vehicleTypeDesc = "" }
+        
+        do {  bankAccountNumber = try container.decodeIfPresent(.bankAccountNumber) ?? ""}
+              catch { bankAccountNumber = "" }
+        
+        
+        
+  
+        
+   
+    }
+    
+    
+    
+
+}

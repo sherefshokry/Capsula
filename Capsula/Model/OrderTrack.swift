@@ -8,30 +8,31 @@
 
 import Foundation
 
-struct Store : Codable {
+struct OrderTrack : Codable {
     
-    let  storeId: Int?
-    let  storeName : String?
-    let  imageLink : String?
+    let  orderStatusId: Int?
+    let  orderStatusDesc : String?
+    let  operationDate : String?
  
     
     enum CodingKeys: String, CodingKey {
-        case storeId, storeName , imageLink
+        case  orderStatusDesc, operationDate ,orderStatusId
     }
     
     init(){
-     storeId = -1
-     storeName = ""
-     imageLink = ""
+     orderStatusId = -1
+     orderStatusDesc = ""
+     operationDate = ""
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        do { storeId = try container.decodeIfPresent(.storeId) ?? -1 }
-        catch { storeId = -1 }
-        do {   storeName = try container.decodeIfPresent(.storeName) ?? ""}
-        catch { storeName = "" }
-        do {   imageLink = try container.decodeIfPresent(.imageLink) ?? ""}
-              catch { imageLink = "" }
+        do { orderStatusId = try container.decodeIfPresent(.orderStatusId) ?? -1 }
+        catch { orderStatusId = -1 }
+        do {   orderStatusDesc = try container.decodeIfPresent(.orderStatusDesc) ?? ""}
+        catch { orderStatusDesc = "" }
+
+        do {  operationDate = try container.decodeIfPresent(.operationDate) ?? ""}
+              catch {operationDate = "" }
     }
 }

@@ -9,29 +9,33 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewToPresenterBrandsListProtocol: class {
-    
     var view : PresenterToViewBrandsListProtocol? {get set}
     var interactor : PresenterToIntetractorBrandsListProtocol? {get set}
     var router : PresenterToRouterBrandsListProtocol? {get set}
+    var numberOfRows : Int { get }
+    func configureBrandCell(cell : BrandCell , indexPath : IndexPath)
+    func getBrandsData()
+    func didSelectBrand(indexPath : IndexPath)
 }
 
 protocol PresenterToViewBrandsListProtocol: class {
-  
+     func changeState(state : State)
 }
 
 protocol PresenterToIntetractorBrandsListProtocol: class {
     var presenter: InteractorToPresenterBrandsListProtocol? { get set }
-    
+    func getBrandsData()
 }
 
 protocol PresenterToRouterBrandsListProtocol: class  {
     static func createModule() -> UIViewController
-    
+    func openItemsScreen(from sourceView: PresenterToViewBrandsListProtocol?,Brand: Brand)
 }
 
 protocol InteractorToPresenterBrandsListProtocol: class {
-   
+   func  brandsDataFetchedSuccessfully(brandResponse: [Brand])
+   func  brandsDataFailedToFetch(error : String)
 }

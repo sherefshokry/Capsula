@@ -13,9 +13,9 @@ import UIKit
 
     class ItemDetailsRouter : PresenterToRouterItemDetailsProtocol {
         
-        static func createModule() -> UIViewController {
+        static func createModule(item : Item) -> UIViewController {
             
-            let view = ItemDetailsViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = ItemDetailsViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
             let presenter : ViewToPresenterItemDetailsProtocol & InteractorToPresenterItemDetailsProtocol = ItemDetailsPresenter()
             let interactor : PresenterToIntetractorItemDetailsProtocol = ItemDetailsInteractor()
             let router : PresenterToRouterItemDetailsProtocol = ItemDetailsRouter()
@@ -24,6 +24,7 @@ import UIKit
             presenter.interactor = interactor
             presenter.view = view
             presenter.router = router
+            presenter.selectedItem = item
             interactor.presenter = presenter
             return view
         }

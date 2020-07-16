@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol ViewToPresenterSideMenuProtocol: class {
@@ -16,22 +17,38 @@ protocol ViewToPresenterSideMenuProtocol: class {
     var view : PresenterToViewSideMenuProtocol? {get set}
     var interactor : PresenterToIntetractorSideMenuProtocol? {get set}
     var router : PresenterToRouterSideMenuProtocol? {get set}
+    var numberOfMenuElementsRows: Int { get }
+    func configureMenuElementCell(cell: SideMenuCell, indexPath: IndexPath)
+    func didSelectElement(itemIndex : Int)
+    func populateSideMenuList(sideMenuItems: [SideMenu])
+    func viewDidLoad()
+    func logOut()
 }
 
 protocol PresenterToViewSideMenuProtocol: class {
-  
+  func showPopUp(message : String)
+    func reloadData()
+    func changeState(state : State)
 }
 
 protocol PresenterToIntetractorSideMenuProtocol: class {
     var presenter: InteractorToPresenterSideMenuProtocol? { get set }
-    
+    func getSideMenuItemsForUser() -> [SideMenu]
+    func getSideMenuItemsForDeliveryMan() -> [SideMenu]
+    func getSideMenuItemsForGuestUser() -> [SideMenu]
+    func navigate(item: SideMenu)
+    func logOut()
 }
 
 protocol PresenterToRouterSideMenuProtocol: class  {
     static func createModule() -> UIViewController
-    
+     func navigate(from sourceView: PresenterToViewSideMenuProtocol?, to destinationView: UIViewController, animation: Bool)
 }
 
 protocol InteractorToPresenterSideMenuProtocol: class {
    
+      func navigate(viewController: UIViewController , animation : Bool)
+      func logOutSuccessfully()
+      func failedToLogout(error : String)
+    
 }

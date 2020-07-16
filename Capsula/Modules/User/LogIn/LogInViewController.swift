@@ -9,20 +9,99 @@
 //
 
 import UIKit
+import KVNProgress
+import Intercom
 
 class LogInViewController: UIViewController {
     
     var presenter : ViewToPresenterLogInProtocol?
+    @IBOutlet weak var forgetPassword : UIButton!
+    @IBOutlet weak var emailField : CapsulaInputFeild!
+    @IBOutlet weak var passwordField : CapsulaInputFeild!
+    private var state: State = .loading {
+            didSet {
+                switch state {
+                case .ready:
+                    KVNProgress.dismiss()
+                case .loading:
+                      KVNProgress.show()
+                case .error(let error):
+                    KVNProgress.dismiss()
+                    self.showMessage(error)
+                }
+            }
+        }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+          forgetPassword.setUnderLineText(text: Strings.forgetPassword)
+        setupInputFields()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+        emailField.field.text = ""
+        passwordField.field.text = ""
+        self.presenter?.clearLoginRequest()
+        Intercom.setLauncherVisible(false)
+      }
+    
+    func setupInputFields(){
+        emailField.type = .phoneOrEmail
+        passwordField.type = .number
+        emailField.setTextFeildSpecs()
+        passwordField.setTextFeildSpecs()
     }
     
     
+    
+    func validate() -> Bool {
+        var isValid = true
+        
+        isValid = emailField.validate() && isValid
+        isValid = passwordField.validate() && isValid
+
+        return isValid
+    }
+    
+    
+    @IBAction func  loginPressed(_ sender : UIButton){
+        
+        if !validate(){
+            return
+        }
+        
+        self.presenter?.setEmailOrPhone(text: emailField.getText())
+        self.presenter?.setPassword(password: passwordField.getText())
+        self.presenter?.logIn()
+    }
+    
+    @IBAction func  forgetPasswordPressed(_ sender : UIButton){
+        let vc = ForgetPasswordRouter.createModule()
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func facebookPressed(_ sender : UIButton){
+         NotificationCenter.default.post(name: Notification.Name(Constants.FACEBOOK_NOTIFICATION), object: nil, userInfo: nil)
+    }
+    
+    @IBAction func twitterPressed(_ sender : UIButton){
+         NotificationCenter.default.post(name: Notification.Name(Constants.TWITTER_NOTIFICATION), object: nil, userInfo: nil)
+    }
+    
+    @IBAction func gmailPressed(_ sender : UIButton){
+                NotificationCenter.default.post(name: Notification.Name(Constants.GOOGLE_NOTIFICATION), object: nil, userInfo: nil)
+           
+    }
+    
 }
 extension LogInViewController : PresenterToViewLogInProtocol {
+    func changeState(state: State) {
+        self.state = state
+    }
+    
+   
     
 
 }

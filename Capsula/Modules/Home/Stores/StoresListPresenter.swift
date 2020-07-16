@@ -11,15 +11,46 @@
 import Foundation
 
 class StoresListPresenter : ViewToPresenterStoresListProtocol{
+   
     
+  
     var view: PresenterToViewStoresListProtocol?
     var interactor: PresenterToIntetractorStoresListProtocol?
     var router: PresenterToRouterStoresListProtocol?
+    var storesData : [Store] = []
     
+    var numberOfRows : Int {
+        return storesData.count
+    }
+    
+    func configureStoreCell(cell: CategoryCell, indexPath: IndexPath) {
+        cell.setStoreData(store: storesData[indexPath.item])
+    }
+    
+    
+    func getStoresData() {
+        self.view?.changeState(state: .loading)
+        self.interactor?.getStoresata()
+    }
+      
+    func didSelectStore(indexPath: IndexPath) {
+        self.router?.openCategoriesScreen(from: self.view, storeId: storesData[indexPath.item].storeId ?? -1 )
+    }
+    
+
 }
 
 extension StoresListPresenter : InteractorToPresenterStoresListProtocol {
+    func storesDataFetchedSuccessfully(storesResponse: [Store]) {
+        
+        
+        self.storesData = storesResponse
+        self.view?.changeState(state: .ready)
+    }
     
- 
+    func storesDataFailedToFetch(error: String) {
+        self.view?.changeState(state: .error(error))
+    }
+    
 }
 

@@ -9,10 +9,37 @@
 //
 
 import UIKit
-
+import Moya
 class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
     
     var presenter: InteractorToPresenterCartDetailsProtocol?
+    private let provider = MoyaProvider<CheckOutDataSource>()
+    
+    func checkout(request: CheckoutRequest) {
+          
+        provider.request(.checkout(request)) { [weak self] result in
+                     guard let self = self else { return }
+                     switch result {
+                     case .success(let response):
+                        self.presenter?.checkoutDoneSuccessfully()
+                     case .failure(let error):
+                         do{
+                             if let body = try error.response?.mapJSON(){
+                                 let errorData = (body as! [String:Any])
+                                 self.presenter?.checkoutFailed(error: (errorData["errors"] as? String) ?? "")
+                             }
+                         }catch{
+                             self.presenter?.checkoutFailed(error: error.localizedDescription)
+                         }
+                     }
+                 }
+          
+        }
+      
+    
+    
+    
+    
     
 }
 

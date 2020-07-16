@@ -15,7 +15,7 @@ import UIKit
         
         static func createModule() -> UIViewController {
             
-            let view = SideMenuViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
+            let view = SideMenuViewController.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
             let presenter : ViewToPresenterSideMenuProtocol & InteractorToPresenterSideMenuProtocol = SideMenuPresenter()
             let interactor : PresenterToIntetractorSideMenuProtocol = SideMenuInteractor()
             let router : PresenterToRouterSideMenuProtocol = SideMenuRouter()
@@ -27,4 +27,13 @@ import UIKit
             interactor.presenter = presenter
             return view
         }
+        
+        func navigate(from sourceView: PresenterToViewSideMenuProtocol?, to destinationView: UIViewController, animation: Bool) {
+              if let sourceView = sourceView as? UIViewController {
+                  sourceView.dismiss(animated: true) {
+                     UIApplication.shared.windows[0].visibleViewController?.present(destinationView, animated: true, completion: nil)
+                  }
+              }
+          }
+        
     }

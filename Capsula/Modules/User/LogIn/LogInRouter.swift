@@ -11,20 +11,31 @@
 import UIKit
 
 
-    class LogInRouter : PresenterToRouterLogInProtocol {
+class LogInRouter : PresenterToRouterLogInProtocol {
+    
+    static func createModule() -> UIViewController {
         
-        static func createModule() -> UIViewController {
-            
-            let view = LogInViewController.instantiateFromStoryBoard(appStoryBoard: /*replace with storyboard name*/)
-            let presenter : ViewToPresenterLogInProtocol & InteractorToPresenterLogInProtocol = LogInPresenter()
-            let interactor : PresenterToIntetractorLogInProtocol = LogInInteractor()
-            let router : PresenterToRouterLogInProtocol = LogInRouter()
-            
-            view.presenter = presenter
-            presenter.interactor = interactor
-            presenter.view = view
-            presenter.router = router
-            interactor.presenter = presenter
-            return view
+        let view = LogInViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        let presenter : ViewToPresenterLogInProtocol & InteractorToPresenterLogInProtocol = LogInPresenter()
+        let interactor : PresenterToIntetractorLogInProtocol = LogInInteractor()
+        let router : PresenterToRouterLogInProtocol = LogInRouter()
+        
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = view
+        presenter.router = router
+        interactor.presenter = presenter
+        return view
+    }
+    
+    
+    func openAddAddress(from sourceView: PresenterToViewLogInProtocol?) {
+        let vc = AddAddressViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        if let sourceView = sourceView as? UIViewController {
+            sourceView.present(vc, animated: true, completion: nil)
         }
     }
+
+    
+    
+}
