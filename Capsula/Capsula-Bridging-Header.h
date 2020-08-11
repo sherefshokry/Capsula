@@ -9,6 +9,6 @@
 #ifndef Capsula_Bridging_Header_h
 #define Capsula_Bridging_Header_h
 
-#import <paytabs-iOS/paytabs_iOS.h>
+#include <OPPWAMobile/OPPWAMobile.h>
 
 #endif /* Capsula_Bridging_Header_h */

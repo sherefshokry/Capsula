@@ -149,7 +149,7 @@ class DeliveryOrderDetailsVC : UIViewController {
         }
         
         let collectionWidth = (self.collectionView.bounds.width / 2.0)
-        let rowHeight = collectionWidth + 60
+        let rowHeight = collectionWidth + 20
         
         
         

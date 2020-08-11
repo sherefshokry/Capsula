@@ -11,6 +11,8 @@ import Moya
 
 public enum CheckOutDataSource {
     case checkout(CheckoutRequest)
+    case getDeliveryCost
+    case prepareCheckout(Int)
     case ordersList
     case orderTrackingList(Int)
     case orderDetails(Int)
@@ -45,6 +47,10 @@ extension CheckOutDataSource : TargetType {
             return ""
         case .cancelOrder(_):
             return ""
+        case .getDeliveryCost:
+            return "/CheckOut/GetDeliveryCost"
+        case .prepareCheckout(let paymentMethodID):
+            return "/CheckOut/PrepareCheckout/\(paymentMethodID)"
         }
     }
     
@@ -60,6 +66,10 @@ extension CheckOutDataSource : TargetType {
             return .get
         case .cancelOrder(_):
             return .put
+        case .getDeliveryCost:
+            return .get
+        case .prepareCheckout(_):
+            return .get
         }
     }
     
@@ -78,6 +88,10 @@ extension CheckOutDataSource : TargetType {
         case .orderDetails(_):
             return .requestPlain
         case .cancelOrder(_):
+            return .requestPlain
+        case .getDeliveryCost:
+            return .requestPlain
+        case .prepareCheckout(_):
             return .requestPlain
         }
     }

@@ -43,8 +43,6 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
            
        }
       
-    
-    
     func updateUserData() {
         
         provider.request(.updateUserData) { [weak self] result in
@@ -58,10 +56,16 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
                     updatedUser.user?.cartContent = itemsResponse.itemsList ?? []
                     
                     Utils.saveUser(user: updatedUser)
-                    Utils.updateUserCart(list: updatedUser.user?.cartContent ?? []) {
+                    if updatedUser.user?.cartContent?.count ?? 0 > 0 {
+                         Utils.emptyLocalCart()
                     }
-                                         
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        Utils.updateUserCart(list: updatedUser.user?.cartContent ?? []) {
+                    }
+                    }
+                    
+                
                   } catch(let catchError) {
                       self.presenter?.homeDataFailedToFetch(error: catchError.localizedDescription)
                   }

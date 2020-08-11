@@ -156,7 +156,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
         
         var isValid = true
         if !isTermsChecked {
-            termsErrorLabel.text = Strings.requiredField
+            termsErrorLabel.text = Strings.privacyPolicyErrorMsg
             isValid = false
         }
         
@@ -204,10 +204,17 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
             KVNProgress.dismiss()
             guard let self = self else { return }
             switch result {
-            case .success(_):
-                self.showMessage(Strings.deliveryRegistrationSuccess) {
-                    Utils.openLoginScreen(isDeliveryMan: true)
+            case .success(let response):
+                
+                do {
+                    let successMsg = try response.map(BaseResponse<String>.self)
+                    self.showMessage(successMsg.data ?? Strings.deliveryRegistrationSuccess) {
+                        Utils.openLoginScreen(isDeliveryMan: true)
+                    }
+                } catch(let catchError) {
+                    self.showMessage(catchError.localizedDescription)
                 }
+               
                 break
             case .failure(let error):
                 do{

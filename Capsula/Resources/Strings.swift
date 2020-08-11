@@ -66,6 +66,11 @@ class Strings: Any {
     static var orderID  = "Order ID : ".localize()
     static var clearCartMsg1  = "Your cart contains items from ".localize()
     static var clearCartMsg2  = " Do you wish to clear your cart and start a new order here ?".localize()
+    static var privacyPolicyErrorMsg = "Please agree on terms and conditions) (please Pick this photo".localize()
+    static var navigate =  "Navigate".localize()
+    static var cashPayment = "Total cost is greater than 500 RSD, so you have to proceed with online payment".localize()
+    static var paymentMethodSelection = "Please,select your prefered payment method".localize()
+    
     
     
     

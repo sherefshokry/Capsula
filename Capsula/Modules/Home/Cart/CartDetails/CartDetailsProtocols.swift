@@ -17,19 +17,25 @@ protocol ViewToPresenterCartDetailsProtocol: class {
     var interactor : PresenterToIntetractorCartDetailsProtocol? {get set}
     var router : PresenterToRouterCartDetailsProtocol? {get set}
     func checkout()
+    func getDevliveryCost()
+    func prepareCheckout()
     func setPreprictionImage(image : String)
     func setInsuranceImage(image : String)
     func setPaymentMethod(method : Int)
+   
 }
 
 protocol PresenterToViewCartDetailsProtocol: class {
    func changeState(state : State)
    func moveToSuccessScreen()
+    func setDeliveryCost(cost : String)
 }
 
 protocol PresenterToIntetractorCartDetailsProtocol: class {
     var presenter: InteractorToPresenterCartDetailsProtocol? { get set }
     func checkout(request: CheckoutRequest)
+    func getDeliveryCost()
+    func prepareCheckout(paymentMethodID : Int)
 }
 
 protocol PresenterToRouterCartDetailsProtocol: class  {
@@ -38,6 +44,8 @@ protocol PresenterToRouterCartDetailsProtocol: class  {
 }
 
 protocol InteractorToPresenterCartDetailsProtocol: class {
+   func deliveryCostFetchedSuccessfully(deliveryCost : String)
+   func checkoutIDFetchedSuccessfully(checkoutID : String)
    func checkoutDoneSuccessfully()
    func checkoutFailed(error: String)
 }

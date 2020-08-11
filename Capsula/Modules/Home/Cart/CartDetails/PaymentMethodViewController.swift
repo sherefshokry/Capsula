@@ -13,13 +13,19 @@ class PaymentMethodViewController : UIViewController{
       @IBOutlet weak var topView : UIView!
       var applyPaymentMethod : ((Int) -> ())?
       var paymentType = -1
+      @IBOutlet weak var cashSelectedIcon : UIImageView!
+      @IBOutlet weak var madaSelectedIcon : UIImageView!
     
-    override func viewDidLoad() {
+    
+    
+      override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-    }
-    
+        if paymentType == 1 {
+            cashPressed(UIButton())
+        }else if paymentType == 5 {
+            maddaPressed(UIButton())
+        }
+      }
     
     override func viewWillLayoutSubviews() {
            super.viewWillLayoutSubviews()
@@ -28,12 +34,30 @@ class PaymentMethodViewController : UIViewController{
            topView.layer.maskedCorners = [.layerMaxXMinYCorner]
        }
     
+    @IBAction func cashPressed(_ sender : UIButton){
+        cashSelectedIcon.image = #imageLiteral(resourceName: "timeline")
+        madaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+        paymentType = 1
+    }
+    
+    
+    @IBAction func maddaPressed(_ sender : UIButton){
+           cashSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+           madaSelectedIcon.image = #imageLiteral(resourceName: "timeline")
+           paymentType = 5
+       }
+    
     
 @IBAction func applyPaymentMethodPressed(_ sender : UIButton){
      if self.applyPaymentMethod != nil {
-     self.dismiss(animated: true) {
-       self.applyPaymentMethod?(self.paymentType)
-     }
+        if paymentType == -1 {
+            self.showMessage(Strings.paymentMethodSelection)
+        }else{
+            self.dismiss(animated: true) {
+                 self.applyPaymentMethod?(self.paymentType)
+               }
+        }
+   
     }
     }
     

@@ -32,6 +32,7 @@
 		5B2ADA0B24A74333007C9E80 /* DeliveryManRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ADA0A24A74333007C9E80 /* DeliveryManRegisterRequest.swift */; };
 		5B2ADA0D24A74503007C9E80 /* DeliveryRegisterSecondStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ADA0C24A74503007C9E80 /* DeliveryRegisterSecondStepVC.swift */; };
 		5B2ADA0F24A7496D007C9E80 /* DeliveryRegisterThirdStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ADA0E24A7496D007C9E80 /* DeliveryRegisterThirdStepVC.swift */; };
+		5B32585B24C455E200DA6E0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B32585A24C455E200DA6E0A /* GoogleService-Info.plist */; };
 		5B40534B248D7FD600FD71C3 /* DeliveryRegisterFirstStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B40534A248D7FD600FD71C3 /* DeliveryRegisterFirstStepVC.swift */; };
 		5B45F355248ACF1C00668DB7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45F354248ACF1C00668DB7 /* WelcomeViewController.swift */; };
 		5B45F358248AEDAA00668DB7 /* LoginDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45F357248AEDAA00668DB7 /* LoginDeliveryViewController.swift */; };
@@ -133,7 +134,6 @@
 		5B65298A24352CE3006D92C0 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298924352CE3006D92C0 /* CartRequest.swift */; };
 		5B65298C24352D27006D92C0 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298B24352D27006D92C0 /* CartItem.swift */; };
 		5B66E732244A6CB600A1FE3C /* PaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66E731244A6CB500A1FE3C /* PaymentMethodViewController.swift */; };
-		5B66E734244A718900A1FE3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B66E733244A718900A1FE3C /* GoogleService-Info.plist */; };
 		5B66E737244DC31800A1FE3C /* AddressListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66E736244DC31800A1FE3C /* AddressListViewController.swift */; };
 		5B66E73A244DC7E800A1FE3C /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66E739244DC7E800A1FE3C /* AddressCell.swift */; };
 		5B6A8CB524B048BF00EB5292 /* DeliveryHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A8CB424B048BF00EB5292 /* DeliveryHomeVC.swift */; };
@@ -254,6 +254,10 @@
 		5BBB41EA23B1588800A4B26E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB41E923B1588800A4B26E /* Strings.swift */; };
 		5BBB41F923B1FDCF00A4B26E /* CapsulaInputFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB41F723B1FDCF00A4B26E /* CapsulaInputFeild.swift */; };
 		5BBB41FA23B1FDCF00A4B26E /* CapsulaInputFeild.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB41F823B1FDCF00A4B26E /* CapsulaInputFeild.xib */; };
+		5BC118B724E30F7500D0F0C7 /* OPPWAMobile-Alipay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC118B324E30F6A00D0F0C7 /* OPPWAMobile-Alipay.framework */; };
+		5BC118B824E30F7500D0F0C7 /* OPPWAMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC118B424E30F6F00D0F0C7 /* OPPWAMobile.framework */; };
+		5BC118B924E30F7500D0F0C7 /* OPPWAMobile-CardIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC118B524E30F7300D0F0C7 /* OPPWAMobile-CardIO.framework */; };
+		5BC118BA24E30F7500D0F0C7 /* OPPWAMobile-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BC118B624E30F7400D0F0C7 /* OPPWAMobile-Resources.bundle */; };
 		5BC28D6F23C09E6800B81D1D /* CompleteProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC28D6A23C09E6800B81D1D /* CompleteProfilePresenter.swift */; };
 		5BC28D7023C09E6800B81D1D /* CompleteProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC28D6B23C09E6800B81D1D /* CompleteProfileRouter.swift */; };
 		5BC28D7123C09E6800B81D1D /* CompleteProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC28D6C23C09E6800B81D1D /* CompleteProfileViewController.swift */; };
@@ -270,8 +274,6 @@
 		5BC28D8923C0BEA100B81D1D /* VerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC28D8423C0BEA000B81D1D /* VerificationRouter.swift */; };
 		5BC28D8A23C0BEA100B81D1D /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC28D8523C0BEA100B81D1D /* VerificationViewController.swift */; };
 		5BC28D8C23C0BF8E00B81D1D /* VerificationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC28D8B23C0BF8E00B81D1D /* VerificationDataSource.swift */; };
-		5BC5BB8D2466299B00FC1B27 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BC5BB8B2466299B00FC1B27 /* Resources.bundle */; };
-		5BC5BB8E2466299B00FC1B27 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC5BB8C2466299B00FC1B27 /* paytabs-iOS.framework */; };
 		5BF97B4224AAE10B00C7A866 /* TermsAndConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B4124AAE10B00C7A866 /* TermsAndConditionVC.swift */; };
 		5BF97B4424AAE56500C7A866 /* DeliveryManRegistrationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B4324AAE56500C7A866 /* DeliveryManRegistrationDataSource.swift */; };
 		5BF97B6624AD2E3700C7A866 /* nationalitiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B6524AD2E3700C7A866 /* nationalitiesResponse.swift */; };
@@ -309,6 +311,7 @@
 		5B2ADA0A24A74333007C9E80 /* DeliveryManRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryManRegisterRequest.swift; sourceTree = "<group>"; };
 		5B2ADA0C24A74503007C9E80 /* DeliveryRegisterSecondStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegisterSecondStepVC.swift; sourceTree = "<group>"; };
 		5B2ADA0E24A7496D007C9E80 /* DeliveryRegisterThirdStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegisterThirdStepVC.swift; sourceTree = "<group>"; };
+		5B32585A24C455E200DA6E0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B40534A248D7FD600FD71C3 /* DeliveryRegisterFirstStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegisterFirstStepVC.swift; sourceTree = "<group>"; };
 		5B45F354248ACF1C00668DB7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5B45F357248AEDAA00668DB7 /* LoginDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDeliveryViewController.swift; sourceTree = "<group>"; };
@@ -410,7 +413,6 @@
 		5B65298924352CE3006D92C0 /* CartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRequest.swift; sourceTree = "<group>"; };
 		5B65298B24352D27006D92C0 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		5B66E731244A6CB500A1FE3C /* PaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewController.swift; sourceTree = "<group>"; };
-		5B66E733244A718900A1FE3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B66E736244DC31800A1FE3C /* AddressListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewController.swift; sourceTree = "<group>"; };
 		5B66E739244DC7E800A1FE3C /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		5B6A8CB424B048BF00EB5292 /* DeliveryHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHomeVC.swift; sourceTree = "<group>"; };
@@ -533,6 +535,10 @@
 		5BBB41E923B1588800A4B26E /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		5BBB41F723B1FDCF00A4B26E /* CapsulaInputFeild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsulaInputFeild.swift; sourceTree = "<group>"; };
 		5BBB41F823B1FDCF00A4B26E /* CapsulaInputFeild.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CapsulaInputFeild.xib; sourceTree = "<group>"; };
+		5BC118B324E30F6A00D0F0C7 /* OPPWAMobile-Alipay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OPPWAMobile-Alipay.framework"; sourceTree = "<group>"; };
+		5BC118B424E30F6F00D0F0C7 /* OPPWAMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OPPWAMobile.framework; sourceTree = "<group>"; };
+		5BC118B524E30F7300D0F0C7 /* OPPWAMobile-CardIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OPPWAMobile-CardIO.framework"; sourceTree = "<group>"; };
+		5BC118B624E30F7400D0F0C7 /* OPPWAMobile-Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "OPPWAMobile-Resources.bundle"; sourceTree = "<group>"; };
 		5BC28D6A23C09E6800B81D1D /* CompleteProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteProfilePresenter.swift; sourceTree = "<group>"; };
 		5BC28D6B23C09E6800B81D1D /* CompleteProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteProfileRouter.swift; sourceTree = "<group>"; };
 		5BC28D6C23C09E6800B81D1D /* CompleteProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteProfileViewController.swift; sourceTree = "<group>"; };
@@ -549,8 +555,6 @@
 		5BC28D8423C0BEA000B81D1D /* VerificationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationRouter.swift; sourceTree = "<group>"; };
 		5BC28D8523C0BEA100B81D1D /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		5BC28D8B23C0BF8E00B81D1D /* VerificationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationDataSource.swift; sourceTree = "<group>"; };
-		5BC5BB8B2466299B00FC1B27 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Resources.bundle; path = "SDK/ios_sdk-v4.0.7-ocr/Resources.bundle"; sourceTree = SOURCE_ROOT; };
-		5BC5BB8C2466299B00FC1B27 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "paytabs-iOS.framework"; path = "SDK/ios_sdk-v4.0.7-ocr/paytabs-iOS.framework"; sourceTree = SOURCE_ROOT; };
 		5BC5BB9024662A5E00FC1B27 /* Capsula-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Capsula-Bridging-Header.h"; sourceTree = "<group>"; };
 		5BF97B4124AAE10B00C7A866 /* TermsAndConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionVC.swift; sourceTree = "<group>"; };
 		5BF97B4324AAE56500C7A866 /* DeliveryManRegistrationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryManRegistrationDataSource.swift; sourceTree = "<group>"; };
@@ -569,7 +573,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC5BB8E2466299B00FC1B27 /* paytabs-iOS.framework in Frameworks */,
+				5BC118B724E30F7500D0F0C7 /* OPPWAMobile-Alipay.framework in Frameworks */,
+				5BC118B824E30F7500D0F0C7 /* OPPWAMobile.framework in Frameworks */,
+				5BC118B924E30F7500D0F0C7 /* OPPWAMobile-CardIO.framework in Frameworks */,
 				4EB86652DC889580E0537917 /* Pods_Capsula.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1168,10 +1174,12 @@
 		5B9DA15923B1499A00F8696A /* Capsula */ = {
 			isa = PBXGroup;
 			children = (
+				5BC118B324E30F6A00D0F0C7 /* OPPWAMobile-Alipay.framework */,
+				5BC118B524E30F7300D0F0C7 /* OPPWAMobile-CardIO.framework */,
+				5BC118B624E30F7400D0F0C7 /* OPPWAMobile-Resources.bundle */,
+				5BC118B424E30F6F00D0F0C7 /* OPPWAMobile.framework */,
+				5B32585A24C455E200DA6E0A /* GoogleService-Info.plist */,
 				5BC5BB9024662A5E00FC1B27 /* Capsula-Bridging-Header.h */,
-				5BC5BB8C2466299B00FC1B27 /* paytabs-iOS.framework */,
-				5BC5BB8B2466299B00FC1B27 /* Resources.bundle */,
-				5B66E733244A718900A1FE3C /* GoogleService-Info.plist */,
 				5B0DC1B9241B0B1A00D539B8 /* Capsula.entitlements */,
 				5B4E1A2923B1532400808F38 /* Custom */,
 				5B4E1A4923B1532400808F38 /* Datasource */,
@@ -1381,18 +1389,18 @@
 				5BB971F023E725570033F6D9 /* HomeBrandCell.xib in Resources */,
 				5B86BF3823B7BB4900F849FD /* Home.storyboard in Resources */,
 				5B4E1A8923B1532400808F38 /* LoaderView.xib in Resources */,
-				5BC5BB8D2466299B00FC1B27 /* Resources.bundle in Resources */,
 				5BB971EA23E70FA20033F6D9 /* BrandCell.xib in Resources */,
+				5BC118BA24E30F7500D0F0C7 /* OPPWAMobile-Resources.bundle in Resources */,
 				5B4E1A1D23B1528500808F38 /* PreLogin.storyboard in Resources */,
 				5B7FAA0123F818BB002DFAA6 /* ItemCell.xib in Resources */,
 				5B7FAA1323F841D1002DFAA6 /* SideMenu.storyboard in Resources */,
 				5BB971E223E708C70033F6D9 /* HomeServiceCell.xib in Resources */,
 				5B9DA16723B149A100F8696A /* LaunchScreen.storyboard in Resources */,
+				5B32585B24C455E200DA6E0A /* GoogleService-Info.plist in Resources */,
 				5BB971DE23E6F7F90033F6D9 /* HomeHeaderCell.xib in Resources */,
 				5B4E1A7A23B1532400808F38 /* PickerCell.xib in Resources */,
 				5B9DA16423B149A100F8696A /* Assets.xcassets in Resources */,
 				5B9DA16223B1499A00F8696A /* Main.storyboard in Resources */,
-				5B66E734244A718900A1FE3C /* GoogleService-Info.plist in Resources */,
 				5B4E1A8223B1532400808F38 /* NoDataView.xib in Resources */,
 				5BBB41FA23B1FDCF00A4B26E /* CapsulaInputFeild.xib in Resources */,
 			);
@@ -1857,12 +1865,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Capsula/Capsula.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = PM223W94NZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDK/ios_sdk-v4.0.7-ocr",
+					"$(PROJECT_DIR)/Capsula",
 				);
 				INFOPLIST_FILE = Capsula/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1886,12 +1895,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Capsula/Capsula.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = PM223W94NZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDK/ios_sdk-v4.0.7-ocr",
+					"$(PROJECT_DIR)/Capsula",
 				);
 				INFOPLIST_FILE = Capsula/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

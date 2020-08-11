@@ -13,14 +13,12 @@ import Intercom
 
 class MainCartViewController: UIViewController {
     
-    
-    var initialSetupViewController: PTFWInitialSetupViewController!
+   // var initialSetupViewController: PTFWInitialSetupViewController!
     @IBOutlet weak var  headerView : UIView!
     @IBOutlet weak var  containerView : UIView!
     @IBOutlet weak var  cartProgressImage : UIImageView!
     var items = [Item]()
     var presenter : ViewToPresenterMainCartProtocol?
-    
     
     lazy var cartListVC : UIViewController = {
         let vc = CartItemListRouter.createModule() as! CartItemListViewController
@@ -102,70 +100,66 @@ class MainCartViewController: UIViewController {
     
     func openPayTabs(){
         
-        let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
-             
-             
-             self.initialSetupViewController = PTFWInitialSetupViewController.init(
-                 bundle: bundle,
-                 andWithViewFrame: self.view.frame,
-                 andWithAmount: 5.0,
-                 andWithCustomerTitle: "PayTabs Sample App",
-                 andWithCurrencyCode: "USD",
-                 andWithTaxAmount: 0.0,
-                 andWithSDKLanguage: "en",
-                 andWithShippingAddress: "Manama",
-                 andWithShippingCity: "Manama",
-                 andWithShippingCountry: "BHR",
-                 andWithShippingState: "Manama",
-                 andWithShippingZIPCode: "123456",
-                 andWithBillingAddress: "Manama",
-                 andWithBillingCity: "Manama",
-                 andWithBillingCountry: "BHR",
-                 andWithBillingState: "Manama",
-                 andWithBillingZIPCode: "12345",
-                 andWithOrderID: "12345",
-                 andWithPhoneNumber: "0097333109781",
-                 andWithCustomerEmail: "rhegazy@paytabs.com",
-                 andIsTokenization:false,
-                 andIsPreAuth: false,
-                 andWithMerchantEmail: "rhegazy@paytabs.com",
-                 andWithMerchantSecretKey: "BIueZNfPLblJnMmPYARDEoP5x1WqseI3XciX0yNLJ8v7URXTrOw6dmbKn8bQnTUk6ch6L5SudnC8fz2HozNBVZlj7w9uq4Pwg7D1",
-                 andWithAssigneeCode: "SDK",
-                 andWithThemeColor:UIColor.init(codeString: "#37B6FF"),
-                 andIsThemeColorLight: false)
-             
-             
-             self.initialSetupViewController.didReceiveBackButtonCallback = {
-                 
-             }
-             
-             self.initialSetupViewController.didStartPreparePaymentPage = {
-                 // Start Prepare Payment Page
-                 // Show loading indicator
-             }
-             self.initialSetupViewController.didFinishPreparePaymentPage = {
-                 // Finish Prepare Payment Page
-                 // Stop loading indicator
-             }
-             
-             self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
-                 print("Response Code: \(responseCode)")
-                 print("Response Result: \(result)")
-                 
-                 // In Case you are using tokenization
-                 print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
-                 print("Tokenization Customer Password: \(tokenizedCustomerPassword)");
-                 print("TOkenization Token: \(token)");
-             }
-         
-                         
-             self.view.addSubview(self.initialSetupViewController.view)
-             self.addChild(self.initialSetupViewController)
-             self.initialSetupViewController.didMove(toParent: self)
-
-             
-             
-        
+//        let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
+//
+//
+//             self.initialSetupViewController = PTFWInitialSetupViewController.init(
+//                 bundle: bundle,
+//                 andWithViewFrame: self.view.frame,
+//                 andWithAmount: 5.0,
+//                 andWithCustomerTitle: "PayTabs Sample App",
+//                 andWithCurrencyCode: "USD",
+//                 andWithTaxAmount: 0.0,
+//                 andWithSDKLanguage: "en",
+//                 andWithShippingAddress: "Manama",
+//                 andWithShippingCity: "Manama",
+//                 andWithShippingCountry: "BHR",
+//                 andWithShippingState: "Manama",
+//                 andWithShippingZIPCode: "123456",
+//                 andWithBillingAddress: "Manama",
+//                 andWithBillingCity: "Manama",
+//                 andWithBillingCountry: "BHR",
+//                 andWithBillingState: "Manama",
+//                 andWithBillingZIPCode: "12345",
+//                 andWithOrderID: "12345",
+//                 andWithPhoneNumber: "0097333109781",
+//                 andWithCustomerEmail: "rhegazy@paytabs.com",
+//                 andIsTokenization:false,
+//                 andIsPreAuth: false,
+//                 andWithMerchantEmail: "rhegazy@paytabs.com",
+//                 andWithMerchantSecretKey: "BIueZNfPLblJnMmPYARDEoP5x1WqseI3XciX0yNLJ8v7URXTrOw6dmbKn8bQnTUk6ch6L5SudnC8fz2HozNBVZlj7w9uq4Pwg7D1",
+//                 andWithAssigneeCode: "SDK",
+//                 andWithThemeColor:UIColor.init(codeString: "#37B6FF"),
+//                 andIsThemeColorLight: false)
+//
+//
+//             self.initialSetupViewController.didReceiveBackButtonCallback = {
+//
+//             }
+//
+//             self.initialSetupViewController.didStartPreparePaymentPage = {
+//                 // Start Prepare Payment Page
+//                 // Show loading indicator
+//             }
+//             self.initialSetupViewController.didFinishPreparePaymentPage = {
+//                 // Finish Prepare Payment Page
+//                 // Stop loading indicator
+//             }
+//
+//             self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
+//                 print("Response Code: \(responseCode)")
+//                 print("Response Result: \(result)")
+//
+//                 // In Case you are using tokenization
+//                 print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
+//                 print("Tokenization Customer Password: \(tokenizedCustomerPassword)");
+//                 print("TOkenization Token: \(token)");
+//             }
+//
+//             self.view.addSubview(self.initialSetupViewController.view)
+//             self.addChild(self.initialSetupViewController)
+//             self.initialSetupViewController.didMove(toParent: self)
+//
     }
     
     func openCongratScreen() {

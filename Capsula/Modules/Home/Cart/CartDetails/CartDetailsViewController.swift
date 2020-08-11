@@ -28,6 +28,10 @@ class CartDetailsViewController: ImagePickerViewController {
     @IBOutlet weak var itemsCostLabel : UILabel!
     @IBOutlet weak var deliveryCostLabel : UILabel!
     @IBOutlet weak var estimatedTotalLabel : UILabel!
+    @IBOutlet weak var selectedPaymentMethodLabel : UILabel!
+    var deliveryCost = 0.0
+    var totalCost = 0.0
+    var selectedPaymentMethod = -1
     var nextPressed: (()->())?
     var openPaymentScreen: (()->())?
     
@@ -48,7 +52,7 @@ class CartDetailsViewController: ImagePickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         calcTotalPrice()
-        
+        self.presenter?.getDevliveryCost()
     }
     
     
@@ -73,13 +77,12 @@ class CartDetailsViewController: ImagePickerViewController {
         
         itemsCostLabel.text = Strings.RSD + " \(totalPrice)"
         deliveryCostLabel.text = Strings.RSD + " 0"
-        estimatedTotalLabel.text = Strings.RSD + " \(totalPrice)"
-        
+        estimatedTotalLabel.text = Strings.RSD + " \(totalPrice + deliveryCost)"
+        self.totalCost = totalPrice + deliveryCost
     }
     
     
-    
-    
+
     
     func checkIfIsTreatment() -> Bool{
         
@@ -154,6 +157,7 @@ class CartDetailsViewController: ImagePickerViewController {
         
         vc.refreshCheckoutAddress = {
             self.setDefaultAddress()
+            self.presenter?.getDevliveryCost()
         }
         let contentController = vc
         content = contentController
@@ -169,29 +173,31 @@ class CartDetailsViewController: ImagePickerViewController {
     
     @IBAction func selectPaymentMethod(_ sender : UIButton){
         
+                let content: ContentSheetContentProtocol
+                let vc = PaymentMethodViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+                    vc.paymentType = selectedPaymentMethod
+                    vc.applyPaymentMethod = { paymentType in
+                    self.selectedPaymentMethod = paymentType
+                    if paymentType == 1 {
+                        self.selectedPaymentMethodLabel.text = Strings.cash
+                    }else if paymentType == 5 {
+                        self.selectedPaymentMethodLabel.text = Strings.madaPay
+                    }
+                    }
+                let contentController = vc
+                content = contentController
+                let contentSheet = ContentSheet(content: content)
+                contentSheet.blurBackground = false
+                contentSheet.showDefaultHeader = false
+                UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
         
-        //        let content: ContentSheetContentProtocol
-        //        let vc = PaymentMethodViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
-        //        //                           vc.filterType = filterType
-        //        //                           vc.applyFilterPressed = { filterType in
-        //        //                               self.filterType = filterType
-        //        //                               self.presenter?.setFilterType(type: filterType)
-        //        //                               self.presenter?.setSearchText(searchText: self.searchField.text ?? "")
-        //        //                               self.presenter?.itemsSearch()
-        //        //                           }
-        //        let contentController = vc
-        //        content = contentController
-        //        let contentSheet = ContentSheet(content: content)
-        //        contentSheet.blurBackground = false
-        //        contentSheet.showDefaultHeader = false
-        //        UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
-        //
         
         
-        if openPaymentScreen != nil {
-            self.openPaymentScreen?()
-        }
         
+//        if openPaymentScreen != nil {
+//            self.openPaymentScreen?()
+//        }
+
         
         
     }
@@ -199,38 +205,50 @@ class CartDetailsViewController: ImagePickerViewController {
     
     
     @IBAction func addPrescriptionPhotoPressed(_ sneder : UIButton){
-        
         self.completion = { (imge , imgeString) in
             self.prescriptionImage.image = imge
             self.presenter?.setPreprictionImage(image: imge.toBase64() ?? "")
             self.completion = nil
         }
         self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
-        
     }
     
     
     @IBAction func addInsurancePhotoPressed(_ sneder : UIButton){
-        
         self.completion = { (imge , imgeString) in
             self.insuranceImage.image = imge
             self.presenter?.setInsuranceImage(image: imge.toBase64() ?? "")
             self.completion = nil
         }
         self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
-        
     }
-    
-    
-    
     
     @IBAction func nextPressed(_ sender : UIButton){
-        self.presenter?.checkout()
+        if selectedPaymentMethod == -1 {
+            self.showMessage(Strings.paymentMethodSelection)
+        }else{
+            if totalCost > 500.0 && selectedPaymentMethod == 1 {
+                self.showMessage(Strings.cashPayment)
+            }else{
+                if selectedPaymentMethod == 5 {
+                   self.presenter?.prepareCheckout()
+                }else{
+                   self.presenter?.checkout()
+                }
+                
+         
+            }
+        }
     }
-    
     
 }
 extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
+    func setDeliveryCost(cost: String) {
+        deliveryCost = Double(cost) ?? 0.0
+        calcTotalPrice()
+        deliveryCostLabel.text = cost
+    }
+    
     func moveToSuccessScreen() {
         
         if nextPressed != nil {

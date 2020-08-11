@@ -11,7 +11,23 @@
 import Foundation
 
 class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
- 
+    func setPaymentMethod(method: Int) {
+        
+    }
+    
+  
+    func getDevliveryCost() {
+        self.view?.changeState(state: .loading)
+        self.interactor?.getDeliveryCost()
+    }
+    
+   
+    
+    func prepareCheckout(){
+         self.view?.changeState(state: .loading)
+        //5 for madda payment
+         self.interactor?.prepareCheckout(paymentMethodID: 5)
+    }
     
     var view: PresenterToViewCartDetailsProtocol?
     var interactor: PresenterToIntetractorCartDetailsProtocol?
@@ -33,9 +49,7 @@ class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
         checkoutRequest.insuranceNumberImage = image
      }
      
-     func setPaymentMethod(method: Int) {
-         
-     }
+    
      
     
     
@@ -43,6 +57,17 @@ class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
 }
 
 extension CartDetailsPresenter : InteractorToPresenterCartDetailsProtocol {
+    func checkoutIDFetchedSuccessfully(checkoutID: String) {
+        self.view?.changeState(state: .ready)
+        print(checkoutID)
+        //Open Madda SDK to Complete payment
+    }
+    
+    func deliveryCostFetchedSuccessfully(deliveryCost: String) {
+          self.view?.changeState(state: .ready)
+          self.view?.setDeliveryCost(cost: deliveryCost)
+    }
+    
     func checkoutDoneSuccessfully() {
         Utils.emptyLocalCart()
         self.view?.changeState(state: .ready)

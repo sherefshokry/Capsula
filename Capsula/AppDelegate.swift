@@ -34,10 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        GMSServices.provideAPIKey("AIzaSyAy7wIubAmmdvAR2AxeaoBX43FuF5k1m4w")
-        GMSPlacesClient.provideAPIKey("AIzaSyAy7wIubAmmdvAR2AxeaoBX43FuF5k1m4w")
-        //
+        GMSServices.provideAPIKey("AIzaSyCx2XM-jUdvo5cOSJWIBwcayQEL4MO9-OQ")
+        GMSPlacesClient.provideAPIKey("AIzaSyCx2XM-jUdvo5cOSJWIBwcayQEL4MO9-OQ")
+        //AIzaSyAy7wIubAmmdvAR2AxeaoBX43FuF5k1m4w
         
+
         let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
         
         if isDeliveryMan {

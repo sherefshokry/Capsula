@@ -11,17 +11,71 @@
 import UIKit
 import Moya
 class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
+  
+    
+    
+    
     
     var presenter: InteractorToPresenterCartDetailsProtocol?
     private let provider = MoyaProvider<CheckOutDataSource>()
     
     func checkout(request: CheckoutRequest) {
-          
+        
         provider.request(.checkout(request)) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                self.presenter?.checkoutDoneSuccessfully()
+            case .failure(let error):
+                do{
+                    if let body = try error.response?.mapJSON(){
+                        let errorData = (body as! [String:Any])
+                        self.presenter?.checkoutFailed(error: (errorData["errors"] as? String) ?? "")
+                    }
+                }catch{
+                    self.presenter?.checkoutFailed(error: error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    func getDeliveryCost() {
+        provider.request(.getDeliveryCost) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                do {
+                    let deliveryCostResponse = try response.map(BaseResponse<Double>.self)
+                    self.presenter?.deliveryCostFetchedSuccessfully(deliveryCost: String(deliveryCostResponse.data?.rounded(toPlaces: 2) ?? 0.0) )
+                } catch(let catchError) {
+                    self.presenter?.checkoutFailed(error: catchError.localizedDescription)
+                }
+            case .failure(let error):
+                do{
+                    if let body = try error.response?.mapJSON(){
+                        let errorData = (body as! [String:Any])
+                        self.presenter?.checkoutFailed(error: (errorData["errors"] as? String) ?? "")
+                    }
+                }catch{
+                    self.presenter?.checkoutFailed(error: error.localizedDescription)
+                }
+            }
+        }
+        
+    }
+    
+    
+    func prepareCheckout(paymentMethodID: Int) {
+          provider.request(.prepareCheckout(paymentMethodID)) { [weak self] result in
                      guard let self = self else { return }
                      switch result {
                      case .success(let response):
-                        self.presenter?.checkoutDoneSuccessfully()
+                         do {
+                             let checkoutIDResponse = try response.map(BaseResponse<String>.self)
+                            self.presenter?.checkoutIDFetchedSuccessfully(checkoutID: checkoutIDResponse.data ?? "")
+                         } catch(let catchError) {
+                             self.presenter?.checkoutFailed(error: catchError.localizedDescription)
+                         }
                      case .failure(let error):
                          do{
                              if let body = try error.response?.mapJSON(){
@@ -33,9 +87,7 @@ class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
                          }
                      }
                  }
-          
-        }
-      
+      }
     
     
     

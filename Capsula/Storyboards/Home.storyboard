@@ -934,7 +934,7 @@
                                                             <fragment content="Was RSD 130 ">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.25490196078431371" green="0.72549019607843135" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                                                    <font key="NSFont" metaFont="menu" size="14"/>
+                                                                    <font key="NSFont" metaFont="label" size="14"/>
                                                                     <real key="NSStrokeWidth" value="3"/>
                                                                 </attributes>
                                                             </fragment>
@@ -1890,8 +1890,11 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnc-8v-hJ3">
-                                        <rect key="frame" x="22" y="533.5" width="187" height="29"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnc-8v-hJ3">
+                                        <rect key="frame" x="22" y="533.5" width="187" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="YCi-q2-P5Z"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <state key="normal" title="Do you have a promo code ?">
                                             <color key="titleColor" red="0.25490196079999999" green="0.72549019609999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
@@ -1901,13 +1904,13 @@ Vanilla &amp; Almond Oil</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8x-br-lgV">
-                                        <rect key="frame" x="22" y="586.5" width="276" height="19.5"/>
+                                        <rect key="frame" x="22" y="557.5" width="276" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGI-8m-40C" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
-                                        <rect key="frame" x="22" y="622" width="276" height="147"/>
+                                        <rect key="frame" x="22" y="593" width="276" height="147"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD 500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-pd-beg">
                                                 <rect key="frame" x="186" y="20" width="70" height="17"/>
@@ -1989,7 +1992,7 @@ Vanilla &amp; Almond Oil</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlS-br-0uC">
-                                        <rect key="frame" x="60" y="793" width="200" height="55"/>
+                                        <rect key="frame" x="60" y="764" width="200" height="55"/>
                                         <color key="backgroundColor" red="0.054901960780000002" green="0.31764705879999999" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Ner-GF-z39"/>
@@ -2068,6 +2071,7 @@ Vanilla &amp; Almond Oil</string>
                         <outlet property="prescriptionStackView" destination="a5l-OF-qtg" id="44A-Bg-MHO"/>
                         <outlet property="prescriptionStackViewHeight" destination="PpX-Ka-SZA" id="2Po-RE-VZR"/>
                         <outlet property="promoCodeBtn" destination="Wnc-8v-hJ3" id="OqW-hy-hO6"/>
+                        <outlet property="selectedPaymentMethodLabel" destination="qQY-P9-tY6" id="QWO-bh-dyL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14Z-op-lCj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2927,7 +2931,7 @@ Vanilla &amp; Almond Oil</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3sm-Ei-50h">
-                                <rect key="frame" x="22" y="89.5" width="276" height="289"/>
+                                <rect key="frame" x="22" y="89.5" width="276" height="106"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QW-Vk-oPU">
                                         <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
@@ -2947,6 +2951,9 @@ Vanilla &amp; Almond Oil</string>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDs-Y8-cAU">
                                                 <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
+                                                <connections>
+                                                    <action selector="cashPressed:" destination="Q8C-g9-ArS" eventType="touchUpInside" id="MJt-BV-R6a"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCash" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-cX-sjn">
                                                 <rect key="frame" x="16" y="7.5" width="30" height="30"/>
@@ -2982,8 +2989,64 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nW-qb-nAm">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-xs-GkB">
                                         <rect key="frame" x="0.0" y="61" width="276" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJZ-Ei-phR">
+                                                <rect key="frame" x="54" y="14" width="36" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icNotSelected" translatesAutoresizingMaskIntoConstraints="NO" id="kkh-O2-Yi2">
+                                                <rect key="frame" x="252" y="14.5" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="X4d-5u-Eg8"/>
+                                                    <constraint firstAttribute="height" constant="16" id="vDb-wp-cXa"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVd-FU-49x">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
+                                                <connections>
+                                                    <action selector="maddaPressed:" destination="Q8C-g9-ArS" eventType="touchUpInside" id="arZ-uk-BIE"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMada" translatesAutoresizingMaskIntoConstraints="NO" id="0A4-cR-Prt">
+                                                <rect key="frame" x="16" y="7.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2xd-VA-r2M"/>
+                                                    <constraint firstAttribute="width" constant="30" id="5kk-Wu-ioS"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="zVd-FU-49x" firstAttribute="leading" secondItem="QQ1-xs-GkB" secondAttribute="leading" id="5Hq-XF-ZDC"/>
+                                            <constraint firstAttribute="trailing" secondItem="zVd-FU-49x" secondAttribute="trailing" id="A0m-z5-PrJ"/>
+                                            <constraint firstAttribute="height" constant="45" id="LWB-ey-9Os"/>
+                                            <constraint firstItem="qJZ-Ei-phR" firstAttribute="centerY" secondItem="QQ1-xs-GkB" secondAttribute="centerY" id="N1z-jh-5qu"/>
+                                            <constraint firstItem="zVd-FU-49x" firstAttribute="top" secondItem="QQ1-xs-GkB" secondAttribute="top" id="TIC-fT-GTA"/>
+                                            <constraint firstAttribute="trailing" secondItem="kkh-O2-Yi2" secondAttribute="trailing" constant="8" id="Xvh-sd-f0t"/>
+                                            <constraint firstItem="kkh-O2-Yi2" firstAttribute="centerY" secondItem="QQ1-xs-GkB" secondAttribute="centerY" id="YQf-KM-K0t"/>
+                                            <constraint firstItem="0A4-cR-Prt" firstAttribute="leading" secondItem="QQ1-xs-GkB" secondAttribute="leading" constant="16" id="h58-3d-KE6"/>
+                                            <constraint firstItem="0A4-cR-Prt" firstAttribute="centerY" secondItem="QQ1-xs-GkB" secondAttribute="centerY" id="sLb-M7-vaL"/>
+                                            <constraint firstAttribute="bottom" secondItem="zVd-FU-49x" secondAttribute="bottom" id="tKx-Dc-yvA"/>
+                                            <constraint firstItem="qJZ-Ei-phR" firstAttribute="leading" secondItem="0A4-cR-Prt" secondAttribute="trailing" constant="8" id="zS4-nC-Wbq"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.87843137250000003" green="0.90980392160000001" blue="0.93333333330000001" alpha="1" colorSpace="deviceRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nW-qb-nAm">
+                                        <rect key="frame" x="0.0" y="106" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkf-86-OIh">
                                                 <rect key="frame" x="54" y="14" width="74.5" height="17"/>
@@ -3035,8 +3098,8 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gQ-V1-oEz">
-                                        <rect key="frame" x="0.0" y="122" width="276" height="45"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gQ-V1-oEz">
+                                        <rect key="frame" x="0.0" y="106" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUa-uT-OUo">
                                                 <rect key="frame" x="54" y="14" width="64.5" height="17"/>
@@ -3088,8 +3151,8 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-GS-fYm">
-                                        <rect key="frame" x="0.0" y="183" width="276" height="45"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-GS-fYm">
+                                        <rect key="frame" x="0.0" y="106" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STC Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKz-Fg-cFx">
                                                 <rect key="frame" x="54" y="14" width="54" height="17"/>
@@ -3141,63 +3204,10 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-xs-GkB">
-                                        <rect key="frame" x="0.0" y="244" width="276" height="45"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJZ-Ei-phR">
-                                                <rect key="frame" x="54" y="14" width="36" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icNotSelected" translatesAutoresizingMaskIntoConstraints="NO" id="kkh-O2-Yi2">
-                                                <rect key="frame" x="252" y="14.5" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="16" id="X4d-5u-Eg8"/>
-                                                    <constraint firstAttribute="height" constant="16" id="vDb-wp-cXa"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVd-FU-49x">
-                                                <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMada" translatesAutoresizingMaskIntoConstraints="NO" id="0A4-cR-Prt">
-                                                <rect key="frame" x="16" y="7.5" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="2xd-VA-r2M"/>
-                                                    <constraint firstAttribute="width" constant="30" id="5kk-Wu-ioS"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="zVd-FU-49x" firstAttribute="leading" secondItem="QQ1-xs-GkB" secondAttribute="leading" id="5Hq-XF-ZDC"/>
-                                            <constraint firstAttribute="trailing" secondItem="zVd-FU-49x" secondAttribute="trailing" id="A0m-z5-PrJ"/>
-                                            <constraint firstAttribute="height" constant="45" id="LWB-ey-9Os"/>
-                                            <constraint firstItem="qJZ-Ei-phR" firstAttribute="centerY" secondItem="QQ1-xs-GkB" secondAttribute="centerY" id="N1z-jh-5qu"/>
-                                            <constraint firstItem="zVd-FU-49x" firstAttribute="top" secondItem="QQ1-xs-GkB" secondAttribute="top" id="TIC-fT-GTA"/>
-                                            <constraint firstAttribute="trailing" secondItem="kkh-O2-Yi2" secondAttribute="trailing" constant="8" id="Xvh-sd-f0t"/>
-                                            <constraint firstItem="kkh-O2-Yi2" firstAttribute="centerY" secondItem="QQ1-xs-GkB" secondAttribute="centerY" id="YQf-KM-K0t"/>
-                                            <constraint firstItem="0A4-cR-Prt" firstAttribute="leading" secondItem="QQ1-xs-GkB" secondAttribute="leading" constant="16" id="h58-3d-KE6"/>
-                                            <constraint firstItem="0A4-cR-Prt" firstAttribute="centerY" secondItem="QQ1-xs-GkB" secondAttribute="centerY" id="sLb-M7-vaL"/>
-                                            <constraint firstAttribute="bottom" secondItem="zVd-FU-49x" secondAttribute="bottom" id="tKx-Dc-yvA"/>
-                                            <constraint firstItem="qJZ-Ei-phR" firstAttribute="leading" secondItem="0A4-cR-Prt" secondAttribute="trailing" constant="8" id="zS4-nC-Wbq"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.87843137250000003" green="0.90980392160000001" blue="0.93333333330000001" alpha="1" colorSpace="deviceRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW0-gh-zBc">
-                                <rect key="frame" x="60" y="394.5" width="200" height="55"/>
+                                <rect key="frame" x="60" y="211.5" width="200" height="55"/>
                                 <color key="backgroundColor" red="0.054901960780000002" green="0.31764705879999999" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="c6X-lp-LNH"/>
@@ -3230,6 +3240,8 @@ Vanilla &amp; Almond Oil</string>
                         <viewLayoutGuide key="safeArea" id="odE-W5-bV2"/>
                     </view>
                     <connections>
+                        <outlet property="cashSelectedIcon" destination="7s2-cL-spY" id="BV7-Ug-Jgf"/>
+                        <outlet property="madaSelectedIcon" destination="kkh-O2-Yi2" id="qGB-d6-Ca0"/>
                         <outlet property="topView" destination="2u4-0d-3QV" id="9NF-HR-Ox1"/>
                     </connections>
                 </viewController>
@@ -3352,7 +3364,6 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="applyPaymentMethodPressed:" destination="Q8C-g9-ArS" eventType="touchUpInside" id="wtb-SF-IBb"/>
                                             <action selector="applyPressed:" destination="0UZ-up-kf1" eventType="touchUpInside" id="nzn-0X-Jd9"/>
                                         </connections>
                                     </button>
@@ -4407,74 +4418,32 @@ Vanilla &amp; Almond Oil</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="493"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeliveryOrderCell" id="fui-GM-ME6" customClass="DeliveryOrderCell" customModule="Capsula" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="226"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeliveryOrderCell" id="vXy-xp-DhO" customClass="DeliveryOrderCell" customModule="Capsula" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="246"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fui-GM-ME6" id="0LO-zP-hPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vXy-xp-DhO" id="BA8-GB-jrR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q77-u9-dPP" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
-                                                    <rect key="frame" x="22" y="8" width="276" height="210"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYe-0s-XGI" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
+                                                    <rect key="frame" x="22" y="8" width="276" height="230"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dlivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OME-GY-8ua">
-                                                            <rect key="frame" x="16" y="133.5" width="101" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De0-JY-yGp">
-                                                            <rect key="frame" x="16" y="155.5" width="244" height="43"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID : ABC123DDc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-UE-wnd">
-                                                            <rect key="frame" x="16" y="16" width="134" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50588235294117645" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v33-IE-9o4">
-                                                            <rect key="frame" x="16" y="38.5" width="54" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huney Bunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hy-QT-9G7">
-                                                            <rect key="frame" x="16" y="58.5" width="99" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEX-z5-OeU">
-                                                            <rect key="frame" x="16" y="86" width="96.5" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+96 123 342 234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7E-sO-oHj">
-                                                            <rect key="frame" x="16" y="106" width="129.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-ih-xK3">
-                                                            <rect key="frame" x="166" y="10" width="105" height="24"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biA-gD-njG">
+                                                            <rect key="frame" x="171" y="10" width="105" height="24"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22A-y8-1Gn">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODf-Mz-8sZ">
                                                                     <rect key="frame" x="20.5" y="5" width="64" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" red="0.21568627450980393" green="0.71372549019607845" blue="1" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
+                                                                    <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="deviceRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="105" id="MzJ-Fr-guN"/>
-                                                                <constraint firstItem="22A-y8-1Gn" firstAttribute="centerY" secondItem="fcm-ih-xK3" secondAttribute="centerY" id="ggB-C3-XtN"/>
-                                                                <constraint firstItem="22A-y8-1Gn" firstAttribute="centerX" secondItem="fcm-ih-xK3" secondAttribute="centerX" id="hur-c4-FxP"/>
-                                                                <constraint firstAttribute="height" constant="24" id="uC8-6V-HW5"/>
+                                                                <constraint firstItem="ODf-Mz-8sZ" firstAttribute="centerY" secondItem="biA-gD-njG" secondAttribute="centerY" id="3zk-Qg-7II"/>
+                                                                <constraint firstItem="ODf-Mz-8sZ" firstAttribute="centerX" secondItem="biA-gD-njG" secondAttribute="centerX" id="JgO-sY-sAy"/>
+                                                                <constraint firstAttribute="width" constant="105" id="ZbW-De-Njt"/>
+                                                                <constraint firstAttribute="height" constant="24" id="dFf-N1-V4w"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -4482,41 +4451,98 @@ Vanilla &amp; Almond Oil</string>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dlivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xeu-lG-gXh">
+                                                            <rect key="frame" x="16" y="133.5" width="101" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…b Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wg4-gF-ySG">
+                                                            <rect key="frame" x="16" y="155.5" width="244" height="43"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID : ABC123DDc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SJ-45-Eqa">
+                                                            <rect key="frame" x="16" y="16" width="134" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50588235290000005" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjh-L3-2Uk">
+                                                            <rect key="frame" x="16" y="38.5" width="54" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huney Bunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6s-fV-4cG">
+                                                            <rect key="frame" x="16" y="58.5" width="99" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXG-3C-DvT">
+                                                            <rect key="frame" x="16" y="86" width="96.5" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+96 123 342 234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ3-xh-fTM">
+                                                            <rect key="frame" x="16" y="106" width="129.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X48-po-bFP">
+                                                            <rect key="frame" x="210" y="203.5" width="50" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="YTJ-e4-kAI"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="Navigate">
+                                                                <color key="titleColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="navigatePressed:" destination="vXy-xp-DhO" eventType="touchUpInside" id="nAk-Fd-iKS"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="v33-IE-9o4" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="0Va-lp-wZy"/>
-                                                        <constraint firstItem="3hy-QT-9G7" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="3ff-HR-LgU"/>
-                                                        <constraint firstItem="sWG-UE-wnd" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="JR1-By-nLW"/>
-                                                        <constraint firstItem="eEX-z5-OeU" firstAttribute="top" secondItem="3hy-QT-9G7" secondAttribute="bottom" constant="8" id="SdV-WV-nXM"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fcm-ih-xK3" secondAttribute="trailing" constant="5" id="UHb-vM-dbc"/>
-                                                        <constraint firstItem="s7E-sO-oHj" firstAttribute="top" secondItem="eEX-z5-OeU" secondAttribute="bottom" constant="3" id="UJ8-Mi-qti"/>
-                                                        <constraint firstItem="OME-GY-8ua" firstAttribute="top" secondItem="s7E-sO-oHj" secondAttribute="bottom" constant="8" id="Veg-rQ-oPG"/>
-                                                        <constraint firstItem="De0-JY-yGp" firstAttribute="top" secondItem="OME-GY-8ua" secondAttribute="bottom" constant="5" id="cQr-g0-FYk"/>
-                                                        <constraint firstItem="De0-JY-yGp" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="dFw-3r-Qoh"/>
-                                                        <constraint firstAttribute="trailing" secondItem="De0-JY-yGp" secondAttribute="trailing" constant="16" id="ea1-1F-dpb"/>
-                                                        <constraint firstAttribute="height" constant="210" id="f6k-kt-pBE"/>
-                                                        <constraint firstItem="sWG-UE-wnd" firstAttribute="top" secondItem="Q77-u9-dPP" secondAttribute="top" constant="16" id="fZY-Bh-6ZR"/>
-                                                        <constraint firstItem="3hy-QT-9G7" firstAttribute="top" secondItem="v33-IE-9o4" secondAttribute="bottom" constant="3" id="g5k-3y-vr2"/>
-                                                        <constraint firstItem="s7E-sO-oHj" firstAttribute="top" secondItem="eEX-z5-OeU" secondAttribute="bottom" constant="3" id="m1L-3w-KMu"/>
-                                                        <constraint firstItem="v33-IE-9o4" firstAttribute="top" secondItem="sWG-UE-wnd" secondAttribute="bottom" constant="8" id="rAM-1J-4ey"/>
-                                                        <constraint firstItem="OME-GY-8ua" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="uXK-Bb-NXy"/>
-                                                        <constraint firstItem="s7E-sO-oHj" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="vSO-04-Dea"/>
-                                                        <constraint firstItem="eEX-z5-OeU" firstAttribute="leading" secondItem="Q77-u9-dPP" secondAttribute="leading" constant="16" id="wgL-RP-1NO"/>
-                                                        <constraint firstItem="fcm-ih-xK3" firstAttribute="top" secondItem="Q77-u9-dPP" secondAttribute="top" constant="10" id="yDp-Yu-hfj"/>
+                                                        <constraint firstItem="Wg4-gF-ySG" firstAttribute="top" secondItem="Xeu-lG-gXh" secondAttribute="bottom" constant="5" id="34V-tV-Tlw"/>
+                                                        <constraint firstItem="X48-po-bFP" firstAttribute="top" secondItem="Wg4-gF-ySG" secondAttribute="bottom" constant="5" id="55I-gE-9C1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Wg4-gF-ySG" secondAttribute="trailing" constant="16" id="7DR-db-7xg"/>
+                                                        <constraint firstItem="Xeu-lG-gXh" firstAttribute="top" secondItem="RJ3-xh-fTM" secondAttribute="bottom" constant="8" id="8oV-1C-S9A"/>
+                                                        <constraint firstItem="NXG-3C-DvT" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="A8f-AM-aZl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="biA-gD-njG" secondAttribute="trailing" id="BsF-3q-wiD"/>
+                                                        <constraint firstItem="Xeu-lG-gXh" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="DQ7-QW-xbP"/>
+                                                        <constraint firstItem="RJ3-xh-fTM" firstAttribute="top" secondItem="NXG-3C-DvT" secondAttribute="bottom" constant="3" id="EOS-tP-cCa"/>
+                                                        <constraint firstItem="7SJ-45-Eqa" firstAttribute="top" secondItem="fYe-0s-XGI" secondAttribute="top" constant="16" id="Jg3-9L-MVO"/>
+                                                        <constraint firstItem="NXG-3C-DvT" firstAttribute="top" secondItem="y6s-fV-4cG" secondAttribute="bottom" constant="8" id="Lrn-4b-tec"/>
+                                                        <constraint firstItem="Pjh-L3-2Uk" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="UB4-JS-V87"/>
+                                                        <constraint firstItem="y6s-fV-4cG" firstAttribute="top" secondItem="Pjh-L3-2Uk" secondAttribute="bottom" constant="3" id="UEX-9n-O5O"/>
+                                                        <constraint firstItem="RJ3-xh-fTM" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="ULL-yT-drD"/>
+                                                        <constraint firstItem="Pjh-L3-2Uk" firstAttribute="top" secondItem="7SJ-45-Eqa" secondAttribute="bottom" constant="8" id="cic-Bh-Ydr"/>
+                                                        <constraint firstAttribute="height" constant="230" id="cqz-fm-aRa"/>
+                                                        <constraint firstItem="7SJ-45-Eqa" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="ehD-1W-mrI"/>
+                                                        <constraint firstItem="biA-gD-njG" firstAttribute="top" secondItem="fYe-0s-XGI" secondAttribute="top" constant="10" id="etO-lS-Fda"/>
+                                                        <constraint firstItem="y6s-fV-4cG" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="fI5-Xn-PAP"/>
+                                                        <constraint firstItem="RJ3-xh-fTM" firstAttribute="top" secondItem="NXG-3C-DvT" secondAttribute="bottom" constant="3" id="kw8-ho-r8D"/>
+                                                        <constraint firstAttribute="trailing" secondItem="X48-po-bFP" secondAttribute="trailing" constant="16" id="tZh-uM-K73"/>
+                                                        <constraint firstItem="Wg4-gF-ySG" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="xsp-cO-ur7"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="20"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOffset">
-                                                            <real key="value" value="0.29999999999999999"/>
+                                                            <real key="value" value="0.20000000000000001"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                             <real key="value" value="0.29999999999999999"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                            <color key="value" red="0.1843137255" green="0.25882352939999997" blue="0.33725490200000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.1843137255" green="0.25882352939999997" blue="0.33725490200000002" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
                                                             <real key="value" value="10"/>
@@ -4526,20 +4552,21 @@ Vanilla &amp; Almond Oil</string>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Q77-u9-dPP" firstAttribute="leading" secondItem="0LO-zP-hPy" secondAttribute="leading" constant="22" id="4zZ-J7-C1P"/>
-                                                <constraint firstAttribute="bottom" secondItem="Q77-u9-dPP" secondAttribute="bottom" constant="8" id="Nn8-gQ-4N6"/>
-                                                <constraint firstAttribute="trailing" secondItem="Q77-u9-dPP" secondAttribute="trailing" constant="22" id="ihS-1y-0OZ"/>
-                                                <constraint firstItem="Q77-u9-dPP" firstAttribute="top" secondItem="0LO-zP-hPy" secondAttribute="top" constant="8" id="vEA-Uz-ryo"/>
+                                                <constraint firstItem="fYe-0s-XGI" firstAttribute="top" secondItem="BA8-GB-jrR" secondAttribute="top" constant="8" id="AFK-Ll-c9G"/>
+                                                <constraint firstAttribute="trailing" secondItem="fYe-0s-XGI" secondAttribute="trailing" constant="22" id="KuZ-Ej-cMg"/>
+                                                <constraint firstItem="fYe-0s-XGI" firstAttribute="leading" secondItem="BA8-GB-jrR" secondAttribute="leading" constant="22" id="Z4b-rn-VS4"/>
+                                                <constraint firstAttribute="bottom" secondItem="fYe-0s-XGI" secondAttribute="bottom" constant="8" id="uaw-tE-btx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="orderAddress" destination="De0-JY-yGp" id="VjL-C7-nwi"/>
-                                            <outlet property="orderID" destination="sWG-UE-wnd" id="MOI-5o-lRs"/>
-                                            <outlet property="orderStatusLabel" destination="22A-y8-1Gn" id="R3S-Or-hFR"/>
-                                            <outlet property="orderStatusView" destination="fcm-ih-xK3" id="Dot-96-TKz"/>
-                                            <outlet property="orderToLabel" destination="3hy-QT-9G7" id="GMv-Fg-PdI"/>
-                                            <outlet property="phoneNumber" destination="s7E-sO-oHj" id="jzA-x2-CHK"/>
+                                            <outlet property="navigateBtn" destination="X48-po-bFP" id="Kd3-ig-Ctj"/>
+                                            <outlet property="orderAddress" destination="Wg4-gF-ySG" id="iLe-Bk-SO7"/>
+                                            <outlet property="orderID" destination="7SJ-45-Eqa" id="sAZ-Gt-bR4"/>
+                                            <outlet property="orderStatusLabel" destination="ODf-Mz-8sZ" id="TmK-PT-FQ3"/>
+                                            <outlet property="orderStatusView" destination="biA-gD-njG" id="5Y3-VJ-xxT"/>
+                                            <outlet property="orderToLabel" destination="y6s-fV-4cG" id="eQ4-Ns-bRp"/>
+                                            <outlet property="phoneNumber" destination="RJ3-xh-fTM" id="Itu-Gv-JNL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -4722,14 +4749,14 @@ Vanilla &amp; Almond Oil</string>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeliveryOrderCell" id="SI8-1z-YcM" customClass="DeliveryOrderCell" customModule="Capsula" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="226"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="246"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SI8-1z-YcM" id="2tr-ZM-KzM">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grb-Nd-aRi" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
-                                                    <rect key="frame" x="22" y="8" width="276" height="210"/>
+                                                    <rect key="frame" x="22" y="8" width="276" height="230"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spI-44-pki">
                                                             <rect key="frame" x="171" y="10" width="105" height="24"/>
@@ -4760,7 +4787,7 @@ Vanilla &amp; Almond Oil</string>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwH-e5-qNQ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…b Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwH-e5-qNQ">
                                                             <rect key="frame" x="16" y="155.5" width="244" height="43"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
@@ -4796,13 +4823,28 @@ Vanilla &amp; Almond Oil</string>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-j4-qZs">
+                                                            <rect key="frame" x="210" y="203.5" width="50" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="wcn-xB-8XI"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="Navigate">
+                                                                <color key="titleColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="navigatePressed:" destination="SI8-1z-YcM" eventType="touchUpInside" id="DuN-Ng-hAK"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="210" id="0uB-9j-2H8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nof-j4-qZs" secondAttribute="trailing" constant="16" id="0AC-hO-awa"/>
+                                                        <constraint firstAttribute="height" constant="230" id="0uB-9j-2H8"/>
                                                         <constraint firstAttribute="trailing" secondItem="spI-44-pki" secondAttribute="trailing" id="9bN-Bq-U9r"/>
                                                         <constraint firstItem="Ayz-0e-Qpp" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="C78-be-7j7"/>
                                                         <constraint firstItem="wrw-vG-6Ss" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="CL4-Id-2OQ"/>
+                                                        <constraint firstItem="Nof-j4-qZs" firstAttribute="top" secondItem="iwH-e5-qNQ" secondAttribute="bottom" constant="5" id="FyP-Mm-Fax"/>
                                                         <constraint firstItem="spI-44-pki" firstAttribute="top" secondItem="grb-Nd-aRi" secondAttribute="top" constant="10" id="GkI-PZ-d19"/>
                                                         <constraint firstItem="3lW-9N-rwk" firstAttribute="top" secondItem="vAv-g4-18K" secondAttribute="bottom" constant="8" id="HiQ-re-HqM"/>
                                                         <constraint firstItem="wrw-vG-6Ss" firstAttribute="top" secondItem="grb-Nd-aRi" secondAttribute="top" constant="16" id="JWR-1T-LYN"/>
@@ -4848,6 +4890,7 @@ Vanilla &amp; Almond Oil</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="navigateBtn" destination="Nof-j4-qZs" id="FcB-PV-cLU"/>
                                             <outlet property="orderAddress" destination="iwH-e5-qNQ" id="IYW-xS-rkM"/>
                                             <outlet property="orderID" destination="wrw-vG-6Ss" id="jVy-IY-ami"/>
                                             <outlet property="orderStatusLabel" destination="wl3-FE-S4D" id="wnl-rK-OyK"/>
@@ -4887,7 +4930,7 @@ Vanilla &amp; Almond Oil</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ykc-9Q-Pou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2702" y="-13"/>
+            <point key="canvasLocation" x="-2760" y="-12"/>
         </scene>
         <!--Delivery Filter History OrdersVC-->
         <scene sceneID="G4J-3M-Bga">
