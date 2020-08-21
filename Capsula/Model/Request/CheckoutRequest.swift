@@ -14,7 +14,7 @@ public class CheckoutRequest  : Codable {
     var paymentMethod = 1
     var prescriptionImage = ""
     var insuranceNumberImage = ""
-
+    var resourcePath = ""
     
     init(){
     }
@@ -24,6 +24,8 @@ public class CheckoutRequest  : Codable {
         params["paymentMethodType"] = paymentMethod
         params["prescriptionImage"] = prescriptionImage
         params["insuranceNumberImage"] = insuranceNumberImage
+        params["resourcePath"] = resourcePath
         return params
+        
     }
 }

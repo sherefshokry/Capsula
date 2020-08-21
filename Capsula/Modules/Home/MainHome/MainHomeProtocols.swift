@@ -16,7 +16,7 @@ protocol ViewToPresenterMainHomeProtocol: class {
     var interactor : PresenterToIntetractorMainHomeProtocol? {get set}
     var router : PresenterToRouterMainHomeProtocol? {get set}
     var numberOfRows : Int { get }
-    func configureStoreCell(cell : CategoryCell , indexPath : IndexPath)
+    func configureStoreCell(cell : StoreCell , indexPath : IndexPath)
     func getStoresData()
     func didSelectStore(indexPath : IndexPath)
     

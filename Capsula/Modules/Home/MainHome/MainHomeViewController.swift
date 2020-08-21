@@ -81,7 +81,7 @@ class MainHomeViewController : UIViewController {
     }
     
     func setupCollectionViewLayout(){
-        collectionView.register(UINib.init(nibName: CategoryCell.identifier, bundle: nil), forCellWithReuseIdentifier: CategoryCell.identifier)
+        collectionView.register(UINib.init(nibName: StoreCell.identifier, bundle: nil), forCellWithReuseIdentifier: StoreCell.identifier)
     }
     
     func setHomeData(){
@@ -146,7 +146,7 @@ extension MainHomeViewController : UICollectionViewDelegate , UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
+         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCell.identifier, for: indexPath) as! StoreCell
          self.presenter?.configureStoreCell(cell: cell, indexPath: indexPath)
         
           return cell

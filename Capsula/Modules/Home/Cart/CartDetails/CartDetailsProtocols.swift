@@ -12,23 +12,23 @@ import Foundation
 import UIKit
 
 protocol ViewToPresenterCartDetailsProtocol: class {
-    
     var view : PresenterToViewCartDetailsProtocol? {get set}
     var interactor : PresenterToIntetractorCartDetailsProtocol? {get set}
     var router : PresenterToRouterCartDetailsProtocol? {get set}
     func checkout()
+    func checkout(resourcePath : String,paymentMethod : Int)
     func getDevliveryCost()
-    func prepareCheckout()
+    func prepareCheckout(paymentMethod: Int)
     func setPreprictionImage(image : String)
     func setInsuranceImage(image : String)
     func setPaymentMethod(method : Int)
-   
 }
 
 protocol PresenterToViewCartDetailsProtocol: class {
    func changeState(state : State)
    func moveToSuccessScreen()
-    func setDeliveryCost(cost : String)
+   func openPaymentScreen(checkoutID : String,paymentMethod: Int)
+   func setDeliveryCost(cost : DeliveryCostResponse)
 }
 
 protocol PresenterToIntetractorCartDetailsProtocol: class {
@@ -44,8 +44,8 @@ protocol PresenterToRouterCartDetailsProtocol: class  {
 }
 
 protocol InteractorToPresenterCartDetailsProtocol: class {
-   func deliveryCostFetchedSuccessfully(deliveryCost : String)
-   func checkoutIDFetchedSuccessfully(checkoutID : String)
+   func deliveryCostFetchedSuccessfully(deliveryCost : DeliveryCostResponse)
+   func checkoutIDFetchedSuccessfully(checkoutID : String, paymentMethodID : Int)
    func checkoutDoneSuccessfully()
    func checkoutFailed(error: String)
 }

@@ -32,7 +32,7 @@ class MainHomePresenter : ViewToPresenterMainHomeProtocol{
         return storesData.count
     }
     
-    func configureStoreCell(cell: CategoryCell, indexPath: IndexPath) {
+    func configureStoreCell(cell: StoreCell, indexPath: IndexPath) {
         cell.setStoreData(store: storesData[indexPath.item])
     }
     

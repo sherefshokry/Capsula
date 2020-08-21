@@ -11,6 +11,8 @@
 import UIKit
 import Moya
 class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
+   
+    
   
     
     
@@ -39,14 +41,16 @@ class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
         }
     }
     
+    
+    
     func getDeliveryCost() {
         provider.request(.getDeliveryCost) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
                 do {
-                    let deliveryCostResponse = try response.map(BaseResponse<Double>.self)
-                    self.presenter?.deliveryCostFetchedSuccessfully(deliveryCost: String(deliveryCostResponse.data?.rounded(toPlaces: 2) ?? 0.0) )
+                    let deliveryCostResponse = try response.map(BaseResponse<DeliveryCostResponse>.self)
+                    self.presenter?.deliveryCostFetchedSuccessfully(deliveryCost: deliveryCostResponse.data ?? DeliveryCostResponse() )
                 } catch(let catchError) {
                     self.presenter?.checkoutFailed(error: catchError.localizedDescription)
                 }
@@ -72,7 +76,7 @@ class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
                      case .success(let response):
                          do {
                              let checkoutIDResponse = try response.map(BaseResponse<String>.self)
-                            self.presenter?.checkoutIDFetchedSuccessfully(checkoutID: checkoutIDResponse.data ?? "")
+                            self.presenter?.checkoutIDFetchedSuccessfully(checkoutID: checkoutIDResponse.data ?? "" ,paymentMethodID : paymentMethodID)
                          } catch(let catchError) {
                              self.presenter?.checkoutFailed(error: catchError.localizedDescription)
                          }

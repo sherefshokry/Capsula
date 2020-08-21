@@ -934,7 +934,7 @@
                                                             <fragment content="Was RSD 130 ">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.25490196078431371" green="0.72549019607843135" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                                                    <font key="NSFont" metaFont="label" size="14"/>
+                                                                    <font key="NSFont" metaFont="menu" size="14"/>
                                                                     <real key="NSStrokeWidth" value="3"/>
                                                                 </attributes>
                                                             </fragment>
@@ -1925,7 +1925,7 @@ Vanilla &amp; Almond Oil</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-eC-Jed">
-                                                <rect key="frame" x="16" y="20" width="150" height="76"/>
+                                                <rect key="frame" x="16" y="20" width="150" height="105"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mO-NN-wEs">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="17"/>
@@ -1939,8 +1939,14 @@ Vanilla &amp; Almond Oil</string>
                                                         <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-QG-Kc2">
+                                                        <rect key="frame" x="0.0" y="58" width="150" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awl-Zt-AwW">
-                                                        <rect key="frame" x="0.0" y="58" width="150" height="18"/>
+                                                        <rect key="frame" x="0.0" y="87" width="150" height="18"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <color key="textColor" red="0.21568627450980393" green="0.71372549019607845" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1951,23 +1957,30 @@ Vanilla &amp; Almond Oil</string>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD 510" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCD-A0-wrr">
-                                                <rect key="frame" x="186" y="78" width="70" height="18"/>
+                                                <rect key="frame" x="186" y="107" width="62" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.21568627450980393" green="0.71372549019607845" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEQ-jO-Hrr">
+                                                <rect key="frame" x="186" y="78" width="28" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="JCD-A0-wrr" secondAttribute="trailing" constant="20" id="JPg-dT-B87"/>
-                                            <constraint firstItem="JCD-A0-wrr" firstAttribute="leading" secondItem="XQw-eC-Jed" secondAttribute="trailing" constant="20" id="JS1-WQ-mO7"/>
+                                            <constraint firstItem="JCD-A0-wrr" firstAttribute="top" secondItem="VEQ-jO-Hrr" secondAttribute="bottom" constant="12" id="5TN-iQ-S2o"/>
+                                            <constraint firstItem="VEQ-jO-Hrr" firstAttribute="leading" secondItem="13j-TA-sj6" secondAttribute="leading" id="EO0-x9-8Yy"/>
                                             <constraint firstItem="jyy-pd-beg" firstAttribute="top" secondItem="FGI-8m-40C" secondAttribute="top" constant="20" id="Ld0-0e-SxT"/>
                                             <constraint firstItem="jyy-pd-beg" firstAttribute="leading" secondItem="XQw-eC-Jed" secondAttribute="trailing" constant="20" id="P8i-5j-fwp"/>
                                             <constraint firstItem="XQw-eC-Jed" firstAttribute="leading" secondItem="FGI-8m-40C" secondAttribute="leading" constant="16" id="PGn-4u-1JT"/>
+                                            <constraint firstItem="JCD-A0-wrr" firstAttribute="leading" secondItem="VEQ-jO-Hrr" secondAttribute="leading" id="Uqk-cv-Vut"/>
                                             <constraint firstItem="13j-TA-sj6" firstAttribute="leading" secondItem="XQw-eC-Jed" secondAttribute="trailing" constant="20" id="Y3V-rY-elA"/>
                                             <constraint firstAttribute="trailing" secondItem="jyy-pd-beg" secondAttribute="trailing" constant="20" id="ZPG-rw-3mp"/>
-                                            <constraint firstItem="JCD-A0-wrr" firstAttribute="top" secondItem="13j-TA-sj6" secondAttribute="bottom" constant="12" id="ZSp-yW-sE5"/>
                                             <constraint firstAttribute="height" constant="147" id="aFM-6k-k5z"/>
+                                            <constraint firstItem="VEQ-jO-Hrr" firstAttribute="top" secondItem="13j-TA-sj6" secondAttribute="bottom" constant="12" id="blZ-Na-vbw"/>
                                             <constraint firstAttribute="trailing" secondItem="13j-TA-sj6" secondAttribute="trailing" constant="20" id="hIJ-0m-USA"/>
                                             <constraint firstItem="XQw-eC-Jed" firstAttribute="top" secondItem="FGI-8m-40C" secondAttribute="top" constant="20" id="jGQ-1S-I9J"/>
                                             <constraint firstItem="13j-TA-sj6" firstAttribute="top" secondItem="jyy-pd-beg" secondAttribute="bottom" constant="12" id="oaT-Ti-238"/>
@@ -2061,6 +2074,7 @@ Vanilla &amp; Almond Oil</string>
                         <viewLayoutGuide key="safeArea" id="FzD-ko-B3h"/>
                     </view>
                     <connections>
+                        <outlet property="VAT" destination="VEQ-jO-Hrr" id="toc-LM-qvP"/>
                         <outlet property="addressDesc" destination="NXb-l0-GBl" id="sqy-cX-Ayj"/>
                         <outlet property="deliveryCostLabel" destination="13j-TA-sj6" id="p5S-0P-Neh"/>
                         <outlet property="estimatedTotalLabel" destination="JCD-A0-wrr" id="lC3-8Q-aaS"/>
@@ -2931,7 +2945,7 @@ Vanilla &amp; Almond Oil</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3sm-Ei-50h">
-                                <rect key="frame" x="22" y="89.5" width="276" height="106"/>
+                                <rect key="frame" x="22" y="89.5" width="276" height="167"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QW-Vk-oPU">
                                         <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
@@ -2989,8 +3003,64 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-xs-GkB">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nW-qb-nAm">
                                         <rect key="frame" x="0.0" y="61" width="276" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkf-86-OIh">
+                                                <rect key="frame" x="54" y="14" width="74.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icNotSelected" translatesAutoresizingMaskIntoConstraints="NO" id="fOZ-eV-aDW">
+                                                <rect key="frame" x="252" y="14.5" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="In7-f8-VCA"/>
+                                                    <constraint firstAttribute="width" constant="16" id="Iz8-Xl-83D"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5l9-fv-wq3">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
+                                                <connections>
+                                                    <action selector="visaPressed:" destination="Q8C-g9-ArS" eventType="touchUpInside" id="4mI-F2-dyJ"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCredit" translatesAutoresizingMaskIntoConstraints="NO" id="kPF-l0-1aF">
+                                                <rect key="frame" x="16" y="7.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="bJm-7i-6kR"/>
+                                                    <constraint firstAttribute="height" constant="30" id="h00-wS-zmc"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="5l9-fv-wq3" secondAttribute="bottom" id="D9u-RY-I55"/>
+                                            <constraint firstAttribute="trailing" secondItem="fOZ-eV-aDW" secondAttribute="trailing" constant="8" id="Dmg-fo-mLW"/>
+                                            <constraint firstItem="kPF-l0-1aF" firstAttribute="leading" secondItem="8nW-qb-nAm" secondAttribute="leading" constant="16" id="GPO-6O-KU5"/>
+                                            <constraint firstAttribute="trailing" secondItem="5l9-fv-wq3" secondAttribute="trailing" id="KNp-OJ-Ho4"/>
+                                            <constraint firstAttribute="height" constant="45" id="Ku4-fn-LJw"/>
+                                            <constraint firstItem="5l9-fv-wq3" firstAttribute="leading" secondItem="8nW-qb-nAm" secondAttribute="leading" id="OFs-2Z-AQ5"/>
+                                            <constraint firstItem="kPF-l0-1aF" firstAttribute="centerY" secondItem="8nW-qb-nAm" secondAttribute="centerY" id="ZcN-KF-7ha"/>
+                                            <constraint firstItem="dkf-86-OIh" firstAttribute="leading" secondItem="kPF-l0-1aF" secondAttribute="trailing" constant="8" id="hon-H2-Y1I"/>
+                                            <constraint firstItem="dkf-86-OIh" firstAttribute="centerY" secondItem="8nW-qb-nAm" secondAttribute="centerY" id="tv2-VG-IgC"/>
+                                            <constraint firstItem="fOZ-eV-aDW" firstAttribute="centerY" secondItem="8nW-qb-nAm" secondAttribute="centerY" id="w05-2i-JWy"/>
+                                            <constraint firstItem="5l9-fv-wq3" firstAttribute="top" secondItem="8nW-qb-nAm" secondAttribute="top" id="yGA-OR-1dz"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.87843137250000003" green="0.90980392160000001" blue="0.93333333330000001" alpha="1" colorSpace="deviceRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-xs-GkB">
+                                        <rect key="frame" x="0.0" y="122" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJZ-Ei-phR">
                                                 <rect key="frame" x="54" y="14" width="36" height="17"/>
@@ -3045,61 +3115,8 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nW-qb-nAm">
-                                        <rect key="frame" x="0.0" y="106" width="276" height="45"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkf-86-OIh">
-                                                <rect key="frame" x="54" y="14" width="74.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icNotSelected" translatesAutoresizingMaskIntoConstraints="NO" id="fOZ-eV-aDW">
-                                                <rect key="frame" x="252" y="14.5" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="In7-f8-VCA"/>
-                                                    <constraint firstAttribute="width" constant="16" id="Iz8-Xl-83D"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5l9-fv-wq3">
-                                                <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCredit" translatesAutoresizingMaskIntoConstraints="NO" id="kPF-l0-1aF">
-                                                <rect key="frame" x="16" y="7.5" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="bJm-7i-6kR"/>
-                                                    <constraint firstAttribute="height" constant="30" id="h00-wS-zmc"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="5l9-fv-wq3" secondAttribute="bottom" id="D9u-RY-I55"/>
-                                            <constraint firstAttribute="trailing" secondItem="fOZ-eV-aDW" secondAttribute="trailing" constant="8" id="Dmg-fo-mLW"/>
-                                            <constraint firstItem="kPF-l0-1aF" firstAttribute="leading" secondItem="8nW-qb-nAm" secondAttribute="leading" constant="16" id="GPO-6O-KU5"/>
-                                            <constraint firstAttribute="trailing" secondItem="5l9-fv-wq3" secondAttribute="trailing" id="KNp-OJ-Ho4"/>
-                                            <constraint firstAttribute="height" constant="45" id="Ku4-fn-LJw"/>
-                                            <constraint firstItem="5l9-fv-wq3" firstAttribute="leading" secondItem="8nW-qb-nAm" secondAttribute="leading" id="OFs-2Z-AQ5"/>
-                                            <constraint firstItem="kPF-l0-1aF" firstAttribute="centerY" secondItem="8nW-qb-nAm" secondAttribute="centerY" id="ZcN-KF-7ha"/>
-                                            <constraint firstItem="dkf-86-OIh" firstAttribute="leading" secondItem="kPF-l0-1aF" secondAttribute="trailing" constant="8" id="hon-H2-Y1I"/>
-                                            <constraint firstItem="dkf-86-OIh" firstAttribute="centerY" secondItem="8nW-qb-nAm" secondAttribute="centerY" id="tv2-VG-IgC"/>
-                                            <constraint firstItem="fOZ-eV-aDW" firstAttribute="centerY" secondItem="8nW-qb-nAm" secondAttribute="centerY" id="w05-2i-JWy"/>
-                                            <constraint firstItem="5l9-fv-wq3" firstAttribute="top" secondItem="8nW-qb-nAm" secondAttribute="top" id="yGA-OR-1dz"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.87843137250000003" green="0.90980392160000001" blue="0.93333333330000001" alpha="1" colorSpace="deviceRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gQ-V1-oEz">
-                                        <rect key="frame" x="0.0" y="106" width="276" height="45"/>
+                                        <rect key="frame" x="0.0" y="167" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUa-uT-OUo">
                                                 <rect key="frame" x="54" y="14" width="64.5" height="17"/>
@@ -3152,7 +3169,7 @@ Vanilla &amp; Almond Oil</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-GS-fYm">
-                                        <rect key="frame" x="0.0" y="106" width="276" height="45"/>
+                                        <rect key="frame" x="0.0" y="167" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STC Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKz-Fg-cFx">
                                                 <rect key="frame" x="54" y="14" width="54" height="17"/>
@@ -3207,7 +3224,7 @@ Vanilla &amp; Almond Oil</string>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW0-gh-zBc">
-                                <rect key="frame" x="60" y="211.5" width="200" height="55"/>
+                                <rect key="frame" x="60" y="272.5" width="200" height="55"/>
                                 <color key="backgroundColor" red="0.054901960780000002" green="0.31764705879999999" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="c6X-lp-LNH"/>
@@ -3243,6 +3260,7 @@ Vanilla &amp; Almond Oil</string>
                         <outlet property="cashSelectedIcon" destination="7s2-cL-spY" id="BV7-Ug-Jgf"/>
                         <outlet property="madaSelectedIcon" destination="kkh-O2-Yi2" id="qGB-d6-Ca0"/>
                         <outlet property="topView" destination="2u4-0d-3QV" id="9NF-HR-Ox1"/>
+                        <outlet property="visaSelectedIcon" destination="fOZ-eV-aDW" id="Kl0-Ms-Wwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjj-6W-AcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3522,15 +3540,23 @@ Vanilla &amp; Almond Oil</string>
                                                                 <action selector="moreDetailsPressed:" destination="vzr-Rz-xpT" eventType="touchUpInside" id="sh5-X4-rox"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID : ABC123DDc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfC-ti-KKL">
+                                                            <rect key="frame" x="126" y="24" width="134" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50588235290000005" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="DfC-ti-KKL" firstAttribute="centerY" secondItem="VTC-pn-w5n" secondAttribute="centerY" id="3Kf-Oe-3a6"/>
                                                         <constraint firstAttribute="trailing" secondItem="TeA-u8-KwL" secondAttribute="trailing" constant="16" id="5W9-sr-bO4"/>
                                                         <constraint firstItem="ICC-tb-wTM" firstAttribute="top" secondItem="Hkh-re-fuU" secondAttribute="top" constant="16" id="5sn-Vu-iHR"/>
                                                         <constraint firstAttribute="height" constant="210" id="6vf-Qn-9pH"/>
                                                         <constraint firstItem="fch-eW-7Rd" firstAttribute="leading" secondItem="Hkh-re-fuU" secondAttribute="leading" constant="16" id="ES8-V4-bhE"/>
                                                         <constraint firstItem="nxh-l4-Qg8" firstAttribute="top" secondItem="Aiw-Fp-SfX" secondAttribute="bottom" constant="8" id="Epx-vR-wdz"/>
                                                         <constraint firstItem="RP8-n9-XcW" firstAttribute="centerY" secondItem="fch-eW-7Rd" secondAttribute="centerY" id="I3R-qc-B8q"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DfC-ti-KKL" secondAttribute="trailing" constant="16" id="IlE-rB-QkH"/>
                                                         <constraint firstItem="az1-vy-Kjt" firstAttribute="top" secondItem="RP8-n9-XcW" secondAttribute="bottom" constant="5" id="QUw-k3-H1i"/>
                                                         <constraint firstItem="fch-eW-7Rd" firstAttribute="top" secondItem="ICC-tb-wTM" secondAttribute="bottom" constant="8" id="S6y-Jz-dEv"/>
                                                         <constraint firstItem="az1-vy-Kjt" firstAttribute="leading" secondItem="RP8-n9-XcW" secondAttribute="leading" id="aUF-CA-NKP"/>
@@ -3576,6 +3602,7 @@ Vanilla &amp; Almond Oil</string>
                                             <outlet property="dliveryAddress" destination="TeA-u8-KwL" id="sgx-os-C2J"/>
                                             <outlet property="moreDetailsBtn" destination="HuM-Vk-gZO" id="eBg-Ps-bg8"/>
                                             <outlet property="orderDate" destination="Aiw-Fp-SfX" id="QE8-sf-ucX"/>
+                                            <outlet property="orderIdLabel" destination="DfC-ti-KKL" id="AFl-EU-g3d"/>
                                             <outlet property="orderPrice" destination="az1-vy-Kjt" id="Gt7-ug-SP3"/>
                                             <outlet property="orderStatus" destination="VTC-pn-w5n" id="pht-cY-tSq"/>
                                         </connections>
@@ -3670,7 +3697,7 @@ Vanilla &amp; Almond Oil</string>
                                 <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="93V-D8-tMT">
-                                        <rect key="frame" x="22" y="16" width="276" height="705"/>
+                                        <rect key="frame" x="22" y="16" width="276" height="723"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC3-jF-bsc">
                                                 <rect key="frame" x="0.0" y="0.0" width="276" height="21.5"/>
@@ -3992,7 +4019,7 @@ Vanilla &amp; Almond Oil</string>
                                                 </connections>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hbH-Eq-UI2">
-                                                <rect key="frame" x="0.0" y="521.5" width="276" height="183.5"/>
+                                                <rect key="frame" x="0.0" y="521.5" width="276" height="201.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-1v-TZP">
                                                         <rect key="frame" x="0.0" y="0.0" width="276" height="21.5"/>
@@ -4001,22 +4028,22 @@ Vanilla &amp; Almond Oil</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwo-rL-8Sk" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="36.5" width="276" height="147"/>
+                                                        <rect key="frame" x="0.0" y="36.5" width="276" height="165"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJg-xK-MjN">
-                                                                <rect key="frame" x="150" y="50" width="32" height="17"/>
+                                                                <rect key="frame" x="150" y="49" width="32" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dr-Ma-o56">
-                                                                <rect key="frame" x="150" y="80" width="32" height="17"/>
+                                                                <rect key="frame" x="150" y="78" width="32" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ou6-jJ-o3k">
-                                                                <rect key="frame" x="16" y="20" width="120" height="105"/>
+                                                                <rect key="frame" x="16" y="20" width="120" height="134"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr7-ZP-I0C">
                                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
@@ -4036,8 +4063,14 @@ Vanilla &amp; Almond Oil</string>
                                                                         <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOU-BM-hoJ">
+                                                                        <rect key="frame" x="0.0" y="87" width="120" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e35-Zs-1sO">
-                                                                        <rect key="frame" x="0.0" y="87" width="120" height="18"/>
+                                                                        <rect key="frame" x="0.0" y="116" width="120" height="18"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                         <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -4048,7 +4081,7 @@ Vanilla &amp; Almond Oil</string>
                                                                 </constraints>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-hR-gUn">
-                                                                <rect key="frame" x="150" y="110" width="35" height="18"/>
+                                                                <rect key="frame" x="150" y="137" width="35" height="18"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -4062,17 +4095,25 @@ Vanilla &amp; Almond Oil</string>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBD-nv-lnG">
+                                                                <rect key="frame" x="150" y="107" width="31.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="FjN-hR-gUn" firstAttribute="top" secondItem="CBD-nv-lnG" secondAttribute="bottom" constant="12" id="5wg-A6-qOq"/>
                                                             <constraint firstItem="Ou6-jJ-o3k" firstAttribute="top" secondItem="Bwo-rL-8Sk" secondAttribute="top" constant="20" id="8ob-VT-d09"/>
                                                             <constraint firstItem="vli-e2-Vng" firstAttribute="top" secondItem="Bwo-rL-8Sk" secondAttribute="top" constant="20" id="APH-9I-EeG"/>
-                                                            <constraint firstItem="6dr-Ma-o56" firstAttribute="top" secondItem="sJg-xK-MjN" secondAttribute="bottom" constant="13" id="Qvn-D2-ltp"/>
-                                                            <constraint firstItem="sJg-xK-MjN" firstAttribute="top" secondItem="vli-e2-Vng" secondAttribute="bottom" constant="13" id="R2F-Ta-neu"/>
-                                                            <constraint firstItem="FjN-hR-gUn" firstAttribute="top" secondItem="6dr-Ma-o56" secondAttribute="bottom" constant="13" id="SNn-rs-LEl"/>
+                                                            <constraint firstItem="6dr-Ma-o56" firstAttribute="top" secondItem="sJg-xK-MjN" secondAttribute="bottom" constant="12" id="Qvn-D2-ltp"/>
+                                                            <constraint firstItem="sJg-xK-MjN" firstAttribute="top" secondItem="vli-e2-Vng" secondAttribute="bottom" constant="12" id="R2F-Ta-neu"/>
+                                                            <constraint firstItem="CBD-nv-lnG" firstAttribute="top" secondItem="6dr-Ma-o56" secondAttribute="bottom" constant="12" id="RHd-aE-ygc"/>
                                                             <constraint firstItem="sJg-xK-MjN" firstAttribute="leading" secondItem="vli-e2-Vng" secondAttribute="leading" id="Wid-eU-CI4"/>
+                                                            <constraint firstItem="CBD-nv-lnG" firstAttribute="leading" secondItem="6dr-Ma-o56" secondAttribute="leading" id="XIb-xs-9Rf"/>
                                                             <constraint firstItem="6dr-Ma-o56" firstAttribute="leading" secondItem="sJg-xK-MjN" secondAttribute="leading" id="Y1F-QQ-cFJ"/>
-                                                            <constraint firstAttribute="height" constant="147" id="dTB-Cx-iKl"/>
+                                                            <constraint firstAttribute="height" constant="165" id="dTB-Cx-iKl"/>
                                                             <constraint firstItem="Ou6-jJ-o3k" firstAttribute="leading" secondItem="Bwo-rL-8Sk" secondAttribute="leading" constant="16" id="oBV-W0-2Cv"/>
                                                             <constraint firstItem="FjN-hR-gUn" firstAttribute="leading" secondItem="6dr-Ma-o56" secondAttribute="leading" id="oZ5-bu-gM5"/>
                                                             <constraint firstAttribute="trailing" secondItem="vli-e2-Vng" secondAttribute="trailing" constant="16" id="wsH-Ts-qrW"/>
@@ -4198,6 +4239,7 @@ Vanilla &amp; Almond Oil</string>
                         <viewLayoutGuide key="safeArea" id="2IR-in-lBl"/>
                     </view>
                     <connections>
+                        <outlet property="VAT" destination="CBD-nv-lnG" id="aWg-UO-Jbz"/>
                         <outlet property="addressLabel" destination="JYl-xd-cCc" id="9g7-KC-TG2"/>
                         <outlet property="cancelOrderBtn" destination="pVf-zm-KsM" id="C7m-qq-Ssh"/>
                         <outlet property="cartView" destination="aYw-mP-SwJ" id="IMc-cE-KzV"/>

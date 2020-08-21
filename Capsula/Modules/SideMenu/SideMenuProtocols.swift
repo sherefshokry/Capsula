@@ -50,5 +50,5 @@ protocol InteractorToPresenterSideMenuProtocol: class {
       func navigate(viewController: UIViewController , animation : Bool)
       func logOutSuccessfully()
       func failedToLogout(error : String)
-    
+      func openPaymentScreen()
 }

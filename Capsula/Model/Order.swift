@@ -11,6 +11,7 @@ import Foundation
 struct Order : Codable {
     
     let  id: Int?
+     let orderCode : String?
     let  orderStatusId : Int?
     let  orderDate : String?
     let totalPrice : Double?
@@ -26,12 +27,13 @@ struct Order : Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case id , orderStatusId , orderDate ,totalPrice , deliveryAddress , prescriptionImageLink ,insuranceNumberImageLink,paymentMethodId,itemsCost,
+        case id ,orderCode , orderStatusId , orderDate ,totalPrice , deliveryAddress , prescriptionImageLink ,insuranceNumberImageLink,paymentMethodId,itemsCost,
         vatCost ,finalTotalCost
     }
     
     init(){
         id = -1
+        orderCode = ""
         orderStatusId = -1
         orderDate = ""
         totalPrice = 0.0
@@ -50,6 +52,8 @@ struct Order : Codable {
         catch { id = -1 }
         do {orderStatusId  = try container.decodeIfPresent(.orderStatusId) ?? -1 }
         catch { orderStatusId = -1 }
+        do {   orderCode = try container.decodeIfPresent(.orderCode) ?? ""}
+            catch {  orderCode = "" }
         do {   orderDate = try container.decodeIfPresent(.orderDate) ?? ""}
         catch {  orderDate = "" }
         do {totalPrice  = try container.decodeIfPresent(.totalPrice) ?? 0.0 }

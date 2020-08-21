@@ -290,7 +290,12 @@ class Utils {
         NotificationCenter.default.post(name: Notification.Name(Constants.CART_UPDATE_NOTIFICATION), object: nil)
     }
     
-    
+    static func showResult(presenter: UIViewController, success: Bool, message: String?) {
+           let title = success ? "Success" : "Failure"
+           let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+           alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+           presenter.present(alert, animated: true, completion: nil)
+       }
     
     static func addAllLocalCart(itemsList : [Item]) {
         

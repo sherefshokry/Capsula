@@ -10,13 +10,22 @@
 
 import UIKit
 import Intercom
+import SafariServices
 
-class MainCartViewController: UIViewController {
+
+
+class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
     
-   // var initialSetupViewController: PTFWInitialSetupViewController!
+    // var initialSetupViewController: PTFWInitialSetupViewController!
+    var selectedPaymentMethod = -1
     @IBOutlet weak var  headerView : UIView!
     @IBOutlet weak var  containerView : UIView!
     @IBOutlet weak var  cartProgressImage : UIImageView!
+    var provider: OPPPaymentProvider?
+    var transaction: OPPTransaction?
+    var safariVC: SFSafariViewController?
+    
+    
     var items = [Item]()
     var presenter : ViewToPresenterMainCartProtocol?
     
@@ -45,7 +54,7 @@ class MainCartViewController: UIViewController {
     }()
     
     
-    lazy var cartDetailsViewController : UIViewController = {
+    lazy var cartDetailsViewController : CartDetailsViewController = {
         let vc = CartDetailsRouter.createModule() as! CartDetailsViewController
         vc.nextPressed = {
             self.openCongratScreen()
@@ -53,8 +62,9 @@ class MainCartViewController: UIViewController {
             
         }
         
-        vc.openPaymentScreen = {
-            self.openPayTabs()
+        vc.openPaymentScreen = { (checkoutID,paymentMethod) in
+            self.selectedPaymentMethod = paymentMethod
+            self.openPaymentScreen(checkoutID: checkoutID, paymentMethod: paymentMethod)
         }
         
         
@@ -71,12 +81,12 @@ class MainCartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         if items.count > 0 {
             self.add(childViewContoller: cartListWithItemsVC)
         }else{
             self.add(childViewContoller: cartListVC)
-
+            
         }
         
         
@@ -84,11 +94,11 @@ class MainCartViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            if Utils.loadUser()?.accessToken ?? "" != "" {
-               Intercom.setLauncherVisible(true)
-            }
+        super.viewWillAppear(animated)
+        if Utils.loadUser()?.accessToken ?? "" != "" {
+            Intercom.setLauncherVisible(true)
         }
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -97,70 +107,110 @@ class MainCartViewController: UIViewController {
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner]
     }
     
-    
-    func openPayTabs(){
+    func openPaymentScreen(checkoutID : String , paymentMethod : Int){
         
-//        let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
-//
-//
-//             self.initialSetupViewController = PTFWInitialSetupViewController.init(
-//                 bundle: bundle,
-//                 andWithViewFrame: self.view.frame,
-//                 andWithAmount: 5.0,
-//                 andWithCustomerTitle: "PayTabs Sample App",
-//                 andWithCurrencyCode: "USD",
-//                 andWithTaxAmount: 0.0,
-//                 andWithSDKLanguage: "en",
-//                 andWithShippingAddress: "Manama",
-//                 andWithShippingCity: "Manama",
-//                 andWithShippingCountry: "BHR",
-//                 andWithShippingState: "Manama",
-//                 andWithShippingZIPCode: "123456",
-//                 andWithBillingAddress: "Manama",
-//                 andWithBillingCity: "Manama",
-//                 andWithBillingCountry: "BHR",
-//                 andWithBillingState: "Manama",
-//                 andWithBillingZIPCode: "12345",
-//                 andWithOrderID: "12345",
-//                 andWithPhoneNumber: "0097333109781",
-//                 andWithCustomerEmail: "rhegazy@paytabs.com",
-//                 andIsTokenization:false,
-//                 andIsPreAuth: false,
-//                 andWithMerchantEmail: "rhegazy@paytabs.com",
-//                 andWithMerchantSecretKey: "BIueZNfPLblJnMmPYARDEoP5x1WqseI3XciX0yNLJ8v7URXTrOw6dmbKn8bQnTUk6ch6L5SudnC8fz2HozNBVZlj7w9uq4Pwg7D1",
-//                 andWithAssigneeCode: "SDK",
-//                 andWithThemeColor:UIColor.init(codeString: "#37B6FF"),
-//                 andIsThemeColorLight: false)
-//
-//
-//             self.initialSetupViewController.didReceiveBackButtonCallback = {
-//
-//             }
-//
-//             self.initialSetupViewController.didStartPreparePaymentPage = {
-//                 // Start Prepare Payment Page
-//                 // Show loading indicator
-//             }
-//             self.initialSetupViewController.didFinishPreparePaymentPage = {
-//                 // Finish Prepare Payment Page
-//                 // Stop loading indicator
-//             }
-//
-//             self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
-//                 print("Response Code: \(responseCode)")
-//                 print("Response Result: \(result)")
-//
-//                 // In Case you are using tokenization
-//                 print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
-//                 print("Tokenization Customer Password: \(tokenizedCustomerPassword)");
-//                 print("TOkenization Token: \(token)");
-//             }
-//
-//             self.view.addSubview(self.initialSetupViewController.view)
-//             self.addChild(self.initialSetupViewController)
-//             self.initialSetupViewController.didMove(toParent: self)
-//
+        self.provider = OPPPaymentProvider(mode: OPPProviderMode.test)
+        
+        let checkoutSettings = OPPCheckoutSettings()
+        
+        // Set available payment brands for your shop
+        
+        if paymentMethod == 4 {
+            checkoutSettings.paymentBrands = ["VISA", "MASTER"]
+        }else if paymentMethod == 5 {
+            checkoutSettings.paymentBrands = ["MADA"]
+        }
+        checkoutSettings.storePaymentDetails = .always
+        checkoutSettings.theme.confirmationButtonColor = UIColor.init(codeString: "#0E518A")
+        checkoutSettings.theme.navigationBarBackgroundColor =  UIColor.init(codeString: "#37B6FF")
+        checkoutSettings.theme.accentColor =  UIColor.init(codeString: "#37B6FF")
+        checkoutSettings.theme.separatorColor = UIColor.lightGray
+        checkoutSettings.theme.activityIndicatorPrimaryStyle = .gray
+        checkoutSettings.theme.activityIndicatorSecondaryStyle = .gray
+        checkoutSettings.theme.primaryFont = UIFont.systemFont(ofSize: 14.0)
+        checkoutSettings.theme.secondaryFont = UIFont.systemFont(ofSize: 12.0)
+        checkoutSettings.theme.confirmationButtonFont = UIFont.boldSystemFont(ofSize: 16)
+        checkoutSettings.theme.errorFont = UIFont.systemFont(ofSize: 12.0)
+        
+        // Set shopper result URL
+        checkoutSettings.shopperResultURL = "com.BinoyedSA.Capsula.payments://result"
+        
+        
+        let checkoutProvider = OPPCheckoutProvider(paymentProvider: provider!, checkoutID: checkoutID, settings: checkoutSettings)
+        
+        // Since version 2.13.0
+        checkoutProvider?.presentCheckout(forSubmittingTransactionCompletionHandler: { (transaction, error) in
+            guard let transaction = transaction else {
+                // Handle invalid transaction, check error
+                return
+            }
+            
+            self.transaction = transaction
+            
+            
+            if transaction.type == .synchronous {
+                // If a transaction is synchronous, just request the payment status
+                self.requestPaymentStatus()
+            } else if transaction.type == .asynchronous {
+                // If a transaction is asynchronous, you should open transaction.redirectUrl in a browser
+                // Subscribe to notifications to request the payment status when a shopper comes back to the app
+                NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveAsynchronousPaymentCallback), name: Notification.Name(rawValue: "AsyncPaymentCompletedNotificationKey"), object: nil)
+                self.presenterURL(url: self.transaction!.redirectURL!)
+            } else {
+                Utils.showResult(presenter: self, success: false, message: "Invalid transaction")
+            }})
     }
+    
+    func presenterURL(url: URL) {
+        
+        
+        self.safariVC = SFSafariViewController(url: url)
+        self.safariVC?.delegate = self
+        self.present(safariVC!, animated: true, completion: nil)
+    }
+    
+    @objc func didReceiveAsynchronousPaymentCallback() {
+        
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: "AsyncPaymentCompletedNotificationKey"), object: nil)
+        UIApplication.shared.windows[0].visibleViewController?.dismiss(animated: true, completion: {
+            DispatchQueue.main.async {
+                self.requestPaymentStatus()
+            }
+        })
+        //        self.safariVC?.dismiss(animated: true, completion: {
+        //
+        //        })
+    }
+    
+    func requestPaymentStatus() {
+        // You can either hard-code resourcePath or request checkout info to get the value from the server
+        // * Hard-coding: "/v1/checkouts/" + checkoutID + "/payment"
+        // * Requesting checkout info:
+        
+        guard let checkoutID = self.transaction?.paymentParams.checkoutID else {
+            Utils.showResult(presenter: self, success: false, message: "Checkout ID is invalid")
+            return
+        }
+        self.transaction = nil
+        
+        //self.processingView.startAnimating()
+        self.provider!.requestCheckoutInfo(withCheckoutID: checkoutID) { (checkoutInfo, error) in
+            DispatchQueue.main.async {
+                guard let resourcePath = checkoutInfo?.resourcePath else {
+                    // self.processingView.stopAnimating()
+                    Utils.showResult(presenter: self, success: false, message: "Checkout info is empty or doesn't contain resource path")
+                    return
+                }
+                
+
+                print("Resource PAth : \(resourcePath)")
+                //Send resource path to samir api
+                self.cartDetailsViewController.presenter?.checkout(resourcePath: resourcePath, paymentMethod: self.selectedPaymentMethod)
+                
+            }
+        }
+    }
+    
     
     func openCongratScreen() {
         add(childViewContoller: cartCongratViewController)
@@ -168,6 +218,7 @@ class MainCartViewController: UIViewController {
         remove(childViewContoller: cartListVC)
         remove(childViewContoller: cartDetailsViewController)
     }
+    
     
     
     func openDetailsScreen() {
@@ -181,7 +232,6 @@ class MainCartViewController: UIViewController {
         add(childViewContoller: cartListVC)
         remove(childViewContoller: cartCongratViewController)
         remove(childViewContoller: cartDetailsViewController)
-        
     }
     
     

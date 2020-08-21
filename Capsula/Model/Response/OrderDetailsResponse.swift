@@ -19,12 +19,13 @@ struct  OrderDetailsResponse : Codable {
     let paymentMethodId : Int?
     let itemsCost : Double?
     let vatCost : Double?
+    let deliveryCost : Double?
     let finalTotalCost : Double?
     
 
     enum CodingKeys: String, CodingKey {
         case  products, id ,orderStatusId,totalPrice , deliveryAddress ,prescriptionImageLink,
-        insuranceNumberImageLink,paymentMethodId,itemsCost,vatCost,finalTotalCost
+        insuranceNumberImageLink,paymentMethodId,itemsCost,vatCost,finalTotalCost,deliveryCost
     }
     
     init(){
@@ -39,6 +40,7 @@ struct  OrderDetailsResponse : Codable {
         itemsCost = 0.0
         vatCost = 0.0
         finalTotalCost = 0.0
+        deliveryCost = 0.0
     }
     
     init(from decoder: Decoder) throws {
@@ -69,6 +71,8 @@ struct  OrderDetailsResponse : Codable {
         do { finalTotalCost = try container.decodeIfPresent(.finalTotalCost) ?? 0.0 }
         catch { finalTotalCost =  0.0 }
         
-        
+        do { deliveryCost = try container.decodeIfPresent(.deliveryCost) ?? 0.0 }
+               catch { deliveryCost =  0.0 }
+      
     }
 }

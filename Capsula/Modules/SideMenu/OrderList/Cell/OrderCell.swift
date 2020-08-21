@@ -20,6 +20,9 @@ class OrderCell : UITableViewCell {
     @IBOutlet weak var orderPrice : UILabel!
     @IBOutlet weak var dliveryAddress : UILabel!
     @IBOutlet weak var moreDetailsBtn : UIButton!
+    @IBOutlet weak var orderIdLabel : UILabel!
+    
+    
     var moreDetails : ((Order) -> ())?
     
     override func awakeFromNib() {
@@ -31,7 +34,7 @@ class OrderCell : UITableViewCell {
     
     
     func setData(order : Order){
-        
+         orderIdLabel .text = Strings.orderID + (order.orderCode ?? "")
         selectedOrder  = order
         switch order.orderStatusId ?? -1 {
         case 1:

@@ -26,10 +26,13 @@ struct DeliveryUser : Codable {
     let nationalityDesc : String?
     let addressDesc : String?
     let vehicleTypeDesc : String?
+    let yearDesc : String?
+    let carModelDesc : String?
+    let carTypeDesc : String?
     
     enum CodingKeys: String, CodingKey {
         case fullName , email , phoneNumber , nationalId ,vehiclePlateLetters
-        case vehiclePlateNumber,bankAccountNumber, accountHolderAddress,personalPicture,driverLicensePicture,idCardPicture,carFromBehindPicture,carFromFrontPicture,carRegistrationPicture,nationalityDesc,addressDesc, vehicleTypeDesc
+        case vehiclePlateNumber,bankAccountNumber, accountHolderAddress,personalPicture,driverLicensePicture,idCardPicture,carFromBehindPicture,carFromFrontPicture,carRegistrationPicture,nationalityDesc,addressDesc, vehicleTypeDesc,yearDesc,carModelDesc,carTypeDesc
     }
     
     init(){
@@ -49,7 +52,10 @@ struct DeliveryUser : Codable {
       carRegistrationPicture  = ""
       nationalityDesc  = ""
       addressDesc  = ""
+      yearDesc = ""
       vehicleTypeDesc  = ""
+        carModelDesc = ""
+        carTypeDesc = ""
      }
     
     init(from decoder: Decoder) throws {
@@ -112,14 +118,14 @@ struct DeliveryUser : Codable {
         do {  bankAccountNumber = try container.decodeIfPresent(.bankAccountNumber) ?? ""}
               catch { bankAccountNumber = "" }
         
-        
-        
+        do { yearDesc = try container.decodeIfPresent(.yearDesc) ?? ""}
+               catch { yearDesc = "" }
+       
+        do { carModelDesc = try container.decodeIfPresent(.carModelDesc) ?? ""}
+                      catch { carModelDesc = "" }
   
-        
-   
+        do { carTypeDesc = try container.decodeIfPresent(.carTypeDesc) ?? ""}
+                             catch { carTypeDesc = "" }
     }
-    
-    
-    
 
 }

@@ -22,6 +22,7 @@ class OrderDetailsViewController : UIViewController {
     @IBOutlet weak var paymentMethodType: UILabel!
     @IBOutlet weak var itemsCost : UILabel!
     @IBOutlet weak var deliveryCost : UILabel!
+    @IBOutlet weak var VAT : UILabel!
     @IBOutlet weak var totalPrice : UILabel!
     @IBOutlet weak var collectionViewHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var cancelOrderBtn : UIButton!
@@ -149,16 +150,10 @@ class OrderDetailsViewController : UIViewController {
             print("No thing to do")
         }
         
-        
-        
-        
-        
-        
-        
-        
         itemsCost.text = Strings.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
-        deliveryCost.text = Strings.RSD + ""
+        deliveryCost.text = Strings.RSD +  " \(ordersDetailsResponse.deliveryCost ?? 0.0)"
         totalPrice.text = Strings.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
+        VAT.text = "\(ordersDetailsResponse.vatCost ?? 0.0) %"
         
         if (ordersDetailsResponse.insuranceNumberImageLink ?? "") == "" &&
             (ordersDetailsResponse.prescriptionImageLink ?? "") == "" {

@@ -53,6 +53,7 @@ class Strings: Any {
     static var carBrand = "Car Brand".localize()
     static var carModel = "Car Model".localize()
     static var modelYear = "Model Year".localize()
+    static var model = "Model".localize()
     static var vechileDetails = "Vechile Plate Details".localize()
     static var plateNumber = "Plate Number".localize()
     static var plateLetters = "Plate Letters".localize()
@@ -70,6 +71,9 @@ class Strings: Any {
     static var navigate =  "Navigate".localize()
     static var cashPayment = "Total cost is greater than 500 RSD, so you have to proceed with online payment".localize()
     static var paymentMethodSelection = "Please,select your prefered payment method".localize()
+    static var km = " KM".localize()
+    static var distance = "Distance : ".localize()
+    
     
     
     

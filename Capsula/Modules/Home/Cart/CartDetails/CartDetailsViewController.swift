@@ -15,8 +15,6 @@ import Intercom
 
 class CartDetailsViewController: ImagePickerViewController {
     
-    
-    
     var presenter : ViewToPresenterCartDetailsProtocol?
     @IBOutlet weak var addressDesc : UILabel!
     @IBOutlet weak var promoCodeBtn : UIButton!
@@ -27,13 +25,14 @@ class CartDetailsViewController: ImagePickerViewController {
     @IBOutlet weak var prescriptionImageStackViewHeight : NSLayoutConstraint!
     @IBOutlet weak var itemsCostLabel : UILabel!
     @IBOutlet weak var deliveryCostLabel : UILabel!
+    @IBOutlet weak var VAT : UILabel!
     @IBOutlet weak var estimatedTotalLabel : UILabel!
     @IBOutlet weak var selectedPaymentMethodLabel : UILabel!
     var deliveryCost = 0.0
     var totalCost = 0.0
     var selectedPaymentMethod = -1
     var nextPressed: (()->())?
-    var openPaymentScreen: (()->())?
+    var openPaymentScreen: ((String,Int)->())?
     
     private var state: State = .loading {
         didSet {
@@ -55,23 +54,14 @@ class CartDetailsViewController: ImagePickerViewController {
         self.presenter?.getDevliveryCost()
     }
     
-    
-    
-    
     func calcTotalPrice() {
         let cartList = Utils.loadLocalCart() ?? []
         var totalPrice = 0.0
         cartList.forEach { (item) in
             if item.offerType == -1 {
-                
                 totalPrice = totalPrice + ((item.price ?? 0.0) * Double(item.itemQuantity ?? 1))
-                
-                
             }else{
-                
                 totalPrice = totalPrice + ((item.priceInOffer ?? 0.0) * Double(item.itemQuantity ?? 1))
-                
-                
             }
         }
         
@@ -82,7 +72,7 @@ class CartDetailsViewController: ImagePickerViewController {
     }
     
     
-
+    
     
     func checkIfIsTreatment() -> Bool{
         
@@ -173,31 +163,26 @@ class CartDetailsViewController: ImagePickerViewController {
     
     @IBAction func selectPaymentMethod(_ sender : UIButton){
         
-                let content: ContentSheetContentProtocol
-                let vc = PaymentMethodViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
-                    vc.paymentType = selectedPaymentMethod
-                    vc.applyPaymentMethod = { paymentType in
-                    self.selectedPaymentMethod = paymentType
-                    if paymentType == 1 {
-                        self.selectedPaymentMethodLabel.text = Strings.cash
-                    }else if paymentType == 5 {
-                        self.selectedPaymentMethodLabel.text = Strings.madaPay
-                    }
-                    }
-                let contentController = vc
-                content = contentController
-                let contentSheet = ContentSheet(content: content)
-                contentSheet.blurBackground = false
-                contentSheet.showDefaultHeader = false
-                UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
+        let content: ContentSheetContentProtocol
+        let vc = PaymentMethodViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+        vc.paymentType = selectedPaymentMethod
+        vc.applyPaymentMethod = { paymentType in
+            self.selectedPaymentMethod = paymentType
+            if paymentType == 1 {
+                self.selectedPaymentMethodLabel.text = Strings.cash
+            }else if paymentType == 5 {
+                self.selectedPaymentMethodLabel.text = Strings.madaPay
+            }else if paymentType == 4 {
+                self.selectedPaymentMethodLabel.text = Strings.creditCard
+            }
+        }
+        let contentController = vc
+        content = contentController
+        let contentSheet = ContentSheet(content: content)
+        contentSheet.blurBackground = false
+        contentSheet.showDefaultHeader = false
+        UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
         
-        
-        
-        
-//        if openPaymentScreen != nil {
-//            self.openPaymentScreen?()
-//        }
-
         
         
     }
@@ -230,24 +215,35 @@ class CartDetailsViewController: ImagePickerViewController {
             if totalCost > 500.0 && selectedPaymentMethod == 1 {
                 self.showMessage(Strings.cashPayment)
             }else{
-                if selectedPaymentMethod == 5 {
-                   self.presenter?.prepareCheckout()
+                if selectedPaymentMethod == 5 || selectedPaymentMethod == 4 {
+                    self.presenter?.prepareCheckout(paymentMethod: selectedPaymentMethod)
                 }else{
-                   self.presenter?.checkout()
+                    self.presenter?.checkout()
                 }
                 
-         
+                
             }
         }
     }
     
 }
 extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
-    func setDeliveryCost(cost: String) {
-        deliveryCost = Double(cost) ?? 0.0
-        calcTotalPrice()
-        deliveryCostLabel.text = cost
+    
+    
+    func openPaymentScreen(checkoutID: String,paymentMethod : Int) {
+        if openPaymentScreen != nil {
+            self.openPaymentScreen?(checkoutID,paymentMethod)
+        }
     }
+    
+    func setDeliveryCost(cost: DeliveryCostResponse) {
+        itemsCostLabel.text = Strings.RSD + " \(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0))"
+        estimatedTotalLabel.text = Strings.RSD + "  \(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0))"
+        VAT.text = Strings.RSD + " \(cost.vatCost ?? 0.0)"
+        deliveryCostLabel.text = Strings.RSD +  "  \(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0))"
+    }
+    
+    
     
     func moveToSuccessScreen() {
         
@@ -261,6 +257,8 @@ extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
     func changeState(state: State) {
         self.state = state
     }
+    
+    
     
     
     

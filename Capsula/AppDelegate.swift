@@ -112,8 +112,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let twitterAuthentication = TWTRTwitter.sharedInstance().application(app, open: url, options: options)
         
+        if url.scheme?.localizedCaseInsensitiveCompare("com.BinoyedSA.Capsula.payments") == .orderedSame {
+                 // Send notification to handle result in the view controller.
+                 NotificationCenter.default.post(name: Notification.Name(rawValue: "AsyncPaymentCompletedNotificationKey"), object: nil)
+                 return true
+             }
+        
         return googleDidHandle || facebookDidHandle || twitterAuthentication
     }
+    
     
     func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
         if (extensionPointIdentifier == UIApplication.ExtensionPointIdentifier.keyboard) {

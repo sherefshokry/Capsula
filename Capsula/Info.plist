@@ -23,6 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.BinoyedSA.Capsula.payments</string>
 				<string>com.googleusercontent.apps.757084905257-eq6en8q98rdlmk2855n9fdjaodlnveu2</string>
 			</array>
 		</dict>
@@ -61,6 +62,7 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>com.BinoyedSA.Capsula.payments</string>
 		<string>comgooglemaps</string>
 		<string>comgooglemaps-x-callback</string>
 		<string>fbapi</string>

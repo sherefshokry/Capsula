@@ -23,10 +23,11 @@ class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
     
    
     
-    func prepareCheckout(){
+    func prepareCheckout(paymentMethod : Int){
+        
          self.view?.changeState(state: .loading)
         //5 for madda payment
-         self.interactor?.prepareCheckout(paymentMethodID: 5)
+         self.interactor?.prepareCheckout(paymentMethodID: paymentMethod)
     }
     
     var view: PresenterToViewCartDetailsProtocol?
@@ -38,6 +39,13 @@ class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
         self.view?.changeState(state: .loading)
         self.interactor?.checkout(request: checkoutRequest)
      }
+    
+    func checkout(resourcePath : String, paymentMethod : Int) {
+           self.view?.changeState(state: .loading)
+           checkoutRequest.resourcePath = resourcePath
+           checkoutRequest.paymentMethod = paymentMethod
+           self.interactor?.checkout(request: checkoutRequest)
+        }
      
      func setPreprictionImage(image: String) {
         
@@ -50,20 +58,16 @@ class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
      }
      
     
-     
-    
-    
-    
 }
 
 extension CartDetailsPresenter : InteractorToPresenterCartDetailsProtocol {
-    func checkoutIDFetchedSuccessfully(checkoutID: String) {
+    func checkoutIDFetchedSuccessfully(checkoutID: String,paymentMethodID : Int) {
         self.view?.changeState(state: .ready)
-        print(checkoutID)
-        //Open Madda SDK to Complete payment
+    
+        self.view?.openPaymentScreen(checkoutID: checkoutID, paymentMethod: paymentMethodID)
     }
     
-    func deliveryCostFetchedSuccessfully(deliveryCost: String) {
+    func deliveryCostFetchedSuccessfully(deliveryCost: DeliveryCostResponse) {
           self.view?.changeState(state: .ready)
           self.view?.setDeliveryCost(cost: deliveryCost)
     }

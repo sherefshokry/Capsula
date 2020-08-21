@@ -10,6 +10,7 @@
 
 import Foundation
 import UIKit
+import ContentSheet
 
 class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
     
@@ -66,10 +67,16 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
         }
         self.view?.reloadData()
     }
+    
+ 
+    
+    
 
 }
 
 extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
+  
+    
 
     func logOutSuccessfully() {
         self.view?.changeState(state: .ready)
@@ -85,6 +92,31 @@ extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
     func navigate(viewController: UIViewController, animation: Bool) {
         self.router?.navigate(from: self.view, to: viewController, animation: animation)
     }
+    
+    
+       func openPaymentScreen(){
+            
+            let content: ContentSheetContentProtocol
+                  let vc = ManagePaymentMethodVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+    //              vc.paymentType = selectedPaymentMethod
+    //              vc.applyPaymentMethod = { paymentType in
+    //                  self.selectedPaymentMethod = paymentType
+    //                  if paymentType == 1 {
+    //                      self.selectedPaymentMethodLabel.text = Strings.cash
+    //                  }else if paymentType == 5 {
+    //                      self.selectedPaymentMethodLabel.text = Strings.madaPay
+    //                  }else if paymentType == 4 {
+    //                      self.selectedPaymentMethodLabel.text = Strings.creditCard
+    //                  }
+    //              }
+                  let contentController = vc
+                  content = contentController
+                  let contentSheet = ContentSheet(content: content)
+                  contentSheet.blurBackground = false
+                  contentSheet.showDefaultHeader = false
+                  UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
+            
+        }
     
     
 }
