@@ -15,6 +15,7 @@ public enum DeliveryManDataSource {
     case getOrderDetails(Int)
     case startDelivery(Int)
     case finishDelivery(Int)
+    case getWallet
 }
 
 extension DeliveryManDataSource : TargetType {
@@ -41,6 +42,8 @@ extension DeliveryManDataSource : TargetType {
             return "/EndDelivery/\(orderID)"
         case .getFilteredOrdersHistory(_):
             return ""
+        case .getWallet:
+            return "/Wallet"
         }
     }
     
@@ -55,6 +58,8 @@ extension DeliveryManDataSource : TargetType {
         case .finishDelivery(_):
             return .get
         case .getFilteredOrdersHistory(_):
+            return .get
+        case .getWallet:
             return .get
         }
     }
@@ -74,6 +79,8 @@ extension DeliveryManDataSource : TargetType {
         case .finishDelivery(_):
             return .requestPlain
         case .getFilteredOrdersHistory(_):
+            return .requestPlain
+        case .getWallet:
             return .requestPlain
         }
     }

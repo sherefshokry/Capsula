@@ -32,6 +32,8 @@
 		5B2ADA0B24A74333007C9E80 /* DeliveryManRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ADA0A24A74333007C9E80 /* DeliveryManRegisterRequest.swift */; };
 		5B2ADA0D24A74503007C9E80 /* DeliveryRegisterSecondStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ADA0C24A74503007C9E80 /* DeliveryRegisterSecondStepVC.swift */; };
 		5B2ADA0F24A7496D007C9E80 /* DeliveryRegisterThirdStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ADA0E24A7496D007C9E80 /* DeliveryRegisterThirdStepVC.swift */; };
+		5B2FE01024F0AB3A00ACF65B /* DeliveryManWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FE00F24F0AB3A00ACF65B /* DeliveryManWalletVC.swift */; };
+		5B2FE01624F0AC9300ACF65B /* WalletItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FE01524F0AC9300ACF65B /* WalletItem.swift */; };
 		5B32585B24C455E200DA6E0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B32585A24C455E200DA6E0A /* GoogleService-Info.plist */; };
 		5B40534B248D7FD600FD71C3 /* DeliveryRegisterFirstStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B40534A248D7FD600FD71C3 /* DeliveryRegisterFirstStepVC.swift */; };
 		5B45F355248ACF1C00668DB7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45F354248ACF1C00668DB7 /* WelcomeViewController.swift */; };
@@ -132,8 +134,6 @@
 		5B501FCB24B05EF4009A33DF /* HomeDeliveryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FC924B05EF4009A33DF /* HomeDeliveryHeaderCell.swift */; };
 		5B501FCD24B0689A009A33DF /* DeliveryHistoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FCC24B0689A009A33DF /* DeliveryHistoryListVC.swift */; };
 		5B501FCF24B068AA009A33DF /* DeliveryOrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FCE24B068AA009A33DF /* DeliveryOrderDetailsVC.swift */; };
-		5B501FD124B068B5009A33DF /* DeliveryProfileDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FD024B068B5009A33DF /* DeliveryProfileDetailsVC.swift */; };
-		5B501FD324B068C8009A33DF /* DeliveryWalletListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FD224B068C8009A33DF /* DeliveryWalletListVC.swift */; };
 		5B501FD524B06CBF009A33DF /* DeliveryOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FD424B06CBF009A33DF /* DeliveryOrderCell.swift */; };
 		5B501FD724B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FD624B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift */; };
 		5B50C38C24B9E8FF003F5C3B /* DeliveryOrderDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50C38B24B9E8FF003F5C3B /* DeliveryOrderDetailsResponse.swift */; };
@@ -326,6 +326,8 @@
 		5B2ADA0A24A74333007C9E80 /* DeliveryManRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryManRegisterRequest.swift; sourceTree = "<group>"; };
 		5B2ADA0C24A74503007C9E80 /* DeliveryRegisterSecondStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegisterSecondStepVC.swift; sourceTree = "<group>"; };
 		5B2ADA0E24A7496D007C9E80 /* DeliveryRegisterThirdStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegisterThirdStepVC.swift; sourceTree = "<group>"; };
+		5B2FE00F24F0AB3A00ACF65B /* DeliveryManWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryManWalletVC.swift; sourceTree = "<group>"; };
+		5B2FE01524F0AC9300ACF65B /* WalletItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletItem.swift; sourceTree = "<group>"; };
 		5B32585A24C455E200DA6E0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B40534A248D7FD600FD71C3 /* DeliveryRegisterFirstStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegisterFirstStepVC.swift; sourceTree = "<group>"; };
 		5B45F354248ACF1C00668DB7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -426,8 +428,6 @@
 		5B501FC924B05EF4009A33DF /* HomeDeliveryHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDeliveryHeaderCell.swift; sourceTree = "<group>"; };
 		5B501FCC24B0689A009A33DF /* DeliveryHistoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHistoryListVC.swift; sourceTree = "<group>"; };
 		5B501FCE24B068AA009A33DF /* DeliveryOrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrderDetailsVC.swift; sourceTree = "<group>"; };
-		5B501FD024B068B5009A33DF /* DeliveryProfileDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryProfileDetailsVC.swift; sourceTree = "<group>"; };
-		5B501FD224B068C8009A33DF /* DeliveryWalletListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryWalletListVC.swift; sourceTree = "<group>"; };
 		5B501FD424B06CBF009A33DF /* DeliveryOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrderCell.swift; sourceTree = "<group>"; };
 		5B501FD624B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryFilterHistoryOrdersVC.swift; sourceTree = "<group>"; };
 		5B50C38B24B9E8FF003F5C3B /* DeliveryOrderDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrderDetailsResponse.swift; sourceTree = "<group>"; };
@@ -679,6 +679,14 @@
 			path = ItemDetails;
 			sourceTree = "<group>";
 		};
+		5B2FE01124F0AB8500ACF65B /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				5B2FE00F24F0AB3A00ACF65B /* DeliveryManWalletVC.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		5B45F356248AEC2300668DB7 /* Delivery */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +732,7 @@
 		5B465B9824F04A0000D92421 /* DeliveryMan */ = {
 			isa = PBXGroup;
 			children = (
+				5B2FE01124F0AB8500ACF65B /* Wallet */,
 				5BBE650924F052EB000DD869 /* PagerCells */,
 				5B465B9924F04A1500D92421 /* DeliveryManProfileVC.swift */,
 			);
@@ -829,6 +838,7 @@
 				5B71F54024B9B64500B4E3D3 /* DeliveryUser.swift */,
 				5B71F54624B9C4D200B4E3D3 /* DeliveryOrder.swift */,
 				5B465B8E24EF5E6400D92421 /* FAQ.swift */,
+				5B2FE01524F0AC9300ACF65B /* WalletItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1012,8 +1022,6 @@
 				5B501FCE24B068AA009A33DF /* DeliveryOrderDetailsVC.swift */,
 				5B501FCC24B0689A009A33DF /* DeliveryHistoryListVC.swift */,
 				5B501FD624B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift */,
-				5B501FD024B068B5009A33DF /* DeliveryProfileDetailsVC.swift */,
-				5B501FD224B068C8009A33DF /* DeliveryWalletListVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1671,6 +1679,7 @@
 				5B8C557223B407140094C341 /* RegisterPresenter.swift in Sources */,
 				5B4E1AA523B1532400808F38 /* UIButton.swift in Sources */,
 				5BF97B7024AD7DF100C7A866 /* CarModelResponse.swift in Sources */,
+				5B2FE01024F0AB3A00ACF65B /* DeliveryManWalletVC.swift in Sources */,
 				5B4E1AA023B1532400808F38 /* UIDevice.swift in Sources */,
 				5B8B8A942437E14600FE3CB4 /* CartDetailsPresenter.swift in Sources */,
 				5B7FA9F623F80DB6002DFAA6 /* BrandsListRouter.swift in Sources */,
@@ -1688,6 +1697,7 @@
 				5B8C558223B408800094C341 /* LogInInteractor.swift in Sources */,
 				5B66E737244DC31800A1FE3C /* AddressListViewController.swift in Sources */,
 				5B4E1A9223B1532400808F38 /* BaseDataSource.swift in Sources */,
+				5B2FE01624F0AC9300ACF65B /* WalletItem.swift in Sources */,
 				5BB971D623E6E4C20033F6D9 /* MainHomeProtocols.swift in Sources */,
 				5B4E3D3C244E362D0037A73F /* CheckoutRequest.swift in Sources */,
 				5BC28D8023C0B81000B81D1D /* ResetPasswordInteractor.swift in Sources */,
@@ -1721,7 +1731,6 @@
 				5BF97B4224AAE10B00C7A866 /* TermsAndConditionVC.swift in Sources */,
 				5B4E1A7C23B1532400808F38 /* PositionedButton.swift in Sources */,
 				5BBE651324F065E8000DD869 /* RequiredDocumentCell.swift in Sources */,
-				5B501FD324B068C8009A33DF /* DeliveryWalletListVC.swift in Sources */,
 				5B501FD724B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift in Sources */,
 				5B9DA15B23B1499A00F8696A /* AppDelegate.swift in Sources */,
 				5B71F54724B9C4D200B4E3D3 /* DeliveryOrder.swift in Sources */,
@@ -1742,7 +1751,6 @@
 				5B4E1A8123B1532400808F38 /* NoDataView.swift in Sources */,
 				5B8957EB242F834C00D3AF3E /* ItemDetailsInteractor.swift in Sources */,
 				5B2AD2DC23EE0FD6009D061D /* CategoriesDataSource.swift in Sources */,
-				5B501FD124B068B5009A33DF /* DeliveryProfileDetailsVC.swift in Sources */,
 				5BC28D7F23C0B81000B81D1D /* ResetPasswordProtocols.swift in Sources */,
 				5B4A01C924314E4400B3ABF0 /* MainCartPresenter.swift in Sources */,
 				5B4E1AA723B1532500808F38 /* UIViewController.swift in Sources */,

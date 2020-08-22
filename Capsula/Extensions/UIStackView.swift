@@ -14,10 +14,10 @@ extension UIStackView {
         subView.backgroundColor = color
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         subView.layer.cornerRadius = 15
-        subView.layer.shadowColor = UIColor.init(red: 47/22, green: 66/255, blue: 86/255, alpha: 0.2).cgColor
+        subView.layer.shadowColor = UIColor.init(red: 47/22, green: 66/255, blue: 86/255, alpha: 0.3).cgColor
         subView.layer.shadowOpacity = 3
         subView.layer.shadowOffset = CGSize.zero
-        subView.layer.shadowRadius = 2
+        subView.layer.shadowRadius = 3
         insertSubview(subView, at: 0)
     }
 }

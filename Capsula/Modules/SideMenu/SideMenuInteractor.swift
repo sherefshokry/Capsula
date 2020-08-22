@@ -156,7 +156,8 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
             print("change Language")
             break
         case Strings.SideMenu.shared.MyWallet:
-            print("Wallet")
+           let vc =  DeliveryManWalletVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+           self.presenter?.navigate(viewController: vc, animation: true)
             break
             
         case Strings.SideMenu.shared.History:
