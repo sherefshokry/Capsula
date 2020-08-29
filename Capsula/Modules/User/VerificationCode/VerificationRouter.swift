@@ -59,6 +59,7 @@ class VerificationRouter : PresenterToRouterVerificationProtocol {
     
     func openAddAddress(from sourceView: PresenterToViewVerificationProtocol?) {
         let vc = AddAddressViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        vc.openHomeScreen = true
         if let sourceView = sourceView as? UIViewController {
             sourceView.present(vc, animated: true, completion: nil)
         }

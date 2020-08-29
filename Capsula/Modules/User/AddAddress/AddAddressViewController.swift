@@ -16,6 +16,7 @@ import Intercom
 class AddAddressViewController : UIViewController {
     
     var fromDeliveryMan = false
+    var openHomeScreen = false
     @IBOutlet weak var bottomView : UIView!
     @IBOutlet weak var mapView: GMSMapView!
     private let locationManager = CLLocationManager()
@@ -83,7 +84,15 @@ class AddAddressViewController : UIViewController {
                             updatedUser.user = userResponse.user ?? User()
                             UserDefaults.standard.set(false, forKey: "isDelivery")
                             Utils.saveUser(user: updatedUser)
-                            Utils.openHomeScreen()
+                            
+                            if (self.openHomeScreen){
+                                Utils.openHomeScreen()
+                            }else{
+                                self.dismiss(animated: true) {
+                                    self.onAddAddressCompleted!(self.addressField.getText() , self.latitude, self.longitude)
+                                }
+                            }
+                            
                             
                         } catch(let catchError) {
                             self.showMessage(catchError.localizedDescription)
@@ -172,7 +181,7 @@ extension AddAddressViewController: GMSMapViewDelegate{
                 {
                     print("reverse geodcode fail: \(error!.localizedDescription)")
                 }
-                let pm = placemarks! as [CLPlacemark]
+                let pm = placemarks as? [CLPlacemark] ?? [CLPlacemark]()
                 
                 if pm.count > 0 {
                     let pm = placemarks![0]

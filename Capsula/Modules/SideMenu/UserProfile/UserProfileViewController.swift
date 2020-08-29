@@ -19,36 +19,40 @@ class UserProfileViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       let user =  Utils.loadUser()?.user ?? User()
+        setUserData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshUserData(_:)),
+                                               name: NSNotification.Name(rawValue: Constants.REFRESH_USER_DATA), object: nil)
+    }
+    
+    @objc func refreshUserData(_ notification: NSNotification){
+        setUserData()
+    }
+    
+    
+    func setUserData(){
+        let user =  Utils.loadUser()?.user ?? User()
         userNameLabel.text = user.name ?? ""
         userEmailLabel.text = user.email ?? ""
         userPhoneLabel.text = "+96" + (user.phone ?? "")
         userDefaultAddress.text = user.defaultAddress?.addressDesc ?? ""
         userImage.sd_setImage(with: URL.init(string: user.photo ?? ""), placeholderImage: nil)
-
     }
     
     override func viewWillLayoutSubviews() {
-         super.viewWillLayoutSubviews()
-         topView.clipsToBounds = true
-         topView.layer.cornerRadius = 70
-         topView.layer.maskedCorners = [.layerMinXMaxYCorner]
-     }
-     
-     
-//     override func viewWillAppear(_ animated: Bool) {
-//         super.viewWillAppear(animated)
-//         Intercom.setLauncherVisible(false)
-//     }
-     
+        super.viewWillLayoutSubviews()
+        topView.clipsToBounds = true
+        topView.layer.cornerRadius = 70
+        topView.layer.maskedCorners = [.layerMinXMaxYCorner]
+    }
+
+    
     
     
     
     @IBAction func editUserProfile(_ sender : UIButton){
-    
         
-        
+        let vc = EditUserProfileVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+        self.present(vc, animated: true, completion: nil)
         
     }
     

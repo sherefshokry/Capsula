@@ -42,6 +42,7 @@ class MainRegisterRouter : PresenterToRouterMainRegisterProtocol {
     func openAddAddress(from sourceView: PresenterToViewMainRegisterProtocol?) {
         
         let vc = AddAddressViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        vc.openHomeScreen = true
         if let sourceView = sourceView as? UIViewController {
             sourceView.present(vc, animated: true, completion: nil)
         }

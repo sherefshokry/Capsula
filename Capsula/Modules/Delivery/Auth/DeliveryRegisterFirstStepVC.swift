@@ -31,20 +31,6 @@ class DeliveryRegisterFirstStepVC : ImagePickerViewController  {
     var onFormCompleted : ((DeliveryManRegisterRequest) -> ())?
     private let provider = MoyaProvider<DeliveryManRegistrationDataSource>()
     
-    private var state: State = .loading {
-        didSet {
-            switch state {
-            case .ready:
-                KVNProgress.dismiss()
-            case .loading:
-                KVNProgress.show()
-            case .error(let error):
-                KVNProgress.dismiss()
-                self.showMessage(error)
-            }
-        }
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,13 +70,6 @@ class DeliveryRegisterFirstStepVC : ImagePickerViewController  {
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
     }
     
     

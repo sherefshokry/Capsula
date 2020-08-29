@@ -148,6 +148,8 @@
 		5B71F54324B9B9B400B4E3D3 /* DeliveryUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71F54224B9B9B400B4E3D3 /* DeliveryUserResponse.swift */; };
 		5B71F54524B9C4AF00B4E3D3 /* DeliveryOrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71F54424B9C4AF00B4E3D3 /* DeliveryOrdersResponse.swift */; };
 		5B71F54724B9C4D200B4E3D3 /* DeliveryOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71F54624B9C4D200B4E3D3 /* DeliveryOrder.swift */; };
+		5B7591C624F57A8B00074DBA /* EditUserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7591C524F57A8B00074DBA /* EditUserProfileVC.swift */; };
+		5B7591C824F57CA000074DBA /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7591C724F57CA000074DBA /* ChangePasswordVC.swift */; };
 		5B7FA9F523F80DB6002DFAA6 /* BrandsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FA9F023F80DB6002DFAA6 /* BrandsListPresenter.swift */; };
 		5B7FA9F623F80DB6002DFAA6 /* BrandsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FA9F123F80DB6002DFAA6 /* BrandsListRouter.swift */; };
 		5B7FA9F723F80DB6002DFAA6 /* BrandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FA9F223F80DB6002DFAA6 /* BrandsListViewController.swift */; };
@@ -231,6 +233,10 @@
 		5B9DA16223B1499A00F8696A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9DA16023B1499A00F8696A /* Main.storyboard */; };
 		5B9DA16423B149A100F8696A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9DA16323B149A100F8696A /* Assets.xcassets */; };
 		5B9DA16723B149A100F8696A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9DA16523B149A100F8696A /* LaunchScreen.storyboard */; };
+		5BA4C89324F816090020BBCC /* DeliveryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89224F816090020BBCC /* DeliveryRequest.swift */; };
+		5BA4C89724F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89624F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift */; };
+		5BA4C89924F820640020BBCC /* EditDeliveryProfileStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89824F820640020BBCC /* EditDeliveryProfileStep2VC.swift */; };
+		5BA4C89B24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89A24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift */; };
 		5BA59A9324045DD600D2DC96 /* SearchItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA59A8E24045DD600D2DC96 /* SearchItemPresenter.swift */; };
 		5BA59A9424045DD600D2DC96 /* SearchItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA59A8F24045DD600D2DC96 /* SearchItemRouter.swift */; };
 		5BA59A9524045DD600D2DC96 /* SearchItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA59A9024045DD600D2DC96 /* SearchItemViewController.swift */; };
@@ -442,6 +448,8 @@
 		5B71F54224B9B9B400B4E3D3 /* DeliveryUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryUserResponse.swift; sourceTree = "<group>"; };
 		5B71F54424B9C4AF00B4E3D3 /* DeliveryOrdersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrdersResponse.swift; sourceTree = "<group>"; };
 		5B71F54624B9C4D200B4E3D3 /* DeliveryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrder.swift; sourceTree = "<group>"; };
+		5B7591C524F57A8B00074DBA /* EditUserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileVC.swift; sourceTree = "<group>"; };
+		5B7591C724F57CA000074DBA /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		5B7FA9F023F80DB6002DFAA6 /* BrandsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsListPresenter.swift; sourceTree = "<group>"; };
 		5B7FA9F123F80DB6002DFAA6 /* BrandsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsListRouter.swift; sourceTree = "<group>"; };
 		5B7FA9F223F80DB6002DFAA6 /* BrandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsListViewController.swift; sourceTree = "<group>"; };
@@ -527,6 +535,10 @@
 		5B9DA16323B149A100F8696A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B9DA16623B149A100F8696A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B9DA16823B149A100F8696A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BA4C89224F816090020BBCC /* DeliveryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRequest.swift; sourceTree = "<group>"; };
+		5BA4C89624F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeliveryProfileStep1VC.swift; sourceTree = "<group>"; };
+		5BA4C89824F820640020BBCC /* EditDeliveryProfileStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeliveryProfileStep2VC.swift; sourceTree = "<group>"; };
+		5BA4C89A24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeliveryProfileStep3VC.swift; sourceTree = "<group>"; };
 		5BA59A8E24045DD600D2DC96 /* SearchItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemPresenter.swift; sourceTree = "<group>"; };
 		5BA59A8F24045DD600D2DC96 /* SearchItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemRouter.swift; sourceTree = "<group>"; };
 		5BA59A9024045DD600D2DC96 /* SearchItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewController.swift; sourceTree = "<group>"; };
@@ -732,9 +744,9 @@
 		5B465B9824F04A0000D92421 /* DeliveryMan */ = {
 			isa = PBXGroup;
 			children = (
+				5BA4C89424F81FFB0020BBCC /* DeliveryProfile */,
 				5B2FE01124F0AB8500ACF65B /* Wallet */,
 				5BBE650924F052EB000DD869 /* PagerCells */,
-				5B465B9924F04A1500D92421 /* DeliveryManProfileVC.swift */,
 			);
 			path = DeliveryMan;
 			sourceTree = "<group>";
@@ -1140,6 +1152,7 @@
 				5B65298924352CE3006D92C0 /* CartRequest.swift */,
 				5B4E3D3B244E362D0037A73F /* CheckoutRequest.swift */,
 				5B2ADA0A24A74333007C9E80 /* DeliveryManRegisterRequest.swift */,
+				5BA4C89224F816090020BBCC /* DeliveryRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1280,6 +1293,25 @@
 			path = Capsula;
 			sourceTree = "<group>";
 		};
+		5BA4C89424F81FFB0020BBCC /* DeliveryProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5BA4C89524F820110020BBCC /* EditProfile */,
+				5B465B9924F04A1500D92421 /* DeliveryManProfileVC.swift */,
+			);
+			path = DeliveryProfile;
+			sourceTree = "<group>";
+		};
+		5BA4C89524F820110020BBCC /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5BA4C89624F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift */,
+				5BA4C89824F820640020BBCC /* EditDeliveryProfileStep2VC.swift */,
+				5BA4C89A24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 		5BA59A8D24045DBD00D2DC96 /* SearchItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -1296,6 +1328,8 @@
 			isa = PBXGroup;
 			children = (
 				5BB7E98624EF35B7009AB85E /* UserProfileViewController.swift */,
+				5B7591C524F57A8B00074DBA /* EditUserProfileVC.swift */,
+				5B7591C724F57CA000074DBA /* ChangePasswordVC.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -1606,6 +1640,7 @@
 				5B4E1AB223B1532500808F38 /* UICollectionViewCell.swift in Sources */,
 				5B86BF3623B7BB2700F849FD /* MainHomeViewController.swift in Sources */,
 				5BBE651124F05EFA000DD869 /* CarDetailsCell.swift in Sources */,
+				5B7591C824F57CA000074DBA /* ChangePasswordVC.swift in Sources */,
 				5B4E1A9423B1532400808F38 /* Date.swift in Sources */,
 				5B4E1AA423B1532400808F38 /* String.swift in Sources */,
 				5B7FAA0723F81E9D002DFAA6 /* ItemsListPresenter.swift in Sources */,
@@ -1656,12 +1691,14 @@
 				5BB971D723E6E4C20033F6D9 /* MainHomeInteractor.swift in Sources */,
 				5B465B9724EF701A00D92421 /* TermsAncConditionsVC.swift in Sources */,
 				5B4E1AA123B1532400808F38 /* UIBezierPath.swift in Sources */,
+				5BA4C89924F820640020BBCC /* EditDeliveryProfileStep2VC.swift in Sources */,
 				5B2AD2E723EE2D57009D061D /* SubCategoriesListViewController.swift in Sources */,
 				5BC28D7C23C0B81000B81D1D /* ResetPasswordPresenter.swift in Sources */,
 				5B4E1A9323B1532400808F38 /* UITextFeild.swift in Sources */,
 				5B8C558123B408800094C341 /* LogInProtocols.swift in Sources */,
 				5B65298A24352CE3006D92C0 /* CartRequest.swift in Sources */,
 				5B7FA9F923F80DB6002DFAA6 /* BrandsListInteractor.swift in Sources */,
+				5B7591C624F57A8B00074DBA /* EditUserProfileVC.swift in Sources */,
 				5B4E1AB923B1532500808F38 /* AnimationUtils.swift in Sources */,
 				5B7FA9F523F80DB6002DFAA6 /* BrandsListPresenter.swift in Sources */,
 				5B4E1A8023B1532400808F38 /* NoData.swift in Sources */,
@@ -1737,6 +1774,7 @@
 				5B8C557523B407140094C341 /* RegisterProtocols.swift in Sources */,
 				5B4E1AAB23B1532500808F38 /* UIFont.swift in Sources */,
 				5B4E1A9D23B1532400808F38 /* UITabBarController.swift in Sources */,
+				5BA4C89324F816090020BBCC /* DeliveryRequest.swift in Sources */,
 				5B501FD524B06CBF009A33DF /* DeliveryOrderCell.swift in Sources */,
 				5BC28D8823C0BEA100B81D1D /* VerificationInteractor.swift in Sources */,
 				5B8D688024545CA6000C73D0 /* OrderCell.swift in Sources */,
@@ -1756,6 +1794,7 @@
 				5B4E1AA723B1532500808F38 /* UIViewController.swift in Sources */,
 				5B4E1AAA23B1532500808F38 /* Double.swift in Sources */,
 				5B4E1A9523B1532400808F38 /* UIView.swift in Sources */,
+				5BA4C89724F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift in Sources */,
 				5BC28D6F23C09E6800B81D1D /* CompleteProfilePresenter.swift in Sources */,
 				5B8B8A8E2437B86E00FE3CB4 /* CircularTransition.swift in Sources */,
 				5B4E1A9B23B1532400808F38 /* UITableViewExtension.swift in Sources */,
@@ -1804,6 +1843,7 @@
 				5B8C558A23B40ADD0094C341 /* ForgetPasswordRouter.swift in Sources */,
 				5B2AD2DA23EE0F7F009D061D /* CategoriesResponse.swift in Sources */,
 				5B4E1AB623B1532500808F38 /* Utils.swift in Sources */,
+				5BA4C89B24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift in Sources */,
 				5BC28D7023C09E6800B81D1D /* CompleteProfileRouter.swift in Sources */,
 				5B2AD2C723EDF56B009D061D /* StoresListProtocols.swift in Sources */,
 				5B8C557423B407140094C341 /* RegisterViewController.swift in Sources */,

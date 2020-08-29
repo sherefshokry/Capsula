@@ -16,6 +16,8 @@ public class RegisterRequest  : Codable {
     var email = ""
     var password = ""
     var deviceToken = ""
+    var image = ""
+
 
     init(){
     }    
@@ -26,6 +28,7 @@ public class RegisterRequest  : Codable {
         params["phone"] = phone
         params["email"] = email
         params["password"] = password
+         params["image"] = image
   //      params["device_token"] = deviceToken
   //      params["device_id"] = Utils.getDeviceID()
   //      params["device_type"] = 1

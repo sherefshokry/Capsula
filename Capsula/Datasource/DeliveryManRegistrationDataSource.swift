@@ -15,6 +15,7 @@ public enum DeliveryManRegistrationDataSource {
      case getCarModels(Int)
      case deliveryManRegister(DeliveryManRegisterRequest)
      case deliveryManLogin(LoginRequest)
+     case updateDeliveryData(DeliveryRequest)
 }
 
 extension DeliveryManRegistrationDataSource : TargetType {
@@ -31,6 +32,7 @@ extension DeliveryManRegistrationDataSource : TargetType {
         case .getCarModels(let carTypeId): return "/GetCarModels/\(carTypeId)"
         case .deliveryManRegister(_): return "/Register"
         case .deliveryManLogin(_): return "/Login"
+        case .updateDeliveryData(_): return "/Update"
         }
     }
     
@@ -42,6 +44,7 @@ extension DeliveryManRegistrationDataSource : TargetType {
         case .getCarModels(_): return .get
         case .deliveryManRegister(_): return .post
         case .deliveryManLogin(_): return .post
+        case .updateDeliveryData(_): return .put
         }
     }
     
@@ -59,6 +62,10 @@ extension DeliveryManRegistrationDataSource : TargetType {
           return .requestParameters(parameters: request.getParams(), encoding: JSONEncoding.default)
         case .deliveryManLogin(let request):
             return .requestParameters(parameters: request.getParams(), encoding: JSONEncoding.default)
+        case .updateDeliveryData(let request):
+            
+            
+            return .requestParameters(parameters: request.getParams(), encoding: JSONEncoding.default)
         }
     }
     
@@ -70,9 +77,9 @@ extension DeliveryManRegistrationDataSource : TargetType {
            return nil
        }
     
-    public var headers: [String: String]? {
-        return BaseDataSource.getHeader() as? [String : String] ?? [:]
-    }
+      public var headers: [String: String]? {
+         return BaseDataSource.getDeliveryHeader() as? [String : String] ?? [:]
+     }
     
     public var validationType: ValidationType {
         return .successCodes

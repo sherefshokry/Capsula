@@ -14,6 +14,7 @@ public enum UserDataSource {
     case checkPhoneIsExist(String,String)
     case updateUser(RegisterRequest)
     case updateDefaultAddress(Int)
+    case changePassword(String,String)
 }
 
 extension UserDataSource : TargetType {
@@ -37,6 +38,8 @@ extension UserDataSource : TargetType {
         case .updateUser(_): return "/UpdateUser"
         case .updateDefaultAddress(let addressId):
             return "/UpdateDefaultAddress/\(addressId)"
+        case .changePassword(_,_):
+            return "/ChangePassword"
         }
     }
     
@@ -48,6 +51,8 @@ extension UserDataSource : TargetType {
         case .checkPhoneIsExist(_,_):  return .get
         case .updateUser(_): return .put
         case .updateDefaultAddress(_): return .put
+        case .changePassword(_, _):
+            return .put
         }
     }
     
@@ -77,10 +82,17 @@ extension UserDataSource : TargetType {
             params["name"] = request.name
             params["email"] = request.email
             params["phone"] = request.phone
+            params["image"] = request.image
+            
             
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .updateDefaultAddress(_):
             return .requestPlain
+        case .changePassword(let currentPassword,let newPassword):
+                var params = [String : Any]()
+                    params["currentPassword"] = currentPassword
+                    params["newPassword"] = newPassword
+                    return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }
     

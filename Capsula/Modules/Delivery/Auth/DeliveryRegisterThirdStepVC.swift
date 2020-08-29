@@ -16,6 +16,7 @@ import Intercom
 
 class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
     
+    
     var licenceImage = ""
     var idImage = ""
     var frontImage = ""

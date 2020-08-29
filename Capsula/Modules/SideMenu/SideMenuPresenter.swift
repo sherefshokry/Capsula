@@ -98,6 +98,10 @@ extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
             
             let content: ContentSheetContentProtocol
                   let vc = ManagePaymentMethodVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+         vc.applyPaymentMethod = { paymentType in
+        
+        
+          }
     //              vc.paymentType = selectedPaymentMethod
     //              vc.applyPaymentMethod = { paymentType in
     //                  self.selectedPaymentMethod = paymentType

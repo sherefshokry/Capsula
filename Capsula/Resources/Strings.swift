@@ -73,7 +73,14 @@ class Strings: Any {
     static var paymentMethodSelection = "Please,select your prefered payment method".localize()
     static var km = " KM".localize()
     static var distance = "Distance : ".localize()
-    
+    static var userProfileUpdatedMsg =  "User profile updated successfully".localize()
+    static var resetPasswordSuccessMsg = "Your password is updated successfully".localize()
+    static var password = "Password *".localize()
+    static var confirmationPassword = "Confirm Password *".localize()
+    static var newPassword  = "New Password *".localize()
+    static var phoneMatched = "password and confirm password are not matched".localize()
+    static var cardAddedSuccessfully = "Your card is added successfully".localize()
+
     
     
     
@@ -88,18 +95,7 @@ class Strings: Any {
     static var currentLocation = "Current Location".localize()
     static var alreadyExist = "User already exist".localize()
     static var notExist = "User not registered yet".localize()
-    static var selectLocationFirst = "Please first select test drive location".localize()
-    static var selectDateFirst = "Please first select test drive date".localize()
-    static var selectBrandFirst = "Please first select car brand".localize()
-    static var selectModelFirst = "Please first select car model".localize()
-    static var selectModelYearFirst = "Please first select car model year".localize()
-    static var testDriveSummitSuccess = "Your request sent to mansour successfully, we will call you shortly".localize()
-    static var rsaCancelRequest = "Your rsa request is cancelled".localize()
-    static var bookingCancelRequest = "Your booking request is cancelled".localize()
-    static var brochureNullMsg = "Sorry you can't download this file".localize()
-    static var bookingCancelMsg = "Are you sure to delete this booking".localize()
-    static var uploadImageMsg = "Please upload at least one image".localize()
-    static var gallery = "Photo Library".localize()
+     static var gallery = "Photo Library".localize()
     static var camera = "Take Photo".localize()
     static var showRoom = "Showroom".localize()
     static var serviceCenter = "Service Center".localize()
@@ -112,26 +108,13 @@ class Strings: Any {
     static var sendAgain = "Send Again".localize()
     static var resendMessage_1 =   "You can resend code after ".localize()
     static var resendMessage_2 =   " second".localize()
-    static var resetPasswordSuccessMsg = "Your password is updated successfully".localize()
-    static var updateProfileSuccessMsg = "Your profile is updated successfully".localize()
-    static var updateCarPhotoSuccessMsg = "Your car photo is updated successfully".localize()
-    static var deleteCarPhotoSuccessMsg = "Your car photo is deleted successfully".localize()
-    static var  addCarSuccessMsg = "Your new car is added successfully".localize()
-    static var updateCarKiloMeterSuccessMsg = "Your car kilometers are updated successfully".localize()
+   static var updateProfileSuccessMsg = "Your profile is updated successfully".localize()
+
     static var change = "Change".localize()
     static var saveMsg = "No changes to save".localize()
     static var cancel = "Cancel".localize()
-    static var myAppointment = "My Appointments".localize()
-    static var booking = "New Booking".localize()
-    static var news = "News & Offers".localize()
     static var welcome = "Welcome ".localize()
     static var done = "Done".localize()
-    static var stepTwo = "2/2 Steps".localize()
-    static var stepOne = "1/2 Steps".localize()
-    static var myAppointement = "My Appointment".localize()
-    static var myRSA = "My RSA".localize()
-    static var rsaRequest  = "New Request".localize()
-    static var kmServices = " KM Service".localize()
     static var createAccount = "Create account".localize()
     static var price = "Price : ".localize()
     static var available = "Available in Store".localize()
@@ -140,19 +123,13 @@ class Strings: Any {
     static var years = " years".localize()
     static var yes = "Yes".localize()
     static var no = "No".localize()
-    
     static var egp = " EGP".localize()
     static var delete = "Delete".localize()
-    static var addCar = "Add Car".localize()
     static var OK = "OK".localize()
     static var viewMore = "View More".localize()
     static var or = " or ".localize()
-    static var locationMsg = "To find your pick-up location automatically, turn on location services".localize()
-    //not localized
     static var arabic = "العربيه"
     static var english = "English"
-    //
-    
     
     struct Fields {
         static var phoneOrEmail = "Phone or Email".localize()
@@ -170,27 +147,10 @@ class Strings: Any {
         static var kmFieldHint = "Please enter kilometer".localize()
         static var kmFieldPlaceHolder = "Kilometer *".localize()
         static var modelYear = "Model Year *".localize()
-        static var modelKM = "kilometer *".localize()
-        static var inquiry = "Inquiry Type *".localize()
         static var message = "Message *".localize()
         static var someThing = "Write Something...".localize()
-        static var vinNumber = "vin number *".localize()
-        static var password = "Password *".localize()
-        static var confirmationPassword = "Confirm Password *".localize()
-        static var newPassword  = "New Password *".localize()
-        static var neededServices = "Service Needed".localize()
-        static var preferableDate = "Preferable Date".localize()
-        static var preferableTime = "Preferable Time".localize()
-        static var notes = "Notes".localize()
-        static var chooseLocation = "Choose Location".localize()
-        static var chooseCar = "Choose Car".localize()
-        static var partCategory = "Part Category".localize()
-        static var downPayment = "Down Payment Percentage".localize()
-        static var addsOn = "Adds On".localize()
-        static var years = "Number of years".localize()
-        static var insurance = "Insurance".localize()
-        
-        
+      
+      
     }
     struct Validation {
         static var kilometerValidation = "kilometer must be between 100 to 100,000 km".localize()
@@ -202,9 +162,9 @@ class Strings: Any {
         static var messageValidation = "Please enter your message".localize()
         static var codeValidation = "code not valid".localize()
         static var codeNullMsg = "Please enter code".localize()
-        static var phoneMatched = "password and confirm password are not matched".localize()
         static var verificationCodeNotValid = "Verification code is not valid".localize()
-        static var passwordPolicyValidation = "Password must be minimum 8 characters and contain at least 1 Alphabet and 1 Number".localize()
+        static var passwordPolicyValidation = "Password must be minimum 6 characters".localize()
+        //and contain at least 1 Alphabet and 1 Number
         static  var passwordEmpty = "Please enter a password".localize()
         static var userNotRegistered = "This phone number is not registered yet".localize()
         static var loginValidation = "mobile number or password is invalid".localize()

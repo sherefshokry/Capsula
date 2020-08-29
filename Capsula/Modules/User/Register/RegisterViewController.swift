@@ -11,10 +11,9 @@
 import UIKit
 import KVNProgress
 import Intercom
-class RegisterViewController: UIViewController {
+class RegisterViewController : UIViewController {
     
     var presenter : ViewToPresenterRegisterProtocol?
-    
     @IBOutlet weak var emailField : CapsulaInputFeild!
     @IBOutlet weak var phoneField : CapsulaInputFeild!
     @IBOutlet weak var passwordField : CapsulaInputFeild!
@@ -40,16 +39,16 @@ class RegisterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        emailField.field.text = ""
-        Intercom.setLauncherVisible(false)
+         emailField.field.text = ""
+         Intercom.setLauncherVisible(false)
     }
     
     func clearFields(){
-         emailField.field.text = ""
+           emailField.field.text = ""
            phoneField.field.text = ""
            nameField.field.text = ""
            passwordField.field.text = ""
-        self.presenter?.clearRegisterRequest()
+           self.presenter?.clearRegisterRequest()
     }
     
     

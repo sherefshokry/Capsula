@@ -78,6 +78,12 @@ class MainHomeViewController : UIViewController {
         setHomeData()
         setupCollectionViewLayout()
         self.presenter?.getStoresData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshUserData(_:)),
+                                                      name: NSNotification.Name(rawValue: Constants.REFRESH_USER_DATA), object: nil)
+    }
+    
+    @objc func refreshUserData(_ notification: NSNotification){
+           setHomeData()
     }
     
     func setupCollectionViewLayout(){
@@ -87,7 +93,7 @@ class MainHomeViewController : UIViewController {
     func setHomeData(){
         
         userNameLbl.text = "Hello \(Utils.loadUser()?.user?.name ?? "") 👋🏻"
-                 userImage.sd_setImage(with: URL.init(string: Utils.loadUser()?.user?.photo ?? ""))
+        userImage.sd_setImage(with: URL.init(string: Utils.loadUser()?.user?.photo ?? ""))
         //, placeholderImage: UIImage(named: "icPersonal")
                  
                  NotificationCenter.default.addObserver(self, selector: #selector(self.recieveCartNotification(_:)), name: NSNotification.Name(rawValue: Constants.CART_UPDATE_NOTIFICATION), object: nil)

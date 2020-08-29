@@ -58,7 +58,7 @@ class AddressListViewController : UIViewController{
     @IBAction func addNewAddress(_ sender: UIButton){
     
          let vc = AddAddressViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
-        
+        vc.openHomeScreen = true
         self.dismiss(animated: true) {
             
             UIApplication.shared.windows[0].visibleViewController?.present(vc, animated: true, completion: nil)

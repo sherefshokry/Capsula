@@ -28,10 +28,27 @@ class DeliveryManProfileVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user =  Utils.loadDeliveryUser()?.user ?? DeliveryUser()
-        userImage.sd_setImage(with: URL.init(string: user.personalPicture ?? ""), placeholderImage: nil)
-        userName.text = user.fullName ?? ""
+        
+              NotificationCenter.default.addObserver(self, selector: #selector(self.refreshDeliveryData(_:)), name: NSNotification.Name(rawValue: Constants.REFRESH_DELIVERY_DATA), object: nil)
+        
+        setUserData()
+        
+     
     }
+    
+    @objc func refreshDeliveryData(_ notification: NSNotification){
+        setUserData()
+        self.pager.reloadData()
+    }
+    
+
+    func setUserData(){
+        
+        let user =  Utils.loadDeliveryUser()?.user ?? DeliveryUser()
+             userImage.sd_setImage(with: URL.init(string: user.personalPicture ?? ""), placeholderImage: nil)
+             userName.text = user.fullName ?? ""
+    }
+    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -59,6 +76,11 @@ class DeliveryManProfileVC : UIViewController {
         self.pageController.reloadInputViews()
     }
     
+    
+    @IBAction func editDeliveryManProfile(_ sender : UIButton){
+        let vc = EditDeliveryProfileStep1VC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+        self.present(vc, animated: true, completion: nil)
+    }
     
     
 }

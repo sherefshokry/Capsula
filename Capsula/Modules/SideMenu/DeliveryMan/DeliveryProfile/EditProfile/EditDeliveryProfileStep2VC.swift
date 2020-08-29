@@ -1,31 +1,31 @@
 //
-//  DeliveryRegisterSecondStep.swift
+//  EditDeliveryProfileStep2VC.swift
 //  Capsula
 //
-//  Created by SherifShokry on 6/27/20.
+//  Created by SherifShokry on 8/27/20.
 //  Copyright © 2020 SherifShokry. All rights reserved.
 //
 
 import UIKit
-import KVNProgress
 import Moya
-import SDWebImage
-import Intercom
+import KVNProgress
 
-class DeliveryRegisterSecondStepVC : ImagePickerViewController  {
+
+class EditDeliveryProfileStep2VC : UIViewController {
     
+    var registerRequest = DeliveryRequest()
     var selectedBrandID = -1
     var selectedYearID = -1
     var selectedLicenceID = -1
     var selectedModelID = -1
-    
-    var registerRequest = DeliveryManRegisterRequest()
     var yearsList = [CarType]()
     var carBrandList = [CarType]()
     var licenceTypeList = [CarType]()
     var carModelList = [CarType]()
     var onFormCompleted : ((DeliveryManRegisterRequest) -> ())?
+    private let provider = MoyaProvider<DeliveryManRegistrationDataSource>()
     
+    @IBOutlet weak var  topView : UIView!
     @IBOutlet weak var  carBrandField : CapsulaInputFeild!
     @IBOutlet weak var  carModelField : CapsulaInputFeild!
     @IBOutlet weak var  carYearsField : CapsulaInputFeild!
@@ -34,33 +34,37 @@ class DeliveryRegisterSecondStepVC : ImagePickerViewController  {
     @IBOutlet weak var  carLicenceTypeField : CapsulaInputFeild!
     
     
-    
-    private let provider = MoyaProvider<DeliveryManRegistrationDataSource>()
-    private var state: State = .loading {
-        didSet {
-            switch state {
-            case .ready:
-                KVNProgress.dismiss()
-            case .loading:
-                KVNProgress.show()
-            case .error(let error):
-                KVNProgress.dismiss()
-                self.showMessage(error)
-            }
-        }
-    }
-    
-    
-    override func  viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         setupInputFields()
+        setUserData()
         getRegistrationBasicData()
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        Intercom.setLauncherVisible(false)
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        topView.clipsToBounds = true
+        topView.layer.cornerRadius = 70
+        topView.layer.maskedCorners = [.layerMinXMaxYCorner]
     }
+    
+    
+    func setUserData(){
+        let user =  Utils.loadDeliveryUser()?.user ?? DeliveryUser()
+        carPlateNumberField.field.text = "\(user.vehiclePlateNumber ?? -1)"
+        carPlateLettersField.field.text = user.vehiclePlateLetters ?? ""
+        carLicenceTypeField.field.text = user.vehicleTypeDesc ?? ""
+        carYearsField.field.text = user.yearDesc ?? ""
+        carModelField .field.text = user.carModelDesc ?? ""
+        carBrandField.field.text  = user.carTypeDesc ?? ""
+        selectedBrandID = user.carTypeId ?? -1
+        selectedYearID =  user.yearId ?? -1
+        selectedLicenceID = user.vehicleTypeId ?? -1
+        selectedModelID = user.carModelId ?? -1
+    }
+    
     
     
     func setupInputFields(){
@@ -95,8 +99,6 @@ class DeliveryRegisterSecondStepVC : ImagePickerViewController  {
         
         
         
-        
-      
         
         carBrandField.actionHandler = { _ in
             
@@ -213,16 +215,12 @@ class DeliveryRegisterSecondStepVC : ImagePickerViewController  {
             picker.show()
         }
         
-        
-        
-        
     }
     
     
     func getRegistrationBasicData(){
         KVNProgress.show()
         provider.request(.getRegistrationBasicData) { [weak self] result in
-            KVNProgress.dismiss()
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -232,7 +230,7 @@ class DeliveryRegisterSecondStepVC : ImagePickerViewController  {
                     self.yearsList = basicDataResponse.data?.years ?? []
                     self.carBrandList = basicDataResponse.data?.carTypes ?? []
                     self.licenceTypeList = basicDataResponse.data?.vehicleTypes ?? []
-                    
+                    self.getCarModels()
                 } catch(let catchError) {
                     self.showMessage(catchError.localizedDescription)
                 }
@@ -298,27 +296,78 @@ class DeliveryRegisterSecondStepVC : ImagePickerViewController  {
     
     
     
-    @IBAction func nextPressed(_ sender : UIButton){
+    @IBAction func savePressed(_ sender : UIButton){
         
-        
-        if validate() {
-            
-            registerRequest.carTypeId = selectedBrandID
-            registerRequest.carModelId = selectedModelID
+        if validate(){
             registerRequest.vehicleTypeId = selectedLicenceID
+            registerRequest.carModelId = selectedModelID
             registerRequest.yearId = selectedYearID
-            registerRequest.vehiclePlateLetters = carPlateLettersField.getText()
+            registerRequest.carTypeId = selectedBrandID
+            registerRequest.vehiclePlateLetters  = carPlateLettersField.getText()
             registerRequest.vehiclePlateNumber = Int(carPlateNumberField.getText()) ?? 0
-            
-            if onFormCompleted != nil {
-                onFormCompleted!(registerRequest)
-            }
-            
-            
+            updateDeliveryUserProfile(registerRequest: registerRequest)
         }
-        
-        
     }
+    
+    @IBAction func nextPressed(_ sender : UIButton){
+        let vc =   EditDeliveryProfileStep3VC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+        vc.registerRequest = registerRequest
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    
+    func updateDeliveryUserProfile(registerRequest : DeliveryRequest){
+        KVNProgress.show()
+        provider.request(.updateDeliveryData(registerRequest)) { [weak self] result in
+            guard let self = self else { return }
+            KVNProgress.dismiss()
+            switch result {
+            case .success(let response):
+                do {
+                    let updatedDeliveryResponse = try response.map(BaseResponse<DeliveryUserResponse>.self).data ?? DeliveryUserResponse()
+                    
+                    var currentDeliveryResponse = Utils.loadDeliveryUser()
+                    
+                    currentDeliveryResponse?.user = updatedDeliveryResponse.user ?? DeliveryUser()
+                    
+                    Utils.saveDeliveryUser(user: currentDeliveryResponse)
+                    
+                    self.showMessage(Strings.userProfileUpdatedMsg) {
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true
+                            , completion: {
+                                
+                             NotificationCenter.default.post(name: Notification.Name(Constants.REFRESH_DELIVERY_DATA), object: nil)
+                                
+                        })
+                    }
+                    
+                } catch(let catchError) {
+                    self.showMessage(catchError.localizedDescription)
+                }
+            case .failure(let error):
+                
+                do{
+                    
+                    
+                    if let body = try error.response?.mapJSON(){
+                        let errorData = (body as! [String:Any])
+                        self.showMessage((errorData["errors"] as? String) ?? "")
+                    }
+                }catch{
+                    self.showMessage(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

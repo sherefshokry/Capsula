@@ -17,8 +17,9 @@ struct User : Codable {
     let  addressList : [Address]?
     var  cartContent : [Item]?
     
+    
     enum CodingKeys: String, CodingKey {
-        case id = "userId" , name , phone , photo , email, cartContent
+        case id = "userId" , name , phone , photo = "imagePath" , email, cartContent
         case addressList = "userAddresses" , defaultAddress =  "defaultAddress"
     }
     

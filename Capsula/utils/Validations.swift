@@ -92,29 +92,26 @@ class Validations {
   }
 
     static func isValidPassword(text: String)->Bool{
-       
-//      let passRegEx = "^(?=.*?[a-zA-Z])(?=.*?[0-9])(\\d+(?=.*?[#@?!@$%^&_*-]))*\\d+.{8,}$"
-         //"^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#@?!@$%^&_*-]).{8,}$"
+    
+//
+//        if textHasOnlyNumbers(text){
+//            return false
+//        }
+//
+//        if hasSpecialCharOnly(text){
+//            return false
+//        }
+//
+//        if hasSpecialCharAndNumbersOnly(text){
+//        return false
+//        }
         
         
-        if textHasOnlyNumbers(text){
-            return false
-        }
-
-        if hasSpecialCharOnly(text){
-            return false
-        }
-
-        if hasSpecialCharAndNumbersOnly(text){
-        return false
-        }
+//        if hasCharOnly(text){
+//            return false
+//        }
         
-        
-        if hasCharOnly(text){
-            return false
-        }
-        
-        if text.count < 8 {
+        if text.count < 6 {
             return false
         }
 

@@ -17,21 +17,25 @@ public enum CheckOutDataSource {
     case orderTrackingList(Int)
     case orderDetails(Int)
     case cancelOrder(Int)
+    case prepareRegistration(Int)
+    case saveCard(Int,String)
+    
 }
 
 extension CheckOutDataSource : TargetType {
     
     public var baseURL: URL {
         
-     
-         switch self {
+        switch self {
             case .cancelOrder(let orderId):
             return URL(string: "\(Constants.BASE_URL)/Order/CancelOrder?orderId=\(orderId)")!
          case .orderTrackingList(let orderId):
              return URL(string: "\(Constants.BASE_URL)/Order/GetOrderTracking?orderId=\(orderId)")!
         case .orderDetails(let orderId):
             return URL(string: "\(Constants.BASE_URL)/Order/GetOrderDetails?orderId=\(orderId)")!
-            default:
+        case .saveCard(let paymentMethod , let resourcePath):
+              return URL(string: "\(Constants.BASE_URL)/CheckOut/SaveCard?registerMethodType=\(paymentMethod)&resourcePath=\(resourcePath)")!
+        default:
             return URL(string: "\(Constants.BASE_URL)")!
         }}
   
@@ -51,6 +55,10 @@ extension CheckOutDataSource : TargetType {
             return "/CheckOut/GetDeliveryCost"
         case .prepareCheckout(let paymentMethodID):
             return "/CheckOut/PrepareCheckout/\(paymentMethodID)"
+        case .prepareRegistration(let paymentMethodID):
+             return "/CheckOut/PrepareRegisteration/\(paymentMethodID)"
+        case .saveCard:
+            return ""
         }
     }
     
@@ -69,6 +77,10 @@ extension CheckOutDataSource : TargetType {
         case .getDeliveryCost:
             return .get
         case .prepareCheckout(_):
+            return .get
+        case .prepareRegistration(_):
+            return .get
+        case .saveCard(_,_):
             return .get
         }
     }
@@ -92,6 +104,10 @@ extension CheckOutDataSource : TargetType {
         case .getDeliveryCost:
             return .requestPlain
         case .prepareCheckout(_):
+            return .requestPlain
+        case .prepareRegistration(_):
+            return .requestPlain
+        case .saveCard(_,_):
             return .requestPlain
         }
     }

@@ -37,11 +37,11 @@ class CapsulaInputFeild : InputField {
             self.field.keyboardType = .asciiCapable
             break
         case .password:
-             self.titleLabel.text = Strings.Fields.password
+             self.titleLabel.text = Strings.password
             self.field.keyboardType = .asciiCapable
             self.field.isSecureTextEntry = true
         case .newPassword:
-            self.titleLabel.text = Strings.Fields.newPassword
+            self.titleLabel.text = Strings.newPassword
             self.field.keyboardType = .asciiCapable
             self.field.isSecureTextEntry = true
             break
@@ -105,11 +105,11 @@ class CapsulaInputFeild : InputField {
             self.numberViewWidthConstraint.constant = 50
             break
         case .number:
-            self.titleLabel.text = Strings.Fields.password
+            self.titleLabel.text = Strings.password
             self.field.isSecureTextEntry = true
             self.field.keyboardType = .asciiCapable
         case .confirmPassword:
-            self.titleLabel.text = Strings.Fields.confirmationPassword
+            self.titleLabel.text = Strings.confirmationPassword
             self.field.isSecureTextEntry = true
             self.field.keyboardType = .asciiCapable
         case .no:

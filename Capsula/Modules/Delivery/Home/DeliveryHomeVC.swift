@@ -25,6 +25,9 @@ class DeliveryHomeVC : UIViewController {
         getMyOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadOrderList(_:)), name: NSNotification.Name(rawValue: Constants.RELOAD_DELIVERY_MAN_ORDERS_LIST), object: nil)
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshDeliveryData(_:)), name: NSNotification.Name(rawValue: Constants.REFRESH_DELIVERY_DATA), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +37,10 @@ class DeliveryHomeVC : UIViewController {
     
     @objc func reloadOrderList(_ notification: NSNotification){
         getMyOrders()
+    }
+    
+     @objc func refreshDeliveryData(_ notification: NSNotification){
+        tableView.reloadData()
     }
     
     override func viewWillLayoutSubviews() {
