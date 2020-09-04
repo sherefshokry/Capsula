@@ -48,6 +48,7 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
         latitude = user.latitude ?? 0.0
         longitude = user.longitude ?? 0.0
         //   registerRequest.accountHolderAddress = user.bank ?? ""
+        selectedNationalityID = user.nationalityId ?? -1
         registerRequest.nationalityId = user.nationalityId ?? -1
         registerRequest.carTypeId = user.carTypeId ?? -1
         registerRequest.carModelId = user.carModelId  ?? -1
@@ -205,7 +206,7 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
             registerRequest.longitude = longitude
             updateDeliveryUserProfile(registerRequest: registerRequest)
         }
-        
+
     }
     
     

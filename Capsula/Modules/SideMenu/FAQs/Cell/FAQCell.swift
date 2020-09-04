@@ -32,8 +32,8 @@ class FAQCell : UITableViewCell {
             arrowImage.image = #imageLiteral(resourceName: "icPlusFAQ")
         }
 
-        titleLabel.text = content.name
-        descriptionLabel.text = (content.description ?? "")?.htmlToString
+        titleLabel.text = content.question ?? ""
+        descriptionLabel.text = (content.answer ?? "")?.htmlToString
     }
     
     func setStackViewInsets(status : Bool){

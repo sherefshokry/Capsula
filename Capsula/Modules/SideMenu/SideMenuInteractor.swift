@@ -53,14 +53,17 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
         sideMenuItems.append(
             SideMenu.init(elementText: Strings.SideMenu.shared.Payment, elementIcon : #imageLiteral(resourceName: "icPayment")))
         
-        sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.Help, elementIcon : #imageLiteral(resourceName: "icHelp")))
+        //        sideMenuItems.append(
+        //            SideMenu.init(elementText: Strings.SideMenu.shared.Help, elementIcon : #imageLiteral(resourceName: "icHelp")))
+        
         
         sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.PromoCode, elementIcon : #imageLiteral(resourceName: "icPayment")))
+            SideMenu.init(elementText: Strings.SideMenu.shared.About, elementIcon : #imageLiteral(resourceName: "icNotifications")))
+        
         
         sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.Share, elementIcon : #imageLiteral(resourceName: "icPayment")))
+            SideMenu.init(elementText: Strings.SideMenu.shared.Terms, elementIcon : #imageLiteral(resourceName: "icNotifications")))
+        
         
         sideMenuItems.append(
             SideMenu.init(elementText: Strings.SideMenu.shared.Notifications , elementIcon : #imageLiteral(resourceName: "icNotifications")))
@@ -86,11 +89,17 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
         sideMenuItems.append(
             SideMenu.init(elementText: Strings.SideMenu.shared.Help, elementIcon : #imageLiteral(resourceName: "icHelp")))
         
-        sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.Share, elementIcon : #imageLiteral(resourceName: "icPayment")))
+        
         
         sideMenuItems.append(
             SideMenu.init(elementText: Strings.SideMenu.shared.Notifications , elementIcon : #imageLiteral(resourceName: "icNotifications")))
+        
+        sideMenuItems.append(
+            SideMenu.init(elementText: Strings.SideMenu.shared.About, elementIcon : #imageLiteral(resourceName: "icNotifications")))
+        
+        
+        sideMenuItems.append(
+            SideMenu.init(elementText: Strings.SideMenu.shared.Terms, elementIcon : #imageLiteral(resourceName: "icNotifications")))
         
         
         sideMenuItems.append(
@@ -142,12 +151,7 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
         case Strings.SideMenu.shared.Payment:
             self.presenter?.openPaymentScreen()
             break
-        case Strings.SideMenu.shared.PromoCode:
             
-            break
-        case Strings.SideMenu.shared.Share:
-            
-            break
         case Strings.SideMenu.shared.FAQ:
             let vc = FAQViewController.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
             self.presenter?.navigate(viewController: vc, animation: true)
@@ -156,10 +160,17 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
             print("change Language")
             break
         case Strings.SideMenu.shared.MyWallet:
-           let vc =  DeliveryManWalletVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
-           self.presenter?.navigate(viewController: vc, animation: true)
+            let vc =  DeliveryManWalletVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+            self.presenter?.navigate(viewController: vc, animation: true)
             break
-            
+        case Strings.SideMenu.shared.Terms:
+            let vc = TermsAndConditionsVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+            self.presenter?.navigate(viewController: vc, animation: true)
+            break
+        case Strings.SideMenu.shared.About:
+            let vc =  AboutUsVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+            self.presenter?.navigate(viewController: vc, animation: true)
+            break
         case Strings.SideMenu.shared.History:
             print("History")
             let vc = DeliveryHistoryListVC.instantiateFromStoryBoard(appStoryBoard: .Home)

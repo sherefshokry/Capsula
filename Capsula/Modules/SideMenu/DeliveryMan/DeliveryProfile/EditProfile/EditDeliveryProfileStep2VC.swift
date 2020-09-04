@@ -305,6 +305,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             registerRequest.carTypeId = selectedBrandID
             registerRequest.vehiclePlateLetters  = carPlateLettersField.getText()
             registerRequest.vehiclePlateNumber = Int(carPlateNumberField.getText()) ?? 0
+            
             updateDeliveryUserProfile(registerRequest: registerRequest)
         }
     }
@@ -318,6 +319,10 @@ class EditDeliveryProfileStep2VC : UIViewController {
     
     
     func updateDeliveryUserProfile(registerRequest : DeliveryRequest){
+        
+        
+        
+        
         KVNProgress.show()
         provider.request(.updateDeliveryData(registerRequest)) { [weak self] result in
             guard let self = self else { return }

@@ -9,30 +9,28 @@
 import Foundation
 
 struct FAQ : Codable {
+
     
-    let  id: Int?
-    var  name: String?
-    var  description: String?
+    let  question: String?
+    let  answer: String?
     var  isExpanded = false
     
     enum CodingKeys: String, CodingKey {
-        case id , name , description
+        case question, answer
     }
     
     init(){
-        id = -1
-        name = ""
-        description = ""
+  
+        question = ""
+        answer = ""
     
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        do { id = try container.decodeIfPresent(.id) ?? -1 }
-        catch { id = -1 }
-        do {   name = try container.decodeIfPresent(.name) ?? ""}
-        catch { name = "" }
-        do {   description = try container.decodeIfPresent(.description) ?? ""}
-        catch { description  = "" }
+        do { question = try container.decodeIfPresent(. question) ?? "" }
+        catch {  question = "" } 
+        do {   answer = try container.decodeIfPresent(.answer) ?? ""}
+        catch { answer = "" }
     }
 }

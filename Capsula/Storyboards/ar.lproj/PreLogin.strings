@@ -1,0 +1,132 @@
+
+/* Class = "UILabel"; text = "Customer"; ObjectID = "0Yw-uc-GlD"; */
+"0Yw-uc-GlD.text" = "Customer";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "2jx-gV-xBl"; */
+"2jx-gV-xBl.normalTitle" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Terms & conditionss"; ObjectID = "3JR-aG-uRU"; */
+"3JR-aG-uRU.normalTitle" = "Terms & conditionss";
+
+/* Class = "UILabel"; text = "Or login with social media"; ObjectID = "5Z3-U9-2tU"; */
+"5Z3-U9-2tU.text" = "Or login with social media";
+
+/* Class = "UILabel"; text = "Reset Password"; ObjectID = "5cg-AS-Tvb"; */
+"5cg-AS-Tvb.text" = "Reset Password";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "6YT-bs-PNP"; */
+"6YT-bs-PNP.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Or login with social media"; ObjectID = "9CF-IB-vz6"; */
+"9CF-IB-vz6.text" = "Or login with social media";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "9Gr-yx-0FO"; */
+"9Gr-yx-0FO.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "Verification"; ObjectID = "9Xb-Y6-HoY"; */
+"9Xb-Y6-HoY.text" = "Verification";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "CVf-0e-YFN"; */
+"CVf-0e-YFN.normalTitle" = "Send";
+
+/* Class = "UILabel"; text = "Car License"; ObjectID = "CuS-Vg-bRn"; */
+"CuS-Vg-bRn.text" = "Car License";
+
+/* Class = "UILabel"; text = "Required Documents"; ObjectID = "DU8-JU-ZsN"; */
+"DU8-JU-ZsN.text" = "Required Documents";
+
+/* Class = "UILabel"; text = "Enter verificaion code that was sent to you by sms"; ObjectID = "Egw-rT-ZK3"; */
+"Egw-rT-ZK3.text" = "Enter verificaion code that was sent to you by sms";
+
+/* Class = "UILabel"; text = "Terms & Conditions"; ObjectID = "Fr0-9Z-L5Q"; */
+"Fr0-9Z-L5Q.text" = "Terms & Conditions";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "GSH-Tc-VzO"; */
+"GSH-Tc-VzO.normalTitle" = "Skip";
+
+/* Class = "UILabel"; text = "Welcome To Capsula"; ObjectID = "GbO-hf-4v0"; */
+"GbO-hf-4v0.text" = "Welcome To Capsula";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "LNm-Pu-ywL"; */
+"LNm-Pu-ywL.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "Complete Profile"; ObjectID = "QcB-X1-TcI"; */
+"QcB-X1-TcI.text" = "Complete Profile";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Qq5-dn-FnE"; */
+"Qq5-dn-FnE.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Add Address"; ObjectID = "RFz-va-F8F"; */
+"RFz-va-F8F.normalTitle" = "Add Address";
+
+/* Class = "UILabel"; text = "Enter your phone number and we will send \nyou sms to reset you pasword"; ObjectID = "RWP-3o-eh6"; */
+"RWP-3o-eh6.text" = "Enter your phone number and we will send \nyou sms to reset you pasword";
+
+/* Class = "UILabel"; text = "i agree on "; ObjectID = "WnJ-Vy-YFp"; */
+"WnJ-Vy-YFp.text" = "i agree on ";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password"; ObjectID = "YrY-n9-9iJ"; */
+"YrY-n9-9iJ.normalTitle" = "Forgot Password";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "cKW-bH-AuD"; */
+"cKW-bH-AuD.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "Car Details"; ObjectID = "cuI-l6-rUt"; */
+"cuI-l6-rUt.text" = "Car Details";
+
+/* Class = "UILabel"; text = "Add Your Address"; ObjectID = "dQ6-8Z-GSa"; */
+"dQ6-8Z-GSa.text" = "Add Your Address";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod."; ObjectID = "fKM-tk-AJZ"; */
+"fKM-tk-AJZ.text" = "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod.";
+
+/* Class = "UILabel"; text = "Forget Password"; ObjectID = "fPU-q8-zQQ"; */
+"fPU-q8-zQQ.text" = "Forget Password";
+
+/* Class = "UILabel"; text = "Car Front Image"; ObjectID = "g2L-j1-Sk3"; */
+"g2L-j1-Sk3.text" = "Car Front Image";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "gcR-kH-pih"; */
+"gcR-kH-pih.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Send Again ?"; ObjectID = "gfr-vn-9ab"; */
+"gfr-vn-9ab.normalTitle" = "Send Again ?";
+
+/* Class = "UILabel"; text = "Car Back Image"; ObjectID = "gnu-L9-GG4"; */
+"gnu-L9-GG4.text" = "Car Back Image";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "jZE-kl-IbR"; */
+"jZE-kl-IbR.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "National ID"; ObjectID = "kV6-lV-XZy"; */
+"kV6-lV-XZy.text" = "National ID";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lce-in-DKf"; */
+"lce-in-DKf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "liX-51-cSr"; */
+"liX-51-cSr.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "oKf-Fn-JM4"; */
+"oKf-Fn-JM4.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "Personal Photo"; ObjectID = "oat-vr-d2N"; */
+"oat-vr-d2N.text" = "Personal Photo";
+
+/* Class = "UILabel"; text = "Car Registration"; ObjectID = "pmH-Wc-dW9"; */
+"pmH-Wc-dW9.text" = "Car Registration";
+
+/* Class = "UILabel"; text = "Personal Details"; ObjectID = "qJv-Kt-YQo"; */
+"qJv-Kt-YQo.text" = "Personal Details";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "tAX-S4-q02"; */
+"tAX-S4-q02.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Welcome To Capsula!"; ObjectID = "u60-AJ-K9M"; */
+"u60-AJ-K9M.text" = "Welcome To Capsula!";
+
+/* Class = "UILabel"; text = "Vehicle plate details"; ObjectID = "uSh-fM-9sp"; */
+"uSh-fM-9sp.text" = "Vehicle plate details";
+
+/* Class = "UILabel"; text = "Delivery Representative"; ObjectID = "z9g-Lw-lii"; */
+"z9g-Lw-lii.text" = "Delivery Representative";

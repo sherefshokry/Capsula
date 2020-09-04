@@ -13,7 +13,9 @@ import Moya
 public enum HomeDataSource {
     case getHomeData
     case updateUserData
-    
+    case getFAQS
+    case getAbout
+    case getTerms
 }
 
 extension HomeDataSource : TargetType {
@@ -35,16 +37,27 @@ extension HomeDataSource : TargetType {
             return "/GetHomeData"
         case .updateUserData:
             return ""
+        case .getFAQS:
+            return "/FAQs"
+        case .getAbout:
+            return "/About"
+        case .getTerms:
+            return "/TermsAndConditions"
         }
     }
     
     public var method: Moya.Method {
         switch self {
         case .getHomeData:
-            return .get
-            
+            return .get      
         case .updateUserData:
             return .get
+        case .getFAQS:
+            return .get
+        case .getAbout:
+             return .get
+        case .getTerms:
+             return .get
         }
     }
     
@@ -57,6 +70,12 @@ extension HomeDataSource : TargetType {
         case . getHomeData:
             return .requestPlain
         case .updateUserData:
+            return .requestPlain
+        case .getFAQS:
+            return .requestPlain
+        case .getAbout:
+            return .requestPlain
+        case .getTerms:
             return .requestPlain
         }
     }

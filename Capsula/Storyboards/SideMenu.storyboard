@@ -364,7 +364,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1li-jg-ziI">
                                                             <rect key="frame" x="0.0" y="0.0" width="290" height="63"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Benefits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM5-jp-pzk">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Benefits" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM5-jp-pzk">
                                                                     <rect key="frame" x="0.0" y="22" width="266" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                     <color key="textColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="deviceRGB"/>
@@ -377,8 +377,8 @@
                                                                         <constraint firstAttribute="height" constant="16" id="YAy-GU-sel"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79i-VA-UTu">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="63"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79i-VA-UTu">
+                                                                    <rect key="frame" x="-12" y="0.0" width="290" height="63"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <connections>
                                                                         <action selector="expandViewPressed:" destination="b1E-UD-E1v" eventType="touchUpInside" id="QXh-Rj-m04"/>
@@ -797,7 +797,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2V-ge-Xcs">
                                 <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWB-TT-Ptx">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icImage" translatesAutoresizingMaskIntoConstraints="NO" id="dWB-TT-Ptx">
                                         <rect key="frame" x="22" y="24" width="276" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="5er-ci-tCf"/>
@@ -808,21 +808,22 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX7-zg-XKQ">
-                                        <rect key="frame" x="22" y="240" width="42" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX7-zg-XKQ">
+                                        <rect key="frame" x="22" y="240" width="276" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="dWB-TT-Ptx" firstAttribute="leading" secondItem="epx-x6-Bby" secondAttribute="leading" constant="22" id="G9m-7w-bNh"/>
+                                    <constraint firstAttribute="trailing" secondItem="dWB-TT-Ptx" secondAttribute="trailing" constant="22" id="1Bw-Sf-d8G"/>
+                                    <constraint firstItem="dWB-TT-Ptx" firstAttribute="top" secondItem="v2V-ge-Xcs" secondAttribute="top" constant="24" id="7ui-No-jmf"/>
+                                    <constraint firstItem="dWB-TT-Ptx" firstAttribute="centerX" secondItem="v2V-ge-Xcs" secondAttribute="centerX" id="AVe-0U-xET"/>
                                     <constraint firstAttribute="trailing" secondItem="oX7-zg-XKQ" secondAttribute="trailing" constant="22" id="UII-rT-6Uu"/>
                                     <constraint firstItem="oX7-zg-XKQ" firstAttribute="leading" secondItem="v2V-ge-Xcs" secondAttribute="leading" constant="22" id="ULq-Gn-7rj"/>
                                     <constraint firstAttribute="bottom" secondItem="oX7-zg-XKQ" secondAttribute="bottom" constant="16" id="h0C-6i-8CE"/>
-                                    <constraint firstItem="dWB-TT-Ptx" firstAttribute="top" secondItem="epx-x6-Bby" secondAttribute="top" constant="24" id="rBU-nE-2EE"/>
+                                    <constraint firstItem="dWB-TT-Ptx" firstAttribute="leading" secondItem="v2V-ge-Xcs" secondAttribute="leading" constant="22" id="ouF-9K-cV7"/>
                                     <constraint firstItem="oX7-zg-XKQ" firstAttribute="top" secondItem="dWB-TT-Ptx" secondAttribute="bottom" constant="16" id="sms-El-786"/>
-                                    <constraint firstItem="epx-x6-Bby" firstAttribute="trailing" secondItem="dWB-TT-Ptx" secondAttribute="trailing" constant="22" id="y2Y-Dh-GER"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="pFm-Wh-Frg"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="epx-x6-Bby"/>
@@ -854,10 +855,10 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
             </objects>
             <point key="canvasLocation" x="4215" y="56"/>
         </scene>
-        <!--Terms Anc ConditionsVC-->
+        <!--Terms And ConditionsVC-->
         <scene sceneID="BVy-7A-scN">
             <objects>
-                <viewController storyboardIdentifier="TermsAncConditionsVC" id="L7H-XJ-dNl" customClass="TermsAncConditionsVC" customModule="Capsula" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsAndConditionsVC" id="L7H-XJ-dNl" customClass="TermsAndConditionsVC" customModule="Capsula" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qFo-wq-dnT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -889,7 +890,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJ3-0u-ZTa">
                                 <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SLE-Vk-3ru">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group" translatesAutoresizingMaskIntoConstraints="NO" id="SLE-Vk-3ru">
                                         <rect key="frame" x="22" y="24" width="276" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="cbl-kD-I2b"/>
@@ -900,21 +901,22 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9w-rg-hsa">
-                                        <rect key="frame" x="22" y="240" width="42" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9w-rg-hsa">
+                                        <rect key="frame" x="22" y="240" width="306" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SLE-Vk-3ru" secondAttribute="trailing" constant="52" id="2F2-cw-UYS"/>
                                     <constraint firstItem="p9w-rg-hsa" firstAttribute="leading" secondItem="FJ3-0u-ZTa" secondAttribute="leading" constant="22" id="DBd-ST-xTi"/>
-                                    <constraint firstItem="SLE-Vk-3ru" firstAttribute="leading" secondItem="33R-zE-FMG" secondAttribute="leading" constant="22" id="DF3-Ca-HVy"/>
-                                    <constraint firstItem="SLE-Vk-3ru" firstAttribute="top" secondItem="33R-zE-FMG" secondAttribute="top" constant="24" id="JeB-zW-hbD"/>
                                     <constraint firstItem="p9w-rg-hsa" firstAttribute="top" secondItem="SLE-Vk-3ru" secondAttribute="bottom" constant="16" id="KCM-yu-un0"/>
+                                    <constraint firstItem="SLE-Vk-3ru" firstAttribute="top" secondItem="FJ3-0u-ZTa" secondAttribute="top" constant="24" id="RqC-7I-Yau"/>
                                     <constraint firstAttribute="trailing" secondItem="p9w-rg-hsa" secondAttribute="trailing" constant="22" id="pw3-jm-Oz9"/>
                                     <constraint firstAttribute="bottom" secondItem="p9w-rg-hsa" secondAttribute="bottom" constant="16" id="qkQ-hH-y07"/>
-                                    <constraint firstItem="33R-zE-FMG" firstAttribute="trailing" secondItem="SLE-Vk-3ru" secondAttribute="trailing" constant="22" id="s7N-Gm-hNJ"/>
+                                    <constraint firstItem="SLE-Vk-3ru" firstAttribute="leading" secondItem="FJ3-0u-ZTa" secondAttribute="leading" constant="22" id="tdf-od-zgI"/>
+                                    <constraint firstItem="SLE-Vk-3ru" firstAttribute="centerX" secondItem="FJ3-0u-ZTa" secondAttribute="centerX" id="ziY-oz-Ddi"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="6fn-Uy-fRd"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="33R-zE-FMG"/>
@@ -2635,10 +2637,12 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
         </scene>
     </scenes>
     <resources>
+        <image name="group" width="350" height="218"/>
         <image name="icApplePay" width="32" height="21"/>
         <image name="icBack" width="16" height="27"/>
         <image name="icCredit" width="33" height="29"/>
         <image name="icEdit" width="20" height="20"/>
+        <image name="icImage" width="350" height="218"/>
         <image name="icMada" width="34" height="11"/>
         <image name="icNotSelected" width="18" height="18"/>
         <image name="icPhoto" width="24" height="22"/>

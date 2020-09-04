@@ -272,6 +272,8 @@ class Strings: Any {
         var History = "History".localize()
         var MyWallet = "My Wallet".localize()
         var Language = "Language".localize()
+        var About = "About us".localize()
+        var Terms = "Terms & Conditions".localize()
     }
     
     

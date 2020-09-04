@@ -7,24 +7,20 @@
 //
 
 import UIKit
+import Moya
+import KVNProgress
+
 
 class FAQViewController : UIViewController {
     
     var faqList = [FAQ]()
     @IBOutlet weak var topView : UIView!
     @IBOutlet weak var tableView : UITableView!
-
+    private let provider = MoyaProvider<HomeDataSource>()
     
     override func viewDidLoad() {
            super.viewDidLoad()
-        
-    var faqItem = FAQ()
-        faqItem.name = "Faq Title"
-        faqItem.description = "Faq Description"
-        faqItem.isExpanded = false
-        faqList.append(faqItem)
-        tableView.reloadData()
-        
+        getFAQSData()
        }
     
     override func viewWillLayoutSubviews() {
@@ -33,6 +29,38 @@ class FAQViewController : UIViewController {
            topView.layer.cornerRadius = 70
            topView.layer.maskedCorners = [.layerMinXMaxYCorner]
        }
+    
+    
+    
+    func getFAQSData() {
+        KVNProgress.show()
+        provider.request(.getFAQS) { [weak self] result in
+            KVNProgress.dismiss()
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                do {
+                    let faqsData = try response.map(BaseResponse<FAQResponse>.self)
+                    self.faqList = faqsData.data?.faqsList ?? []
+                    self.tableView.reloadData()
+                    
+                } catch(let catchError) {
+                    self.showMessage(catchError.localizedDescription)
+                }
+            case .failure(let error):
+                do{
+                    if let body = try error.response?.mapJSON(){
+                        let errorData = (body as! [String:Any])
+                        self.showMessage((errorData["errors"] as? String) ?? "")
+                        
+                    }
+                }catch{
+                    self.showMessage(error.localizedDescription)
+                }
+            }
+        }
+        
+    }
     
     
     
@@ -66,7 +94,10 @@ extension FAQViewController : UITableViewDelegate , UITableViewDataSource {
 
     
     func reloadWithoutAnimation(index : Int) {
+        
      let indexPath = IndexPath(row: index, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+        
     }
+    
 }

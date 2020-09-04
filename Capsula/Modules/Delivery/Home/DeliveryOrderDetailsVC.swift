@@ -27,6 +27,8 @@ class DeliveryOrderDetailsVC : UIViewController {
     @IBOutlet weak var cartView: UIView!
     @IBOutlet weak var cartViewHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var phoneNumberLabel : UILabel!
+    @IBOutlet weak var productDetailsLabel : UILabel!
+    
     
     var ordersList = [Item]()
     var order = DeliveryOrder()
@@ -151,9 +153,15 @@ class DeliveryOrderDetailsVC : UIViewController {
         let collectionWidth = (self.collectionView.bounds.width / 2.0)
         let rowHeight = collectionWidth + 20
         
+        if ordersList.count > 0 {
+            collectionView.isHidden = false
+            productDetailsLabel.isHidden = false
+            self.collectionViewHeightConstraint.constant = CGFloat(totalNumberOfRows) * rowHeight
+        }else{
+            collectionView.isHidden = true
+            productDetailsLabel.isHidden = true
+        }
         
-        
-        self.collectionViewHeightConstraint.constant = CGFloat(totalNumberOfRows) * rowHeight
         self.view.layoutIfNeeded()
         self.collectionView.reloadData()
         
