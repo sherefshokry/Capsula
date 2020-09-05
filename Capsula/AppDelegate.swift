@@ -38,29 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyCx2XM-jUdvo5cOSJWIBwcayQEL4MO9-OQ")
         //AIzaSyAy7wIubAmmdvAR2AxeaoBX43FuF5k1m4w
         
-
-        let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
-        
-        if isDeliveryMan {
-            
-            if (Utils.loadDeliveryUser()?.accessToken ?? "") == ""{
-                 Utils.openWelcomeScreen()
-            }else{
-                Utils.openDeliveryHomeScreen()
-            }
-          
-        }else{
-            
-            if (Utils.loadUser()?.accessToken ?? "") == ""{
-                Utils.openWelcomeScreen()
-            }else{
-                Utils.openHomeScreen()
-            }
-            
-        }
-    
-        Strings.shared = Strings()
-        Strings.refreshAll()
+        Utils.openSplashScreen() 
+     
+     
         
         UIFont.overrideInitializeForEN()
         

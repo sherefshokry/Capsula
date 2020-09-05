@@ -18,7 +18,7 @@ class BaseDataSource {
         var header = [
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Accept-Language": "en"]
+                "Accept-Language": LocalizationSystem.sharedInstance.getLanguage()]
        
         if let user = Utils.loadUser() {
             header["Authorization"] = "Bearer \(user.accessToken ?? "")"
@@ -33,7 +33,7 @@ class BaseDataSource {
        var header = [
                "Content-Type": "application/json",
                "Accept": "application/json",
-               "Accept-Language": "en"]
+               "Accept-Language": LocalizationSystem.sharedInstance.getLanguage()]
       
        if let user = Utils.loadDeliveryUser() {
            header["Authorization"] = "Bearer \(user.accessToken ?? "")"

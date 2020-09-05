@@ -52,11 +52,11 @@ class Utils {
     }
     
     
-    //    static func openSplashScreen() {
-    //        let vc = SplashVC.instantiateFromStoryBoard(appStoryBoard: .Main)
-    //        UIApplication.shared.windows[0].rootViewController = vc
-    //        UIApplication.shared.windows[0].makeKeyAndVisible()
-    //    }
+        static func openSplashScreen() {
+            let vc = SplashVC.instantiateFromStoryBoard(appStoryBoard: .Main)
+            UIApplication.shared.windows[0].rootViewController = vc
+            UIApplication.shared.windows[0].makeKeyAndVisible()
+        }
     
     static func openLoginScreen(isDeliveryMan : Bool) {
         let vc = MainRegisterRouter.createModule(isDeliveryMan: isDeliveryMan)

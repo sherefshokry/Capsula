@@ -104,16 +104,18 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
     func changeLanguage(index : Int){
         let currentLanguage = LocalizationSystem.sharedInstance.getLanguage()
         if index == 0 {
-        //    Bundle.setLanguage("ar")
+            Bundle.setLanguage("ar")
             Utils.setLang(lang: "ar")
         }else{
-         //   Bundle.setLanguage("en")
+            Bundle.setLanguage("en")
             Utils.setLang(lang: "en")
         }
-        let updatedLanguage = LocalizationSystem.sharedInstance.getLanguage()
+        let updatedLanguage =  UserDefaults.standard.string(forKey: "lang")
+            //LocalizationSystem.sharedInstance.getLanguage()
+        
         
         if currentLanguage != updatedLanguage {
-             Utils.openWelcomeScreen()
+             Utils.openSplashScreen()
         }
     }
     

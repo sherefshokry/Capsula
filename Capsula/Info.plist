@@ -106,6 +106,10 @@
 	<string>$(PRODUCT_NAME) uses photos to provide you with instant technical support</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NeoSansArabic.ttf</string>
+		<string>NeoSansArabicBold.ttf</string>
+		<string>NeoSansArabicLight.ttf</string>
+		<string>NeoSansArabicMedium.ttf</string>
 		<string>Cairo-Bold.ttf</string>
 		<string>Cairo-Light.ttf</string>
 		<string>Cairo-Regular.ttf</string>

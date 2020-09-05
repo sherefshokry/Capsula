@@ -34,37 +34,63 @@ extension UIButton {
             } else if fontNameToTest.range(of: "ultralight") != nil {
                 fontName += "-UltraLight";
             }else{
-            
-            
+                
+                
             }
             self.titleLabel!.font = UIFont(name: fontName, size: self.titleLabel!.font.pointSize)
         }
     }
     
     func setUnderLineText(text : String) {
-
-             let attributedString = NSMutableAttributedString(string: text)
-    
-             attributedString.addAttribute(NSAttributedString.Key.underlineColor, value: self.titleColor(for: .normal)!, range: NSRange(location: 0, length: text.count))
-             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: self.titleColor(for: .normal)!, range: NSRange(location: 0, length: text.count))
-             attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: text.count))
-             self.setAttributedTitle(attributedString, for: .normal)
+        
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        attributedString.addAttribute(NSAttributedString.Key.underlineColor, value: self.titleColor(for: .normal)!, range: NSRange(location: 0, length: text.count))
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: self.titleColor(for: .normal)!, range: NSRange(location: 0, length: text.count))
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: text.count))
+        self.setAttributedTitle(attributedString, for: .normal)
     }
     
     
     open override func awakeFromNib() {
-         super.awakeFromNib()
-         if(LocalizationSystem.sharedInstance.getLanguage().contains("ar")){
-             if let myButtonImage = self.image(for: .normal),
-                 let buttonAppuyerImage = UIImage(named: "ic_back"),
-                 myButtonImage.pngData() == buttonAppuyerImage.pngData()
-             {
-                 self.transform = CGAffineTransform(rotationAngle: -.pi)
-             } else {
-                 print("NO")
-             }
-         }
-     }
+        super.awakeFromNib()
+        if(LocalizationSystem.sharedInstance.getLanguage().contains("ar")){
+            
+            
+            if let myButtonImage = self.image(for: .normal),
+                let buttonAppuyerImage = UIImage(named: "icBack"),
+                myButtonImage.pngData() == buttonAppuyerImage.pngData()
+            {
+                self.transform = CGAffineTransform(rotationAngle: -.pi)
+            } else {
+                print("NO")
+            }
+            
+            if let myButtonImage2 = self.image(for: .normal),
+                let buttonAppuyerImage = UIImage(named: "icBackBlue"),
+                myButtonImage2.pngData() == buttonAppuyerImage.pngData()
+            {
+                self.transform = CGAffineTransform(rotationAngle: -.pi)
+            } else {
+                print("NO")
+            }
+            
+            
+            if let myButtonImage3 = self.image(for: .normal),
+                let buttonAppuyerImage = UIImage(named: "icBack_black"),
+                myButtonImage3.pngData() == buttonAppuyerImage.pngData()
+            {
+                self.transform = CGAffineTransform(rotationAngle: -.pi)
+            } else {
+                print("NO")
+            }
+            
+            
+            
+            
+            
+        }
+    }
     
     
     

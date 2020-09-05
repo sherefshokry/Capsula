@@ -137,7 +137,6 @@
 		5B501FD724B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B501FD624B06EE0009A33DF /* DeliveryFilterHistoryOrdersVC.swift */; };
 		5B50C38C24B9E8FF003F5C3B /* DeliveryOrderDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50C38B24B9E8FF003F5C3B /* DeliveryOrderDetailsResponse.swift */; };
 		5B53E52D25027D2A00DA4B8C /* PreLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E52F25027D2A00DA4B8C /* PreLogin.storyboard */; };
-		5B53E53725027ED600DA4B8C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E53925027ED600DA4B8C /* Home.storyboard */; };
 		5B53E53C25027F0A00DA4B8C /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E53E25027F0A00DA4B8C /* SideMenu.storyboard */; };
 		5B53E5412502801D00DA4B8C /* HomeDeliveryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E5432502801D00DA4B8C /* HomeDeliveryHeaderCell.xib */; };
 		5B53E5462502803F00DA4B8C /* PersonalDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E5482502803F00DA4B8C /* PersonalDetailsCell.xib */; };
@@ -155,6 +154,13 @@
 		5B53E5802502888700DA4B8C /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E57C2502888600DA4B8C /* Cairo-Regular.ttf */; };
 		5B53E5812502888700DA4B8C /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E57D2502888600DA4B8C /* Cairo-Bold.ttf */; };
 		5B53E5822502888700DA4B8C /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E57E2502888600DA4B8C /* Cairo-Light.ttf */; };
+		5B5A4A672503DA24003B6D0C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A632503DA21003B6D0C /* Home.storyboard */; };
+		5B5A4A6D2503E218003B6D0C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A6C2503E218003B6D0C /* SplashVC.swift */; };
+		5B5A4A722503E613003B6D0C /* NeoSansArabicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A6E2503E612003B6D0C /* NeoSansArabicLight.ttf */; };
+		5B5A4A732503E613003B6D0C /* NeoSansArabicRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A6F2503E612003B6D0C /* NeoSansArabicRegular.ttf */; };
+		5B5A4A742503E613003B6D0C /* NeoSansArabicMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A702503E612003B6D0C /* NeoSansArabicMedium.ttf */; };
+		5B5A4A752503E613003B6D0C /* NeoSansArabicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A712503E613003B6D0C /* NeoSansArabicBold.ttf */; };
+		5B5A4A772503EA2E003B6D0C /* NeoSansArabic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A762503EA2D003B6D0C /* NeoSansArabic.ttf */; };
 		5B65298824351CAA006D92C0 /* CartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298724351CAA006D92C0 /* CartDataSource.swift */; };
 		5B65298A24352CE3006D92C0 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298924352CE3006D92C0 /* CartRequest.swift */; };
 		5B65298C24352D27006D92C0 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298B24352D27006D92C0 /* CartItem.swift */; };
@@ -449,8 +455,6 @@
 		5B53E52A25027CE100DA4B8C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5B53E53025027D4500DA4B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PreLogin.storyboard; sourceTree = "<group>"; };
 		5B53E53125027D9500DA4B8C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PreLogin.strings; sourceTree = "<group>"; };
-		5B53E53A25027EDC00DA4B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		5B53E53B25027EEB00DA4B8C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Home.strings; sourceTree = "<group>"; };
 		5B53E53F25027F0E00DA4B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SideMenu.storyboard; sourceTree = "<group>"; };
 		5B53E54025027F2300DA4B8C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SideMenu.strings; sourceTree = "<group>"; };
 		5B53E5442502802000DA4B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeDeliveryHeaderCell.xib; sourceTree = "<group>"; };
@@ -481,6 +485,15 @@
 		5B53E57E2502888600DA4B8C /* Cairo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Light.ttf"; sourceTree = "<group>"; };
 		5B53E5832502A8E300DA4B8C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PersonalDetailsCell.strings; sourceTree = "<group>"; };
 		5B53E5842502A8F900DA4B8C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CarDetailsCell.strings; sourceTree = "<group>"; };
+		5B5A4A642503DA21003B6D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		5B5A4A6B2503DB00003B6D0C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Home.strings; sourceTree = "<group>"; };
+		5B5A4A6C2503E218003B6D0C /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		5B5A4A6E2503E612003B6D0C /* NeoSansArabicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabicLight.ttf; sourceTree = "<group>"; };
+		5B5A4A6F2503E612003B6D0C /* NeoSansArabicRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabicRegular.ttf; sourceTree = "<group>"; };
+		5B5A4A702503E612003B6D0C /* NeoSansArabicMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabicMedium.ttf; sourceTree = "<group>"; };
+		5B5A4A712503E613003B6D0C /* NeoSansArabicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabicBold.ttf; sourceTree = "<group>"; };
+		5B5A4A762503EA2D003B6D0C /* NeoSansArabic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabic.ttf; sourceTree = "<group>"; };
+		5B5A4A792503ED17003B6D0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Home.strings; sourceTree = "<group>"; };
 		5B65298724351CAA006D92C0 /* CartDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDataSource.swift; sourceTree = "<group>"; };
 		5B65298924352CE3006D92C0 /* CartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRequest.swift; sourceTree = "<group>"; };
 		5B65298B24352D27006D92C0 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
@@ -862,6 +875,7 @@
 				5B7AFDD623EDEF51004E8E5A /* SideMenu */,
 				5B86BF3323B7B5BE00F849FD /* Home */,
 				5BBB41EB23B16C7800A4B26E /* User */,
+				5B5A4A6C2503E218003B6D0C /* SplashVC.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -894,9 +908,9 @@
 		5B4E1A1A23B14AE400808F38 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5B5A4A632503DA21003B6D0C /* Home.storyboard */,
 				5B9DA16023B1499A00F8696A /* Main.storyboard */,
 				5B53E52F25027D2A00DA4B8C /* PreLogin.storyboard */,
-				5B53E53925027ED600DA4B8C /* Home.storyboard */,
 				5B53E53E25027F0A00DA4B8C /* SideMenu.storyboard */,
 			);
 			path = Storyboards;
@@ -1397,6 +1411,11 @@
 		5BB971F223E75E7F0033F6D9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5B5A4A762503EA2D003B6D0C /* NeoSansArabic.ttf */,
+				5B5A4A6F2503E612003B6D0C /* NeoSansArabicRegular.ttf */,
+				5B5A4A712503E613003B6D0C /* NeoSansArabicBold.ttf */,
+				5B5A4A6E2503E612003B6D0C /* NeoSansArabicLight.ttf */,
+				5B5A4A702503E612003B6D0C /* NeoSansArabicMedium.ttf */,
 				5B53E57D2502888600DA4B8C /* Cairo-Bold.ttf */,
 				5B53E57E2502888600DA4B8C /* Cairo-Light.ttf */,
 				5B53E57C2502888600DA4B8C /* Cairo-Regular.ttf */,
@@ -1595,18 +1614,21 @@
 				5BB971F723E75EC70033F6D9 /* Roboto-Light.ttf in Resources */,
 				5BFFBFBC2502B362002C3063 /* LaunchScreen.strings in Resources */,
 				5B53E5412502801D00DA4B8C /* HomeDeliveryHeaderCell.xib in Resources */,
+				5B5A4A672503DA24003B6D0C /* Home.storyboard in Resources */,
 				5BB971F823E75EC70033F6D9 /* Roboto-Bold.ttf in Resources */,
 				5BB971F923E75EC70033F6D9 /* Roboto-Medium.ttf in Resources */,
+				5B5A4A772503EA2E003B6D0C /* NeoSansArabic.ttf in Resources */,
 				5BB971FA23E75EC80033F6D9 /* Roboto-Regular.ttf in Resources */,
 				5B4E1A7923B1532400808F38 /* PickerView.xib in Resources */,
 				5B53E57F2502888700DA4B8C /* Cairo-SemiBold.ttf in Resources */,
 				5B53E562250281F100DA4B8C /* CategoryCell.xib in Resources */,
-				5B53E53725027ED600DA4B8C /* Home.storyboard in Resources */,
 				5B53E5532502810B00DA4B8C /* HomeBrandCell.xib in Resources */,
 				5B4E1A8923B1532400808F38 /* LoaderView.xib in Resources */,
 				5B53E5712502827400DA4B8C /* StoreCell.xib in Resources */,
+				5B5A4A742503E613003B6D0C /* NeoSansArabicMedium.ttf in Resources */,
 				5B53E5672502821400DA4B8C /* BrandCell.xib in Resources */,
 				5BC118BD24E3F4FB00D0F0C7 /* OPPWAMobile-Resources.bundle in Resources */,
+				5B5A4A752503E613003B6D0C /* NeoSansArabicBold.ttf in Resources */,
 				5B53E52D25027D2A00DA4B8C /* PreLogin.storyboard in Resources */,
 				5B53E56C2502823600DA4B8C /* ItemCell.xib in Resources */,
 				5BFFBFBD2502B362002C3063 /* Localizable.strings in Resources */,
@@ -1623,10 +1645,12 @@
 				5B53E5802502888700DA4B8C /* Cairo-Regular.ttf in Resources */,
 				5B53E54E2502807A00DA4B8C /* RequiredDocumentCell.xib in Resources */,
 				5B53E5462502803F00DA4B8C /* PersonalDetailsCell.xib in Resources */,
+				5B5A4A732503E613003B6D0C /* NeoSansArabicRegular.ttf in Resources */,
 				5B9DA16223B1499A00F8696A /* Main.storyboard in Resources */,
 				5B4E1A8223B1532400808F38 /* NoDataView.xib in Resources */,
 				5B53E5822502888700DA4B8C /* Cairo-Light.ttf in Resources */,
 				5B53E576250282D900DA4B8C /* CapsulaInputFeild.xib in Resources */,
+				5B5A4A722503E613003B6D0C /* NeoSansArabicLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1864,6 +1888,7 @@
 				5B86BF3023B7B04E00F849FD /* RegisterRequest.swift in Sources */,
 				5BA59A9324045DD600D2DC96 /* SearchItemPresenter.swift in Sources */,
 				5B7FAA1123F8205E002DFAA6 /* ItemsDataSource.swift in Sources */,
+				5B5A4A6D2503E218003B6D0C /* SplashVC.swift in Sources */,
 				5B2AD2C623EDF56B009D061D /* StoresListViewController.swift in Sources */,
 				5B8B8A952437E14600FE3CB4 /* CartDetailsRouter.swift in Sources */,
 				5B465B8F24EF5E6400D92421 /* FAQ.swift in Sources */,
@@ -1977,16 +2002,6 @@
 				5B53E53125027D9500DA4B8C /* ar */,
 			);
 			name = PreLogin.storyboard;
-			sourceTree = "<group>";
-		};
-		5B53E53925027ED600DA4B8C /* Home.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B53E53A25027EDC00DA4B8C /* Base */,
-				5B53E53B25027EEB00DA4B8C /* ar */,
-			);
-			name = Home.storyboard;
-			path = ../../../../../.Trash;
 			sourceTree = "<group>";
 		};
 		5B53E53E25027F0A00DA4B8C /* SideMenu.storyboard */ = {
@@ -2104,6 +2119,16 @@
 				5B53E57A250282E200DA4B8C /* ar */,
 			);
 			name = CapsulaInputFeild.xib;
+			sourceTree = "<group>";
+		};
+		5B5A4A632503DA21003B6D0C /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B5A4A642503DA21003B6D0C /* Base */,
+				5B5A4A6B2503DB00003B6D0C /* ar */,
+				5B5A4A792503ED17003B6D0C /* en */,
+			);
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		5B9DA16023B1499A00F8696A /* Main.storyboard */ = {
