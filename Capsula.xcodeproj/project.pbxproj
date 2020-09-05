@@ -308,10 +308,10 @@
 		5BF97B6C24AD7B2A00C7A866 /* DeliveryRegistrationDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B6B24AD7B2A00C7A866 /* DeliveryRegistrationDataResponse.swift */; };
 		5BF97B6E24AD7D4B00C7A866 /* CarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B6D24AD7D4B00C7A866 /* CarType.swift */; };
 		5BF97B7024AD7DF100C7A866 /* CarModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF97B6F24AD7DF100C7A866 /* CarModelResponse.swift */; };
+		5BFA40792503C4AB002EEEC2 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA40772503C4AB002EEEC2 /* NSBundle+Language.m */; };
 		5BFFBFBC2502B362002C3063 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBFB82502B361002C3063 /* LaunchScreen.strings */; };
 		5BFFBFBD2502B362002C3063 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBFBA2502B361002C3063 /* Localizable.strings */; };
 		5BFFBFC12502B4A8002C3063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBFBF2502B4A7002C3063 /* LaunchScreen.storyboard */; };
-		5BFFBFC82502B761002C3063 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFFBFC52502B760002C3063 /* NSBundle+Language.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -636,12 +636,12 @@
 		5BF97B6B24AD7B2A00C7A866 /* DeliveryRegistrationDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRegistrationDataResponse.swift; sourceTree = "<group>"; };
 		5BF97B6D24AD7D4B00C7A866 /* CarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarType.swift; sourceTree = "<group>"; };
 		5BF97B6F24AD7DF100C7A866 /* CarModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelResponse.swift; sourceTree = "<group>"; };
+		5BFA40772503C4AB002EEEC2 /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		5BFA40782503C4AB002EEEC2 /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		5BFA407A2503C52C002EEEC2 /* Capsula-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Capsula-Bridging-Header.h"; sourceTree = "<group>"; };
 		5BFFBFB92502B361002C3063 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = LaunchScreen.strings; sourceTree = "<group>"; };
 		5BFFBFBB2502B361002C3063 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localizable.strings; sourceTree = "<group>"; };
 		5BFFBFC02502B4A7002C3063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5BFFBFC52502B760002C3063 /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
-		5BFFBFC72502B760002C3063 /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
-		5BFFBFC92503AC80002C3063 /* Capsula-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capsula-Bridging-Header.h"; sourceTree = "<group>"; };
 		62FC47B5EA19111D12DCD523 /* Pods_Capsula.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capsula.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6CFC22FDF2F74880DE76F1 /* Pods-Capsula.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capsula.release.xcconfig"; path = "Target Support Files/Pods-Capsula/Pods-Capsula.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1310,7 +1310,7 @@
 		5B9DA15923B1499A00F8696A /* Capsula */ = {
 			isa = PBXGroup;
 			children = (
-				5BFFBFC42502B760002C3063 /* Localization */,
+				5BFA40762503C4AA002EEEC2 /* Localization */,
 				5BFFBFB72502B361002C3063 /* ar.lproj */,
 				5B32585A24C455E200DA6E0A /* GoogleService-Info.plist */,
 				5B0DC1B9241B0B1A00D539B8 /* Capsula.entitlements */,
@@ -1327,6 +1327,7 @@
 				5B9DA16323B149A100F8696A /* Assets.xcassets */,
 				5B9DA16523B149A100F8696A /* LaunchScreen.storyboard */,
 				5B9DA16823B149A100F8696A /* Info.plist */,
+				5BFA407A2503C52C002EEEC2 /* Capsula-Bridging-Header.h */,
 			);
 			path = Capsula;
 			sourceTree = "<group>";
@@ -1482,6 +1483,15 @@
 			path = "Second Step";
 			sourceTree = "<group>";
 		};
+		5BFA40762503C4AA002EEEC2 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5BFA40772503C4AB002EEEC2 /* NSBundle+Language.m */,
+				5BFA40782503C4AB002EEEC2 /* NSBundle+Language.h */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		5BFFBFB72502B361002C3063 /* ar.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -1500,16 +1510,6 @@
 			name = Base.lproj;
 			path = Capsula/Base.lproj;
 			sourceTree = SOURCE_ROOT;
-		};
-		5BFFBFC42502B760002C3063 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				5BFFBFC92503AC80002C3063 /* Capsula-Bridging-Header.h */,
-				5BFFBFC52502B760002C3063 /* NSBundle+Language.m */,
-				5BFFBFC72502B760002C3063 /* NSBundle+Language.h */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
 		};
 		A524031B9C0265987C52E470 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -1832,7 +1832,7 @@
 				5B8C557E23B408800094C341 /* LogInPresenter.swift in Sources */,
 				5B4A01BC24313F4100B3ABF0 /* CartItemListViewController.swift in Sources */,
 				5B8D688A24547A92000C73D0 /* TrackOrderViewController.swift in Sources */,
-				5BFFBFC82502B761002C3063 /* NSBundle+Language.m in Sources */,
+				5BFA40792503C4AB002EEEC2 /* NSBundle+Language.m in Sources */,
 				5B4A01BB24313F4100B3ABF0 /* CartItemListRouter.swift in Sources */,
 				5B45F358248AEDAA00668DB7 /* LoginDeliveryViewController.swift in Sources */,
 				5BA59A9624045DD600D2DC96 /* SearchItemProtocols.swift in Sources */,
@@ -2292,7 +2292,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BinoyedSA.Capsula;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Capsula/Localization/Capsula-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Capsula/Capsula-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2323,7 +2323,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BinoyedSA.Capsula;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Capsula/Localization/Capsula-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Capsula/Capsula-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

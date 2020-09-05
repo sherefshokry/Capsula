@@ -50,5 +50,24 @@ extension UIButton {
              attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: text.count))
              self.setAttributedTitle(attributedString, for: .normal)
     }
+    
+    
+    open override func awakeFromNib() {
+         super.awakeFromNib()
+         if(LocalizationSystem.sharedInstance.getLanguage().contains("ar")){
+             if let myButtonImage = self.image(for: .normal),
+                 let buttonAppuyerImage = UIImage(named: "ic_back"),
+                 myButtonImage.pngData() == buttonAppuyerImage.pngData()
+             {
+                 self.transform = CGAffineTransform(rotationAngle: -.pi)
+             } else {
+                 print("NO")
+             }
+         }
+     }
+    
+    
+    
+    
 }
 
