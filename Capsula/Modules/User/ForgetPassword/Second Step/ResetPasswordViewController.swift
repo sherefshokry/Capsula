@@ -66,7 +66,7 @@ class ResetPasswordViewController: UIViewController {
              
                  if confirmPasswordField.getText() != passwordField.getText() {
                      isValid = false
-                     self.showMessage(Strings.phoneMatched)
+                     self.showMessage(Strings.shared.phoneMatched)
                  }
              
              return isValid

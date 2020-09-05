@@ -29,7 +29,7 @@ class AddressListViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAddressBtn.setUnderLineText(text: Strings.addAddress)
+        addAddressBtn.setUnderLineText(text: Strings.shared.addAddress)
         currentUser = Utils.loadUser()?.user ?? User()
         newAddress = currentUser.defaultAddress ?? Address()
         addressList = currentUser.addressList ?? []

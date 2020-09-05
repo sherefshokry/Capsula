@@ -22,7 +22,7 @@ class StoreCell : UICollectionViewCell {
         storeImage.sd_setImage(with: URL.init(string: store.imageLink ?? ""))
         storeName.text = store.storeName ?? ""
         if (store.distance ?? 0) > 0 {
-            storeDistance.text = Strings.distance + "\(store.distance ?? 0)" + Strings.km
+            storeDistance.text = Strings.shared.distance + "\(store.distance ?? 0)" + Strings.shared.km
         }
         
     }

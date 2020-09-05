@@ -56,7 +56,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
     
     override func  viewDidLoad() {
         super.viewDidLoad()
-        TermsAndConditionBtn.setUnderLineText(text: Strings.termsAndConditons)
+        TermsAndConditionBtn.setUnderLineText(text: Strings.shared.termsAndConditons)
     }
     
     
@@ -73,7 +73,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
             self.licenceErrorLabel.text = ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
     }
     
     @IBAction func pickNationalIDPhoto(_ sender : UIButton){
@@ -83,7 +83,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
             self.idErrorLabel.text = ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -96,7 +96,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
             self.carFrontErrorLabel.text = ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -108,7 +108,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
             self.carBackErrorLabel.text = ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
         
     }
@@ -122,7 +122,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
             self.carRegisterationErrorLabel.text = ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
         
     }
@@ -157,33 +157,33 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
         
         var isValid = true
         if !isTermsChecked {
-            termsErrorLabel.text = Strings.privacyPolicyErrorMsg
+            termsErrorLabel.text = Strings.shared.privacyPolicyErrorMsg
             isValid = false
         }
         
         if licenceImage == "" {
             isValid = false
-            licenceErrorLabel.text = Strings.requiredField
+            licenceErrorLabel.text = Strings.shared.requiredField
         }
         
         if idImage ==  "" {
             isValid = false
-            idErrorLabel.text = Strings.requiredField
+            idErrorLabel.text = Strings.shared.requiredField
         }
         
         if frontImage == "" {
             isValid = false
-            carFrontErrorLabel.text = Strings.requiredField
+            carFrontErrorLabel.text = Strings.shared.requiredField
         }
         
         if backImage == "" {
             isValid = false
-            carBackErrorLabel.text = Strings.requiredField
+            carBackErrorLabel.text = Strings.shared.requiredField
         }
         
         if registrationImage == "" {
             isValid = false
-            carRegisterationErrorLabel.text = Strings.requiredField
+            carRegisterationErrorLabel.text = Strings.shared.requiredField
         }
         
         if isValid {
@@ -209,7 +209,7 @@ class DeliveryRegisterThirdStepVC : ImagePickerViewController  {
                 
                 do {
                     let successMsg = try response.map(BaseResponse<String>.self)
-                    self.showMessage(successMsg.data ?? Strings.deliveryRegistrationSuccess) {
+                    self.showMessage(successMsg.data ?? Strings.shared.deliveryRegistrationSuccess) {
                         Utils.openLoginScreen(isDeliveryMan: true)
                     }
                 } catch(let catchError) {

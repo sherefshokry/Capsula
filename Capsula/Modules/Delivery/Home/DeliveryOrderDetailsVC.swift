@@ -113,30 +113,30 @@ class DeliveryOrderDetailsVC : UIViewController {
         
         switch  (ordersDetailsResponse.paymentMethodId ?? 0) {
         case 1:
-            paymentMethodType.text = Strings.cash
+            paymentMethodType.text = Strings.shared.cash
             break
         case 2:
-            paymentMethodType.text = Strings.applePay
+            paymentMethodType.text = Strings.shared.applePay
             break
         case 3:
-            paymentMethodType.text = Strings.stcPay
+            paymentMethodType.text = Strings.shared.stcPay
             break
         case 4:
-            paymentMethodType.text = Strings.creditCard
+            paymentMethodType.text = Strings.shared.creditCard
             break
         case 5:
-            paymentMethodType.text = Strings.madaPay
+            paymentMethodType.text = Strings.shared.madaPay
             break
         case 6:
-            paymentMethodType.text = Strings.googlePay
+            paymentMethodType.text = Strings.shared.googlePay
             break
         default:
             print("No thing to do")
         }
         
-        itemsCost.text = Strings.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
-        deliveryCost.text = Strings.RSD + " \(ordersDetailsResponse.vatCost ?? 0.0)"
-        totalPrice.text = Strings.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
+        itemsCost.text = Strings.shared.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
+        deliveryCost.text = Strings.shared.RSD + " \(ordersDetailsResponse.vatCost ?? 0.0)"
+        totalPrice.text = Strings.shared.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
         //Delivery cost to be handle
         
         self.ordersList = ordersDetailsResponse.products ?? []

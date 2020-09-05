@@ -97,7 +97,7 @@ class MainRegisterViewController: UIViewController {
         if isDeliveryMan {
             skipBtn.isHidden = true
         }
-        skipBtn.setUnderLineText(text: Strings.skip)
+        skipBtn.setUnderLineText(text: Strings.shared.skip)
         singInPressed(UIButton.self)
     }
     

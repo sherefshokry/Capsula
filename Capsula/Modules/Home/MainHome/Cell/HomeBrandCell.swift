@@ -21,7 +21,7 @@ class HomeBrandCell : UITableViewCell {
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.register(UINib.init(nibName: BrandCell.identifier, bundle: nil), forCellWithReuseIdentifier: BrandCell.identifier)
-            seeAllBtn.setUnderLineText(text: Strings.seeAll)
+            seeAllBtn.setUnderLineText(text: Strings.shared.seeAll)
         }
         
     

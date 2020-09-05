@@ -61,7 +61,7 @@ class EditDeliveryProfileStep3VC : ImagePickerViewController{
             self.licenceImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
     }
     
     @IBAction func pickNationalIDPhoto(_ sender : UIButton){
@@ -70,7 +70,7 @@ class EditDeliveryProfileStep3VC : ImagePickerViewController{
             self.idImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -82,7 +82,7 @@ class EditDeliveryProfileStep3VC : ImagePickerViewController{
             self.frontImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -93,7 +93,7 @@ class EditDeliveryProfileStep3VC : ImagePickerViewController{
             self.backImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
         
     }
@@ -106,7 +106,7 @@ class EditDeliveryProfileStep3VC : ImagePickerViewController{
             self.registrationImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -139,7 +139,7 @@ class EditDeliveryProfileStep3VC : ImagePickerViewController{
                     
                     Utils.saveDeliveryUser(user: currentDeliveryResponse)
                     
-                    self.showMessage(Strings.userProfileUpdatedMsg) {
+                    self.showMessage(Strings.shared.userProfileUpdatedMsg) {
                         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true
                             , completion: {
                                 

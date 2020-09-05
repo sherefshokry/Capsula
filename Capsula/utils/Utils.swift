@@ -119,6 +119,15 @@ class Utils {
         return fcmToken
     }
     
+    static func setLang(lang : String){
+          if lang == "en" {
+              UserDefaults.standard.set(["en", "ar"], forKey: "AppleLanguages")
+          }else{
+              UserDefaults.standard.set(["ar", "en"], forKey: "AppleLanguages")
+          }
+          UserDefaults.standard.set(lang, forKey: "lang")
+      }
+    
     
     
     static func saveUser(user: UserResponse?) {
@@ -214,9 +223,8 @@ class Utils {
         }else{
             list.forEach { (item) in
                 let index = userCartItems.firstIndex(of: item) ?? -1
-                
                 if item.storeId != userCartItems[0].storeId {
-                    let clearMsg = (Strings.clearCartMsg1) +   (userCartItems[0].storeName ?? "") + (Strings.clearCartMsg2)
+                    let clearMsg = (Strings.shared.clearCartMsg1) +   (userCartItems[0].storeName ?? "") + (Strings.shared.clearCartMsg2)
                     UIApplication.shared.windows[0].visibleViewController?.areYouSureMsg(Msg: clearMsg) { (yes) in
                         if yes{
                             userCartItems = []

@@ -43,7 +43,7 @@ class CartItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        clearAllBtn.setUnderLineText(text: Strings.clearAll)
+        clearAllBtn.setUnderLineText(text: Strings.shared.clearAll)
         if items.count > 0 {
             Utils.updateUserCart(list: items){
                 
@@ -68,7 +68,7 @@ class CartItemListViewController: UIViewController {
         if Utils.loadUser()?.accessToken ?? "" != "" {
            self.presenter?.validateCartItems()
         }else{
-            UIApplication.shared.windows[0].visibleViewController?.areYouSureMsg(Msg: Strings.pleaseLogin, funcToLoad: { (yes) in
+            UIApplication.shared.windows[0].visibleViewController?.areYouSureMsg(Msg: Strings.shared.pleaseLogin, funcToLoad: { (yes) in
                 if yes {
                     Utils.openLoginScreen(isDeliveryMan: false)
                 }
@@ -135,8 +135,8 @@ extension CartItemListViewController : PresenterToViewCartItemListProtocol {
     }
     
     func setNumberOfItemsLabel(numberOfItems :Int){
-        self.numberOfItemsLabel.text = "\(numberOfItems) " + Strings.items
-        self.numberOfItemsCartLabel.text = "\(numberOfItems) " + Strings.items
+        self.numberOfItemsLabel.text = "\(numberOfItems) " + Strings.shared.items
+        self.numberOfItemsCartLabel.text = "\(numberOfItems) " + Strings.shared.items
     }
     
     func setTotalPrice(totalPrice : Double){

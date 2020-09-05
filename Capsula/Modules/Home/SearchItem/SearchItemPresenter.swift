@@ -71,7 +71,7 @@ extension SearchItemPresenter : InteractorToPresenterSearchItemProtocol {
         Utils.saveUser(user: user ?? UserResponse())
         NotificationCenter.default.post(name: Notification.Name(Constants.CART_UPDATE_NOTIFICATION), object: nil)
         self.view?.changeState(state: .ready)
-        self.view?.showPopup(message: Strings.itemAdded)
+        self.view?.showPopup(message: Strings.shared.itemAdded)
         
         
     }

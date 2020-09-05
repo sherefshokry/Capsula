@@ -34,7 +34,7 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-          forgetPassword.setUnderLineText(text: Strings.forgetPassword)
+          forgetPassword.setUnderLineText(text: Strings.shared.forgetPassword)
         setupInputFields()
     }
     

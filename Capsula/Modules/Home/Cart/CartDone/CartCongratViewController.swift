@@ -16,7 +16,7 @@ class CartCongratViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        trackOrderBtn.setUnderLineText(text: Strings.trackOrder)
+        trackOrderBtn.setUnderLineText(text: Strings.shared.trackOrder)
         
     }
     

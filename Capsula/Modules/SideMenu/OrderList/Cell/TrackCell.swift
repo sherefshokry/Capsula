@@ -19,22 +19,22 @@ class TrackCell : UITableViewCell {
         
          switch track.orderStatusId ?? -1 {
               case 1:
-                orderStatus.text = Strings.orderIs + " " + Strings.pending
+                orderStatus.text = Strings.shared.orderIs + " " + Strings.shared.pending
                   break
               case 2:
-                  orderStatus.text = Strings.orderIs + " " + Strings.cancelled
+                  orderStatus.text = Strings.shared.orderIs + " " + Strings.shared.cancelled
                   break
               case 3:
-                  orderStatus.text = Strings.orderIs + " " +  Strings.rejected
+                  orderStatus.text = Strings.shared.orderIs + " " +  Strings.shared.rejected
                   break
               case 4:
-                  orderStatus.text = Strings.orderIs + " " + Strings.approved
+                  orderStatus.text = Strings.shared.orderIs + " " + Strings.shared.approved
                   break
               case 5:
-                  orderStatus.text = Strings.orderIs + " " + Strings.shipped
+                  orderStatus.text = Strings.shared.orderIs + " " + Strings.shared.shipped
                   break
               case 6:
-                  orderStatus.text = Strings.orderIs + " " + Strings.delivered
+                  orderStatus.text = Strings.shared.orderIs + " " + Strings.shared.delivered
                   break
               default:
                   print("no thing")

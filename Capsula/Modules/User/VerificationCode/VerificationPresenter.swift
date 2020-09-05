@@ -58,7 +58,7 @@ extension VerificationPresenter : InteractorToPresenterVerificationProtocol {
     }
     
     func codeNotValid(error: String) {
-        let errorMsg = Strings.Validation.verificationCodeNotValid
+        let errorMsg = Strings.Validation.shared.verificationCodeNotValid
         self.view?.changeState(state: .error(errorMsg))
     }
     

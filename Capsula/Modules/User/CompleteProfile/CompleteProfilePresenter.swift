@@ -50,7 +50,7 @@ extension CompleteProfilePresenter : InteractorToPresenterCompleteProfileProtoco
       }
       
       func phoneIsExist() {
-          self.view?.changeState(state: .error(Strings.alreadyExist))
+          self.view?.changeState(state: .error(Strings.shared.alreadyExist))
       }
 }
 

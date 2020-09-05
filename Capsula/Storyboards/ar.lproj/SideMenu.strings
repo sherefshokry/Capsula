@@ -1,0 +1,204 @@
+
+/* Class = "UILabel"; text = "Apple Pay"; ObjectID = "0oK-VY-1Tm"; */
+"0oK-VY-1Tm.text" = "ابل باي";
+
+/* Class = "UILabel"; text = " "; ObjectID = "0wb-a2-AKv"; */
+"0wb-a2-AKv.text" = " ";
+
+/* Class = "UILabel"; text = "Car License"; ObjectID = "1fn-Pg-YtR"; */
+"1fn-Pg-YtR.text" = "رخصة السيارة";
+
+/* Class = "UILabel"; text = " "; ObjectID = "2JH-nZ-sPZ"; */
+"2JH-nZ-sPZ.text" = " ";
+
+/* Class = "UILabel"; text = "About Capsula"; ObjectID = "4fg-HB-9Er"; */
+"4fg-HB-9Er.text" = "عن كبسولة";
+
+/* Class = "UIButton"; normalTitle = "save"; ObjectID = "6lO-eA-aEL"; */
+"6lO-eA-aEL.normalTitle" = "حفظ";
+
+/* Class = "UILabel"; text = "Compensation"; ObjectID = "6su-qF-wCO"; */
+"6su-qF-wCO.text" = "Compensation";
+
+/* Class = "UILabel"; text = "Personal Details"; ObjectID = "8O3-PT-2eX"; */
+"8O3-PT-2eX.text" = "معلوماتي الشخصية";
+
+/* Class = "UILabel"; text = "Car Details"; ObjectID = "9V6-Xd-Laz"; */
+"9V6-Xd-Laz.text" = "معلومات السيارة";
+
+/* Class = "UILabel"; text = " "; ObjectID = "9Wi-6y-uFz"; */
+"9Wi-6y-uFz.text" = " ";
+
+/* Class = "UILabel"; text = "Random Text generator is every web dev’s friend when it comes to generating dummy text. It is a tool designers and developers can use to quickly grab dummy text in either Lorem Ipsum or Gibberish format. A number of features that make Random Text a little different from other Lorem Ipsum dummy text generators is that you can Grab HTML or just plain text – even save generated text as files: No need to waste time copying text and then more time marking it up in HTML manually, just hit View HTML Code and then Copy to Clipboard Use the address bar to create a query: RandomText allows you to get at your text quicker by using the URL to construct a query.\nIntegrate into your CMS using our API: just use the RandomText API to return generated content in JSON format."; ObjectID = "9f8-BF-Uxd"; */
+"9f8-BF-Uxd.text" = "Random Text generator is every web dev’s friend when it comes to generating dummy text. It is a tool designers and developers can use to quickly grab dummy text in either Lorem Ipsum or Gibberish format. A number of features that make Random Text a little different from other Lorem Ipsum dummy text generators is that you can Grab HTML or just plain text – even save generated text as files: No need to waste time copying text and then more time marking it up in HTML manually, just hit View HTML Code and then Copy to Clipboard Use the address bar to create a query: RandomText allows you to get at your text quicker by using the URL to construct a query.\nIntegrate into your CMS using our API: just use the RandomText API to return generated content in JSON format.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Br5-Am-Jdd"; */
+"Br5-Am-Jdd.text" = "Label";
+
+/* Class = "UILabel"; text = "Edit Personal Details"; ObjectID = "CTe-Ge-JBc"; */
+"CTe-Ge-JBc.text" = "تعديل المعلومات الشخصية";
+
+/* Class = "UILabel"; text = "Personal Details"; ObjectID = "EBR-aM-LDB"; */
+"EBR-aM-LDB.text" = "المعلومات الشخصية";
+
+/* Class = "UIButton"; normalTitle = "save"; ObjectID = "H8H-TQ-mxe"; */
+"H8H-TQ-mxe.normalTitle" = "حفظ";
+
+/* Class = "UILabel"; text = "Program Benefits"; ObjectID = "HM5-jp-pzk"; */
+"HM5-jp-pzk.text" = "فوائد البرنامج";
+
+/* Class = "UILabel"; text = "Terms & Conditions"; ObjectID = "Kdg-0K-h6a"; */
+"Kdg-0K-h6a.text" = "الشروط والاحكام";
+
+/* Class = "UILabel"; text = " "; ObjectID = "L1G-Jg-sGK"; */
+"L1G-Jg-sGK.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "LSP-sr-Tq2"; */
+"LSP-sr-Tq2.normalTitle" = "اضافة";
+
+/* Class = "UILabel"; text = "National ID"; ObjectID = "Lgu-Cj-GOu"; */
+"Lgu-Cj-GOu.text" = "الرقم القومي";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Mwp-5S-su9"; */
+"Mwp-5S-su9.normalTitle" = "التالي";
+
+/* Class = "UILabel"; text = "Personal Details"; ObjectID = "N2L-hu-rpy"; */
+"N2L-hu-rpy.text" = "المعلومات الشخصية";
+
+/* Class = "UILabel"; text = " "; ObjectID = "N7w-Xp-jrb"; */
+"N7w-Xp-jrb.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "save"; ObjectID = "N9n-55-CrD"; */
+"N9n-55-CrD.normalTitle" = "حفظ";
+
+/* Class = "UILabel"; text = "Edit Personal Details"; ObjectID = "NrV-wR-Jac"; */
+"NrV-wR-Jac.text" = "تعديل المعلومات الشخصية";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Q7m-Nq-t5p"; */
+"Q7m-Nq-t5p.normalTitle" = "حفظ";
+
+/* Class = "UILabel"; text = "Personal Details"; ObjectID = "QIw-Js-IDs"; */
+"QIw-Js-IDs.text" = "المعلومات الشخصية";
+
+/* Class = "UILabel"; text = "Discounts"; ObjectID = "QTS-26-BTW"; */
+"QTS-26-BTW.text" = "تخفيضات";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "TVL-Hn-967"; */
+"TVL-Hn-967.normalTitle" = "إنهاء";
+
+/* Class = "UILabel"; text = "Car Back Image"; ObjectID = "TX7-8O-T3C"; */
+"TX7-8O-T3C.text" = "الصورة الخلفية للسيارة";
+
+/* Class = "UIButton"; normalTitle = "Change Password"; ObjectID = "TeA-PZ-7h3"; */
+"TeA-PZ-7h3.normalTitle" = "تغير كلمة المرور";
+
+/* Class = "UILabel"; text = " "; ObjectID = "VPl-ol-KST"; */
+"VPl-ol-KST.text" = " ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WFA-3H-Zng"; */
+"WFA-3H-Zng.text" = "Label";
+
+/* Class = "UILabel"; text = "Collection"; ObjectID = "Xr0-ja-2xi"; */
+"Xr0-ja-2xi.text" = "مجموعة";
+
+/* Class = "UILabel"; text = "Total delivery cost in cash"; ObjectID = "ZNO-Wb-oJh"; */
+"ZNO-Wb-oJh.text" = "اجمالي تكلفه التوصيل عند الاستلام";
+
+/* Class = "UILabel"; text = "label"; ObjectID = "Zt3-dW-p0K"; */
+"Zt3-dW-p0K.text" = "label";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "Zya-lV-g3L"; */
+"Zya-lV-g3L.text" = "تغير كلمة المرور";
+
+/* Class = "UILabel"; text = "Credit Card"; ObjectID = "a5S-Dd-fI2"; */
+"a5S-Dd-fI2.text" = "بطاقة إئتمان";
+
+/* Class = "UILabel"; text = "Edit Personal Details"; ObjectID = "ahw-2Z-dOr"; */
+"ahw-2Z-dOr.text" = "تعديل الملومات الشخصية";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "axd-Zq-tZi"; */
+"axd-Zq-tZi.normalTitle" = "التالي";
+
+/* Class = "UILabel"; text = "Mada"; ObjectID = "b5i-7b-4ac"; */
+"b5i-7b-4ac.text" = "مدي";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ba0-e9-brU"; */
+"ba0-e9-brU.text" = "Label";
+
+/* Class = "UILabel"; text = "Car Front Image"; ObjectID = "beG-Hx-GVC"; */
+"beG-Hx-GVC.text" = "الصورة الامامية للسيارة";
+
+/* Class = "UILabel"; text = "Vehicle plate details"; ObjectID = "cP7-lL-7Cp"; */
+"cP7-lL-7Cp.text" = "معلومات لوحة السيارة";
+
+/* Class = "UILabel"; text = "Payments"; ObjectID = "e1l-hJ-WXa"; */
+"e1l-hJ-WXa.text" = "المدفوعات";
+
+/* Class = "UILabel"; text = " "; ObjectID = "eZ9-Pz-4KU"; */
+"eZ9-Pz-4KU.text" = " ";
+
+/* Class = "UILabel"; text = "Manage Payment Methods"; ObjectID = "f3F-hy-lei"; */
+"f3F-hy-lei.text" = "إدارة طريقة الدفع";
+
+/* Class = "UILabel"; text = "Add Payment Method"; ObjectID = "fxi-dy-afs"; */
+"fxi-dy-afs.text" = "اضف طريقة دفع";
+
+/* Class = "UILabel"; text = "Total online delivery cost"; ObjectID = "gTP-Wf-9mA"; */
+"gTP-Wf-9mA.text" = "اجمالي تكلفة التوصيل اونلاين";
+
+/* Class = "UILabel"; text = "Edit Personal Details"; ObjectID = "goN-Yd-tJd"; */
+"goN-Yd-tJd.text" = "تعديل المعلومات الشخصية";
+
+/* Class = "UILabel"; text = "Car Registration"; ObjectID = "h9u-Ig-o26"; */
+"h9u-Ig-o26.text" = "تسجيل السيارة";
+
+/* Class = "UILabel"; text = " "; ObjectID = "hlF-o9-osz"; */
+"hlF-o9-osz.text" = " ";
+
+/* Class = "UILabel"; text = "Cash orders cost"; ObjectID = "iiM-iL-cje"; */
+"iiM-iL-cje.text" = "تكلفة الطلب عند الاستلام";
+
+/* Class = "UILabel"; text = " "; ObjectID = "mG7-GN-tJa"; */
+"mG7-GN-tJa.text" = " ";
+
+/* Class = "UILabel"; text = "Bonuses"; ObjectID = "mcb-gx-vgP"; */
+"mcb-gx-vgP.text" = "مكافأت";
+
+/* Class = "UIButton"; normalTitle = "save"; ObjectID = "moG-dQ-alm"; */
+"moG-dQ-alm.normalTitle" = "حفظ";
+
+/* Class = "UILabel"; text = "FAQs"; ObjectID = "nac-t3-mKg"; */
+"nac-t3-mKg.text" = "الأسئلة الشائعة";
+
+/* Class = "UILabel"; text = " "; ObjectID = "oeA-cg-dMR"; */
+"oeA-cg-dMR.text" = " ";
+
+/* Class = "UILabel"; text = "The total number of completed orders"; ObjectID = "pRa-qK-96D"; */
+"pRa-qK-96D.text" = "عدد الطلبات المنتهية";
+
+/* Class = "UILabel"; text = " "; ObjectID = "py5-z6-jM2"; */
+"py5-z6-jM2.text" = " ";
+
+/* Class = "UILabel"; text = "STC Pay"; ObjectID = "pzw-em-yyE"; */
+"pzw-em-yyE.text" = "اي تي سي باي";
+
+/* Class = "UILabel"; text = "Total delivery cost"; ObjectID = "qpy-Oh-Fb8"; */
+"qpy-Oh-Fb8.text" = "اجمالي تكلفة التوصيل";
+
+/* Class = "UILabel"; text = "Balance"; ObjectID = "raF-dN-Tqa"; */
+"raF-dN-Tqa.text" = "الحساب";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uWk-KA-zoP"; */
+"uWk-KA-zoP.text" = "Label";
+
+/* Class = "UILabel"; text = "Final balance"; ObjectID = "ukM-xV-waZ"; */
+"ukM-xV-waZ.text" = "الحساب النهائي";
+
+/* Class = "UILabel"; text = "Required Documents"; ObjectID = "wLS-IO-SkV"; */
+"wLS-IO-SkV.text" = "الوثائق المطلوبة";
+
+/* Class = "UILabel"; text = "My Wallet"; ObjectID = "x35-pc-JvI"; */
+"x35-pc-JvI.text" = "محفظتي";
+
+/* Class = "UILabel"; text = " "; ObjectID = "zYy-yc-uKL"; */
+"zYy-yc-uKL.text" = " ";

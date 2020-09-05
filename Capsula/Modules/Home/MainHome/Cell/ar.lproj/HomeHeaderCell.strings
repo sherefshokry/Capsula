@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Free Delivery"; ObjectID = "GzH-Ah-dns"; */
+"GzH-Ah-dns.text" = "توصيل مجاني";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "HTt-Az-Cmb"; */
+"HTt-Az-Cmb.text" = "1";
+
+/* Class = "UILabel"; text = "Best Seller"; ObjectID = "Vpo-ID-Q36"; */
+"Vpo-ID-Q36.text" = "الافضل مبيعا";
+
+/* Class = "UITextField"; placeholder = "What are you looking for .."; ObjectID = "dCf-vS-y9F"; */
+"dCf-vS-y9F.placeholder" = "ما الذي يجول بخاطرك؟";
+
+/* Class = "UILabel"; text = "Hello Shrio 👋🏻"; ObjectID = "tMe-5q-qJM"; */
+"tMe-5q-qJM.text" = "Hello Shrio 👋🏻";
+
+/* Class = "UILabel"; text = "Top Rated"; ObjectID = "u0W-mF-Eqy"; */
+"u0W-mF-Eqy.text" = "الاعلي تقيماً";

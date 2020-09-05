@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Car Registration"; ObjectID = "0Yr-KG-aXc"; */
+"0Yr-KG-aXc.text" = "تسجيل السيارة";
+
+/* Class = "UILabel"; text = "Required Document"; ObjectID = "5or-12-hSc"; */
+"5or-12-hSc.text" = "الوثائق المطلوبة";
+
+/* Class = "UILabel"; text = "National ID"; ObjectID = "FoL-1T-UzR"; */
+"FoL-1T-UzR.text" = "الرقم القومي";
+
+/* Class = "UILabel"; text = "Car Licence"; ObjectID = "Krk-rc-7Ec"; */
+"Krk-rc-7Ec.text" = "رخصة السيارة";
+
+/* Class = "UILabel"; text = "Car Front Image"; ObjectID = "U9l-Xh-wDK"; */
+"U9l-Xh-wDK.text" = "الصورة الامامية للسيارة";
+
+/* Class = "UILabel"; text = "Car Back Image"; ObjectID = "kMY-ne-HhA"; */
+"kMY-ne-HhA.text" = "الصورة الخلفية للسيارة";

@@ -25,8 +25,8 @@ class ProductDetailsCell : UICollectionViewCell {
         
     productImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
     productName.text = item.productName ?? ""
-    productPrice.text = Strings.RSD +  " \(item.price ?? 0.0)"
-    productVat.text = Strings.VAT  + " \(item.vat ?? 0)%"
+    productPrice.text = Strings.shared.RSD +  " \(item.price ?? 0.0)"
+    productVat.text = Strings.shared.VAT  + " \(item.vat ?? 0)%"
         
     }
     

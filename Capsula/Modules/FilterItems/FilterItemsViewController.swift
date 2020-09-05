@@ -5,7 +5,6 @@
 //  Created by SherifShokry on 2/15/20.
 //  Copyright © 2020 SherifShokry. All rights reserved.
 //
-
 import UIKit
 import ContentSheet
 import Intercom
@@ -22,7 +21,7 @@ class FilterItemsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        clearBtn.setUnderLineText(text: Strings.clear)
+        clearBtn.setUnderLineText(text: Strings.shared.clear)
         if filterType == 1 {
             hieghestPricePressed(UIButton())
         }else if filterType == 2 {

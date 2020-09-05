@@ -30,7 +30,7 @@ class MainHomeViewController : UIViewController {
                             self.present(vc,animated: true, completion: nil)
                         
               }else{
-                  UIApplication.shared.windows[0].visibleViewController?.showMessage(Strings.cartMsg)
+                  UIApplication.shared.windows[0].visibleViewController?.showMessage(Strings.shared.cartMsg)
                   }
         
        }

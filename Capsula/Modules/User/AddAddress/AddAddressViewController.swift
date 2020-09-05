@@ -33,7 +33,7 @@ class AddAddressViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addressField.titleLabel.text  =  Strings.currentLocation
+        addressField.titleLabel.text  =  Strings.shared.currentLocation
         addressField.type = .action
         addressField.setTextFeildSpecs()
         

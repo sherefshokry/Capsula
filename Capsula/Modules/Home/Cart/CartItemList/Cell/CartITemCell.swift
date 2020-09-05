@@ -28,7 +28,7 @@ class CartITemCell : SwipeTableViewCell{
         selectedItem = item
         itemImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
         itemName.text =  item.productName
-        itemPrice.text = "\(item.price ?? 0.0)" + Strings.rsd
+        itemPrice.text = "\(item.price ?? 0.0)" + Strings.shared.rsd
         itemQuantity.text = "\(item.itemQuantity ?? 1)"
     }
     

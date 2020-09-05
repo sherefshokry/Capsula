@@ -38,7 +38,7 @@ class OrderDetailsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        trackOrderBtn.setUnderLineText(text: Strings.trackOrder)
+        trackOrderBtn.setUnderLineText(text: Strings.shared.trackOrder)
         getOrderDetailsData()
         
     }
@@ -129,30 +129,30 @@ class OrderDetailsViewController : UIViewController {
         
         switch  (ordersDetailsResponse.paymentMethodId ?? 0) {
         case 1:
-            paymentMethodType.text = Strings.cash
+            paymentMethodType.text = Strings.shared.cash
             break
         case 2:
-            paymentMethodType.text = Strings.applePay
+            paymentMethodType.text = Strings.shared.applePay
             break
         case 3:
-            paymentMethodType.text = Strings.stcPay
+            paymentMethodType.text = Strings.shared.stcPay
             break
         case 4:
-            paymentMethodType.text = Strings.creditCard
+            paymentMethodType.text = Strings.shared.creditCard
             break
         case 5:
-            paymentMethodType.text = Strings.madaPay
+            paymentMethodType.text = Strings.shared.madaPay
             break
         case 6:
-            paymentMethodType.text = Strings.googlePay
+            paymentMethodType.text = Strings.shared.googlePay
             break
         default:
             print("No thing to do")
         }
         
-        itemsCost.text = Strings.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
-        deliveryCost.text = Strings.RSD +  " \(ordersDetailsResponse.deliveryCost ?? 0.0)"
-        totalPrice.text = Strings.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
+        itemsCost.text = Strings.shared.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
+        deliveryCost.text = Strings.shared.RSD +  " \(ordersDetailsResponse.deliveryCost ?? 0.0)"
+        totalPrice.text = Strings.shared.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
         VAT.text = "\(ordersDetailsResponse.vatCost ?? 0.0) %"
         
         if (ordersDetailsResponse.insuranceNumberImageLink ?? "") == "" &&

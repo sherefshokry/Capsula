@@ -47,7 +47,7 @@ class ChangePasswordVC : UIViewController {
         
         if confirmPasswordField.getText() != newPasswordField.getText() {
             isValid = false
-            self.showMessage(Strings.phoneMatched)
+            self.showMessage(Strings.shared.phoneMatched)
         }
         
         return isValid
@@ -71,7 +71,7 @@ class ChangePasswordVC : UIViewController {
             KVNProgress.dismiss()
             switch result {
             case .success(_):
-                self.showMessage(Strings.resetPasswordSuccessMsg) {
+                self.showMessage(Strings.shared.resetPasswordSuccessMsg) {
                     self.dismiss(animated: true) {
                       
                     }

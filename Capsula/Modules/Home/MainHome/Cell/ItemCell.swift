@@ -26,7 +26,7 @@ class ItemCell : UICollectionViewCell {
         selectedItem = item
         itemImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
         itemTitle.text =  item.productName
-        itemPrice.text = "\(item.price ?? 0.0)" + Strings.rsd
+        itemPrice.text = "\(item.price ?? 0.0)" + Strings.shared.rsd
         
         
         if item.offerType == -1 {
@@ -38,13 +38,13 @@ class ItemCell : UICollectionViewCell {
             
             switch item.offerType {
                 case 1:
-                offerLabel.text = Strings.freeDelivery
+                offerLabel.text = Strings.shared.freeDelivery
                 break
                 case 2:
-                offerLabel.text = Strings.offer
+                offerLabel.text = Strings.shared.offer
                 break
                 case 3:
-                offerLabel.text = Strings.discount
+                offerLabel.text = Strings.shared.discount
                 break
             default:
                 offerLabel.text = ""

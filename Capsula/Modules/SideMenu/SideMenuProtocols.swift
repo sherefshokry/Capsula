@@ -51,4 +51,5 @@ protocol InteractorToPresenterSideMenuProtocol: class {
       func logOutSuccessfully()
       func failedToLogout(error : String)
       func openPaymentScreen()
+      func selectLanguage()
 }

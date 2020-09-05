@@ -106,6 +106,10 @@
 	<string>$(PRODUCT_NAME) uses photos to provide you with instant technical support</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Cairo-Bold.ttf</string>
+		<string>Cairo-Light.ttf</string>
+		<string>Cairo-Regular.ttf</string>
+		<string>Cairo-SemiBold.ttf</string>
 		<string>Roboto-Light.ttf</string>
 		<string>Roboto-Bold.ttf</string>
 		<string>Roboto-Medium.ttf</string>

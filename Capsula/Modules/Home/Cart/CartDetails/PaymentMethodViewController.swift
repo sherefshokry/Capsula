@@ -64,7 +64,7 @@ class PaymentMethodViewController : UIViewController{
     @IBAction func applyPaymentMethodPressed(_ sender : UIButton){
         if self.applyPaymentMethod != nil {
             if paymentType == -1 {
-                self.showMessage(Strings.paymentMethodSelection)
+                self.showMessage(Strings.shared.paymentMethodSelection)
             }else{
                 self.dismiss(animated: true) {
                     self.applyPaymentMethod?(self.paymentType)

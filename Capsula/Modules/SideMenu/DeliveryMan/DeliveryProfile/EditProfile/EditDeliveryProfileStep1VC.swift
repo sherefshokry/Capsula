@@ -108,10 +108,10 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
         phoneField.setTextFeildSpecs()
         citizenshipField.type = .action
         citizenshipField.setTextFeildSpecs()
-        citizenshipField.titleLabel.text  =  Strings.citizenship
+        citizenshipField.titleLabel.text  =  Strings.shared.citizenship
         addressField.type = .action
         addressField.setTextFeildSpecs()
-        addressField.titleLabel.text  =  Strings.fullAddress
+        addressField.titleLabel.text  =  Strings.shared.fullAddress
         
         citizenshipField.actionHandler = { _ in
             let picker = CustomPickerView()
@@ -120,7 +120,7 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
                 options.append(nationality.value ?? "")
             }
             picker.selectedIndex = -1
-            picker.titleText = Strings.selectNationality
+            picker.titleText = Strings.shared.selectNationality
             picker.subTitleText = ""
             picker.listSource = options
             picker.doneSelectingAction = { index in
@@ -189,7 +189,7 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
             self.personalImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -234,7 +234,7 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
                     
                     Utils.saveDeliveryUser(user: currentDeliveryResponse)
                     
-                    self.showMessage(Strings.userProfileUpdatedMsg) {
+                    self.showMessage(Strings.shared.userProfileUpdatedMsg) {
                         self.dismiss(animated: true) {
                             NotificationCenter.default.post(name: Notification.Name(Constants.REFRESH_DELIVERY_DATA), object: nil)
                         }

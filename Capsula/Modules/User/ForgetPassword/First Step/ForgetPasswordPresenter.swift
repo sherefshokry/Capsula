@@ -30,7 +30,7 @@ class ForgetPasswordPresenter : ViewToPresenterForgetPasswordProtocol{
 extension ForgetPasswordPresenter : InteractorToPresenterForgetPasswordProtocol {
     
  func phoneNotExist() {
-       self.view?.changeState(state: .error(Strings.notExist))
+       self.view?.changeState(state: .error(Strings.shared.notExist))
  }
    
    func phoneIsExist() {

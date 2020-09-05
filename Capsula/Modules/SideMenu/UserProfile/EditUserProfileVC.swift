@@ -48,7 +48,7 @@ class EditUserProfileVC : ImagePickerViewController {
         phoneField.setTextFeildSpecs()
         nameField.type = .name
         nameField.setTextFeildSpecs()
-        addressField.titleLabel.text  =  Strings.currentLocation
+        addressField.titleLabel.text  =  Strings.shared.currentLocation
         addressField.type = .action
         addressField.setTextFeildSpecs()
         
@@ -105,7 +105,7 @@ class EditUserProfileVC : ImagePickerViewController {
             self.personalImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
         
     }
     
@@ -143,7 +143,7 @@ class EditUserProfileVC : ImagePickerViewController {
                     Utils.saveUser(user: currentUserResponse)
                     
                     
-                    self.showMessage(Strings.userProfileUpdatedMsg) {
+                    self.showMessage(Strings.shared.userProfileUpdatedMsg) {
                         self.dismiss(animated: true) {
                             NotificationCenter.default.post(name: Notification.Name(Constants.REFRESH_USER_DATA), object: nil)
                         }

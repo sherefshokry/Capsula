@@ -65,9 +65,9 @@ class CartDetailsViewController: ImagePickerViewController {
             }
         }
         
-        itemsCostLabel.text = Strings.RSD + " \(totalPrice)"
-        deliveryCostLabel.text = Strings.RSD + " 0"
-        estimatedTotalLabel.text = Strings.RSD + " \(totalPrice + deliveryCost)"
+        itemsCostLabel.text = Strings.shared.RSD + " \(totalPrice)"
+        deliveryCostLabel.text = Strings.shared.RSD + " 0"
+        estimatedTotalLabel.text = Strings.shared.RSD + " \(totalPrice + deliveryCost)"
         self.totalCost = totalPrice + deliveryCost
     }
     
@@ -169,11 +169,11 @@ class CartDetailsViewController: ImagePickerViewController {
         vc.applyPaymentMethod = { paymentType in
             self.selectedPaymentMethod = paymentType
             if paymentType == 1 {
-                self.selectedPaymentMethodLabel.text = Strings.cash
+                self.selectedPaymentMethodLabel.text = Strings.shared.cash
             }else if paymentType == 5 {
-                self.selectedPaymentMethodLabel.text = Strings.madaPay
+                self.selectedPaymentMethodLabel.text = Strings.shared.madaPay
             }else if paymentType == 4 {
-                self.selectedPaymentMethodLabel.text = Strings.creditCard
+                self.selectedPaymentMethodLabel.text = Strings.shared.creditCard
             }
         }
         let contentController = vc
@@ -195,7 +195,7 @@ class CartDetailsViewController: ImagePickerViewController {
             self.presenter?.setPreprictionImage(image: imge.toBase64() ?? "")
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
     }
     
     
@@ -205,15 +205,15 @@ class CartDetailsViewController: ImagePickerViewController {
             self.presenter?.setInsuranceImage(image: imge.toBase64() ?? "")
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
     }
     
     @IBAction func nextPressed(_ sender : UIButton){
         if selectedPaymentMethod == -1 {
-            self.showMessage(Strings.paymentMethodSelection)
+            self.showMessage(Strings.shared.paymentMethodSelection)
         }else{
             if totalCost > 500.0 && selectedPaymentMethod == 1 {
-                self.showMessage(Strings.cashPayment)
+                self.showMessage(Strings.shared.cashPayment)
             }else{
                 if selectedPaymentMethod == 5 || selectedPaymentMethod == 4 {
                     self.presenter?.prepareCheckout(paymentMethod: selectedPaymentMethod)
@@ -237,10 +237,10 @@ extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
     }
     
     func setDeliveryCost(cost: DeliveryCostResponse) {
-        itemsCostLabel.text = Strings.RSD + " \(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0))"
-        estimatedTotalLabel.text = Strings.RSD + "  \(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0))"
-        VAT.text = Strings.RSD + " \(cost.vatCost ?? 0.0)"
-        deliveryCostLabel.text = Strings.RSD +  "  \(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0))"
+        itemsCostLabel.text = Strings.shared.RSD + " \(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0))"
+        estimatedTotalLabel.text = Strings.shared.RSD + "  \(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0))"
+        VAT.text = Strings.shared.RSD + " \(cost.vatCost ?? 0.0)"
+        deliveryCostLabel.text = Strings.shared.RSD +  "  \(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0))"
     }
     
     

@@ -32,8 +32,6 @@ class InputField: BaseNibLoader  {
         case VinNo = "VinNo"
         case PlateNo = "PlateNo"
         case age = "age"
-        case kilometer = "kilometer"
-        case kilometerNotRequired = "kilometer not required"
         case notRequired = "notRequired"
         case eyePassword = "eyePassword"
         case eyePasswordNoValidation = "eyePasswordNoValidation"
@@ -213,7 +211,7 @@ class InputField: BaseNibLoader  {
         case  .no:
             if isEmptyAndNotOptional(){
                 isValid = false
-                self.invalid(error: Strings.Validation.generalFieldValidation)
+                self.invalid(error: Strings.Validation.shared.generalFieldValidation)
             }
             break
         case .action:
@@ -221,7 +219,7 @@ class InputField: BaseNibLoader  {
                 isValid = false
                 let fieldTitle = (titleLabel.text ?? "").lowercased()
         let editedTitle = fieldTitle.replacingOccurrences(of: "*", with: "")
-            let errorMsg = Strings.Validation.dropDownValidation + editedTitle
+            let errorMsg = Strings.Validation.shared.dropDownValidation + editedTitle
                 self.invalid(error: errorMsg)
             }else{
                 
@@ -230,11 +228,11 @@ class InputField: BaseNibLoader  {
         case .email:
             if isEmptyAndNotOptional(){
                 isValid = false
-                self.invalid(error: Strings.Validation.mailValidation)
+                self.invalid(error: Strings.Validation.shared.mailValidation)
             }else if !optional || (optional && getText().trim() != ""){
                 if !Validations.isValidEmail(text: self.getText().trim()){
                     isValid = false
-                    self.invalid(error: Strings.Validation.mailValidation)
+                    self.invalid(error: Strings.Validation.shared.mailValidation)
                 }
             }
             break
@@ -248,12 +246,12 @@ class InputField: BaseNibLoader  {
         case .password:
             if  isEmptyAndNotOptional(){
                 isValid = false
-                self.invalid(error: Strings.Validation.passwordEmpty)
+                self.invalid(error: Strings.Validation.shared.passwordEmpty)
             }else{
                 if !optional || (optional && getText().trim() != ""){
                     if !Validations.isValidPassword(text: self.getText()) {
                         isValid = false
-                        self.invalid(error: Strings.Validation.passwordPolicyValidation)
+                        self.invalid(error: Strings.Validation.shared.passwordPolicyValidation)
                     }
                 }
             }
@@ -261,12 +259,12 @@ class InputField: BaseNibLoader  {
         case .phoneNumber:
             if  isEmptyAndNotOptional(){
                 isValid = false
-                self.invalid(error: Strings.Validation.phoneValidation)
+                self.invalid(error: Strings.Validation.shared.phoneValidation)
             }else{
                 if !optional || (optional && getText().trim() != ""){
                     if !Validations.isValidPhoneNumber(text: self.getText().trim()) {
                         isValid = false
-                        self.invalid(error: Strings.Validation.phoneValidation)
+                        self.invalid(error: Strings.Validation.shared.phoneValidation)
                     }
                 }
             }
@@ -275,7 +273,7 @@ class InputField: BaseNibLoader  {
             if isEmptyAndNotOptional(){
                 isValid = false
                 let editedTitle = titleLabel.text?.replacingOccurrences(of: "*", with: "").lowercased() ?? ""
-                let errorMsg = Strings.Validation.fieldValidation + editedTitle
+                let errorMsg = Strings.Validation.shared.fieldValidation + editedTitle
                 self.invalid(error: errorMsg)
             }
             break
@@ -283,12 +281,12 @@ class InputField: BaseNibLoader  {
             if isEmptyAndNotOptional(){
                 isValid = false
                 self.invalid(error: (errorMsg != "") ?
-                    errorMsg : Strings.Validation.nameValidation)
+                    errorMsg : Strings.Validation.shared.nameValidation)
             }else{
                 if !optional || (optional && getText().trim() != ""){
                     if !Validations.isValidName(string: self.getText()) {
                         isValid = false
-                        self.invalid(error: Strings.Validation.nameValidation)
+                        self.invalid(error: Strings.Validation.shared.nameValidation)
                     }
                 }
                 
@@ -299,59 +297,38 @@ class InputField: BaseNibLoader  {
             if isEmptyAndNotOptional(){
                 isValid = false
                 let editedTitle = titleLabel.text?.replacingOccurrences(of: "*", with: "").lowercased() ?? ""
-                let errorMsg = Strings.Validation.fieldValidation + editedTitle
+                let errorMsg = Strings.Validation.shared.fieldValidation + editedTitle
                 self.invalid(error: errorMsg)
             }
             break
         case .notRequired:
             break
-        case  .kilometer:
-            if isEmptyAndNotOptional(){
-                isValid = false
-                self.invalid(error: Strings.Validation.kilometerValidation)
-            }else{
-                if !optional || (optional && getText().trim() != ""){
-                    if !Validations.isValidKiloMeter(self.getText().trim()) {
-                        isValid = false
-                        self.invalid(error: Strings.Validation.kilometerValidation)
-                    }
-                }
-                
-            }
-            break
+      
         case .confirmPassword:
             if isEmptyAndNotOptional(){
                 isValid = false
                 let editedTitle = field.placeholder?.replacingOccurrences(of: "*", with: "").lowercased() ?? ""
-                let errorMsg = Strings.Validation.fieldValidation + editedTitle
+                let errorMsg = Strings.Validation.shared.fieldValidation + editedTitle
                 self.invalid(error: errorMsg)
             }
 
         case .newPassword:
             if  isEmptyAndNotOptional(){
                 isValid = false
-                self.invalid(error: Strings.Validation.passwordEmpty)
+                self.invalid(error: Strings.Validation.shared.passwordEmpty)
             }else{
                 if !optional || (optional && getText().trim() != ""){
                     if !Validations.isValidPassword(text: self.getText()) {
                         isValid = false
-                        self.invalid(error: Strings.Validation.passwordPolicyValidation)
+                        self.invalid(error: Strings.Validation.shared.passwordPolicyValidation)
                     }
                 }
             }
-        case .kilometerNotRequired:
-               if isEmptyAndNotOptional(){
-                         isValid = false
-                         let editedTitle = field.placeholder?.replacingOccurrences(of: "*", with: "").lowercased() ?? ""
-                         let errorMsg = Strings.Validation.fieldValidation + editedTitle
-                         self.invalid(error: errorMsg)
-                     }
-                     break
         case .phoneOrEmail:
             if isEmptyAndNotOptional(){
                 isValid = false
                 let editedTitle = titleLabel.text?.replacingOccurrences(of: "*", with: "").lowercased() ?? ""
-                let errorMsg = Strings.Validation.fieldValidation + editedTitle
+                let errorMsg = Strings.Validation.shared.fieldValidation + editedTitle
                 self.invalid(error: errorMsg)
                        }
         }

@@ -28,32 +28,32 @@ class OrderCell : UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        moreDetailsBtn.setUnderLineText(text: Strings.moreDetails)
+        moreDetailsBtn.setUnderLineText(text: Strings.shared.moreDetails)
         
     }
     
     
     func setData(order : Order){
-         orderIdLabel .text = Strings.orderID + (order.orderCode ?? "")
+         orderIdLabel .text = Strings.shared.orderID + (order.orderCode ?? "")
         selectedOrder  = order
         switch order.orderStatusId ?? -1 {
         case 1:
-            orderStatus.text = Strings.pending
+            orderStatus.text = Strings.shared.pending
             break
         case 2:
-            orderStatus.text = Strings.cancelled
+            orderStatus.text = Strings.shared.cancelled
             break
         case 3:
-            orderStatus.text = Strings.rejected
+            orderStatus.text = Strings.shared.rejected
             break
         case 4:
-            orderStatus.text = Strings.approved
+            orderStatus.text = Strings.shared.approved
             break
         case 5:
-            orderStatus.text = Strings.shipped
+            orderStatus.text = Strings.shared.shipped
             break
         case 6:
-            orderStatus.text = Strings.delivered
+            orderStatus.text = Strings.shared.delivered
             break
         default:
             print("no thing")

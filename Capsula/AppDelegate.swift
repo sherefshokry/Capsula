@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
     
+        Strings.shared = Strings()
+        Strings.refreshAll()
         
         UIFont.overrideInitializeForEN()
         

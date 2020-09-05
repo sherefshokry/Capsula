@@ -65,7 +65,56 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
             }
            
         }
+      
         self.view?.reloadData()
+    }
+    
+    func selectLanguage(){
+            
+            let currentLang = LocalizationSystem.sharedInstance.getLanguage()
+            var  selectedLanguage  = ""
+            if currentLang == "ar"{
+                selectedLanguage = Strings.shared.arabic
+            }else{
+                selectedLanguage = Strings.shared.english
+            }
+        
+            let picker = CustomPickerView()
+            let langList = [Strings.shared.arabic , Strings.shared.english]
+            
+            if let index = langList.firstIndex(where: { (item) -> Bool in
+                item ==  selectedLanguage
+                // test if this is the item you're looking for
+            }){
+                picker.selectedIndex = index
+            }else{
+                picker.selectedIndex = -1
+            }
+            picker.titleText = Strings.shared.selectLanguage
+            picker.subTitleText = ""
+            picker.listSource = langList
+            picker.doneSelectingAction = { index in
+              self.changeLanguage(index: index)
+            }
+            picker.show()
+        }
+        
+    
+    
+    func changeLanguage(index : Int){
+        let currentLanguage = LocalizationSystem.sharedInstance.getLanguage()
+        if index == 0 {
+            Bundle.setLanguage("ar")
+            Utils.setLang(lang: "ar")
+        }else{
+            Bundle.setLanguage("en")
+            Utils.setLang(lang: "en")
+        }
+        let updatedLanguage = LocalizationSystem.sharedInstance.getLanguage()
+        
+        if currentLanguage != updatedLanguage {
+             Utils.openWelcomeScreen()
+        }
     }
     
  

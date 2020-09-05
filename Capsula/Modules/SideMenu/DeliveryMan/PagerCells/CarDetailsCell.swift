@@ -29,7 +29,7 @@ class CarDetailsCell : FSPagerViewCell  {
          let deliveryUser = Utils.loadDeliveryUser()?.user ?? DeliveryUser()
          carModelLabel.text = deliveryUser.carModelDesc ?? ""
          carTypeLabel.text = deliveryUser.carTypeDesc ?? ""
-        carYearLabel.text = Strings.model + " - " + (deliveryUser.yearDesc ?? "")
+        carYearLabel.text = Strings.shared.model + " - " + (deliveryUser.yearDesc ?? "")
          licenceTypeLabel.text = deliveryUser.vehicleTypeDesc
          carNumberLabel.text = (deliveryUser.vehiclePlateLetters ?? "") + " " + "\(deliveryUser.vehiclePlateNumber ?? 0)"
      }

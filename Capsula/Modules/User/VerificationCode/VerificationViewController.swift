@@ -67,7 +67,7 @@ class VerificationViewController: UIViewController {
     func setFields(){
         fieldsView.semanticContentAttribute = .forceLeftToRight
         codeField.keyboardType = .asciiCapableNumberPad
-        sendAgainBtn.setUnderLineText(text: Strings.sendAgain)
+        sendAgainBtn.setUnderLineText(text: Strings.shared.sendAgain)
         codeField.delegate = self
         codeField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
     }
@@ -80,7 +80,7 @@ class VerificationViewController: UIViewController {
     
     @objc func enableButton(){
         
-        resendLabel.text = Strings.resendMessage_1 + " \(counter) " + Strings.resendMessage_2
+        resendLabel.text = Strings.shared.resendMessage_1 + " \(counter) " + Strings.shared.resendMessage_2
         sendAgainBtn.isHidden = true
         counter -= 1
         if counter == -1 {
@@ -174,9 +174,9 @@ class VerificationViewController: UIViewController {
     @IBAction func verifyPressed(_ sender : UIButton){
         if !validate(){
             if (codeField.text?.count ?? 0 == 0){
-                verificationErrorLabel.text = Strings.Validation.codeNullMsg
+                verificationErrorLabel.text = Strings.Validation.shared.codeNullMsg
             }else{
-                verificationErrorLabel.text = Strings.Validation.codeValidation
+                verificationErrorLabel.text = Strings.Validation.shared.codeValidation
             }
             return
         }

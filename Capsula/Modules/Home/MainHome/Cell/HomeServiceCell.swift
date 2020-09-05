@@ -24,18 +24,18 @@ class HomeServiceCell : UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: CategoryCell.identifier, bundle: nil), forCellWithReuseIdentifier: CategoryCell.identifier)
-        seeAllBtn.setUnderLineText(text: Strings.seeAll)
+        seeAllBtn.setUnderLineText(text: Strings.shared.seeAll)
     }
     
     func setStoreData(stores : [Store]){
         fetchedStores = stores
-        serviceNameLbl.text  = Strings.stores    
+        serviceNameLbl.text  = Strings.shared.stores
         collectionView.reloadData()
     }
     
     func setCategoryData(categories : [Category]){
         fetchedCategories = categories
-        serviceNameLbl.text  = Strings.categories
+        serviceNameLbl.text  = Strings.shared.categories
         collectionView.reloadData()
     }
     

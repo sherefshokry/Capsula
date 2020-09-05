@@ -9,13 +9,21 @@ import Foundation
 import UIKit
 
 struct AppFontName {
-    static let regular = "Cairo-Regular"
-    static let bold = "Cairo-Bold"
-    static let medium = "Cairo-SemiBold"
-    static let italic = "Cairo-Light"
-    static let semiBold = "Cairo-SemiBold"
-    static let light =  "Cairo-Light"
-    static let heavy =  "Cairo-Bold"
+    static let regular = "Roboto-Regular"
+    static let bold = "Roboto-Bold"
+    static let medium = "Roboto-Medium"
+    static let italic = "Roboto-Light"
+    static let semiBold = "Roboto-Medium"
+    static let light =   "Roboto-Light"
+    static let heavy =  "Roboto-Bold"
+    
+//    static let regular = "Cairo-Regular"
+//    static let bold = "Cairo-Bold"
+//    static let medium = "Cairo-SemiBold"
+//    static let italic = "Cairo-Light"
+//    static let semiBold = "Cairo-SemiBold"
+//    static let light =  "Cairo-Light"
+//    static let heavy =  "Cairo-Bold"
     
 
     static let regular_en = "Roboto-Regular"

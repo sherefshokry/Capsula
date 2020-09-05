@@ -1,132 +1,132 @@
 
 /* Class = "UILabel"; text = "Customer"; ObjectID = "0Yw-uc-GlD"; */
-"0Yw-uc-GlD.text" = "Customer";
+"0Yw-uc-GlD.text" = "العميل";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "2jx-gV-xBl"; */
-"2jx-gV-xBl.normalTitle" = "Reset";
+"2jx-gV-xBl.normalTitle" = "اعادة تعيين كلمة المرور";
 
 /* Class = "UIButton"; normalTitle = "Terms & conditionss"; ObjectID = "3JR-aG-uRU"; */
-"3JR-aG-uRU.normalTitle" = "Terms & conditionss";
+"3JR-aG-uRU.normalTitle" = "الشروط و الاحكام";
 
 /* Class = "UILabel"; text = "Or login with social media"; ObjectID = "5Z3-U9-2tU"; */
-"5Z3-U9-2tU.text" = "Or login with social media";
+"5Z3-U9-2tU.text" = "او التسجيل من خلال منصات التواصل الاجتماعي";
 
 /* Class = "UILabel"; text = "Reset Password"; ObjectID = "5cg-AS-Tvb"; */
-"5cg-AS-Tvb.text" = "Reset Password";
+"5cg-AS-Tvb.text" = "اعادة تعيين كلمة المرور";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "6YT-bs-PNP"; */
-"6YT-bs-PNP.normalTitle" = "Save";
+"6YT-bs-PNP.normalTitle" = "حفظ";
 
 /* Class = "UILabel"; text = "Or login with social media"; ObjectID = "9CF-IB-vz6"; */
-"9CF-IB-vz6.text" = "Or login with social media";
+"9CF-IB-vz6.text" = "او التسجيل من خلال منصات التواصل الاجتماعي";
 
 /* Class = "UIButton"; normalTitle = "Register"; ObjectID = "9Gr-yx-0FO"; */
-"9Gr-yx-0FO.normalTitle" = "Register";
+"9Gr-yx-0FO.normalTitle" = "مستخدم جديد";
 
 /* Class = "UILabel"; text = "Verification"; ObjectID = "9Xb-Y6-HoY"; */
-"9Xb-Y6-HoY.text" = "Verification";
+"9Xb-Y6-HoY.text" = "التفعيل";
 
 /* Class = "UIButton"; normalTitle = "Send"; ObjectID = "CVf-0e-YFN"; */
-"CVf-0e-YFN.normalTitle" = "Send";
+"CVf-0e-YFN.normalTitle" = "ارسال";
 
 /* Class = "UILabel"; text = "Car License"; ObjectID = "CuS-Vg-bRn"; */
-"CuS-Vg-bRn.text" = "Car License";
+"CuS-Vg-bRn.text" = "رخصة السيارة";
 
 /* Class = "UILabel"; text = "Required Documents"; ObjectID = "DU8-JU-ZsN"; */
-"DU8-JU-ZsN.text" = "Required Documents";
+"DU8-JU-ZsN.text" = "الوثائق المطلوبه";
 
 /* Class = "UILabel"; text = "Enter verificaion code that was sent to you by sms"; ObjectID = "Egw-rT-ZK3"; */
-"Egw-rT-ZK3.text" = "Enter verificaion code that was sent to you by sms";
+"Egw-rT-ZK3.text" = "ادخل رمز التفعيل المرسل لك عبر رسائل الجوال";
 
 /* Class = "UILabel"; text = "Terms & Conditions"; ObjectID = "Fr0-9Z-L5Q"; */
-"Fr0-9Z-L5Q.text" = "Terms & Conditions";
+"Fr0-9Z-L5Q.text" = "الشروط و الاحكام";
 
 /* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "GSH-Tc-VzO"; */
-"GSH-Tc-VzO.normalTitle" = "Skip";
+"GSH-Tc-VzO.normalTitle" = "تخطي";
 
 /* Class = "UILabel"; text = "Welcome To Capsula"; ObjectID = "GbO-hf-4v0"; */
-"GbO-hf-4v0.text" = "Welcome To Capsula";
+"GbO-hf-4v0.text" = "اهلا وسهلا بك في كبسولة";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "LNm-Pu-ywL"; */
-"LNm-Pu-ywL.normalTitle" = "Submit";
+"LNm-Pu-ywL.normalTitle" = "تأكيد";
 
 /* Class = "UILabel"; text = "Complete Profile"; ObjectID = "QcB-X1-TcI"; */
-"QcB-X1-TcI.text" = "Complete Profile";
+"QcB-X1-TcI.text" = "أكمل ملفك الشخصي";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Qq5-dn-FnE"; */
-"Qq5-dn-FnE.normalTitle" = "Login";
+"Qq5-dn-FnE.normalTitle" = "تسجيل الدخول";
 
 /* Class = "UIButton"; normalTitle = "Add Address"; ObjectID = "RFz-va-F8F"; */
-"RFz-va-F8F.normalTitle" = "Add Address";
+"RFz-va-F8F.normalTitle" = "اضف عنوان";
 
 /* Class = "UILabel"; text = "Enter your phone number and we will send \nyou sms to reset you pasword"; ObjectID = "RWP-3o-eh6"; */
-"RWP-3o-eh6.text" = "Enter your phone number and we will send \nyou sms to reset you pasword";
+"RWP-3o-eh6.text" = "الرجاء ادخال رقم الجوال لاستلام رمز تعين كلمة المرور";
 
 /* Class = "UILabel"; text = "i agree on "; ObjectID = "WnJ-Vy-YFp"; */
-"WnJ-Vy-YFp.text" = "i agree on ";
+"WnJ-Vy-YFp.text" = "اوفق علي ";
 
 /* Class = "UIButton"; normalTitle = "Forgot Password"; ObjectID = "YrY-n9-9iJ"; */
-"YrY-n9-9iJ.normalTitle" = "Forgot Password";
+"YrY-n9-9iJ.normalTitle" = "نسيت كلمة السر؟";
 
 /* Class = "UIButton"; normalTitle = "Register"; ObjectID = "cKW-bH-AuD"; */
-"cKW-bH-AuD.normalTitle" = "Register";
+"cKW-bH-AuD.normalTitle" = "مستخدم جديد";
 
 /* Class = "UILabel"; text = "Car Details"; ObjectID = "cuI-l6-rUt"; */
-"cuI-l6-rUt.text" = "Car Details";
+"cuI-l6-rUt.text" = "معلومات السيارة";
 
 /* Class = "UILabel"; text = "Add Your Address"; ObjectID = "dQ6-8Z-GSa"; */
-"dQ6-8Z-GSa.text" = "Add Your Address";
+"dQ6-8Z-GSa.text" = "الرجاء اضافة العنوان";
 
 /* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod."; ObjectID = "fKM-tk-AJZ"; */
 "fKM-tk-AJZ.text" = "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod.";
 
 /* Class = "UILabel"; text = "Forget Password"; ObjectID = "fPU-q8-zQQ"; */
-"fPU-q8-zQQ.text" = "Forget Password";
+"fPU-q8-zQQ.text" = "نسيت كلمة المرور؟";
 
 /* Class = "UILabel"; text = "Car Front Image"; ObjectID = "g2L-j1-Sk3"; */
-"g2L-j1-Sk3.text" = "Car Front Image";
+"g2L-j1-Sk3.text" = "الصورة الامامية للسيارة";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "gcR-kH-pih"; */
-"gcR-kH-pih.normalTitle" = "Next";
+"gcR-kH-pih.normalTitle" = "التالي";
 
 /* Class = "UIButton"; normalTitle = "Send Again ?"; ObjectID = "gfr-vn-9ab"; */
-"gfr-vn-9ab.normalTitle" = "Send Again ?";
+"gfr-vn-9ab.normalTitle" = "إعادة ارسال؟";
 
 /* Class = "UILabel"; text = "Car Back Image"; ObjectID = "gnu-L9-GG4"; */
-"gnu-L9-GG4.text" = "Car Back Image";
+"gnu-L9-GG4.text" = "الصورة الخلفية للسيارة";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "jZE-kl-IbR"; */
-"jZE-kl-IbR.normalTitle" = "Next";
+"jZE-kl-IbR.normalTitle" = "التالي";
 
 /* Class = "UILabel"; text = "National ID"; ObjectID = "kV6-lV-XZy"; */
-"kV6-lV-XZy.text" = "National ID";
+"kV6-lV-XZy.text" = "الرقم القومي";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "lce-in-DKf"; */
 "lce-in-DKf.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "liX-51-cSr"; */
-"liX-51-cSr.normalTitle" = "Login";
+"liX-51-cSr.normalTitle" = "تسجيل الدخول";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "oKf-Fn-JM4"; */
-"oKf-Fn-JM4.normalTitle" = "Submit";
+"oKf-Fn-JM4.normalTitle" = "تأكيد";
 
 /* Class = "UILabel"; text = "Personal Photo"; ObjectID = "oat-vr-d2N"; */
-"oat-vr-d2N.text" = "Personal Photo";
+"oat-vr-d2N.text" = "الصورة الشخصية";
 
 /* Class = "UILabel"; text = "Car Registration"; ObjectID = "pmH-Wc-dW9"; */
-"pmH-Wc-dW9.text" = "Car Registration";
+"pmH-Wc-dW9.text" = "تسجيل السيارة";
 
 /* Class = "UILabel"; text = "Personal Details"; ObjectID = "qJv-Kt-YQo"; */
-"qJv-Kt-YQo.text" = "Personal Details";
+"qJv-Kt-YQo.text" = "معلوماتي الشخصية";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "tAX-S4-q02"; */
-"tAX-S4-q02.normalTitle" = "Login";
+"tAX-S4-q02.normalTitle" = "تسجيل الدخول";
 
 /* Class = "UILabel"; text = "Welcome To Capsula!"; ObjectID = "u60-AJ-K9M"; */
-"u60-AJ-K9M.text" = "Welcome To Capsula!";
+"u60-AJ-K9M.text" = "اهلا وسهلا بك في كبسولة";
 
 /* Class = "UILabel"; text = "Vehicle plate details"; ObjectID = "uSh-fM-9sp"; */
-"uSh-fM-9sp.text" = "Vehicle plate details";
+"uSh-fM-9sp.text" = "معلومات لوحة السيارة";
 
 /* Class = "UILabel"; text = "Delivery Representative"; ObjectID = "z9g-Lw-lii"; */
-"z9g-Lw-lii.text" = "Delivery Representative";
+"z9g-Lw-lii.text" = "مندوب التوصيل";

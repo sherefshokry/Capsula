@@ -90,10 +90,10 @@ class DeliveryRegisterFirstStepVC : ImagePickerViewController  {
         bankAccountField.setTextFeildSpecs()
         fullAddressField.type = .action
         fullAddressField.setTextFeildSpecs()
-        citizenShipField.titleLabel.text  =  Strings.citizenship
-        nationalIDField.titleLabel.text  =  Strings.nationalID
-        bankAccountField.titleLabel.text  =  Strings.bankAccount
-        fullAddressField.titleLabel.text  =  Strings.fullAddress
+        citizenShipField.titleLabel.text  =  Strings.shared.citizenship
+        nationalIDField.titleLabel.text  =  Strings.shared.nationalID
+        bankAccountField.titleLabel.text  =  Strings.shared.bankAccount
+        fullAddressField.titleLabel.text  =  Strings.shared.fullAddress
         
         
         
@@ -105,7 +105,7 @@ class DeliveryRegisterFirstStepVC : ImagePickerViewController  {
                 options.append(nationality.value ?? "")
             }
             picker.selectedIndex = -1
-            picker.titleText = Strings.selectNationality
+            picker.titleText = Strings.shared.selectNationality
             picker.subTitleText = ""
             picker.listSource = options
             picker.doneSelectingAction = { index in
@@ -150,7 +150,7 @@ class DeliveryRegisterFirstStepVC : ImagePickerViewController  {
             nationalIDField.errorMsg = ""
         } catch {
             isValid = false
-            nationalIDField.errorMsg = Strings.nationalIDValidation
+            nationalIDField.errorMsg = Strings.shared.nationalIDValidation
         }
         
         return isValid
@@ -163,7 +163,7 @@ class DeliveryRegisterFirstStepVC : ImagePickerViewController  {
             self.personalImage = imge.toBase64() ?? ""
             self.completion = nil
         }
-        self.openUploadImageBottomSheet(withTitle: Strings.chooseOption)
+        self.openUploadImageBottomSheet(withTitle: Strings.shared.chooseOption)
     }
     
     

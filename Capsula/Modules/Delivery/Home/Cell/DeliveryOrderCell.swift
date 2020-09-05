@@ -21,7 +21,7 @@ class DeliveryOrderCell : UITableViewCell {
     var selectedOrder = DeliveryOrder()
     func setData(order : DeliveryOrder){
         selectedOrder = order
-        orderID.text = Strings.orderID + (order.orderCode ?? "")
+        orderID.text = Strings.shared.orderID + (order.orderCode ?? "")
         orderToLabel.text = order.customerName ?? ""
         orderAddress.text = order.customerAddress ?? ""
         phoneNumber.text =  "+96" + (order.phoneNumber ?? "")
@@ -37,12 +37,12 @@ class DeliveryOrderCell : UITableViewCell {
         case 1 :
             orderStatusLabel.isHidden = true
             orderStatusView.isHidden = true
-            orderStatusLabel.text = Strings.pending
+            orderStatusLabel.text = Strings.shared.pending
             break
         case 2:
             orderStatusView.isHidden = false
             orderStatusLabel.isHidden = false
-            orderStatusLabel.text = Strings.inProgress
+            orderStatusLabel.text = Strings.shared.inProgress
             break
         default:
           orderStatusLabel.isHidden = true
@@ -52,7 +52,7 @@ class DeliveryOrderCell : UITableViewCell {
     
    override func awakeFromNib() {
     super.awakeFromNib()
-        navigateBtn.setUnderLineText(text: Strings.navigate)
+        navigateBtn.setUnderLineText(text: Strings.shared.navigate)
     }
     
     @IBAction func navigatePressed(_ sender : UIButton)

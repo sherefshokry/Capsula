@@ -21,7 +21,7 @@ class DeliveryFilterHistoryOrdersVC : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       clearBtn.setUnderLineText(text: Strings.clear)
+       clearBtn.setUnderLineText(text: Strings.shared.clear)
        datePicker.datePickerMode = .date
        datePicker.maximumDate = Date()
     }

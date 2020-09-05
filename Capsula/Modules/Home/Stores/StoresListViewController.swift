@@ -75,7 +75,7 @@ class StoresListViewController: UIViewController {
             let vc = MainCartRouter.createModule()
             self.present(vc, animated: true, completion: nil)
         }else{
-                self.showMessage(Strings.cartMsg)
+                self.showMessage(Strings.shared.cartMsg)
         }
        }
        

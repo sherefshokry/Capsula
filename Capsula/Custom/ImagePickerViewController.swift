@@ -26,7 +26,7 @@ class ImagePickerViewController: UIViewController{
     {
         
         let picker = CustomPickerView()
-        let options = [Strings.gallery , Strings.camera]
+        let options = [Strings.shared.gallery, Strings.shared.camera]
         picker.selectedIndex = -1
         picker.titleText = string
         picker.subTitleText = ""

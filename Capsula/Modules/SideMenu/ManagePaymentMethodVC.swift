@@ -63,7 +63,7 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
     @IBAction func applyPaymentMethodPressed(_ sender : UIButton){
         if self.applyPaymentMethod != nil {
             if paymentType == -1 {
-                self.showMessage(Strings.paymentMethodSelection)
+                self.showMessage(Strings.shared.paymentMethodSelection)
             }else{
                 //Call API
                 self.prepareRegistration(paymentMethodID: paymentType)
@@ -226,7 +226,7 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
             guard let self = self else { return }
             switch result {
             case .success(_):
-                self.showMessage(Strings.cardAddedSuccessfully) {
+                self.showMessage(Strings.shared.cardAddedSuccessfully) {
                     self.dismiss(animated: true, completion: nil)
                 }
             case .failure(let error):

@@ -71,31 +71,31 @@ class EditDeliveryProfileStep2VC : UIViewController {
         
         carBrandField.type = .action
         carBrandField.setTextFeildSpecs()
-        carBrandField.titleLabel.text = Strings.carBrand
+        carBrandField.titleLabel.text = Strings.shared.carBrand
         
         carModelField.type = .action
         carModelField.setTextFeildSpecs()
-        carModelField.titleLabel.text = Strings.carModel
+        carModelField.titleLabel.text = Strings.shared.carModel
         
         carYearsField.type = .action
         carYearsField.setTextFeildSpecs()
-        carYearsField.titleLabel.text = Strings.modelYear
+        carYearsField.titleLabel.text = Strings.shared.modelYear
         
         carLicenceTypeField.type = .action
         carLicenceTypeField.setTextFeildSpecs()
-        carLicenceTypeField.titleLabel.text = Strings.licenceType
+        carLicenceTypeField.titleLabel.text = Strings.shared.licenceType
         
         
         carPlateNumberField.type = .regular
         carPlateNumberField.setTextFeildSpecs()
         carPlateNumberField.field.keyboardType = .asciiCapableNumberPad
         carPlateNumberField.titleLabel.text = ""
-        carPlateNumberField.feildPlaceHolder = Strings.plateNumber
+        carPlateNumberField.feildPlaceHolder = Strings.shared.plateNumber
         
         carPlateLettersField.type = .regular
         carPlateLettersField.setTextFeildSpecs()
         carPlateLettersField.titleLabel.text = ""
-        carPlateLettersField.feildPlaceHolder = Strings.plateLetters
+        carPlateLettersField.feildPlaceHolder = Strings.shared.plateLetters
         
         
         
@@ -116,7 +116,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             }else{
                 picker.selectedIndex = -1
             }
-            picker.titleText = Strings.selectBrand
+            picker.titleText = Strings.shared.selectBrand
             picker.subTitleText = ""
             picker.listSource = options
             picker.doneSelectingAction = { index in
@@ -134,7 +134,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
         //Select Car Model
         carModelField.actionHandler = { _ in
             if self.selectedBrandID == -1 {
-                self.showMessage(Strings.pickBrandFirst)
+                self.showMessage(Strings.shared.pickBrandFirst)
             }
             else{
                 let picker = CustomPickerView()
@@ -150,7 +150,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
                 }else{
                     picker.selectedIndex = -1
                 }
-                picker.titleText = Strings.selectModel
+                picker.titleText = Strings.shared.selectModel
                 picker.subTitleText = ""
                 picker.listSource = options
                 picker.doneSelectingAction = { index in
@@ -177,7 +177,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             }else{
                 picker.selectedIndex = -1
             }
-            picker.titleText = Strings.selectYear
+            picker.titleText = Strings.shared.selectYear
             picker.subTitleText = ""
             picker.listSource = options
             picker.doneSelectingAction = { index in
@@ -204,7 +204,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             }else{
                 picker.selectedIndex = -1
             }
-            picker.titleText = Strings.selectLicence
+            picker.titleText = Strings.shared.selectLicence
             picker.subTitleText = ""
             picker.listSource = options
             picker.doneSelectingAction = { index in
@@ -338,7 +338,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
                     
                     Utils.saveDeliveryUser(user: currentDeliveryResponse)
                     
-                    self.showMessage(Strings.userProfileUpdatedMsg) {
+                    self.showMessage(Strings.shared.userProfileUpdatedMsg) {
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true
                             , completion: {
                                 

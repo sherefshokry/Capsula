@@ -33,21 +33,21 @@ class CapsulaInputFeild : InputField {
             self.field.keyboardType = .asciiCapableNumberPad
             break
         case .email:
-            self.titleLabel.text = Strings.Fields.email
+            self.titleLabel.text = Strings.Fields.shared.email
             self.field.keyboardType = .asciiCapable
             break
         case .password:
-             self.titleLabel.text = Strings.password
+             self.titleLabel.text = Strings.shared.password
             self.field.keyboardType = .asciiCapable
             self.field.isSecureTextEntry = true
         case .newPassword:
-            self.titleLabel.text = Strings.newPassword
+            self.titleLabel.text = Strings.shared.newPassword
             self.field.keyboardType = .asciiCapable
             self.field.isSecureTextEntry = true
             break
         case .phoneNumber:
             self.lineView.semanticContentAttribute = .forceLeftToRight
-             self.titleLabel.text = Strings.Fields.phone
+             self.titleLabel.text = Strings.Fields.shared.phone
             self.eyeView.isHidden = false
             self.field.keyboardType = .asciiCapableNumberPad
             self.numberLabel.isHidden = false
@@ -55,12 +55,9 @@ class CapsulaInputFeild : InputField {
             self.numberViewWidthConstraint.constant = 60
             break
         case .name:
-             self.titleLabel.text = Strings.Fields.name
+             self.titleLabel.text = Strings.Fields.shared.name
             self.field.keyboardType = .default
             break
-        case .kilometer :
-             self.titleLabel.text = Strings.Fields.kmFieldPlaceHolder
-            self.field.keyboardType = .asciiCapableNumberPad
         case .action:
             self.topBtn.isHidden = false
             self.topView.isHidden = false
@@ -105,11 +102,11 @@ class CapsulaInputFeild : InputField {
             self.numberViewWidthConstraint.constant = 50
             break
         case .number:
-            self.titleLabel.text = Strings.password
+            self.titleLabel.text = Strings.shared.password
             self.field.isSecureTextEntry = true
             self.field.keyboardType = .asciiCapable
         case .confirmPassword:
-            self.titleLabel.text = Strings.confirmationPassword
+            self.titleLabel.text = Strings.shared.confirmationPassword
             self.field.isSecureTextEntry = true
             self.field.keyboardType = .asciiCapable
         case .no:
@@ -125,11 +122,8 @@ class CapsulaInputFeild : InputField {
             
             self.field.keyboardType = .default
             break
-        case .kilometerNotRequired:
-            self.titleLabel.text = Strings.Fields.kmFieldPlaceHolder
-            self.field.keyboardType = .asciiCapableNumberPad
         case .phoneOrEmail:
-            self.titleLabel.text = Strings.Fields.phoneOrEmail
+            self.titleLabel.text = Strings.Fields.shared.phoneOrEmail
             self.field.keyboardType = .asciiCapable
         }
         if nextFeild != nil{

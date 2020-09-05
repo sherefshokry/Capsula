@@ -26,7 +26,7 @@ class ResetPasswordPresenter : ViewToPresenterResetPasswordProtocol{
 extension ResetPasswordPresenter : InteractorToPresenterResetPasswordProtocol {
       func passwordUpdatedSuccessfully() {
            self.view?.changeState(state: .ready)
-           self.view?.showSuccessMsg(msg: Strings.resetPasswordSuccessMsg)
+           self.view?.showSuccessMsg(msg: Strings.shared.resetPasswordSuccessMsg)
        }
        
        func passwordFailedToUpdate(error: String) {

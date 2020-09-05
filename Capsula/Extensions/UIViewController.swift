@@ -53,7 +53,7 @@ extension UIViewController   {
     
     func showMessage(_ message: String,completion : @escaping (()->())) -> Void {
         let alert=UIAlertController(title: nil, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: Strings.OK,style: UIAlertAction.Style.cancel, handler: {(action) in
+        alert.addAction(UIAlertAction(title: Strings.shared.OK,style: UIAlertAction.Style.cancel, handler: {(action) in
             completion()
         }));
         
@@ -189,10 +189,10 @@ extension UIViewController   {
         
         let alert = UIAlertController(title: Msg , message: "" , preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: Strings.no , style: UIAlertAction.Style.cancel , handler: {(UIAlertAction) in
+        alert.addAction(UIAlertAction(title: Strings.shared.no , style: UIAlertAction.Style.cancel , handler: {(UIAlertAction) in
             funcToLoad(false)
         }))
-        alert.addAction(UIAlertAction(title: Strings.yes , style: UIAlertAction.Style.default , handler: {(UIAlertAction) in
+        alert.addAction(UIAlertAction(title: Strings.shared.yes , style: UIAlertAction.Style.default , handler: {(UIAlertAction) in
             funcToLoad(true)
             
         }
