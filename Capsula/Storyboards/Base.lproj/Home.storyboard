@@ -979,9 +979,9 @@
                                                 </connections>
                                             </button>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNB-Ea-nsP" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="22" y="105.5" width="200" height="24"/>
+                                                <rect key="frame" x="22" y="105.5" width="140" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="Udd-xX-GqB"/>
+                                                    <constraint firstAttribute="width" constant="140" id="Ug5-bq-GQP"/>
                                                     <constraint firstAttribute="height" constant="24" id="eOS-i8-p33"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -4461,14 +4461,14 @@ Vanilla &amp; Almond Oil</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeliveryOrderCell" id="vXy-xp-DhO" customClass="DeliveryOrderCell" customModule="Capsula" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="246"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="261"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vXy-xp-DhO" id="BA8-GB-jrR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="261"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYe-0s-XGI" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
-                                                    <rect key="frame" x="22" y="8" width="276" height="230"/>
+                                                    <rect key="frame" x="22" y="8" width="276" height="245"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biA-gD-njG">
                                                             <rect key="frame" x="171" y="10" width="105" height="24"/>
@@ -4494,13 +4494,13 @@ Vanilla &amp; Almond Oil</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dlivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xeu-lG-gXh">
-                                                            <rect key="frame" x="16" y="133.5" width="101" height="17"/>
+                                                            <rect key="frame" x="16" y="152.5" width="101" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…b Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wg4-gF-ySG">
-                                                            <rect key="frame" x="16" y="155.5" width="244" height="43"/>
+                                                            <rect key="frame" x="16" y="174.5" width="244" height="43"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -4523,20 +4523,20 @@ Vanilla &amp; Almond Oil</string>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXG-3C-DvT">
-                                                            <rect key="frame" x="16" y="86" width="96.5" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXG-3C-DvT">
+                                                            <rect key="frame" x="16" y="86" width="91.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+96 123 342 234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ3-xh-fTM">
-                                                            <rect key="frame" x="16" y="106" width="129.5" height="19.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…b Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ3-xh-fTM">
+                                                            <rect key="frame" x="16" y="106" width="244" height="38.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X48-po-bFP">
-                                                            <rect key="frame" x="210" y="203.5" width="50" height="20"/>
+                                                            <rect key="frame" x="210" y="222.5" width="50" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="YTJ-e4-kAI"/>
                                                             </constraints>
@@ -4559,13 +4559,14 @@ Vanilla &amp; Almond Oil</string>
                                                         <constraint firstAttribute="trailing" secondItem="biA-gD-njG" secondAttribute="trailing" id="BsF-3q-wiD"/>
                                                         <constraint firstItem="Xeu-lG-gXh" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="DQ7-QW-xbP"/>
                                                         <constraint firstItem="RJ3-xh-fTM" firstAttribute="top" secondItem="NXG-3C-DvT" secondAttribute="bottom" constant="3" id="EOS-tP-cCa"/>
+                                                        <constraint firstAttribute="trailing" secondItem="RJ3-xh-fTM" secondAttribute="trailing" constant="16" id="HVC-px-yaV"/>
                                                         <constraint firstItem="7SJ-45-Eqa" firstAttribute="top" secondItem="fYe-0s-XGI" secondAttribute="top" constant="16" id="Jg3-9L-MVO"/>
                                                         <constraint firstItem="NXG-3C-DvT" firstAttribute="top" secondItem="y6s-fV-4cG" secondAttribute="bottom" constant="8" id="Lrn-4b-tec"/>
                                                         <constraint firstItem="Pjh-L3-2Uk" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="UB4-JS-V87"/>
                                                         <constraint firstItem="y6s-fV-4cG" firstAttribute="top" secondItem="Pjh-L3-2Uk" secondAttribute="bottom" constant="3" id="UEX-9n-O5O"/>
                                                         <constraint firstItem="RJ3-xh-fTM" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="ULL-yT-drD"/>
                                                         <constraint firstItem="Pjh-L3-2Uk" firstAttribute="top" secondItem="7SJ-45-Eqa" secondAttribute="bottom" constant="8" id="cic-Bh-Ydr"/>
-                                                        <constraint firstAttribute="height" constant="230" id="cqz-fm-aRa"/>
+                                                        <constraint firstAttribute="height" constant="245" id="cqz-fm-aRa"/>
                                                         <constraint firstItem="7SJ-45-Eqa" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="ehD-1W-mrI"/>
                                                         <constraint firstItem="biA-gD-njG" firstAttribute="top" secondItem="fYe-0s-XGI" secondAttribute="top" constant="10" id="etO-lS-Fda"/>
                                                         <constraint firstItem="y6s-fV-4cG" firstAttribute="leading" secondItem="fYe-0s-XGI" secondAttribute="leading" constant="16" id="fI5-Xn-PAP"/>
@@ -4791,14 +4792,14 @@ Vanilla &amp; Almond Oil</string>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeliveryOrderCell" id="SI8-1z-YcM" customClass="DeliveryOrderCell" customModule="Capsula" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="246"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="261"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SI8-1z-YcM" id="2tr-ZM-KzM">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="261"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grb-Nd-aRi" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
-                                                    <rect key="frame" x="22" y="8" width="276" height="230"/>
+                                                    <rect key="frame" x="22" y="8" width="276" height="245"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spI-44-pki">
                                                             <rect key="frame" x="171" y="10" width="105" height="24"/>
@@ -4824,13 +4825,13 @@ Vanilla &amp; Almond Oil</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dlivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-HM-p50">
-                                                            <rect key="frame" x="16" y="133.5" width="101" height="17"/>
+                                                            <rect key="frame" x="16" y="152.5" width="101" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…b Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwH-e5-qNQ">
-                                                            <rect key="frame" x="16" y="155.5" width="244" height="43"/>
+                                                            <rect key="frame" x="16" y="174.5" width="244" height="43"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -4853,20 +4854,20 @@ Vanilla &amp; Almond Oil</string>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lW-9N-rwk">
-                                                            <rect key="frame" x="16" y="86" width="96.5" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lW-9N-rwk">
+                                                            <rect key="frame" x="16" y="86" width="91.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+96 123 342 234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayz-0e-Qpp">
-                                                            <rect key="frame" x="16" y="106" width="129.5" height="19.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bab Makkah Dist.,Jeddah Bab Mak…b Makkah Dist.,Jeddah Bab Mak…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayz-0e-Qpp">
+                                                            <rect key="frame" x="16" y="106" width="244" height="38.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-j4-qZs">
-                                                            <rect key="frame" x="210" y="203.5" width="50" height="20"/>
+                                                            <rect key="frame" x="210" y="222.5" width="50" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="wcn-xB-8XI"/>
                                                             </constraints>
@@ -4882,7 +4883,7 @@ Vanilla &amp; Almond Oil</string>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Nof-j4-qZs" secondAttribute="trailing" constant="16" id="0AC-hO-awa"/>
-                                                        <constraint firstAttribute="height" constant="230" id="0uB-9j-2H8"/>
+                                                        <constraint firstAttribute="height" constant="245" id="0uB-9j-2H8"/>
                                                         <constraint firstAttribute="trailing" secondItem="spI-44-pki" secondAttribute="trailing" id="9bN-Bq-U9r"/>
                                                         <constraint firstItem="Ayz-0e-Qpp" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="C78-be-7j7"/>
                                                         <constraint firstItem="wrw-vG-6Ss" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="CL4-Id-2OQ"/>
@@ -4897,6 +4898,7 @@ Vanilla &amp; Almond Oil</string>
                                                         <constraint firstItem="vAv-g4-18K" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="WEp-dJ-e0c"/>
                                                         <constraint firstItem="iwH-e5-qNQ" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="YHy-aI-tHL"/>
                                                         <constraint firstItem="LuB-23-wRY" firstAttribute="top" secondItem="wrw-vG-6Ss" secondAttribute="bottom" constant="8" id="YLJ-Xg-cfm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ayz-0e-Qpp" secondAttribute="trailing" constant="16" id="aUk-4d-zDk"/>
                                                         <constraint firstItem="Ayz-0e-Qpp" firstAttribute="top" secondItem="3lW-9N-rwk" secondAttribute="bottom" constant="3" id="bf3-WJ-AIb"/>
                                                         <constraint firstAttribute="trailing" secondItem="iwH-e5-qNQ" secondAttribute="trailing" constant="16" id="pZw-Yt-p1d"/>
                                                         <constraint firstItem="3lW-9N-rwk" firstAttribute="leading" secondItem="grb-Nd-aRi" secondAttribute="leading" constant="16" id="ssf-70-Jjm"/>
@@ -5085,7 +5087,7 @@ Vanilla &amp; Almond Oil</string>
                                 <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eiA-ka-LpP">
-                                        <rect key="frame" x="22" y="16" width="276" height="765.5"/>
+                                        <rect key="frame" x="22" y="16" width="276" height="414"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pRs-Pw-Jih">
                                                 <rect key="frame" x="0.0" y="0.0" width="276" height="118.5"/>
@@ -5157,7 +5159,7 @@ Vanilla &amp; Almond Oil</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zlN-2X-NZ1">
                                                 <rect key="frame" x="0.0" y="133.5" width="276" height="82"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGu-bS-Wom">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGu-bS-Wom">
                                                         <rect key="frame" x="0.0" y="0.0" width="276" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
@@ -5222,14 +5224,14 @@ Vanilla &amp; Almond Oil</string>
                                                     <constraint firstItem="PFJ-fO-znD" firstAttribute="width" secondItem="zlN-2X-NZ1" secondAttribute="width" id="8uY-pX-Ics"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products Details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdW-fA-C4t">
-                                                <rect key="frame" x="0.0" y="230.5" width="276" height="21.5"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products Details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdW-fA-C4t">
+                                                <rect key="frame" x="0.0" y="-99.5" width="276" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-Ba-fp3">
-                                                <rect key="frame" x="0.0" y="267" width="276" height="300"/>
+                                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-Ba-fp3">
+                                                <rect key="frame" x="0.0" y="-84.5" width="276" height="300"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="Avg-Ey-a3f"/>
@@ -5347,7 +5349,7 @@ Vanilla &amp; Almond Oil</string>
                                                 </connections>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="E8L-Ec-r8q">
-                                                <rect key="frame" x="0.0" y="582" width="276" height="183.5"/>
+                                                <rect key="frame" x="0.0" y="230.5" width="276" height="183.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-nX-tiJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="276" height="21.5"/>
@@ -5559,6 +5561,8 @@ Vanilla &amp; Almond Oil</string>
                         <outlet property="itemsCost" destination="Wez-gT-zdX" id="XuE-Ba-pWF"/>
                         <outlet property="paymentMethodType" destination="8dJ-b5-5Mo" id="ghw-2C-3Jt"/>
                         <outlet property="phoneNumberLabel" destination="oPx-h5-f7o" id="WJ0-Cj-VOV"/>
+                        <outlet property="productDetailsLabel" destination="OdW-fA-C4t" id="7eT-Mt-NGJ"/>
+                        <outlet property="scrollView" destination="cKK-MY-P6M" id="ITe-No-Low"/>
                         <outlet property="startOrderBtn" destination="ld1-NQ-12h" id="7OM-cZ-8VW"/>
                         <outlet property="topView" destination="jhe-2o-xES" id="jKB-BJ-eQ3"/>
                         <outlet property="totalPrice" destination="hOn-GW-KPC" id="0ve-8h-v1F"/>

@@ -11,9 +11,10 @@ class Strings: Any {
     
     
     static var shared = Strings()
+    var hello = "Hello".localize()
     var selectLanguage = "Please select language".localize()
     var availableAt = "Avilable at ".localize()
-    var wasRSD = "Was RSD".localize()
+    var was = "Was".localize()
     var RSD = "RSD".localize()
     var VAT = "VAT".localize()
     var freeDelivery = "Free Dlivery".localize()

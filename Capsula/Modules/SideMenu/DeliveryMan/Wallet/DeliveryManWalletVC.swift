@@ -51,17 +51,17 @@ class DeliveryManWalletVC : UIViewController {
         
         
         totalCompletedOrder.text = "\(item.countOfCompletedOrders ?? 0)"
-        totalDeliveryCostInCash.text = Strings.shared.RSD +  " \(item.totalCreditCustomerOrderAmountCash?.rounded(toPlaces: 2) ?? 0)"
-        totalOnlineDeliveryCost.text = Strings.shared.RSD +  " \(item.totalDeliveryCostOnlineOrder?.rounded(toPlaces: 2) ?? 0.0)"
-        totalDeliveryCost.text = Strings.shared.RSD +  " \(item.totalDeliveryCost?.rounded(toPlaces: 2) ?? 0.0)"
-        discounts.text = Strings.shared.RSD +  " \(item.discount?.rounded(toPlaces: 2) ?? 0.0)"
-        cashOrdersCost.text = Strings.shared.RSD +  " \(item.totalDeliveryCostCashOrder?.rounded(toPlaces: 2) ?? 0.0)"
-        bounses.text = Strings.shared.RSD +  " \(item.bonuses?.rounded(toPlaces: 2) ?? 0.0)"
-        compensation.text = Strings.shared.RSD +  " \(item.compensations?.rounded(toPlaces: 2) ?? 0.0)"
-        balance.text = Strings.shared.RSD +  " \(item.balance?.rounded(toPlaces: 2) ?? 0.0)"
-        payments.text = Strings.shared.RSD +  " \(item.payments?.rounded(toPlaces: 2) ?? 0.0)"
-        collection.text = Strings.shared.RSD +  " \(item.collection?.rounded(toPlaces: 2) ?? 0.0)"
-        finalBalance.text = Strings.shared.RSD +  " \(item.endingBalance?.rounded(toPlaces: 2) ?? 0.0)"
+        totalDeliveryCostInCash.text = "\(item.totalCreditCustomerOrderAmountCash?.rounded(toPlaces: 2) ?? 0) " + Strings.shared.RSD
+        totalOnlineDeliveryCost.text = "\(item.totalDeliveryCostOnlineOrder?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        totalDeliveryCost.text = "\(item.totalDeliveryCost?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        discounts.text = "\(item.discount?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        cashOrdersCost.text = "\(item.totalDeliveryCostCashOrder?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        bounses.text = "\(item.bonuses?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        compensation.text = "\(item.compensations?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        balance.text =  "\(item.balance?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        payments.text = "\(item.payments?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        collection.text =  "\(item.collection?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
+        finalBalance.text = "\(item.endingBalance?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
         
     }
     

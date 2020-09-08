@@ -26,7 +26,7 @@ class HomeDeliveryHeaderCell : UITableViewCell {
         super.awakeFromNib()
    
         
-        userNameLbl.text = "Hello \(Utils.loadDeliveryUser()?.user?.fullName ?? "") 👋🏻"
+        userNameLbl.text = Strings.shared.hello + " \(Utils.loadDeliveryUser()?.user?.fullName ?? "") 👋🏻"
         userImage.sd_setImage(with: URL.init(string: Utils.loadDeliveryUser()?.user?.personalPicture ?? ""), placeholderImage: UIImage(named: "icPersonal"))
         
     }

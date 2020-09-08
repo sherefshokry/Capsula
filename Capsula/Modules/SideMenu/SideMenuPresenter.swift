@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 import ContentSheet
-
+import Intercom
 class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
     
     
@@ -27,8 +27,16 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
     }
     
     func logOut() {
-        self.view?.changeState(state: .loading)
-        self.interactor?.logOut()
+          logOutSuccessfully()
+        //let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
+        
+//        if isDeliveryMan {
+//         self.view?.changeState(state: .loading)
+//         self.interactor?.logOut()
+//        }else{
+//           logOutSuccessfully()
+//        }
+        
     }
     
     func configureMenuElementCell(cell: SideMenuCell, indexPath: IndexPath) {
@@ -36,14 +44,14 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
     }
     
     func didSelectElement(itemIndex: Int) {
-//        let user = Utils.loadUser()
-//        if user != nil {
-//            self.interactor?.navigate(item: sideMenuItems[itemIndex])
-//        }else{
-//          //  self.interactor?.navigate(item: sideMenuItems[itemIndex])
-//        }
+        //        let user = Utils.loadUser()
+        //        if user != nil {
+        //            self.interactor?.navigate(item: sideMenuItems[itemIndex])
+        //        }else{
+        //          //  self.interactor?.navigate(item: sideMenuItems[itemIndex])
+        //        }
         
-          self.interactor?.navigate(item: sideMenuItems[itemIndex])
+        self.interactor?.navigate(item: sideMenuItems[itemIndex])
     }
     
     func populateSideMenuList(sideMenuItems: [SideMenu]) {
@@ -56,49 +64,49 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
         let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
         
         if isDeliveryMan {
-          sideMenuItems =   self.interactor?.getSideMenuItemsForDeliveryMan() ?? []
+            sideMenuItems =   self.interactor?.getSideMenuItemsForDeliveryMan() ?? []
         }else{
             if Utils.loadUser()?.accessToken ?? "" == "" {
-                 sideMenuItems = self.interactor?.getSideMenuItemsForGuestUser() ?? []
+                sideMenuItems = self.interactor?.getSideMenuItemsForGuestUser() ?? []
             }else{
-               sideMenuItems = self.interactor?.getSideMenuItemsForUser() ?? []
+                sideMenuItems = self.interactor?.getSideMenuItemsForUser() ?? []
             }
-           
+            
         }
-      
+        
         self.view?.reloadData()
     }
     
     func selectLanguage(){
-            
-            let currentLang = LocalizationSystem.sharedInstance.getLanguage()
-            var  selectedLanguage  = ""
-            if currentLang == "ar"{
-                selectedLanguage = Strings.shared.arabic
-            }else{
-                selectedLanguage = Strings.shared.english
-            }
         
-            let picker = CustomPickerView()
-            let langList = [Strings.shared.arabic , Strings.shared.english]
-            
-            if let index = langList.firstIndex(where: { (item) -> Bool in
-                item ==  selectedLanguage
-                // test if this is the item you're looking for
-            }){
-                picker.selectedIndex = index
-            }else{
-                picker.selectedIndex = -1
-            }
-            picker.titleText = Strings.shared.selectLanguage
-            picker.subTitleText = ""
-            picker.listSource = langList
-            picker.doneSelectingAction = { index in
-              self.changeLanguage(index: index)
-            }
-            picker.show()
+        let currentLang = LocalizationSystem.sharedInstance.getLanguage()
+        var  selectedLanguage  = ""
+        if currentLang == "ar"{
+            selectedLanguage = Strings.shared.arabic
+        }else{
+            selectedLanguage = Strings.shared.english
         }
         
+        let picker = CustomPickerView()
+        let langList = [Strings.shared.arabic , Strings.shared.english]
+        
+        if let index = langList.firstIndex(where: { (item) -> Bool in
+            item ==  selectedLanguage
+            // test if this is the item you're looking for
+        }){
+            picker.selectedIndex = index
+        }else{
+            picker.selectedIndex = -1
+        }
+        picker.titleText = Strings.shared.selectLanguage
+        picker.subTitleText = ""
+        picker.listSource = langList
+        picker.doneSelectingAction = { index in
+            self.changeLanguage(index: index)
+        }
+        picker.show()
+    }
+    
     
     
     func changeLanguage(index : Int){
@@ -111,67 +119,69 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
             Utils.setLang(lang: "en")
         }
         let updatedLanguage =  UserDefaults.standard.string(forKey: "lang")
-            //LocalizationSystem.sharedInstance.getLanguage()
+        //LocalizationSystem.sharedInstance.getLanguage()
         
         
         if currentLanguage != updatedLanguage {
-             Utils.openSplashScreen()
+            Utils.openSplashScreen()
         }
     }
     
- 
     
     
-
+    
+    
 }
 
 extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
-  
     
-
+    
+    
     func logOutSuccessfully() {
         self.view?.changeState(state: .ready)
+        Utils.saveDeliveryUser(user: nil)
         Utils.saveUser(user: nil)
-        Utils.openLoginScreen(isDeliveryMan: false)
+        Utils.openWelcomeScreen()
+        Intercom.logout()
     }
     
     func failedToLogout(error: String) {
         self.view?.changeState(state: .error(error))
     }
     
-
+    
     func navigate(viewController: UIViewController, animation: Bool) {
         self.router?.navigate(from: self.view, to: viewController, animation: animation)
     }
     
     
-       func openPaymentScreen(){
+    func openPaymentScreen(){
+        
+        let content: ContentSheetContentProtocol
+        let vc = ManagePaymentMethodVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
+        vc.applyPaymentMethod = { paymentType in
             
-            let content: ContentSheetContentProtocol
-                  let vc = ManagePaymentMethodVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
-         vc.applyPaymentMethod = { paymentType in
-        
-        
-          }
-    //              vc.paymentType = selectedPaymentMethod
-    //              vc.applyPaymentMethod = { paymentType in
-    //                  self.selectedPaymentMethod = paymentType
-    //                  if paymentType == 1 {
-    //                      self.selectedPaymentMethodLabel.text = Strings.cash
-    //                  }else if paymentType == 5 {
-    //                      self.selectedPaymentMethodLabel.text = Strings.madaPay
-    //                  }else if paymentType == 4 {
-    //                      self.selectedPaymentMethodLabel.text = Strings.creditCard
-    //                  }
-    //              }
-                  let contentController = vc
-                  content = contentController
-                  let contentSheet = ContentSheet(content: content)
-                  contentSheet.blurBackground = false
-                  contentSheet.showDefaultHeader = false
-                  UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
             
         }
+        //              vc.paymentType = selectedPaymentMethod
+        //              vc.applyPaymentMethod = { paymentType in
+        //                  self.selectedPaymentMethod = paymentType
+        //                  if paymentType == 1 {
+        //                      self.selectedPaymentMethodLabel.text = Strings.cash
+        //                  }else if paymentType == 5 {
+        //                      self.selectedPaymentMethodLabel.text = Strings.madaPay
+        //                  }else if paymentType == 4 {
+        //                      self.selectedPaymentMethodLabel.text = Strings.creditCard
+        //                  }
+        //              }
+        let contentController = vc
+        content = contentController
+        let contentSheet = ContentSheet(content: content)
+        contentSheet.blurBackground = false
+        contentSheet.showDefaultHeader = false
+        UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
+        
+    }
     
     
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -118,6 +118,7 @@
             </collectionViewCellContentView>
             <size key="customSize" width="166" height="205"/>
             <connections>
+                <outlet property="addCartBtn" destination="NZp-1c-4ks" id="fUu-c1-CNv"/>
                 <outlet property="itemImage" destination="rCE-s9-hqj" id="ktS-HB-PVe"/>
                 <outlet property="itemPrice" destination="poF-1C-8du" id="Tdo-xE-Jp7"/>
                 <outlet property="itemTitle" destination="ztg-6g-z6V" id="rK2-tg-7Pu"/>

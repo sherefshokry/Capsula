@@ -9,36 +9,33 @@
 //
 
 import UIKit
-import Intercom
+import Moya
+
 class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
     
     var presenter: InteractorToPresenterSideMenuProtocol?
-    
+    private let provider = MoyaProvider<AuthDataSource>()
     func logOut() {
-        
-        Utils.saveDeliveryUser(user: nil)
-        Utils.saveUser(user: nil)
-        Utils.openWelcomeScreen()
-        Intercom.logout()
-        
-        //          provider.request(.logOut) { [weak self] result in
-        //              guard let self = self else { return }
-        //             switch result {
-        //             case .success(let _):
-        //                self.presenter?.logOutSuccessfully()
-        //              break
-        //             case .failure(let error):
-        //              do{
-        //                if let body = try error.response?.mapJSON(){
-        //                    let errorData = (body as! [String:Any])
-        //                    self.presenter?.faildToLogout(error: (errorData["error"] as? String) ?? "")
-        //            }
-        //                }catch{
-        //                self.presenter?.faildToLogout(error: error.localizedDescription)
-        //                }
-        //              break
-        //             }
-        //           }
+                  provider.request(.LogOut) { [weak self] result in
+                  guard let self = self else { return }
+                     switch result {
+                     case .success(let _):
+                        self.presenter?.logOutSuccessfully()
+                      break
+                     case .failure(let error):
+                      do{
+                        
+                        
+                        if let body = try error.response?.mapJSON(){
+                            let errorData = (body as! [String:Any])
+                        self.presenter?.failedToLogout(error: (errorData["error"] as? String) ?? "")
+                    }
+                        }catch{
+                        self.presenter?.failedToLogout(error: error.localizedDescription)
+                        }
+                      break
+                     }
+                   }
     }
     
     
@@ -51,18 +48,21 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
             SideMenu.init(elementText: Strings.SideMenu.shared.MyOrders, elementIcon : UIImage(named: "icTrack") ?? UIImage()))
         
         sideMenuItems.append(
+        SideMenu.init(elementText: Strings.SideMenu.shared.About, elementIcon : #imageLiteral(resourceName: "icAbout")))
+        
+        
+        sideMenuItems.append(
             SideMenu.init(elementText: Strings.SideMenu.shared.Payment, elementIcon : #imageLiteral(resourceName: "icPayment")))
         
         //        sideMenuItems.append(
         //            SideMenu.init(elementText: Strings.SideMenu.shared.Help, elementIcon : #imageLiteral(resourceName: "icHelp")))
         
         
-        sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.About, elementIcon : #imageLiteral(resourceName: "icNotifications")))
         
         
-        sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.Terms, elementIcon : #imageLiteral(resourceName: "icNotifications")))
+        
+//        sideMenuItems.append(
+//            SideMenu.init(elementText: Strings.SideMenu.shared.Terms, elementIcon : #imageLiteral(resourceName: "icNotifications")))
         
         
         sideMenuItems.append(
@@ -98,8 +98,8 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
             SideMenu.init(elementText: Strings.SideMenu.shared.About, elementIcon : #imageLiteral(resourceName: "icNotifications")))
         
         
-        sideMenuItems.append(
-            SideMenu.init(elementText: Strings.SideMenu.shared.Terms, elementIcon : #imageLiteral(resourceName: "icNotifications")))
+//        sideMenuItems.append(
+//            SideMenu.init(elementText: Strings.SideMenu.shared.Terms, elementIcon : #imageLiteral(resourceName: "icNotifications")))
         
         
         sideMenuItems.append(
@@ -136,10 +136,7 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
         
         return sideMenuItems
     }
-    
-    
-    
-    
+
     
     func navigate(item: SideMenu) {
         
@@ -161,10 +158,6 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
             break
         case Strings.SideMenu.shared.MyWallet:
             let vc =  DeliveryManWalletVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
-            self.presenter?.navigate(viewController: vc, animation: true)
-            break
-        case Strings.SideMenu.shared.Terms:
-            let vc = TermsAndConditionsVC.instantiateFromStoryBoard(appStoryBoard: .SideMenu)
             self.presenter?.navigate(viewController: vc, animation: true)
             break
         case Strings.SideMenu.shared.About:

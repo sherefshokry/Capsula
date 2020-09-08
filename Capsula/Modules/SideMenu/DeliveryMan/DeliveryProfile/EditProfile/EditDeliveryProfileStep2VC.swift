@@ -121,6 +121,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             picker.listSource = options
             picker.doneSelectingAction = { index in
                 self.selectedBrandID = self.carBrandList[index].id ?? -1
+                self.registerRequest.carTypeId = self.carBrandList[index].id ?? -1
                 self.carBrandField.setText(text: self.carBrandList[index].value ?? "")
                 self.carBrandField.errorMsg = ""
                 self.getCarModels()
@@ -155,6 +156,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
                 picker.listSource = options
                 picker.doneSelectingAction = { index in
                     self.selectedModelID = self.carModelList[index].id ?? -1
+                    self.registerRequest.carModelId = self.carModelList[index].id ?? -1
                     self.carModelField.setText(text: self.carModelList[index].value ?? "")
                     self.carModelField.errorMsg = ""
                 }
@@ -182,6 +184,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             picker.listSource = options
             picker.doneSelectingAction = { index in
                 self.selectedYearID = self.yearsList[index].id ?? -1
+                self.registerRequest.yearId = self.yearsList[index].id ?? -1
                 self.carYearsField.setText(text: self.yearsList[index].value ?? "")
                 self.carYearsField.errorMsg = ""
             }
@@ -209,6 +212,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
             picker.listSource = options
             picker.doneSelectingAction = { index in
                 self.selectedLicenceID = self.licenceTypeList[index].id ?? -1
+                self.registerRequest.vehicleTypeId = self.licenceTypeList[index].id ?? -1
                 self.carLicenceTypeField.setText(text: self.licenceTypeList[index].value ?? "")
                 self.carLicenceTypeField.errorMsg = ""
             }
@@ -319,11 +323,7 @@ class EditDeliveryProfileStep2VC : UIViewController {
     
     
     func updateDeliveryUserProfile(registerRequest : DeliveryRequest){
-        
-        
-        
-        
-        KVNProgress.show()
+       KVNProgress.show()
         provider.request(.updateDeliveryData(registerRequest)) { [weak self] result in
             guard let self = self else { return }
             KVNProgress.dismiss()

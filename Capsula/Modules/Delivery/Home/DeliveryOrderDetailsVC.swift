@@ -28,7 +28,8 @@ class DeliveryOrderDetailsVC : UIViewController {
     @IBOutlet weak var cartViewHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var phoneNumberLabel : UILabel!
     @IBOutlet weak var productDetailsLabel : UILabel!
-    
+    @IBOutlet weak var scrollView : UIScrollView!
+    private let refreshControl = UIRefreshControl()
     
     var ordersList = [Item]()
     var order = DeliveryOrder()
@@ -37,6 +38,10 @@ class DeliveryOrderDetailsVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getOrderDetailsData()
+        
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+
+        scrollView.refreshControl = refreshControl
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +60,19 @@ class DeliveryOrderDetailsVC : UIViewController {
         topView.layer.maskedCorners = [.layerMinXMaxYCorner]
     }
     
+    @objc func didPullToRefresh() {
+         getOrderDetailsData()
+    }
+    
     
     func getOrderDetailsData() {
-        KVNProgress.show()
+      if !refreshControl.isRefreshing {
+           KVNProgress.show()
+      }
+       
         provider.request(.getOrderDetails(order.id ?? -1)) { [weak self] result in
             KVNProgress.dismiss()
+            self?.refreshControl.endRefreshing()
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -134,14 +147,17 @@ class DeliveryOrderDetailsVC : UIViewController {
             print("No thing to do")
         }
         
-        itemsCost.text = Strings.shared.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
-        deliveryCost.text = Strings.shared.RSD + " \(ordersDetailsResponse.vatCost ?? 0.0)"
-        totalPrice.text = Strings.shared.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
-        //Delivery cost to be handle
+        itemsCost.text =  "\(ordersDetailsResponse.itemsCost ?? 0.0) " + Strings.shared.RSD
+    
+        deliveryCost.text = "\(ordersDetailsResponse.vatCost ?? 0.0) " + Strings.shared.RSD
+        
+        
+        totalPrice.text = "\(ordersDetailsResponse.finalTotalCost ?? 0.0) " + Strings.shared.RSD
+       
         
         self.ordersList = ordersDetailsResponse.products ?? []
         self.addressLabel.text = ordersDetailsResponse.customerAddress ?? ""
-        self.phoneNumberLabel.text = "+96" + (ordersDetailsResponse.phoneNumber ?? "")
+        self.phoneNumberLabel.text = ordersDetailsResponse.storeAddress ?? ""
         let rows : Float  = Float(ordersList.count / 2)
         var totalNumberOfRows : CGFloat = 0.0
         if rows == 0 {

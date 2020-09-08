@@ -34,7 +34,11 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
         
         vc.nextPressed = {
             self.openDetailsScreen()
-            self.cartProgressImage.image = UIImage(named: "cart_second")
+            if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                self.cartProgressImage.image = UIImage(named: "cart_second_ar")
+            }else{
+                self.cartProgressImage.image = UIImage(named: "cart_second")
+            }
             //         cartProgressImage.image = UIImage(named: "cart_first")
             //         cartProgressImage.image = UIImage(named: "cart_third")
         }
@@ -46,9 +50,11 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
         vc.items = items
         vc.nextPressed = {
             self.openDetailsScreen()
-            self.cartProgressImage.image = UIImage(named: "cart_second")
-            //         cartProgressImage.image = UIImage(named: "cart_first")
-            //         cartProgressImage.image = UIImage(named: "cart_third")
+            if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                self.cartProgressImage.image = UIImage(named: "cart_second_ar")
+            }else{
+                self.cartProgressImage.image = UIImage(named: "cart_second")
+            }
         }
         return vc
     }()
@@ -58,7 +64,11 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
         let vc = CartDetailsRouter.createModule() as! CartDetailsViewController
         vc.nextPressed = {
             self.openCongratScreen()
-            self.cartProgressImage.image = UIImage(named: "cart_third")
+            if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                self.cartProgressImage.image = UIImage(named: "cart_third_ar")
+            }else{
+                self.cartProgressImage.image = UIImage(named: "cart_third")
+            }
             
         }
         
@@ -88,6 +98,15 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
             self.add(childViewContoller: cartListVC)
             
         }
+        
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+            self.cartProgressImage.image = UIImage(named: "cart_first_ar")
+        }else{
+            self.cartProgressImage.image = UIImage(named: "cart_first")
+        }
+        
+        
+        
         
         
         
@@ -202,7 +221,7 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
                     return
                 }
                 
-
+                
                 print("Resource PAth : \(resourcePath)")
                 //Send resource path to samir api
                 self.cartDetailsViewController.presenter?.checkout(resourcePath: resourcePath, paymentMethod: self.selectedPaymentMethod)

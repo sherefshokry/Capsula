@@ -16,12 +16,15 @@ class DeliveryHomeVC : UIViewController {
     @IBOutlet weak var homeTapView : UIView!
     @IBOutlet weak var moreTapView : UIView!
     @IBOutlet weak var tableView   : UITableView!
+    var refreshControl = UIRefreshControl()
     var ordersList = [DeliveryOrder]()
     private let provider = MoyaProvider<DeliveryManDataSource>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: HomeDeliveryHeaderCell.identifier, bundle: nil), forCellReuseIdentifier: HomeDeliveryHeaderCell.identifier)
+      //  refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+     //   tableView.addSubview(refreshControl)
         getMyOrders()
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadOrderList(_:)), name: NSNotification.Name(rawValue: Constants.RELOAD_DELIVERY_MAN_ORDERS_LIST), object: nil)
         
@@ -29,6 +32,11 @@ class DeliveryHomeVC : UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshDeliveryData(_:)), name: NSNotification.Name(rawValue: Constants.REFRESH_DELIVERY_DATA), object: nil)
         
     }
+    
+//    @objc func refresh(_ sender: AnyObject) {
+//       getMyOrders()
+//    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,10 +73,13 @@ class DeliveryHomeVC : UIViewController {
     
     
     func  getMyOrders(){
-        
-        KVNProgress.show(withStatus: "", on: self.tableView)
+       // if !refreshControl.isRefreshing {
+             KVNProgress.show(withStatus: "", on: self.tableView)
+        //}
+      
         provider.request(.getOrdersList) { [weak self] result in
             KVNProgress.dismiss()
+           // self?.refreshControl.endRefreshing()
             guard let self = self else { return }
             switch result {
             case .success(let response):

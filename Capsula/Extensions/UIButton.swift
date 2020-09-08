@@ -85,8 +85,37 @@ extension UIButton {
                 print("NO")
             }
             
+            if let myButtonImage4 = self.image(for: .normal),
+                           let buttonAppuyerImage = UIImage(named: "cart_first"),
+                           myButtonImage4.pngData() == buttonAppuyerImage.pngData()
+                       {
+                           self.transform = CGAffineTransform(rotationAngle: -.pi)
+                       } else {
+                           print("NO")
+                       }
             
-            
+            if let myButtonImage5 = self.image(for: .normal),
+                let buttonAppuyerImage = UIImage(named: "icRightArrow"),
+                myButtonImage5.pngData() == buttonAppuyerImage.pngData()
+            {
+                self.transform = CGAffineTransform(rotationAngle: -.pi)
+            } else {
+                print("NO")
+            }
+//
+//
+//
+//
+//            if let myButtonImage3 = self.image(for: .normal),
+//                         let buttonAppuyerImage = UIImage(named: "cart_second"),
+//                         myButtonImage3.pngData() == buttonAppuyerImage.pngData()
+//                     {
+//                         self.transform = CGAffineTransform(rotationAngle: -.pi)
+//                     } else {
+//                         print("NO")
+//                     }
+//
+           
             
             
         }

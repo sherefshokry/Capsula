@@ -40,7 +40,7 @@ class HomeHeaderCell : UITableViewCell {
         //        Utils.openLoginScreen()
 
         
-        userNameLbl.text = "Hello \(Utils.loadUser()?.user?.name ?? "") 👋🏻"
+        userNameLbl.text = Strings.shared.hello +  " \(Utils.loadUser()?.user?.name ?? "") 👋🏻"
         userImage.sd_setImage(with: URL.init(string: Utils.loadUser()?.user?.photo ?? ""), placeholderImage: UIImage(named: "icPersonal"))
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.recieveCartNotification(_:)), name: NSNotification.Name(rawValue: Constants.CART_UPDATE_NOTIFICATION), object: nil)

@@ -69,7 +69,7 @@ extension ItemDetailsViewController : PresenterToViewItemDetailsProtocol {
     func setItemDetails(item: Item) {
         itemImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
         titleLabel.text = item.productName ?? ""
-        priceLabel.text = "\(Strings.shared.RSD) \(item.price ?? 0.0)"
+        priceLabel.text = "\(item.price ?? 0.0) \(Strings.shared.RSD)"
         if item.offerType == -1 {
             descriptionLabel.text = item.productDesc
         }else{
@@ -84,7 +84,7 @@ extension ItemDetailsViewController : PresenterToViewItemDetailsProtocol {
             priceBeforeDiscountLabel.isHidden = true
         }else{
             priceBeforeDiscountLabel.isHidden = false
-            priceBeforeDiscountLabel.text = "\(Strings.shared.wasRSD) \(item.priceInOffer ?? 0.0)"
+            priceBeforeDiscountLabel.text = "\(Strings.shared.was) \(item.priceInOffer ?? 0.0)" + Strings.shared.rsd
         }
         
         

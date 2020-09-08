@@ -24,7 +24,7 @@ class DeliveryOrderCell : UITableViewCell {
         orderID.text = Strings.shared.orderID + (order.orderCode ?? "")
         orderToLabel.text = order.customerName ?? ""
         orderAddress.text = order.customerAddress ?? ""
-        phoneNumber.text =  "+96" + (order.phoneNumber ?? "")
+        phoneNumber.text =  order.storeAddress ?? ""
       
         if order.statusId ?? -1 == 2 {
             navigateBtn.isHidden = false

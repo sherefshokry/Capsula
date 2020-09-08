@@ -1096,20 +1096,17 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S1l-kf-hrt">
                                 <rect key="frame" x="16" y="126" width="288" height="381.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="wDl-CG-DBe">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wDl-CG-DBe">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The total number of completed orders" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRa-qK-96D">
-                                                <rect key="frame" x="0.0" y="0.0" width="144" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wi-6y-uFz">
-                                                <rect key="frame" x="168" y="0.0" width="120" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="jGM-Bm-VXN"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wi-6y-uFz">
+                                                <rect key="frame" x="152" y="0.0" width="136" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1337,6 +1334,12 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wDl-CG-DBe" secondAttribute="trailing" constant="5" id="MZr-iD-H9k"/>
+                                    <constraint firstAttribute="trailing" secondItem="o4v-2X-Vh3" secondAttribute="trailing" constant="5" id="Sid-CA-tas"/>
+                                    <constraint firstItem="wDl-CG-DBe" firstAttribute="leading" secondItem="S1l-kf-hrt" secondAttribute="leading" constant="5" id="TKX-4V-Rny"/>
+                                    <constraint firstItem="o4v-2X-Vh3" firstAttribute="leading" secondItem="S1l-kf-hrt" secondAttribute="leading" constant="5" id="dvB-cL-Uj6"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="deviceRGB"/>

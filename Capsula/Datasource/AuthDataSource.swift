@@ -14,7 +14,7 @@ public enum AuthDataSource {
     case LogInWithfacebook(String)
     case LogInWithTwitter(String,String)
     case LogInWithGoogle(String)
-  
+    case LogOut
 }
 
 extension AuthDataSource : TargetType {
@@ -30,7 +30,9 @@ extension AuthDataSource : TargetType {
         case .LogInWithfacebook(_): return "/Facebook"
         case .LogInWithTwitter(_, _): return "/Twitter"
         case .LogInWithGoogle(_): return "/Google"
-       }
+        case .LogOut:
+            return "/Logout"
+        }
     }
     
     public var method: Moya.Method {
@@ -40,6 +42,7 @@ extension AuthDataSource : TargetType {
         case .LogInWithfacebook(_): return .post
         case .LogInWithTwitter(_, _): return .post
         case .LogInWithGoogle(_): return .post
+        case .LogOut: return .get
         }
     }
     
@@ -67,6 +70,8 @@ extension AuthDataSource : TargetType {
             var params = [String : Any]()
             params["token"] = token
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .LogOut:
+            return .requestPlain
         }
     }
     

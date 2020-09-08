@@ -9,14 +9,15 @@ import Foundation
 import UIKit
 
 struct AppFontName {
-    static let regular = "NeoSansArabic"
-    static let bold = "NeoSansArabic-Bold"
-    static let medium = "NeoSansArabic-Medium"
-    static let italic = "NeoSansArabic-Light"
-    static let semiBold = "NeoSansArabic-Medium"
-    static let light =   "NeoSansArabic-Light"
-    static let heavy =  "NeoSansArabic-Bold"
+    static let regular = "Almarai-Regular"
+    static let bold = "Almarai-Bold"
+    static let medium = "Almarai-Regular"
+    static let italic = "Almarai-Light"
+    static let semiBold = "Almarai-Regular"
+    static let light =   "Almarai-Light"
+    static let heavy =  "Almarai-Bold"
    
+
 //    static let regular = "Cairo-Regular"
 //    static let bold = "Cairo-Bold"
 //    static let medium = "Cairo-SemiBold"

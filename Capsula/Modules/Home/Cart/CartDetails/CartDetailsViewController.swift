@@ -65,9 +65,9 @@ class CartDetailsViewController: ImagePickerViewController {
             }
         }
         
-        itemsCostLabel.text = Strings.shared.RSD + " \(totalPrice)"
-        deliveryCostLabel.text = Strings.shared.RSD + " 0"
-        estimatedTotalLabel.text = Strings.shared.RSD + " \(totalPrice + deliveryCost)"
+        itemsCostLabel.text = "\(totalPrice) " + Strings.shared.RSD
+        deliveryCostLabel.text = "0 " + Strings.shared.RSD
+        estimatedTotalLabel.text = "\(totalPrice + deliveryCost) " + Strings.shared.RSD
         self.totalCost = totalPrice + deliveryCost
     }
     
@@ -237,10 +237,10 @@ extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
     }
     
     func setDeliveryCost(cost: DeliveryCostResponse) {
-        itemsCostLabel.text = Strings.shared.RSD + " \(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0))"
-        estimatedTotalLabel.text = Strings.shared.RSD + "  \(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0))"
-        VAT.text = Strings.shared.RSD + " \(cost.vatCost ?? 0.0)"
-        deliveryCostLabel.text = Strings.shared.RSD +  "  \(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0))"
+        itemsCostLabel.text = "\(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
+        estimatedTotalLabel.text = "\(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
+        VAT.text = "\(cost.vatCost ?? 0.0) " + Strings.shared.RSD
+        deliveryCostLabel.text = "\(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
     }
     
     

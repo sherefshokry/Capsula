@@ -71,16 +71,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5B4F7F58-58A2-4DF3-8C5F-0BA6A43ABA36"
+            uuid = "04867AA1-9B77-4101-826E-706D2E4E9544"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Capsula/Modules/SideMenu/DeliveryMan/DeliveryProfile/EditProfile/EditDeliveryProfileStep2VC.swift"
+            filePath = "Capsula/Modules/SideMenu/SideMenuInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
-            landmarkName = "updateDeliveryUserProfile(registerRequest:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "logOut()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B392340-77FD-4AD8-BEE0-BB6C5404A66F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capsula/Modules/SideMenu/SideMenuInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "logOut()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

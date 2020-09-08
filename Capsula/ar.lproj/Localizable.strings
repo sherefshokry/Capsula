@@ -5,13 +5,13 @@
  Created by SherifShokry on 12/25/19.
  Copyright © 2019 BlueCrunch. All rights reserved.
  */
-
+"Hello" = "مرحباً";
 "Total cost is greater than 500 RSD, so you have to proceed with online payment" = "تكلفة طلبك اعلي من 500 ريال سعودي، ياليت تختار احد وسائل الدفع الالكتروني";
 "Please agree on terms and conditions) (please Pick this photo" =   "فضلا وافق علي الشروط والاحكام";
-"Was RSD" =  "كان ريال سعودي";
+"Was" = "كان";
 "Skipped" = "تم تخطية";
 "Avilable at " = "متاح لدي ";
-"RSD" = "ريال سعودي";
+"RSD" = "ريال";
 "VAT" = "ضريبة القيمة المضافة";
 "Free Dlivery" = "توصيل مجاني";
 "Offer" = "عرض";
@@ -82,7 +82,7 @@
 "See All" = "رؤية الكل";
 "Stores" = "المتاجر";
 "Categories" = "التصنيفات";
-" RSD" = "ريال سعودي";
+" RSD" =  " ريال";
 "Clear" = "مسح";
 "password and confirm password are not matched" = "كلمة المرور وتأكيد كلمة المرور غير متشابهين";
 "New Password *" = "كلمة المرور الجديدة *";
@@ -129,3 +129,4 @@
 "Please enter a cancellation reason" = "من فضلك إدخل سبب الإلغاء";
 "Field can't be empty" = "الحقل يجب أن لا يكون فارغ";
 "Please select language" = "من فضلك إختر اللغة";
+

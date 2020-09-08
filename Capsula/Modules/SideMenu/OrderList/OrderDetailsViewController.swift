@@ -150,9 +150,9 @@ class OrderDetailsViewController : UIViewController {
             print("No thing to do")
         }
         
-        itemsCost.text = Strings.shared.RSD + " \(ordersDetailsResponse.itemsCost ?? 0.0)"
-        deliveryCost.text = Strings.shared.RSD +  " \(ordersDetailsResponse.deliveryCost ?? 0.0)"
-        totalPrice.text = Strings.shared.RSD + " \(ordersDetailsResponse.finalTotalCost ?? 0.0)"
+        itemsCost.text = "\(ordersDetailsResponse.itemsCost ?? 0.0) " + Strings.shared.RSD
+        deliveryCost.text = "\(ordersDetailsResponse.deliveryCost ?? 0.0) " + Strings.shared.RSD
+        totalPrice.text = "\(ordersDetailsResponse.finalTotalCost ?? 0.0) " + Strings.shared.RSD
         VAT.text = "\(ordersDetailsResponse.vatCost ?? 0.0) %"
         
         if (ordersDetailsResponse.insuranceNumberImageLink ?? "") == "" &&

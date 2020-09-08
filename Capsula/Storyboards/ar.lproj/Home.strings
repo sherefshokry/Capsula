@@ -24,13 +24,13 @@
 "2ii-OL-FUP.text" = "الاقل سعرا";
 
 /* Class = "UILabel"; text = "Phone Number"; ObjectID = "3lW-9N-rwk"; */
-"3lW-9N-rwk.text" = "رقم الجوال";
+"3lW-9N-rwk.text" = "عنوان المتجر";
 
 /* Class = "UILabel"; text = "History"; ObjectID = "4Mn-oK-KJF"; */
 "4Mn-oK-KJF.text" = "السابقة";
 
 /* Class = "UILabel"; text = "RSD "; ObjectID = "6dr-Ma-o56"; */
-"6dr-Ma-o56.text" = "ريال سعودي";
+"6dr-Ma-o56.text" = " ريال" ;
 
 /* Class = "UILabel"; text = "2"; ObjectID = "6hz-7A-6zA"; */
 "6hz-7A-6zA.text" = "2";
@@ -51,10 +51,9 @@
 "Aiw-Fp-SfX.text" = "1 Jan 2020";
 
 /* Class = "UILabel"; text = "Order Tracking"; ObjectID = "AqA-JQ-HMu"; */
-"AqA-JQ-HMu.text" = "تتبع الطلب;
-
+"AqA-JQ-HMu.text" = "تتبع الطلب";
 /* Class = "UILabel"; text = "Total Price"; ObjectID = "Awl-Zt-AwW"; */
-"Awl-Zt-AwW.text" = "السعر الكلي;
+"Awl-Zt-AwW.text" = "السعر الكلي";
 
 /* Class = "UILabel"; text = "+96 123 342 234"; ObjectID = "Ayz-0e-Qpp"; */
 "Ayz-0e-Qpp.text" = "+96 123 342 234";
@@ -78,7 +77,7 @@
 "C5v-8O-2mw.normalTitle" = "مسح";
 
 /* Class = "UILabel"; text = "RSD"; ObjectID = "CBD-nv-lnG"; */
-"CBD-nv-lnG.text" = "ريال سعودي";
+"CBD-nv-lnG.text" = "ريال";
 
 /* Class = "UILabel"; text = "Sort By"; ObjectID = "Cw7-aB-BwV"; */
 "Cw7-aB-BwV.text" = "العرض وفقا";
@@ -105,7 +104,7 @@
 "FNl-RM-EI9.text" = "عنوان التوصيل";
 
 /* Class = "UILabel"; text = "RSD "; ObjectID = "FjN-hR-gUn"; */
-"FjN-hR-gUn.text" = "ريال سعودي ";
+"FjN-hR-gUn.text" = " ريال";
 
 /* Class = "UILabel"; text = "test"; ObjectID = "Fxi-R6-NFW"; */
 "Fxi-R6-NFW.text" = "test";
@@ -171,7 +170,7 @@
 "NQP-fy-AlH.normalTitle" = "مسح الكل";
 
 /* Class = "UILabel"; text = "Phone Number"; ObjectID = "NXG-3C-DvT"; */
-"NXG-3C-DvT.text" = "رقم الجوال";
+"NXG-3C-DvT.text" = "عنوان المتجر";
 
 /* Class = "UILabel"; text = "Bab Makkah Dist.,Jeddah Bab Makkah Dist."; ObjectID = "NXb-l0-GBl"; */
 "NXb-l0-GBl.text" = "Bab Makkah Dist.,Jeddah Bab Makkah Dist.";
@@ -249,7 +248,7 @@
 "UTv-gv-T1L.normalTitle" = "تطبيق";
 
 /* Class = "UILabel"; text = "RSD"; ObjectID = "VEQ-jO-Hrr"; */
-"VEQ-jO-Hrr.text" = "ريال سعودي";
+"VEQ-jO-Hrr.text" = "ريال";
 
 /* Class = "UILabel"; text = "RSD 170"; ObjectID = "VLC-6U-xEb"; */
 "VLC-6U-xEb.text" = "RSD 170";
@@ -269,7 +268,7 @@
 "WXG-B8-PQo.text" = "تصفية";
 
 /* Class = "UILabel"; text = "RSD "; ObjectID = "Wez-gT-zdX"; */
-"Wez-gT-zdX.text" = "ريال سعودي ";
+"Wez-gT-zdX.text" = " ريال";
 
 /* Class = "UILabel"; text = "Insurance Number"; ObjectID = "WfA-wo-OoW"; */
 "WfA-wo-OoW.text" = "رقم التأمين";
@@ -353,7 +352,7 @@
 "hFk-t0-pPa.text" = "Label";
 
 /* Class = "UILabel"; text = "RSD "; ObjectID = "hOn-GW-KPC"; */
-"hOn-GW-KPC.text" = "ريال سعودي ";
+"hOn-GW-KPC.text" = " ريال";
 
 /* Class = "UILabel"; text = "Payment Details"; ObjectID = "hbV-nX-tiJ"; */
 "hbV-nX-tiJ.text" = "تفاصيل الدفع";
@@ -422,10 +421,10 @@
 "rW0-gh-zBc.normalTitle" = "تطبيق";
 
 /* Class = "UILabel"; text = "RSD "; ObjectID = "sJg-xK-MjN"; */
-"sJg-xK-MjN.text" = "ريال سعودي ";
+"sJg-xK-MjN.text" = " ريال";
 
 /* Class = "UILabel"; text = "RSD "; ObjectID = "sRi-9w-cdv"; */
-"sRi-9w-cdv.text" = "ريال سعودي ";
+"sRi-9w-cdv.text" = " ريال";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "sZ8-Th-HgJ"; */
 "sZ8-Th-HgJ.text" = "Label";
@@ -455,7 +454,7 @@
 "w11-lD-obG.text" = "721";
 
 /* Class = "UILabel"; text = "Phone Number"; ObjectID = "wGu-bS-Wom"; */
-"wGu-bS-Wom.text" = "رقم الجوال";
+"wGu-bS-Wom.text" = "عنوان المتجر";
 
 /* Class = "UILabel"; text = "Apple Pay"; ObjectID = "wUa-uT-OUo"; */
 "wUa-uT-OUo.text" = "ابل باي";
@@ -494,4 +493,4 @@
 "zv3-J2-wHc.text" = "Label";
 
 /* Class = "UILabel"; text = "RSD"; ObjectID = "zvP-5F-2wO"; */
-"zvP-5F-2wO.text" = "ريال سعودي";
+"zvP-5F-2wO.text" = "ريال";

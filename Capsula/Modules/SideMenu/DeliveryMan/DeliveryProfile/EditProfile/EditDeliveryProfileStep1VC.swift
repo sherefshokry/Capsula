@@ -125,6 +125,7 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
             picker.listSource = options
             picker.doneSelectingAction = { index in
                 self.selectedNationalityID = self.nationalitiesList[index].id ?? -1
+                self.registerRequest.nationalityId = self.selectedNationalityID
                 self.citizenshipField.setText(text: self.nationalitiesList[index].value ?? "")
                 self.citizenshipField.errorMsg = ""
             }
@@ -140,6 +141,9 @@ class EditDeliveryProfileStep1VC : ImagePickerViewController  {
             vc.onAddAddressCompleted = { (fullAddress ,latitude ,longitude) in
                 self.latitude = latitude
                 self.longitude = longitude
+                self.registerRequest.latitude = latitude
+                self.registerRequest.longitude = longitude
+                self.registerRequest.addressDesc = fullAddress
                 self.addressField.setText(text: fullAddress)
                 self.addressField.errorMsg = ""
             }

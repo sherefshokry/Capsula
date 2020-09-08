@@ -154,13 +154,18 @@
 		5B53E5802502888700DA4B8C /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E57C2502888600DA4B8C /* Cairo-Regular.ttf */; };
 		5B53E5812502888700DA4B8C /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E57D2502888600DA4B8C /* Cairo-Bold.ttf */; };
 		5B53E5822502888700DA4B8C /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B53E57E2502888600DA4B8C /* Cairo-Light.ttf */; };
-		5B5A4A672503DA24003B6D0C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A632503DA21003B6D0C /* Home.storyboard */; };
 		5B5A4A6D2503E218003B6D0C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A6C2503E218003B6D0C /* SplashVC.swift */; };
 		5B5A4A722503E613003B6D0C /* NeoSansArabicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A6E2503E612003B6D0C /* NeoSansArabicLight.ttf */; };
 		5B5A4A732503E613003B6D0C /* NeoSansArabicRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A6F2503E612003B6D0C /* NeoSansArabicRegular.ttf */; };
 		5B5A4A742503E613003B6D0C /* NeoSansArabicMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A702503E612003B6D0C /* NeoSansArabicMedium.ttf */; };
 		5B5A4A752503E613003B6D0C /* NeoSansArabicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A712503E613003B6D0C /* NeoSansArabicBold.ttf */; };
 		5B5A4A772503EA2E003B6D0C /* NeoSansArabic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A762503EA2D003B6D0C /* NeoSansArabic.ttf */; };
+		5B5A4A7A2503EE70003B6D0C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A632503DA21003B6D0C /* Home.storyboard */; };
+		5B5B090725070F770082B40B /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5B090325070F760082B40B /* Almarai-Bold.ttf */; };
+		5B5B090825070F770082B40B /* Almarai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5B090425070F760082B40B /* Almarai-ExtraBold.ttf */; };
+		5B5B090925070F770082B40B /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5B090525070F770082B40B /* Almarai-Light.ttf */; };
+		5B5B090A25070F770082B40B /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5B090625070F770082B40B /* Almarai-Regular.ttf */; };
+		5B5B090C250717C00082B40B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5B090B250717C00082B40B /* UIImageView.swift */; };
 		5B65298824351CAA006D92C0 /* CartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298724351CAA006D92C0 /* CartDataSource.swift */; };
 		5B65298A24352CE3006D92C0 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298924352CE3006D92C0 /* CartRequest.swift */; };
 		5B65298C24352D27006D92C0 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65298B24352D27006D92C0 /* CartItem.swift */; };
@@ -493,7 +498,11 @@
 		5B5A4A702503E612003B6D0C /* NeoSansArabicMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabicMedium.ttf; sourceTree = "<group>"; };
 		5B5A4A712503E613003B6D0C /* NeoSansArabicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabicBold.ttf; sourceTree = "<group>"; };
 		5B5A4A762503EA2D003B6D0C /* NeoSansArabic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSansArabic.ttf; sourceTree = "<group>"; };
-		5B5A4A792503ED17003B6D0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Home.strings; sourceTree = "<group>"; };
+		5B5B090325070F760082B40B /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
+		5B5B090425070F760082B40B /* Almarai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5B5B090525070F770082B40B /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
+		5B5B090625070F770082B40B /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		5B5B090B250717C00082B40B /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5B65298724351CAA006D92C0 /* CartDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDataSource.swift; sourceTree = "<group>"; };
 		5B65298924352CE3006D92C0 /* CartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRequest.swift; sourceTree = "<group>"; };
 		5B65298B24352D27006D92C0 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
@@ -1040,6 +1049,7 @@
 				5B4E1A6A23B1532400808F38 /* UITextView.swift */,
 				5B4E1A6B23B1532400808F38 /* UINavigationController.swift */,
 				5B4E1A6C23B1532400808F38 /* UICollectionViewCell.swift */,
+				5B5B090B250717C00082B40B /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1411,6 +1421,10 @@
 		5BB971F223E75E7F0033F6D9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5B5B090325070F760082B40B /* Almarai-Bold.ttf */,
+				5B5B090425070F760082B40B /* Almarai-ExtraBold.ttf */,
+				5B5B090525070F770082B40B /* Almarai-Light.ttf */,
+				5B5B090625070F770082B40B /* Almarai-Regular.ttf */,
 				5B5A4A762503EA2D003B6D0C /* NeoSansArabic.ttf */,
 				5B5A4A6F2503E612003B6D0C /* NeoSansArabicRegular.ttf */,
 				5B5A4A712503E613003B6D0C /* NeoSansArabicBold.ttf */,
@@ -1612,14 +1626,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB971F723E75EC70033F6D9 /* Roboto-Light.ttf in Resources */,
+				5B5B090A25070F770082B40B /* Almarai-Regular.ttf in Resources */,
 				5BFFBFBC2502B362002C3063 /* LaunchScreen.strings in Resources */,
 				5B53E5412502801D00DA4B8C /* HomeDeliveryHeaderCell.xib in Resources */,
-				5B5A4A672503DA24003B6D0C /* Home.storyboard in Resources */,
 				5BB971F823E75EC70033F6D9 /* Roboto-Bold.ttf in Resources */,
 				5BB971F923E75EC70033F6D9 /* Roboto-Medium.ttf in Resources */,
 				5B5A4A772503EA2E003B6D0C /* NeoSansArabic.ttf in Resources */,
 				5BB971FA23E75EC80033F6D9 /* Roboto-Regular.ttf in Resources */,
 				5B4E1A7923B1532400808F38 /* PickerView.xib in Resources */,
+				5B5B090825070F770082B40B /* Almarai-ExtraBold.ttf in Resources */,
 				5B53E57F2502888700DA4B8C /* Cairo-SemiBold.ttf in Resources */,
 				5B53E562250281F100DA4B8C /* CategoryCell.xib in Resources */,
 				5B53E5532502810B00DA4B8C /* HomeBrandCell.xib in Resources */,
@@ -1632,7 +1647,9 @@
 				5B53E52D25027D2A00DA4B8C /* PreLogin.storyboard in Resources */,
 				5B53E56C2502823600DA4B8C /* ItemCell.xib in Resources */,
 				5BFFBFBD2502B362002C3063 /* Localizable.strings in Resources */,
+				5B5B090725070F770082B40B /* Almarai-Bold.ttf in Resources */,
 				5BFFBFC12502B4A8002C3063 /* LaunchScreen.storyboard in Resources */,
+				5B5B090925070F770082B40B /* Almarai-Light.ttf in Resources */,
 				5B53E53C25027F0A00DA4B8C /* SideMenu.storyboard in Resources */,
 				5B53E55D250281BB00DA4B8C /* HomeServiceCell.xib in Resources */,
 				5B9DA16723B149A100F8696A /* LaunchScreen.storyboard in Resources */,
@@ -1643,6 +1660,7 @@
 				5B9DA16423B149A100F8696A /* Assets.xcassets in Resources */,
 				5B53E5812502888700DA4B8C /* Cairo-Bold.ttf in Resources */,
 				5B53E5802502888700DA4B8C /* Cairo-Regular.ttf in Resources */,
+				5B5A4A7A2503EE70003B6D0C /* Home.storyboard in Resources */,
 				5B53E54E2502807A00DA4B8C /* RequiredDocumentCell.xib in Resources */,
 				5B53E5462502803F00DA4B8C /* PersonalDetailsCell.xib in Resources */,
 				5B5A4A732503E613003B6D0C /* NeoSansArabicRegular.ttf in Resources */,
@@ -1856,6 +1874,7 @@
 				5B8C557E23B408800094C341 /* LogInPresenter.swift in Sources */,
 				5B4A01BC24313F4100B3ABF0 /* CartItemListViewController.swift in Sources */,
 				5B8D688A24547A92000C73D0 /* TrackOrderViewController.swift in Sources */,
+				5B5B090C250717C00082B40B /* UIImageView.swift in Sources */,
 				5BFA40792503C4AB002EEEC2 /* NSBundle+Language.m in Sources */,
 				5B4A01BB24313F4100B3ABF0 /* CartItemListRouter.swift in Sources */,
 				5B45F358248AEDAA00668DB7 /* LoginDeliveryViewController.swift in Sources */,
@@ -2126,7 +2145,6 @@
 			children = (
 				5B5A4A642503DA21003B6D0C /* Base */,
 				5B5A4A6B2503DB00003B6D0C /* ar */,
-				5B5A4A792503ED17003B6D0C /* en */,
 			);
 			name = Home.storyboard;
 			sourceTree = "<group>";
