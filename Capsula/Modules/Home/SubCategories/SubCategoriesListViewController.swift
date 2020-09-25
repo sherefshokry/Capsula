@@ -42,6 +42,16 @@ class SubCategoriesListViewController: UIViewController {
         updateCartView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                          searchField.textAlignment = .right
+                      }else{
+                          searchField.textAlignment = .left
+                      }
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         headerView.clipsToBounds = true

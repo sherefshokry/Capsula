@@ -115,9 +115,7 @@ class CartDetailsViewController: ImagePickerViewController {
         if Utils.loadUser()?.accessToken ?? "" != "" {
             Intercom.setLauncherVisible(true)
         }
-        
     }
-    
     
     @IBAction func openPromoCodePressed(_ sender : UIButton){
         
@@ -136,7 +134,6 @@ class CartDetailsViewController: ImagePickerViewController {
         contentSheet.blurBackground = false
         contentSheet.showDefaultHeader = false
         //        UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
-        
         
     }
     

@@ -61,6 +61,12 @@ class SearchItemViewController: UIViewController {
             if Utils.loadUser()?.accessToken ?? "" != "" {
                Intercom.setLauncherVisible(true)
             }
+        
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                          searchField.textAlignment = .right
+                      }else{
+                          searchField.textAlignment = .left
+                      }
         }
     
     override func viewWillLayoutSubviews() {

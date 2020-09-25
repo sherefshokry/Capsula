@@ -38,10 +38,12 @@ class CapsulaInputFeild : InputField {
             break
         case .password:
              self.titleLabel.text = Strings.shared.password
+             self.field.font = .systemFont(ofSize: 18)
             self.field.keyboardType = .asciiCapable
             self.field.isSecureTextEntry = true
         case .newPassword:
             self.titleLabel.text = Strings.shared.newPassword
+             self.field.font = .systemFont(ofSize: 18)
             self.field.keyboardType = .asciiCapable
             self.field.isSecureTextEntry = true
             break
@@ -103,6 +105,7 @@ class CapsulaInputFeild : InputField {
             break
         case .number:
             self.titleLabel.text = Strings.shared.password
+            self.field.font = .systemFont(ofSize: 18)
             self.field.isSecureTextEntry = true
             self.field.keyboardType = .asciiCapable
         case .confirmPassword:

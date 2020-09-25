@@ -23,8 +23,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7c7-6H-7oR">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="97.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBV-1v-VBQ">
-                                <rect key="frame" x="37" y="112.5" width="36" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBV-1v-VBQ">
+                                <rect key="frame" x="8" y="107.5" width="94" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -34,8 +34,10 @@
                         <constraints>
                             <constraint firstItem="7c7-6H-7oR" firstAttribute="height" secondItem="4zF-D8-300" secondAttribute="height" multiplier="0.7" id="06v-sj-oIP"/>
                             <constraint firstItem="LBV-1v-VBQ" firstAttribute="centerX" secondItem="4zF-D8-300" secondAttribute="centerX" id="0tE-KS-zQK"/>
+                            <constraint firstItem="LBV-1v-VBQ" firstAttribute="leading" secondItem="4zF-D8-300" secondAttribute="leading" constant="8" id="DA3-Rk-75G"/>
+                            <constraint firstAttribute="trailing" secondItem="LBV-1v-VBQ" secondAttribute="trailing" constant="8" id="WFI-A8-YOV"/>
                             <constraint firstItem="7c7-6H-7oR" firstAttribute="top" secondItem="4zF-D8-300" secondAttribute="top" id="bRB-eZ-5FA"/>
-                            <constraint firstItem="LBV-1v-VBQ" firstAttribute="top" secondItem="7c7-6H-7oR" secondAttribute="bottom" constant="15" id="cj0-OF-ymU"/>
+                            <constraint firstItem="LBV-1v-VBQ" firstAttribute="top" secondItem="7c7-6H-7oR" secondAttribute="bottom" constant="10" id="cj0-OF-ymU"/>
                             <constraint firstItem="7c7-6H-7oR" firstAttribute="leading" secondItem="4zF-D8-300" secondAttribute="leading" id="i3D-Ca-SQz"/>
                             <constraint firstAttribute="trailing" secondItem="7c7-6H-7oR" secondAttribute="trailing" id="vWe-Oc-HHh"/>
                         </constraints>

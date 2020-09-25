@@ -28,6 +28,11 @@ class MainHomePresenter : ViewToPresenterMainHomeProtocol{
       }
     
     
+    func refreshDevice(){
+        self.interactor?.refreshDevice()
+    }
+    
+    
     var numberOfRows : Int {
         return storesData.count
     }

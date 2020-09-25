@@ -58,16 +58,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKM-tk-AJZ">
-                                        <rect key="frame" x="24" y="173" width="272" height="57.5"/>
-                                        <string key="text">Lorem ipsum dolor sit amet, consectetur 
-adipiscing elit, sed do eiusmod.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKM-tk-AJZ">
+                                        <rect key="frame" x="24" y="173" width="272" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3L-ZZ-COI">
-                                        <rect key="frame" x="24" y="254.5" width="230" height="46"/>
+                                        <rect key="frame" x="24" y="197" width="230" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gr-yx-0FO">
                                                 <rect key="frame" x="4" y="3" width="108" height="40"/>
@@ -121,7 +119,7 @@ adipiscing elit, sed do eiusmod.</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbf-Od-zjb">
-                                        <rect key="frame" x="0.0" y="324.5" width="320" height="538"/>
+                                        <rect key="frame" x="0.0" y="267" width="320" height="538"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="538" id="UMd-1K-TzM"/>
@@ -241,7 +239,7 @@ adipiscing elit, sed do eiusmod.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZhB-0o-IPc">
-                                <rect key="frame" x="84" y="461" width="152" height="40"/>
+                                <rect key="frame" x="112" y="461" width="96" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QC-BG-tHw">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -265,8 +263,8 @@ adipiscing elit, sed do eiusmod.</string>
                                             <action selector="gmailPressed:" destination="CfY-e7-5fi" eventType="touchUpInside" id="CjA-bu-fHu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-IL-mTl">
-                                        <rect key="frame" x="112" y="0.0" width="40" height="40"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-IL-mTl">
+                                        <rect key="frame" x="96" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="QEb-iT-rRf"/>
                                             <constraint firstAttribute="height" constant="40" id="dnl-13-O0Z"/>
@@ -371,7 +369,7 @@ adipiscing elit, sed do eiusmod.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3z1-hc-e0H">
-                                <rect key="frame" x="84" y="632" width="152" height="40"/>
+                                <rect key="frame" x="112" y="632" width="96" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-21-qo5">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -395,8 +393,8 @@ adipiscing elit, sed do eiusmod.</string>
                                             <action selector="gmailPressed:" destination="4C9-9s-VoJ" eventType="touchUpInside" id="twQ-dx-dRY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-5W-GxP">
-                                        <rect key="frame" x="112" y="0.0" width="40" height="40"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-5W-GxP">
+                                        <rect key="frame" x="96" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="RHN-jE-JWC"/>
                                             <constraint firstAttribute="width" constant="40" id="yrv-Sl-5zF"/>

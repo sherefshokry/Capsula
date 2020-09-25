@@ -17,6 +17,7 @@ class MainHomeViewController : UIViewController {
     @IBOutlet weak var headerView : UIView!
     @IBOutlet weak var userNameLbl : UILabel!
     @IBOutlet weak var userImage : UIImageView!
+    @IBOutlet weak var searchField : UITextField!
     @IBOutlet weak var cartView : UIView!
     @IBOutlet weak var cartNumberItemsLabel : UILabel!
     @IBOutlet weak var collectionView : UICollectionView!
@@ -34,6 +35,14 @@ class MainHomeViewController : UIViewController {
                   }
         
        }
+    
+    
+    @IBAction func openNotificationScreen(_ sender : UIButton){
+        let vc = NotificationListVC.instantiateFromStoryBoard(appStoryBoard: .Home)
+        self.present(vc, animated: true, completion: nil)
+       }
+    
+    
        
        
        @objc func recieveCartNotification(_ notification: NSNotification){
@@ -78,9 +87,12 @@ class MainHomeViewController : UIViewController {
         setHomeData()
         setupCollectionViewLayout()
         self.presenter?.getStoresData()
+        self.presenter?.refreshDevice()
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshUserData(_:)),
                                                       name: NSNotification.Name(rawValue: Constants.REFRESH_USER_DATA), object: nil)
     }
+    
+    
     
     @objc func refreshUserData(_ notification: NSNotification){
            setHomeData()
@@ -104,11 +116,18 @@ class MainHomeViewController : UIViewController {
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    
         if Utils.loadUser()?.accessToken ?? "" != "" {
            Intercom.setLauncherVisible(true)
            Intercom.registerUser(withEmail: Utils.loadUser()?.user?.email ?? "")
         }
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                             searchField.textAlignment = .right
+                         }else{
+                             searchField.textAlignment = .left
+                         }
+           
+        
     }
   
     

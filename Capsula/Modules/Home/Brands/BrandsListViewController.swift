@@ -40,6 +40,17 @@ class BrandsListViewController: UIViewController {
             NotificationCenter.default.addObserver(self, selector: #selector(self.recieveCartNotification(_:)), name: NSNotification.Name(rawValue: Constants.CART_UPDATE_NOTIFICATION), object: nil)
                    updateCartView()
          }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                               searchField.textAlignment = .right
+                           }else{
+                               searchField.textAlignment = .left
+                           }
+        
+    }
          
          override func viewWillLayoutSubviews() {
                 super.viewWillLayoutSubviews()

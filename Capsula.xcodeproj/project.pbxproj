@@ -262,6 +262,11 @@
 		5BA4C89724F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89624F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift */; };
 		5BA4C89924F820640020BBCC /* EditDeliveryProfileStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89824F820640020BBCC /* EditDeliveryProfileStep2VC.swift */; };
 		5BA4C89B24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C89A24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift */; };
+		5BA4C9C8251B2C3D006746F3 /* UpdateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C9C7251B2C3D006746F3 /* UpdateUserResponse.swift */; };
+		5BA4C9CB251B34D2006746F3 /* NotificationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C9CA251B34D2006746F3 /* NotificationListVC.swift */; };
+		5BA4C9CE251B3F75006746F3 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C9CD251B3F75006746F3 /* NotificationCell.swift */; };
+		5BA4C9D0251B4148006746F3 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C9CF251B4148006746F3 /* UserNotification.swift */; };
+		5BA4C9D2251B429C006746F3 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4C9D1251B429C006746F3 /* NotificationResponse.swift */; };
 		5BA59A9324045DD600D2DC96 /* SearchItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA59A8E24045DD600D2DC96 /* SearchItemPresenter.swift */; };
 		5BA59A9424045DD600D2DC96 /* SearchItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA59A8F24045DD600D2DC96 /* SearchItemRouter.swift */; };
 		5BA59A9524045DD600D2DC96 /* SearchItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA59A9024045DD600D2DC96 /* SearchItemViewController.swift */; };
@@ -601,6 +606,11 @@
 		5BA4C89624F8202A0020BBCC /* EditDeliveryProfileStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeliveryProfileStep1VC.swift; sourceTree = "<group>"; };
 		5BA4C89824F820640020BBCC /* EditDeliveryProfileStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeliveryProfileStep2VC.swift; sourceTree = "<group>"; };
 		5BA4C89A24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeliveryProfileStep3VC.swift; sourceTree = "<group>"; };
+		5BA4C9C7251B2C3D006746F3 /* UpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserResponse.swift; sourceTree = "<group>"; };
+		5BA4C9CA251B34D2006746F3 /* NotificationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListVC.swift; sourceTree = "<group>"; };
+		5BA4C9CD251B3F75006746F3 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		5BA4C9CF251B4148006746F3 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
+		5BA4C9D1251B429C006746F3 /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
 		5BA59A8E24045DD600D2DC96 /* SearchItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemPresenter.swift; sourceTree = "<group>"; };
 		5BA59A8F24045DD600D2DC96 /* SearchItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemRouter.swift; sourceTree = "<group>"; };
 		5BA59A9024045DD600D2DC96 /* SearchItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewController.swift; sourceTree = "<group>"; };
@@ -879,6 +889,7 @@
 		5B4E1A1823B14A8900808F38 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5BA4C9C9251B34B2006746F3 /* Notifications */,
 				5B45F356248AEC2300668DB7 /* Delivery */,
 				5B7FAA2423F85AD6002DFAA6 /* FilterItems */,
 				5B7AFDD623EDEF51004E8E5A /* SideMenu */,
@@ -910,6 +921,7 @@
 				5B71F54624B9C4D200B4E3D3 /* DeliveryOrder.swift */,
 				5B465B8E24EF5E6400D92421 /* FAQ.swift */,
 				5B2FE01524F0AC9300ACF65B /* WalletItem.swift */,
+				5BA4C9CF251B4148006746F3 /* UserNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1201,6 +1213,8 @@
 				5B50C38B24B9E8FF003F5C3B /* DeliveryOrderDetailsResponse.swift */,
 				5B907E7B24E6ACCC00BA6F72 /* DeliveryCostResponse.swift */,
 				5B12F14D24FD0C9700A675C0 /* FAQResponse.swift */,
+				5BA4C9C7251B2C3D006746F3 /* UpdateUserResponse.swift */,
+				5BA4C9D1251B429C006746F3 /* NotificationResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1373,6 +1387,23 @@
 				5BA4C89A24F8207B0020BBCC /* EditDeliveryProfileStep3VC.swift */,
 			);
 			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		5BA4C9C9251B34B2006746F3 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				5BA4C9CC251B3F28006746F3 /* Cell */,
+				5BA4C9CA251B34D2006746F3 /* NotificationListVC.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		5BA4C9CC251B3F28006746F3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5BA4C9CD251B3F75006746F3 /* NotificationCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5BA59A8D24045DBD00D2DC96 /* SearchItem */ = {
@@ -1576,6 +1607,7 @@
 				5B9DA15523B1499A00F8696A /* Resources */,
 				D57D6A7315E2DF5FF6BD9EF0 /* [CP] Embed Pods Frameworks */,
 				6BE95DF4C19DDC6FE2F61041 /* [CP] Copy Pods Resources */,
+				5B40034A251CF0E00064E0DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1697,6 +1729,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5B40034A251CF0E00064E0DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		6BE95DF4C19DDC6FE2F61041 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1754,6 +1805,7 @@
 				5B4A01BD24313F4100B3ABF0 /* CartItemListProtocols.swift in Sources */,
 				5B2AD2E623EE2D57009D061D /* SubCategoriesListRouter.swift in Sources */,
 				5B7FAA1923F843AE002DFAA6 /* SideMenuPresenter.swift in Sources */,
+				5BA4C9D2251B429C006746F3 /* NotificationResponse.swift in Sources */,
 				5BF97B6C24AD7B2A00C7A866 /* DeliveryRegistrationDataResponse.swift in Sources */,
 				5B8957E7242F834C00D3AF3E /* ItemDetailsPresenter.swift in Sources */,
 				5BC28D7223C09E6800B81D1D /* CompleteProfileProtocols.swift in Sources */,
@@ -1898,11 +1950,13 @@
 				5B8C557523B407140094C341 /* RegisterProtocols.swift in Sources */,
 				5B4E1AAB23B1532500808F38 /* UIFont.swift in Sources */,
 				5B4E1A9D23B1532400808F38 /* UITabBarController.swift in Sources */,
+				5BA4C9CE251B3F75006746F3 /* NotificationCell.swift in Sources */,
 				5BA4C89324F816090020BBCC /* DeliveryRequest.swift in Sources */,
 				5B501FD524B06CBF009A33DF /* DeliveryOrderCell.swift in Sources */,
 				5BC28D8823C0BEA100B81D1D /* VerificationInteractor.swift in Sources */,
 				5B8D688024545CA6000C73D0 /* OrderCell.swift in Sources */,
 				5B4E3D3A244E35140037A73F /* CheckOutDataSource.swift in Sources */,
+				5BA4C9D0251B4148006746F3 /* UserNotification.swift in Sources */,
 				5B8D68902454837A000C73D0 /* OrderTrackingResponse.swift in Sources */,
 				5B86BF3023B7B04E00F849FD /* RegisterRequest.swift in Sources */,
 				5BA59A9324045DD600D2DC96 /* SearchItemPresenter.swift in Sources */,
@@ -1913,6 +1967,7 @@
 				5B465B8F24EF5E6400D92421 /* FAQ.swift in Sources */,
 				5B4E1A8123B1532400808F38 /* NoDataView.swift in Sources */,
 				5B8957EB242F834C00D3AF3E /* ItemDetailsInteractor.swift in Sources */,
+				5BA4C9CB251B34D2006746F3 /* NotificationListVC.swift in Sources */,
 				5B2AD2DC23EE0FD6009D061D /* CategoriesDataSource.swift in Sources */,
 				5BC28D7F23C0B81000B81D1D /* ResetPasswordProtocols.swift in Sources */,
 				5B4A01C924314E4400B3ABF0 /* MainCartPresenter.swift in Sources */,
@@ -1928,6 +1983,7 @@
 				5B4E1A7823B1532400808F38 /* CustomPickerView.swift in Sources */,
 				5B8C557323B407140094C341 /* RegisterRouter.swift in Sources */,
 				5B2AD2E523EE2D57009D061D /* SubCategoriesListPresenter.swift in Sources */,
+				5BA4C9C8251B2C3D006746F3 /* UpdateUserResponse.swift in Sources */,
 				5BBB41EA23B1588800A4B26E /* Strings.swift in Sources */,
 				5B4A01CF24316B5B00B3ABF0 /* CartCongratViewController.swift in Sources */,
 				5B2AD2C523EDF56B009D061D /* StoresListRouter.swift in Sources */,
@@ -2317,7 +2373,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Capsula/Capsula.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = PM223W94NZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2348,7 +2405,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Capsula/Capsula.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = PM223W94NZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

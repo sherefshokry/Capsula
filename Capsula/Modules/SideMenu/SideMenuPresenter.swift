@@ -26,18 +26,7 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
         return sideMenuItems.count
     }
     
-    func logOut() {
-          logOutSuccessfully()
-        //let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
-        
-//        if isDeliveryMan {
-//         self.view?.changeState(state: .loading)
-//         self.interactor?.logOut()
-//        }else{
-//           logOutSuccessfully()
-//        }
-        
-    }
+   
     
     func configureMenuElementCell(cell: SideMenuCell, indexPath: IndexPath) {
         cell.setData(sideMenuItem: sideMenuItems[indexPath.row])
@@ -135,7 +124,12 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
 
 extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
     
-    
+    func logOut() {
+        
+        
+           self.view?.changeState(state: .loading)
+           self.interactor?.logOut()
+       }
     
     func logOutSuccessfully() {
         self.view?.changeState(state: .ready)

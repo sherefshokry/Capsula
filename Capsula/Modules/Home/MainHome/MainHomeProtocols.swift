@@ -18,6 +18,7 @@ protocol ViewToPresenterMainHomeProtocol: class {
     var numberOfRows : Int { get }
     func configureStoreCell(cell : StoreCell , indexPath : IndexPath)
     func getStoresData()
+    func refreshDevice()
     func didSelectStore(indexPath : IndexPath)
     
 }
@@ -29,7 +30,8 @@ protocol PresenterToViewMainHomeProtocol: class {
 protocol PresenterToIntetractorMainHomeProtocol: class {
      var presenter: InteractorToPresenterMainHomeProtocol? { get set }
      func  getStoresData()
-     func updateUserData()
+     func  updateUserData()
+     func  refreshDevice()
     
 }
 

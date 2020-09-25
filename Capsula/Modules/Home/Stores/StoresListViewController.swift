@@ -36,6 +36,10 @@ class StoresListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        
+        
        setupCollectionViewLayout()
        self.presenter?.getStoresData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.recieveCartNotification(_:)), name: NSNotification.Name(rawValue: Constants.CART_UPDATE_NOTIFICATION), object: nil)
@@ -47,6 +51,12 @@ class StoresListViewController: UIViewController {
           if Utils.loadUser()?.accessToken ?? "" != "" {
              Intercom.setLauncherVisible(true)
           }
+    
+    if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+               searchField.textAlignment = .right
+           }else{
+               searchField.textAlignment = .left
+           }
           
       }
     

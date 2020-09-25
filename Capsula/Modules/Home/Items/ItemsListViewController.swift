@@ -52,6 +52,14 @@ class ItemsListViewController: UIViewController {
               Intercom.setLauncherVisible(true)
               Intercom.registerUser(withEmail: Utils.loadUser()?.user?.email ?? "")
            }
+        
+        
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                          searchField.textAlignment = .right
+                      }else{
+                          searchField.textAlignment = .left
+                      }
+        
            
        }
    

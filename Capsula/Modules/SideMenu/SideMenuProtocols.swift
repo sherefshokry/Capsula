@@ -48,6 +48,7 @@ protocol PresenterToRouterSideMenuProtocol: class  {
 protocol InteractorToPresenterSideMenuProtocol: class {
    
       func navigate(viewController: UIViewController , animation : Bool)
+      func logOut()
       func logOutSuccessfully()
       func failedToLogout(error : String)
       func openPaymentScreen()

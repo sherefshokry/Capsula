@@ -22,7 +22,7 @@ import Intercom
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
     
     var window: UIWindow?
     static let googleSignInId = "\(Constants.KEYS.googleSignInKey).apps.googleusercontent.com"
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         TWTRTwitter.sharedInstance().start(withConsumerKey: Constants.KEYS.twitterConsumerKey, consumerSecret:  Constants.KEYS.twitterConsumerSecretKey)
         GIDSignIn.sharedInstance().clientID = AppDelegate.googleSignInId
-        
+        Messaging.messaging().delegate = self
         let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = UIColor.init(red: 55/255, green: 182/255, blue: 255/255, alpha: 1)
         
@@ -114,6 +114,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
          Intercom.setDeviceToken(deviceToken)
      }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        let defaults = UserDefaults.standard
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        defaults.set(fcmToken, forKey: "device_token")
+        defaults.set(deviceId , forKey: "device_id")
+    }
 
      func applicationDidBecomeActive(_ application: UIApplication) {
          //Register for push notifications

@@ -19,6 +19,7 @@ class DeliveryHomeVC : UIViewController {
     var refreshControl = UIRefreshControl()
     var ordersList = [DeliveryOrder]()
     private let provider = MoyaProvider<DeliveryManDataSource>()
+    private let userProvivider = MoyaProvider<AuthDataSource>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class DeliveryHomeVC : UIViewController {
       //  refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
      //   tableView.addSubview(refreshControl)
         getMyOrders()
+        refreshDevice()
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadOrderList(_:)), name: NSNotification.Name(rawValue: Constants.RELOAD_DELIVERY_MAN_ORDERS_LIST), object: nil)
         
         
@@ -72,6 +74,12 @@ class DeliveryHomeVC : UIViewController {
     }
     
     
+    @IBAction func openNotificationScreen(_ sender : UIButton){
+         let vc = NotificationListVC.instantiateFromStoryBoard(appStoryBoard: .Home)
+         self.present(vc, animated: true, completion: nil)
+        }
+    
+    
     func  getMyOrders(){
        // if !refreshControl.isRefreshing {
              KVNProgress.show(withStatus: "", on: self.tableView)
@@ -104,6 +112,23 @@ class DeliveryHomeVC : UIViewController {
         }
         
     }
+    
+    
+    func  refreshDevice() {
+        userProvivider.request(.refreshDevice) { [weak self] result in
+               guard let self = self else { return }
+               switch result {
+               case .success(_):
+                
+                break
+               case .failure(let error):
+                
+                break
+               
+               }
+           }
+           
+       }
     
     
 }

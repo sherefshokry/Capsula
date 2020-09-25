@@ -16,6 +16,7 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
     var presenter: InteractorToPresenterMainHomeProtocol?
     private let provider = MoyaProvider<HomeDataSource>()
     private let storesProvider = MoyaProvider<StoresDataSource>()
+    private let userProvivider = MoyaProvider<AuthDataSource>()
 
       func  getStoresData() {
           storesProvider.request(.getStoresData) { [weak self] result in
@@ -44,28 +45,23 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
        }
       
     func updateUserData() {
-        
         provider.request(.updateUserData) { [weak self] result in
               guard let self = self else { return }
               switch result {
               case .success(let response):
                   do {
-                    let itemsResponse = try response.map(BaseResponse<ItemsResponse>.self).data ?? ItemsResponse()
-                    
+                    let userResponse = try response.map(BaseResponse<User>.self).data ?? User()
                       var updatedUser = Utils.loadUser() ?? UserResponse()
-                    updatedUser.user?.cartContent = itemsResponse.itemsList ?? []
+                     updatedUser.user = userResponse
                     
                     Utils.saveUser(user: updatedUser)
                     if updatedUser.user?.cartContent?.count ?? 0 > 0 {
                          Utils.emptyLocalCart()
                     }
-                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         Utils.updateUserCart(list: updatedUser.user?.cartContent ?? []) {
                     }
                     }
-                    
-                
                   } catch(let catchError) {
                       self.presenter?.homeDataFailedToFetch(error: catchError.localizedDescription)
                   }
@@ -82,6 +78,25 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
           }
           
       }
+    
+    
+    
+    func  refreshDevice() {
+        userProvivider.request(.refreshDevice) { [weak self] result in
+               guard let self = self else { return }
+               switch result {
+               case .success(_):
+                
+                break
+               case .failure(let error):
+                
+                break
+               
+               }
+           }
+           
+       }
+    
     
     
     

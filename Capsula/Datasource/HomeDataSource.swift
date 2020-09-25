@@ -23,11 +23,11 @@ extension HomeDataSource : TargetType {
     public var baseURL: URL {
         switch self {
         case .updateUserData:
-            return URL(string: "\(Constants.BASE_URL)/Cart/GetContent")!
+            return URL(string: "\(Constants.BASE_URL)/UserProfile/GetUserData")!
         default:
             return URL(string: "\(Constants.BASE_URL)/Home")!
         }
-        
+     
         
     }
     

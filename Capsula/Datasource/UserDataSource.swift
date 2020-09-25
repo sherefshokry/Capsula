@@ -15,6 +15,7 @@ public enum UserDataSource {
     case updateUser(RegisterRequest)
     case updateDefaultAddress(Int)
     case changePassword(String,String)
+    case getNotifications
 }
 
 extension UserDataSource : TargetType {
@@ -40,6 +41,8 @@ extension UserDataSource : TargetType {
             return "/UpdateDefaultAddress/\(addressId)"
         case .changePassword(_,_):
             return "/ChangePassword"
+        case .getNotifications:
+            return "/GetNotifications"
         }
     }
     
@@ -53,6 +56,8 @@ extension UserDataSource : TargetType {
         case .updateDefaultAddress(_): return .put
         case .changePassword(_, _):
             return .put
+        case .getNotifications:
+            return .get
         }
     }
     
@@ -93,6 +98,8 @@ extension UserDataSource : TargetType {
                     params["currentPassword"] = currentPassword
                     params["newPassword"] = newPassword
                     return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .getNotifications:
+            return .requestPlain
         }
     }
     

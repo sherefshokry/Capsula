@@ -15,6 +15,7 @@ public enum AuthDataSource {
     case LogInWithTwitter(String,String)
     case LogInWithGoogle(String)
     case LogOut
+    case refreshDevice
 }
 
 extension AuthDataSource : TargetType {
@@ -30,8 +31,8 @@ extension AuthDataSource : TargetType {
         case .LogInWithfacebook(_): return "/Facebook"
         case .LogInWithTwitter(_, _): return "/Twitter"
         case .LogInWithGoogle(_): return "/Google"
-        case .LogOut:
-            return "/Logout"
+        case .LogOut: return "/Logout"
+        case .refreshDevice: return "/RefreshDevice"
         }
     }
     
@@ -43,6 +44,7 @@ extension AuthDataSource : TargetType {
         case .LogInWithTwitter(_, _): return .post
         case .LogInWithGoogle(_): return .post
         case .LogOut: return .get
+        case .refreshDevice: return .post
         }
     }
     
@@ -72,11 +74,24 @@ extension AuthDataSource : TargetType {
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .LogOut:
             return .requestPlain
+        case .refreshDevice:
+            var params = [String : Any]()
+            let defaults = UserDefaults.standard
+            params["token"] = defaults.string(forKey: "device_token") ?? ""
+            params["deviceType"] = 1
+            params["language"] = LocalizationSystem.sharedInstance.getLanguage()
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }
     
     public var headers: [String: String]? {
-        return BaseDataSource.getHeader() as? [String : String] ?? [:]
+          let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
+        if isDeliveryMan {
+          return BaseDataSource.getDeliveryHeader() as? [String : String] ?? [:]
+        }else{
+          return BaseDataSource.getHeader() as? [String : String] ?? [:]
+        }
+        
     }
     
     public var validationType: ValidationType {

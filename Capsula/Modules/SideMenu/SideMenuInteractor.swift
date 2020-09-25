@@ -19,13 +19,12 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
                   provider.request(.LogOut) { [weak self] result in
                   guard let self = self else { return }
                      switch result {
-                     case .success(let _):
-                        self.presenter?.logOutSuccessfully()
+                      case .success(let _):
+                      self.presenter?.logOutSuccessfully()
                       break
                      case .failure(let error):
                       do{
-                        
-                        
+               
                         if let body = try error.response?.mapJSON(){
                             let errorData = (body as! [String:Any])
                         self.presenter?.failedToLogout(error: (errorData["error"] as? String) ?? "")
@@ -170,12 +169,11 @@ class SideMenuInteractor : PresenterToIntetractorSideMenuProtocol {
             self.presenter?.navigate(viewController: vc, animation: true)
             break
         case Strings.SideMenu.shared.Logout:
-            logOut()
+            self.presenter?.logOut()
             break
         case Strings.SideMenu.shared.LogIn:
             Utils.openWelcomeScreen()
             break
-            
         case Strings.SideMenu.shared.Profile:
             let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
             if isDeliveryMan {
