@@ -25,17 +25,14 @@ class ItemDetailsPresenter : ViewToPresenterItemDetailsProtocol{
     }
     
     func addItemToCart(){
-        Utils.updateUserCart(list: [self.selectedItem]) {
-            
-            if Utils.loadUser()?.accessToken ?? "" != "" {
-                self.view?.changeState(state: .loading)
-                self.interactor?.addItemsToCart(itemData: self.selectedItem)
-            }
+            Utils.updateUserCart(list: [self.selectedItem]) {
+                
+                      if Utils.loadUser()?.accessToken ?? "" != "" {
+                          self.view?.changeState(state: .loading)
+                          self.interactor?.addItemsToCart(itemData: self.selectedItem)
+                      }
         }
-        
-        
     }
-    
     
 }
 

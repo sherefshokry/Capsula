@@ -21,7 +21,7 @@ class CartItemListInteractor : PresenterToIntetractorCartItemListProtocol {
         itemsData.forEach { (item) in
             var cartItem = CartItem()
             cartItem.mainId = item.mainId ?? -1
-            cartItem.quantity = item.itemQuantity ?? 0
+            cartItem.quantity = item.itemQuantity ?? 1
             cartItemsList.append(cartItem)
         }
          
@@ -58,6 +58,7 @@ class CartItemListInteractor : PresenterToIntetractorCartItemListProtocol {
         var cartItem = CartItem()
         cartItem.mainId = item.mainId ?? -1
         cartItem.quantity = item.itemQuantity ?? 0
+        
         provider.request(.updateCart(cartItem)) { [weak self] result in
                           guard let self = self else { return }
                           switch result {

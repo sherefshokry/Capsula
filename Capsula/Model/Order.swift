@@ -10,10 +10,10 @@ import Foundation
 
 struct Order : Codable {
     
-    let  id: Int?
-     let orderCode : String?
-    let  orderStatusId : Int?
-    let  orderDate : String?
+    var id: Int?
+    let orderCode : String?
+    let orderStatusId : Int?
+    let orderDate : String?
     let totalPrice : Double?
     let deliveryAddress : String?
     let prescriptionImageLink : String?

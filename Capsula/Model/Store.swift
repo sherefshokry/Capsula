@@ -13,7 +13,7 @@ struct Store : Codable {
     let  storeId: Int?
     let  storeName : String?
     let  imageLink : String?
-    let  distance : Int?
+    let  distance : Double?
  
     
     enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ struct Store : Codable {
      storeId = -1
      storeName = ""
      imageLink = ""
-     distance = 0
+     distance = 0.0
     }
     
     init(from decoder: Decoder) throws {
@@ -35,7 +35,7 @@ struct Store : Codable {
         catch { storeName = "" }
         do {   imageLink = try container.decodeIfPresent(.imageLink) ?? ""}
               catch { imageLink = "" }
-        do { distance = try container.decodeIfPresent(.distance) ?? 0}
-                     catch { distance = 0}
+        do { distance = try container.decodeIfPresent(.distance) ?? 0.0}
+        catch { distance = 0.0}
     }
 }

@@ -51,7 +51,7 @@ class ItemsListInteractor : PresenterToIntetractorItemsListProtocol {
         var cartItemsList = [CartItem]()
         var cartItem = CartItem()
         cartItem.mainId = itemData.mainId ?? -1
-        cartItem.quantity = itemData.itemQuantity ?? 1
+        cartItem.quantity = 1
         cartItemsList.append(cartItem)
           
         cartProvider.request(.addCart(cartItemsList)) { [weak self] result in

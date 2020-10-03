@@ -179,7 +179,7 @@ extension MainHomeViewController : UICollectionViewDelegate , UICollectionViewDa
     
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          let collectionWidth = (self.collectionView.frame.width - 42) / 2
-         return CGSize(width: collectionWidth, height: collectionWidth + 32)
+         return CGSize(width: collectionWidth, height: collectionWidth + 42)
      }
      
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -87,8 +87,6 @@ extension ItemDetailsViewController : PresenterToViewItemDetailsProtocol {
             priceBeforeDiscountLabel.text = "\(Strings.shared.was) \(item.priceInOffer ?? 0.0)" + Strings.shared.rsd
         }
         
-        
-        
     }
     
     func showPopup(message : String){

@@ -74,7 +74,7 @@ class CartItemListPresenter : ViewToPresenterCartItemListProtocol{
         cell.onPlusPressd = { (selectedItem) in
             
             let itemIndex = self.itemsData.firstIndex(of: selectedItem) ?? -1
-              (self.itemsData[itemIndex].itemQuantity) =   (self.itemsData[itemIndex ].itemQuantity ?? 1)  + 1
+              (self.itemsData[itemIndex].itemQuantity) =   (self.itemsData[itemIndex].itemQuantity ?? 1)  + 1
             
             if Utils.loadUser()?.accessToken ?? "" != "" {
                 self.view?.changeState(state: .loading)
@@ -83,6 +83,7 @@ class CartItemListPresenter : ViewToPresenterCartItemListProtocol{
                 Utils.addAllLocalCart(itemsList: self.itemsData)
                 self.refreshAllCart()
             }
+            self.refreshAllCart()
         }
         
         cell.onMinusPressd = { (selectedItem) in
@@ -94,8 +95,8 @@ class CartItemListPresenter : ViewToPresenterCartItemListProtocol{
                     self.interactor?.updateItem(item: self.itemsData[indexPath.row])
                 }else{
                      Utils.addAllLocalCart(itemsList: self.itemsData)
-                    self.refreshAllCart()
                 }
+                self.refreshAllCart()
              }
           }
        }
@@ -111,24 +112,13 @@ class CartItemListPresenter : ViewToPresenterCartItemListProtocol{
         var totalPrice = 0.0
         itemsData.forEach { (item) in
             if item.offerType == -1 {
-                
                 totalPrice = totalPrice + ((item.price ?? 0.0) * Double(item.itemQuantity ?? 1))
-                
-                
             }else{
-                
                 totalPrice = totalPrice + ((item.priceInOffer ?? 0.0) * Double(item.itemQuantity ?? 1))
-                
-                
             }
         }
-        
         self.view?.setTotalPrice(totalPrice : totalPrice)
-        
-
      }
-        
-    
     
 }
 

@@ -41,14 +41,14 @@ extension StoresDataSource : TargetType {
     
     public var task: Task {
         switch self {
-        case . getStoresData:
+        case .getStoresData:
             return .requestPlain
         }
     }
     
-    public var headers: [String: String]? {
-        return BaseDataSource.getHeader() as? [String : String] ?? [:]
-    }
+      public var headers: [String: String]? {
+         return BaseDataSource.getHeader() as? [String : String] ?? [:]
+     }
     
     public var validationType: ValidationType {
         return .successCodes

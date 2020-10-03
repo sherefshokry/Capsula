@@ -77,9 +77,12 @@ extension AuthDataSource : TargetType {
         case .refreshDevice:
             var params = [String : Any]()
             let defaults = UserDefaults.standard
+            
             params["token"] = defaults.string(forKey: "device_token") ?? ""
-            params["deviceType"] = 1
+            params["deviceType"] = 2
             params["language"] = LocalizationSystem.sharedInstance.getLanguage()
+            
+            
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }

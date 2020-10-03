@@ -28,6 +28,7 @@ class CartDetailsViewController: ImagePickerViewController {
     @IBOutlet weak var VAT : UILabel!
     @IBOutlet weak var estimatedTotalLabel : UILabel!
     @IBOutlet weak var selectedPaymentMethodLabel : UILabel!
+    var isDeliveryCalculated = false
     var deliveryCost = 0.0
     var totalCost = 0.0
     var selectedPaymentMethod = -1
@@ -65,10 +66,14 @@ class CartDetailsViewController: ImagePickerViewController {
             }
         }
         
-        itemsCostLabel.text = "\(totalPrice) " + Strings.shared.RSD
+        itemsCostLabel.text = "\(String(totalPrice.rounded(toPlaces: 2))) " + Strings.shared.RSD
         deliveryCostLabel.text = "0 " + Strings.shared.RSD
-        estimatedTotalLabel.text = "\(totalPrice + deliveryCost) " + Strings.shared.RSD
-        self.totalCost = totalPrice + deliveryCost
+        
+        let totalCost = totalPrice + deliveryCost
+        
+        
+        estimatedTotalLabel.text = "\(String(totalCost.rounded(toPlaces: 2))) " + Strings.shared.RSD
+        self.totalCost = totalCost
     }
     
     
@@ -134,7 +139,6 @@ class CartDetailsViewController: ImagePickerViewController {
         contentSheet.blurBackground = false
         contentSheet.showDefaultHeader = false
         //        UIApplication.shared.windows[0].visibleViewController?.present( contentSheet, animated: true, completion: nil)
-        
     }
     
     @IBAction func selectAddress(_ sender : UIButton){
@@ -206,21 +210,26 @@ class CartDetailsViewController: ImagePickerViewController {
     }
     
     @IBAction func nextPressed(_ sender : UIButton){
-        if selectedPaymentMethod == -1 {
-            self.showMessage(Strings.shared.paymentMethodSelection)
-        }else{
-            if totalCost > 500.0 && selectedPaymentMethod == 1 {
-                self.showMessage(Strings.shared.cashPayment)
+        
+        if isDeliveryCalculated {
+            if selectedPaymentMethod == -1 {
+                self.showMessage(Strings.shared.paymentMethodSelection)
             }else{
-                if selectedPaymentMethod == 5 || selectedPaymentMethod == 4 {
-                    self.presenter?.prepareCheckout(paymentMethod: selectedPaymentMethod)
+                if totalCost > 500.0 && selectedPaymentMethod == 1 {
+                    
+                    
+                    self.showMessage(Strings.shared.cashPayment)
                 }else{
-                    self.presenter?.checkout()
+                    if selectedPaymentMethod == 5 || selectedPaymentMethod == 4 {
+                        self.presenter?.prepareCheckout(paymentMethod: selectedPaymentMethod)
+                    }else{
+                        self.presenter?.checkout()
+                    }
                 }
-                
-                
             }
         }
+        
+        
     }
     
 }
@@ -234,10 +243,12 @@ extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
     }
     
     func setDeliveryCost(cost: DeliveryCostResponse) {
+        isDeliveryCalculated = true
         itemsCostLabel.text = "\(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
         estimatedTotalLabel.text = "\(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
-        VAT.text = "\(cost.vatCost ?? 0.0) " + Strings.shared.RSD
+        VAT.text = "\(String(cost.vatCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
         deliveryCostLabel.text = "\(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
+        self.totalCost = self.totalCost + (cost.deliveryCost ?? 0.0)
     }
     
     

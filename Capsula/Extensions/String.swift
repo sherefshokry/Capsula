@@ -149,7 +149,7 @@ extension String {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
             let date = dateFormatter.date(from: self)
-            dateFormatter.dateFormat = "ddd dd MMM"
+            dateFormatter.dateFormat = "dd-MMM-yyy"
             return  dateFormatter.string(from: date!)
         }
     

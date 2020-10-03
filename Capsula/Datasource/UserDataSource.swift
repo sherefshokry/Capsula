@@ -22,12 +22,12 @@ extension UserDataSource : TargetType {
     
     public var baseURL: URL {
         switch self {
-               case .checkPhoneIsExist(let phoneNumber, let email):
-                return URL(string: "\(Constants.BASE_URL)/UserProfile/CheckUserExist?PhoneNumber=\(phoneNumber)&email=\(email)")!
-               default:
-                     return URL(string: "\(Constants.BASE_URL)/UserProfile")!
-               }
-    
+        case .checkPhoneIsExist(let phoneNumber, let email):
+            return URL(string: "\(Constants.BASE_URL)/UserProfile/CheckUserExist?PhoneNumber=\(phoneNumber)&email=\(email)")!
+        default:
+            return URL(string: "\(Constants.BASE_URL)/UserProfile")!
+        }
+        
     }
     
     public var path: String {
@@ -94,17 +94,23 @@ extension UserDataSource : TargetType {
         case .updateDefaultAddress(_):
             return .requestPlain
         case .changePassword(let currentPassword,let newPassword):
-                var params = [String : Any]()
-                    params["currentPassword"] = currentPassword
-                    params["newPassword"] = newPassword
-                    return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+            var params = [String : Any]()
+            params["currentPassword"] = currentPassword
+            params["newPassword"] = newPassword
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .getNotifications:
             return .requestPlain
         }
     }
     
     public var headers: [String: String]? {
-        return BaseDataSource.getHeader() as? [String : String] ?? [:]
+        let isDeliveryMan = UserDefaults.standard.bool(forKey: "isDelivery")
+        if isDeliveryMan {
+            return BaseDataSource.getDeliveryHeader() as? [String : String] ?? [:]
+        }else{
+            return BaseDataSource.getHeader() as? [String : String] ?? [:]
+        }
+        
     }
     
     public var validationType: ValidationType {

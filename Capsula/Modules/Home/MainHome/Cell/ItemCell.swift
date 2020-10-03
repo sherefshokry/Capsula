@@ -24,8 +24,10 @@ class ItemCell : UICollectionViewCell {
     
     
     func setData(item : Item){
-     
         selectedItem = item
+        if selectedItem.itemQuantity == 0 {
+             selectedItem.itemQuantity = 1
+        }
         itemImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
         itemTitle.text =  item.productName
         itemPrice.text = "\(item.price ?? 0.0)" + Strings.shared.rsd

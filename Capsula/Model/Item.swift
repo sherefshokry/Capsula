@@ -11,21 +11,20 @@ import Foundation
 
 struct Item : Codable, Equatable {
     
-    let  productId: Int?
-    let  mainId : Int?
-    let  storeId : Int
-    let  productName : String?
-    let  productDesc : String?
-    let  imagePath : String?
-    let  price : Double?
-    let  isTreatment : Bool?
-    let  storeName : String?
-    let  offerType : Int
-    let  offerDesc : String?
-    let  priceInOffer : Double?
-    let  vat : Int?
+    var  productId: Int?
+    var  mainId : Int?
+    var  storeId : Int
+    var  productName : String?
+    var  productDesc : String?
+    var  imagePath : String?
+    var  price : Double?
+    var  isTreatment : Bool?
+    var  storeName : String?
+    var  offerType : Int
+    var  offerDesc : String?
+    var  priceInOffer : Double?
+    var  vat : Int?
     var  itemQuantity: Int?
-    
     
     enum CodingKeys: String, CodingKey {
         case productId , storeId, productName , productDesc , imagePath , isTreatment , mainId , price,storeName , offerType,offerDesc,priceInOffer,vat ,itemQuantity = "quantity"
@@ -47,6 +46,8 @@ struct Item : Codable, Equatable {
         itemQuantity = 1
         vat = -1
     }
+    
+ 
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

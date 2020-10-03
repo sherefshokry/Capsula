@@ -19,7 +19,7 @@ class NotificationCell : UITableViewCell {
     func setData(notificationItem : UserNotification){
         notificationTitle.text = notificationItem.title
         notificationDesc.text = notificationItem.body
-        notificationDate.text = notificationItem.date ?? ""
+        notificationDate.text =  (notificationItem.date?.monthFormat() ?? "") + " " +  (notificationItem.date?.timeFormat() ?? "")
         if notificationItem.image ?? "" != "" {
             imageWidth.constant = 48
             notificationImage.sd_setImage(with: URL.init(string:  notificationItem.image ?? ""))

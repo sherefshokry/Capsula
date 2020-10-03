@@ -16,9 +16,10 @@ struct UserNotification : Codable {
     let  date : String?
     let  orderId : Int?
     let  product : Item?
+    let type : Int?
     
     enum CodingKeys: String, CodingKey {
-        case  title , body ,image , date , orderId , product
+        case  title , body ,image , date , orderId , product, type
     }
     
     init(){
@@ -27,6 +28,7 @@ struct UserNotification : Codable {
      image = ""
      date = ""
      orderId = -1
+     type = -1
      product = Item()
     }
     
@@ -34,6 +36,8 @@ struct UserNotification : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         do { orderId = try container.decodeIfPresent(.orderId) ?? -1 }
         catch { orderId = -1 }
+        do { type = try container.decodeIfPresent(.type) ?? -1 }
+           catch { type = -1 }
         do {  title = try container.decodeIfPresent(.title) ?? ""}
         catch { title = "" }
         

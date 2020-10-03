@@ -140,7 +140,7 @@ extension CartItemListViewController : PresenterToViewCartItemListProtocol {
     }
     
     func setTotalPrice(totalPrice : Double){
-        self.totalPrice.text = "\(totalPrice)"
+        self.totalPrice.text = "\(Double(round(100*totalPrice)/100))"
     }
     
     

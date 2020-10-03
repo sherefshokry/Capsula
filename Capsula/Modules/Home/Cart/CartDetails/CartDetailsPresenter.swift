@@ -12,7 +12,7 @@ import Foundation
 
 class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
     func setPaymentMethod(method: Int) {
-        
+    
     }
     
   
@@ -24,7 +24,6 @@ class CartDetailsPresenter : ViewToPresenterCartDetailsProtocol{
    
     
     func prepareCheckout(paymentMethod : Int){
-        
          self.view?.changeState(state: .loading)
         //5 for madda payment
          self.interactor?.prepareCheckout(paymentMethodID: paymentMethod)

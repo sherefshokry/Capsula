@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9550EBCB-F617-4863-982A-82E398FBD3BA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capsula/Modules/SideMenu/ManagePaymentMethodVC.swift"
@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
             endingLineNumber = "177"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "didReceiveAsynchronousPaymentCallback()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
             endingLineNumber = "176"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "didReceiveAsynchronousPaymentCallback()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "didReceiveAsynchronousPaymentCallback()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,8 +64,180 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "174"
             endingLineNumber = "174"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "didReceiveAsynchronousPaymentCallback()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9825632F-F65F-4846-A81C-E57598931D38"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capsula/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "notificationResponse(type:orderId:productDetails:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "2020">
+               </Location>
+               <Location
+                  uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "3796">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0117B294-3D71-4726-B80C-77D512B82735"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capsula/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "notificationResponse(type:orderId:productDetails:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "2020">
+               </Location>
+               <Location
+                  uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capsula.AppDelegate.notificationResponse(type: Swift.String, orderId: Swift.String, productDetails: Capsula.Item) -&gt; ()"
+                  moduleName = "Capsula"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sherifshokry/Desktop/2020/Capsula/Capsula/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "3796">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A8415F4-913F-4215-9BB0-0BF67A6A8A5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capsula/Modules/Home/ItemDetails/ItemDetailsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "addItemToCart()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

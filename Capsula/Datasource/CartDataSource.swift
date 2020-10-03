@@ -64,8 +64,11 @@ extension CartDataSource : TargetType {
             let encoder = JSONEncoder()
             do {
                 let result = try encoder.encode(cartList)
+                
                 return .requestData(result)
+                
             } catch {
+                
                 print(error)
                 return .requestPlain
             }

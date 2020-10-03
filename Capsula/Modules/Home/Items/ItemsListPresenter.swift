@@ -26,15 +26,12 @@ class ItemsListPresenter : ViewToPresenterItemsListProtocol{
     func configureItemCell(cell: ItemCell, indexPath: IndexPath) {
         cell.setData(item: itemsData[indexPath.item])
         cell.addToCardPressed = { (selectedItem) in
-            
-            Utils.updateUserCart(list: [selectedItem]){
-                if Utils.loadUser()?.accessToken ?? "" != "" {
-                               self.view?.changeState(state: .loading)
-                               self.interactor?.addItemsToCart(itemData: selectedItem)
-                           }
+                Utils.updateUserCart(list: [selectedItem]){
+                        if Utils.loadUser()?.accessToken ?? "" != "" {
+                                       self.view?.changeState(state: .loading)
+                                       self.interactor?.addItemsToCart(itemData: selectedItem)
+                                   }
             }
-           
-      
     
         }
     }
@@ -77,6 +74,9 @@ class ItemsListPresenter : ViewToPresenterItemsListProtocol{
     }
     
     func didSelectItem(indexPath: IndexPath) {
+        if itemsData[indexPath.row].itemQuantity  == 0 {
+            itemsData[indexPath.row].itemQuantity = 1
+        }
         self.router?.openItemDetailsScreen(from: self.view, item: itemsData[indexPath.row])
     }
     

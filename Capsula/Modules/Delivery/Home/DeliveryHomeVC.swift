@@ -24,8 +24,8 @@ class DeliveryHomeVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: HomeDeliveryHeaderCell.identifier, bundle: nil), forCellReuseIdentifier: HomeDeliveryHeaderCell.identifier)
-      //  refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-     //   tableView.addSubview(refreshControl)
+        //  refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        //   tableView.addSubview(refreshControl)
         getMyOrders()
         refreshDevice()
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadOrderList(_:)), name: NSNotification.Name(rawValue: Constants.RELOAD_DELIVERY_MAN_ORDERS_LIST), object: nil)
@@ -35,9 +35,9 @@ class DeliveryHomeVC : UIViewController {
         
     }
     
-//    @objc func refresh(_ sender: AnyObject) {
-//       getMyOrders()
-//    }
+    //    @objc func refresh(_ sender: AnyObject) {
+    //       getMyOrders()
+    //    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +49,7 @@ class DeliveryHomeVC : UIViewController {
         getMyOrders()
     }
     
-     @objc func refreshDeliveryData(_ notification: NSNotification){
+    @objc func refreshDeliveryData(_ notification: NSNotification){
         tableView.reloadData()
     }
     
@@ -75,19 +75,19 @@ class DeliveryHomeVC : UIViewController {
     
     
     @IBAction func openNotificationScreen(_ sender : UIButton){
-         let vc = NotificationListVC.instantiateFromStoryBoard(appStoryBoard: .Home)
-         self.present(vc, animated: true, completion: nil)
-        }
+        let vc = NotificationListVC.instantiateFromStoryBoard(appStoryBoard: .Home)
+        self.present(vc, animated: true, completion: nil)
+    }
     
     
     func  getMyOrders(){
-       // if !refreshControl.isRefreshing {
-             KVNProgress.show(withStatus: "", on: self.tableView)
+        // if !refreshControl.isRefreshing {
+        KVNProgress.show(withStatus: "", on: self.tableView)
         //}
-      
+        
         provider.request(.getOrdersList) { [weak self] result in
             KVNProgress.dismiss()
-           // self?.refreshControl.endRefreshing()
+            // self?.refreshControl.endRefreshing()
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -116,19 +116,19 @@ class DeliveryHomeVC : UIViewController {
     
     func  refreshDevice() {
         userProvivider.request(.refreshDevice) { [weak self] result in
-               guard let self = self else { return }
-               switch result {
-               case .success(_):
+            guard let self = self else { return }
+            switch result {
+            case .success(_):
                 
                 break
-               case .failure(let error):
+            case .failure(let error):
                 
                 break
-               
-               }
-           }
-           
-       }
+                
+            }
+        }
+        
+    }
     
     
 }
@@ -142,11 +142,15 @@ extension DeliveryHomeVC : UITableViewDelegate , UITableViewDataSource {
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeDeliveryHeaderCell.identifier, for: indexPath) as! HomeDeliveryHeaderCell
+            cell.openNotificationPressed = {
+                let vc = NotificationListVC.instantiateFromStoryBoard(appStoryBoard: .Home)
+                self.present(vc, animated: true, completion: nil)
+            }
             return cell
         }else{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: DeliveryOrderCell.identifier, for: indexPath) as! DeliveryOrderCell
-             let index = indexPath.row - 1
+            let index = indexPath.row - 1
             cell.setData(order: ordersList[index])
             return cell
             

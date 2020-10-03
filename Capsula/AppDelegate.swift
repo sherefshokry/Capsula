@@ -38,10 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyCx2XM-jUdvo5cOSJWIBwcayQEL4MO9-OQ")
         //AIzaSyAy7wIubAmmdvAR2AxeaoBX43FuF5k1m4w
         
-        Utils.openSplashScreen() 
-     
-     
-        
         UIFont.overrideInitializeForEN()
         
         FirebaseApp.configure()
@@ -52,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
         TWTRTwitter.sharedInstance().start(withConsumerKey: Constants.KEYS.twitterConsumerKey, consumerSecret:  Constants.KEYS.twitterConsumerSecretKey)
         GIDSignIn.sharedInstance().clientID = AppDelegate.googleSignInId
         Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
         let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = UIColor.init(red: 55/255, green: 182/255, blue: 255/255, alpha: 1)
         
@@ -65,16 +62,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
             statusBar.backgroundColor = UIColor.init(red: 55/255, green: 182/255, blue: 255/255, alpha: 1)
         }
         
-    
+         Utils.openSplashScreen() 
+        
+        
         Intercom.setApiKey(INTERCOM_API_KEY, forAppId: INTERCOM_APP_ID)
         
         #if DEBUG
-                  Intercom.enableLogging()
-              #endif
+        Intercom.enableLogging()
+        #endif
         if Utils.loadUser()?.accessToken ?? "" != "" {
             Intercom.registerUser(withEmail: Utils.loadUser()?.user?.email ?? "")
         }
-                 
+        
         
         
         return true
@@ -95,10 +94,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
         let twitterAuthentication = TWTRTwitter.sharedInstance().application(app, open: url, options: options)
         
         if url.scheme?.localizedCaseInsensitiveCompare("com.BinoyedSA.Capsula.payments") == .orderedSame {
-                 // Send notification to handle result in the view controller.
-                 NotificationCenter.default.post(name: Notification.Name(rawValue: "AsyncPaymentCompletedNotificationKey"), object: nil)
-                 return true
-             }
+            // Send notification to handle result in the view controller.
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "AsyncPaymentCompletedNotificationKey"), object: nil)
+            return true
+        }
         
         return googleDidHandle || facebookDidHandle || twitterAuthentication
     }
@@ -112,8 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-         Intercom.setDeviceToken(deviceToken)
-     }
+        Intercom.setDeviceToken(deviceToken)
+    }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         let defaults = UserDefaults.standard
@@ -121,17 +120,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
         defaults.set(fcmToken, forKey: "device_token")
         defaults.set(deviceId , forKey: "device_id")
     }
-
-     func applicationDidBecomeActive(_ application: UIApplication) {
-         //Register for push notifications
-         //For more info, see: https://developers.intercom.com/installing-intercom/docs/ios-push-notifications
-         let center = UNUserNotificationCenter.current()
-         // Request permission to display alerts and play sounds.
-         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-             // Enable or disable features based on authorization.
-         }
-         UIApplication.shared.registerForRemoteNotifications()
-     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        //Register for push notifications
+        //For more info, see: https://developers.intercom.com/installing-intercom/docs/ios-push-notifications
+        let center = UNUserNotificationCenter.current()
+        // Request permission to display alerts and play sounds.
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+        UIApplication.shared.registerForRemoteNotifications()
+    }
     
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -160,14 +159,109 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
     
-   
-    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
-    
-    
+
 }
+
+
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        completionHandler([.alert,.sound])
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        print(userInfo)
+        var productItem = Item()
+        do {
+          let productData =  userInfo["product"] as? String ?? ""
+          let productDetailsDic = try JSONSerialization.jsonObject(with:
+            productData.data(using: .utf8)!, options: []) as? [String:Any] ?? [String:Any]()
+            productItem.imagePath = productDetailsDic["ImagePath"] as? String ?? ""
+            productItem.price = productDetailsDic["Price"] as? Double ?? 0.0
+            productItem.isTreatment = productDetailsDic["IsTreatment"] as? Bool ?? false
+            productItem.itemQuantity = 1
+            productItem.mainId = productDetailsDic["MainId"] as? Int ?? 0
+            productItem.offerDesc = productDetailsDic["OfferDesc"] as? String ?? ""
+            productItem.offerType = productDetailsDic["OfferType"] as? Int ?? 0
+            productItem.priceInOffer = productDetailsDic["PriceInOffer"] as? Double ?? 0.0
+            productItem.productDesc = productDetailsDic["ProductDesc"] as? String ?? ""
+            productItem.productId = productDetailsDic["ProductId"] as? Int ?? 0
+            productItem.productName = productDetailsDic["ProductName"] as? String ?? ""
+            productItem.storeId = productDetailsDic["StoreId"] as? Int ?? 0
+            productItem.storeName = productDetailsDic["StoreName"] as? String ?? ""
+            productItem.vat = productDetailsDic["Vat"] as? Int ?? 0
+        }catch {
+           print(error)
+        }
+        notificationResponse(type : userInfo["type"] as? String ?? "", orderId : userInfo["orderId"]  as? String ?? "" , productDetails: productItem)
+        completionHandler()
+    }
+    
+    func prepareProductDetails (productDetails: String) -> Item{
+        
+        
+        let jsonData = productDetails.data(using: .utf8)!
+        let productItem : Item =   try! JSONDecoder().decode(Item.self, from: jsonData)
+        
+        return productItem
+    }
+    
+    
+    func notificationResponse(type : String,orderId : String, productDetails : Item){
+        
+        
+        
+        switch Int(type) {
+         case 6:
+            if Utils.loadDeliveryUser() != nil {
+                let vc = DeliveryHomeVC.instantiateFromStoryBoard(appStoryBoard: .Home)
+                if let currentController = window?.visibleViewController as? DeliveryHomeVC {
+                    currentController.getMyOrders()
+                }else{
+                UIApplication.shared.windows[0].rootViewController = vc
+                UIApplication.shared.windows[0].makeKeyAndVisible()
+                NotificationCenter.default.post(name: Notification.Name(Constants.RELOAD_DELIVERY_MAN_ORDERS_LIST), object: nil)
+                }
+            }
+            break
+        case 7:
+            if Utils.loadUser() != nil {
+                let vc = TrackOrderViewController.instantiateFromStoryBoard(appStoryBoard: .Home)
+                var dummyOrder = Order()
+                dummyOrder.id = Int(orderId)
+                vc.order = dummyOrder
+                if let currentController = window?.visibleViewController as? TrackOrderViewController {
+                    currentController.getOrderTrackingData()
+                }else{
+                    window?.visibleViewController?.present(vc, animated: true, completion: nil)
+                }
+            }
+            break
+        case 5:
+             let vc = ItemDetailsRouter.createModule(item: productDetails)
+             window?.visibleViewController?.present(vc, animated: true, completion: nil)
+            break
+        default:
+            let vc = NotificationListVC.instantiateFromStoryBoard(appStoryBoard: .Home)
+            if let currentController = window?.visibleViewController as? NotificationListVC {
+                currentController.getNotificationsData()
+            }else{
+                window?.visibleViewController?.present(vc, animated: true, completion: nil)
+            }
+        }
+    }    
+}
+
 
