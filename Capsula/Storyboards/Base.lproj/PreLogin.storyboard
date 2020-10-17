@@ -239,7 +239,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZhB-0o-IPc">
-                                <rect key="frame" x="112" y="461" width="96" height="40"/>
+                                <rect key="frame" x="84" y="461" width="152" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QC-BG-tHw">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -263,8 +263,8 @@
                                             <action selector="gmailPressed:" destination="CfY-e7-5fi" eventType="touchUpInside" id="CjA-bu-fHu"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-IL-mTl">
-                                        <rect key="frame" x="96" y="0.0" width="40" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-IL-mTl" customClass="ASAuthorizationAppleIDButton" customModule="Capsula" customModuleProvider="target">
+                                        <rect key="frame" x="112" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="QEb-iT-rRf"/>
                                             <constraint firstAttribute="height" constant="40" id="dnl-13-O0Z"/>
@@ -369,7 +369,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3z1-hc-e0H">
-                                <rect key="frame" x="112" y="632" width="96" height="40"/>
+                                <rect key="frame" x="84" y="632" width="152" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-21-qo5">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -393,8 +393,8 @@
                                             <action selector="gmailPressed:" destination="4C9-9s-VoJ" eventType="touchUpInside" id="twQ-dx-dRY"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-5W-GxP">
-                                        <rect key="frame" x="96" y="0.0" width="40" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-5W-GxP">
+                                        <rect key="frame" x="112" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="RHN-jE-JWC"/>
                                             <constraint firstAttribute="width" constant="40" id="yrv-Sl-5zF"/>

@@ -45,6 +45,34 @@ class MainRegisterInteractor : PresenterToIntetractorMainRegisterProtocol {
                     }
                 }
             }
+     }
+    
+    func loginWithApple(name: String, email : String) {
+        provider.request(.LogInWithApple(name , email)) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                 case .success(let response):
+                    do {
+                        let userResponse = try response.map(BaseResponse<UserResponse>.self).data ?? UserResponse()
+                        Utils.saveUser(user: userResponse)
+                        Utils.updateUserCart(list : userResponse.user?.cartContent ?? []){
+                        }
+                        UserDefaults.standard.set(false, forKey: "isDelivery")
+                        self.presenter?.loggedInSuccussfully(userResponse: userResponse)
+                    } catch(let catchError) {
+                        self.presenter?.failedToLogin(error: catchError.localizedDescription)
+                    }
+                case .failure(let error):
+                    do{
+                        if let body = try error.response?.mapJSON(){
+                        let errorData = (body as! [String:Any])
+                        self.presenter?.failedToLogin(error: (errorData["errors"] as? String) ?? "")
+                        }
+                    }catch{
+                        self.presenter?.failedToLogin(error: error.localizedDescription)
+                    }
+                }
+            }
         
      }
      

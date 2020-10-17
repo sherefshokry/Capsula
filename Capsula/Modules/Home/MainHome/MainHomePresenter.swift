@@ -43,7 +43,7 @@ class MainHomePresenter : ViewToPresenterMainHomeProtocol{
     
     
     func didSelectStore(indexPath: IndexPath) {
-           self.router?.openCategoriesScreen(from: self.view, storeId: storesData[indexPath.item].storeId ?? -1 )
+        self.router?.openCategoriesScreen(from: self.view, storeId: storesData[indexPath.row].storeId ?? -1 )
        }
     
  

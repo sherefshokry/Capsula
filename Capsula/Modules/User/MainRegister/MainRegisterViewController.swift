@@ -18,6 +18,8 @@ import TwitterKit
 import UIKit
 import KVNProgress
 import Intercom
+import AuthenticationServices
+import JWTDecode
 
 
 class MainRegisterViewController: UIViewController {
@@ -32,65 +34,65 @@ class MainRegisterViewController: UIViewController {
     @IBOutlet weak var registerBtn : UIButton!
     @IBOutlet weak var containerViewHeight : NSLayoutConstraint!
     var fbLoginManager : LoginManager!
-     private var state: State = .loading {
-              didSet {
-                  switch state {
-                  case .ready:
-                      KVNProgress.dismiss()
-                  case .loading:
-                        KVNProgress.show()
-                  case .error(let error):
-                      KVNProgress.dismiss()
-                      self.showMessage(error)
-                  }
-              }
-          }
-       
+    private var state: State = .loading {
+        didSet {
+            switch state {
+            case .ready:
+                KVNProgress.dismiss()
+            case .loading:
+                KVNProgress.show()
+            case .error(let error):
+                KVNProgress.dismiss()
+                self.showMessage(error)
+            }
+        }
+    }
     
-      lazy var registerVC : UIViewController = {
+    
+    lazy var registerVC : UIViewController = {
         let vc = RegisterRouter.createModule()
-            return vc
-        }()
-           
-      lazy var signInVC : UIViewController = {
-        let vc = LogInRouter.createModule()
-            return vc
-        }()
+        return vc
+    }()
     
-       lazy var deliverySignInVC : UIViewController = {
+    lazy var signInVC : UIViewController = {
+        let vc = LogInRouter.createModule()
+        return vc
+    }()
+    
+    lazy var deliverySignInVC : UIViewController = {
         let vc = LoginDeliveryViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
         return vc
-       }()
+    }()
     
     lazy var deliveryRegisterFirstStepVC : UIViewController = {
-           let vc = DeliveryRegisterFirstStepVC.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
-           vc.loadCitizenshipData()
-           vc.onFormCompleted = { (registerRequest) in
+        let vc = DeliveryRegisterFirstStepVC.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        vc.loadCitizenshipData()
+        vc.onFormCompleted = { (registerRequest) in
             self.deliveryManRequest = registerRequest
             self.openDeliveryRegisterSecondStepVC()
-    
-         }
-           return vc
-      }()
+            
+        }
+        return vc
+    }()
     
     lazy var deliveryRegisterSecondStepVC : UIViewController = {
-             let vc = DeliveryRegisterSecondStepVC.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
-                vc.registerRequest = deliveryManRequest
-             vc.onFormCompleted = { (registerRequest) in
-                 self.deliveryManRequest = registerRequest
-                 self.openDeliveryRegisterThirdStepVC()
-              }
+        let vc = DeliveryRegisterSecondStepVC.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        vc.registerRequest = deliveryManRequest
+        vc.onFormCompleted = { (registerRequest) in
+            self.deliveryManRequest = registerRequest
+            self.openDeliveryRegisterThirdStepVC()
+        }
         
-            return vc
-        }()
+        return vc
+    }()
     
     lazy var deliveryRegisterThirdStepVC : UIViewController = {
-                let vc = DeliveryRegisterThirdStepVC.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
-                vc.registerRequest = deliveryManRequest
-               return vc
-           }()
- 
-   
+        let vc = DeliveryRegisterThirdStepVC.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
+        vc.registerRequest = deliveryManRequest
+        return vc
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupObservers()
@@ -107,148 +109,163 @@ class MainRegisterViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-          super.viewWillLayoutSubviews()
-          containerView.clipsToBounds = true
-          containerView.layer.cornerRadius = 70
-          containerView.layer.maskedCorners = [.layerMaxXMinYCorner]
-      }
+        super.viewWillLayoutSubviews()
+        containerView.clipsToBounds = true
+        containerView.layer.cornerRadius = 70
+        containerView.layer.maskedCorners = [.layerMaxXMinYCorner]
+    }
     
     func setupObservers() {
-           fbLoginManager = LoginManager()
-           GIDSignIn.sharedInstance().presentingViewController = self
-           GIDSignIn.sharedInstance().delegate = self
-           NotificationCenter.default.addObserver(self, selector: #selector(loginWithFaceBook), name: NSNotification.Name(rawValue: Constants.FACEBOOK_NOTIFICATION), object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(loginWithGoogle), name: NSNotification.Name(rawValue: Constants.GOOGLE_NOTIFICATION), object: nil)
-           NotificationCenter.default.addObserver(self, selector: #selector(loginWithTwitter), name: NSNotification.Name(rawValue: Constants.TWITTER_NOTIFICATION), object: nil)
-           
-       }
-       
-       
-       
-       @objc func loginWithFaceBook(){
-           if AccessToken.current != nil {
-                       // send it
-                       
-                       fbLoginManager.logOut()
-                   }else{
-                       fbLoginManager.logIn(permissions: ["public_profile" , "email"], from: self) { (result, error) in
-                           
-                           if error == nil{
-                               if result?.token != nil {
-                                   // send token
-                                  // print(result?.token?.userID)
-                                //   self.presenter?.facebookID = result?.token?.userID ?? ""
-                                  // self.socialLogin(token: (result?.token?.tokenString)!, secret: "" , type: socialLoginType.facebook.rawValue)
-                                
-                                self.presenter?.loginWithFacebook(token: (result?.token?.tokenString)!)
-                               }
-                           }else{
-                               self.showMessage((error?.localizedDescription) ?? "")
-                           }
-                       }
-                   }
-           
-       }
-       
-       @objc func loginWithGoogle(){
-             GIDSignIn.sharedInstance().signIn()
-
-         }
-       
-       @objc func loginWithTwitter(){
-
-               TWTRTwitter.sharedInstance().logIn { (session, error) in
-
-                             if (error != nil) {
-                                 
-                                 
-                 //                print("Twitter authentication failed  : ","\(error.debugDescription)")
-                             }else {
-                                 guard let token = session?.authToken else {return}
-                                 guard let secret = session?.authTokenSecret else {return}
-                                
-                               //  self.socialLogin(token: token,secret:  secret, type: socialLoginType.twitter.rawValue)
-                         }
-                     }
-           }
+        fbLoginManager = LoginManager()
+        GIDSignIn.sharedInstance().presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(loginWithFaceBook), name: NSNotification.Name(rawValue: Constants.FACEBOOK_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loginWithGoogle), name: NSNotification.Name(rawValue: Constants.GOOGLE_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loginWithTwitter), name: NSNotification.Name(rawValue: Constants.TWITTER_NOTIFICATION), object: nil)
+        
+    }
+    
+    
+    @objc func loginWithFaceBook(){
+        if AccessToken.current != nil {
+            // send it
+            
+            fbLoginManager.logOut()
+        }else{
+            fbLoginManager.logIn(permissions: ["public_profile" , "email"], from: self) { (result, error) in
+                
+                if error == nil{
+                    if result?.token != nil {
+                        // send token
+                        // print(result?.token?.userID)
+                        //   self.presenter?.facebookID = result?.token?.userID ?? ""
+                        // self.socialLogin(token: (result?.token?.tokenString)!, secret: "" , type: socialLoginType.facebook.rawValue)
+                        
+                        self.presenter?.loginWithFacebook(token: (result?.token?.tokenString)!)
+                    }
+                }else{
+                    self.showMessage((error?.localizedDescription) ?? "")
+                }
+            }
+        }
+        
+    }
+    
+    @objc func loginWithGoogle(){
+        GIDSignIn.sharedInstance().signIn()
+        
+    }
+    
+    @objc func loginWithTwitter(){
+        
+        handleAppleIdRequest()
+        
+        //               TWTRTwitter.sharedInstance().logIn { (session, error) in
+        //
+        //                             if (error != nil) {
+        //
+        //
+        //                 //                print("Twitter authentication failed  : ","\(error.debugDescription)")
+        //                             }else {
+        //                                 guard let token = session?.authToken else {return}
+        //                                 guard let secret = session?.authTokenSecret else {return}
+        //
+        //                               //  self.socialLogin(token: token,secret:  secret, type: socialLoginType.twitter.rawValue)
+        //                         }
+        //                     }
+    }
+    
+    
+    func handleAppleIdRequest() {
+        if #available(iOS 13.0, *) {
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            let request = appleIDProvider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.performRequests()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
     
     @IBAction func skipPressed(_ sender : Any){
         Utils.openHomeScreen()
-   }
-       
+    }
+    
     
     func  openDeliveryRegisterSecondStepVC(){
-          scrollView.setContentOffset(.zero, animated: false)
-          containerViewHeight.constant = 800
-          remove(childViewContoller: deliveryRegisterFirstStepVC)
-          add(childViewContoller:  deliveryRegisterSecondStepVC)
-          
+        scrollView.setContentOffset(.zero, animated: false)
+        containerViewHeight.constant = 800
+        remove(childViewContoller: deliveryRegisterFirstStepVC)
+        add(childViewContoller:  deliveryRegisterSecondStepVC)
+        
     }
     
     
     func  openDeliveryRegisterThirdStepVC(){
-            scrollView.setContentOffset(.zero, animated: false)
-            containerViewHeight.constant = 700
-            remove(childViewContoller: deliveryRegisterSecondStepVC)
-            add(childViewContoller:  deliveryRegisterThirdStepVC)
-            
-      }
+        scrollView.setContentOffset(.zero, animated: false)
+        containerViewHeight.constant = 700
+        remove(childViewContoller: deliveryRegisterSecondStepVC)
+        add(childViewContoller:  deliveryRegisterThirdStepVC)
+        
+    }
     
-       @IBAction func registerPressed(_ sender: Any) {
+    @IBAction func registerPressed(_ sender: Any) {
         
         if isDeliveryMan {
-          deliveryManRequest = DeliveryManRegisterRequest()
-          add(childViewContoller:  deliveryRegisterFirstStepVC)
-          remove(childViewContoller: deliverySignInVC)
-          containerViewHeight.constant = 1100
+            deliveryManRequest = DeliveryManRegisterRequest()
+            add(childViewContoller:  deliveryRegisterFirstStepVC)
+            remove(childViewContoller: deliverySignInVC)
+            containerViewHeight.constant = 1100
         }else{
             add(childViewContoller: registerVC)
             remove(childViewContoller: signInVC)
             containerViewHeight.constant = 700
         }
         
-           registerBtn.backgroundColor = UIColor.white
-           signInBtn.backgroundColor = UIColor.clear
-           registerBtn.setTitleColor(UIColor.init(codeString: "0E518A"), for: .normal)
-           signInBtn.setTitleColor(UIColor.init(codeString: "ffffff", alpha: 0.3), for: .normal)
+        registerBtn.backgroundColor = UIColor.white
+        signInBtn.backgroundColor = UIColor.clear
+        registerBtn.setTitleColor(UIColor.init(codeString: "0E518A"), for: .normal)
+        signInBtn.setTitleColor(UIColor.init(codeString: "ffffff", alpha: 0.3), for: .normal)
         
-       }
-       
-       @IBAction func singInPressed(_ sender: Any) {
+    }
+    
+    @IBAction func singInPressed(_ sender: Any) {
         
         if isDeliveryMan {
             add(childViewContoller: deliverySignInVC)
             remove(childViewContoller: deliveryRegisterFirstStepVC)
         }else{
-          add(childViewContoller: signInVC)
-          remove(childViewContoller: registerVC)
+            add(childViewContoller: signInVC)
+            remove(childViewContoller: registerVC)
         }
         
-           signInBtn.backgroundColor = UIColor.white
-           registerBtn.backgroundColor = UIColor.clear
-           signInBtn.setTitleColor(UIColor.init(codeString: "0E518A"), for: .normal)
-           registerBtn.setTitleColor(UIColor.init(codeString: "ffffff", alpha: 0.3), for: .normal)
-           containerViewHeight.constant = 540
-       }
+        signInBtn.backgroundColor = UIColor.white
+        registerBtn.backgroundColor = UIColor.clear
+        signInBtn.setTitleColor(UIColor.init(codeString: "0E518A"), for: .normal)
+        registerBtn.setTitleColor(UIColor.init(codeString: "ffffff", alpha: 0.3), for: .normal)
+        containerViewHeight.constant = 540
+    }
     
     @IBAction func openWelcomeScreen(_ sender : UIButton) {
-       Utils.openWelcomeScreen()
+        Utils.openWelcomeScreen()
     }
-       
-        private func add(childViewContoller : UIViewController){
-            addChild(childViewContoller)
-            self.containerView.addSubview(childViewContoller.view)
-            childViewContoller.view.frame = containerView.bounds
-            childViewContoller.view.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-            childViewContoller.didMove(toParent: self)
-        }
-        
-        private func remove(childViewContoller : UIViewController){
-            childViewContoller.willMove(toParent: nil)
-            childViewContoller.view.removeFromSuperview()
-            childViewContoller.removeFromParent()
-        }
-      
+    
+    private func add(childViewContoller : UIViewController){
+        addChild(childViewContoller)
+        self.containerView.addSubview(childViewContoller.view)
+        childViewContoller.view.frame = containerView.bounds
+        childViewContoller.view.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        childViewContoller.didMove(toParent: self)
+    }
+    
+    private func remove(childViewContoller : UIViewController){
+        childViewContoller.willMove(toParent: nil)
+        childViewContoller.view.removeFromSuperview()
+        childViewContoller.removeFromParent()
+    }
+    
     
     
 }
@@ -258,10 +275,10 @@ extension MainRegisterViewController : PresenterToViewMainRegisterProtocol {
     }
     
     
-
+    
 }
 extension MainRegisterViewController : GIDSignInDelegate{
-
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if let error = error {
@@ -276,4 +293,30 @@ extension MainRegisterViewController : GIDSignInDelegate{
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         
     }
+}
+extension MainRegisterViewController : ASAuthorizationControllerDelegate {
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    
+        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
+            let userIdentifier = appleIDCredential.user
+            let identityToken = appleIDCredential.identityToken!
+            
+            let jwt = try! decode(jwt: String(data: identityToken, encoding: .utf8) ?? "")
+            let email = jwt.body["email"] as? String ?? ""
+            let givenName = appleIDCredential.fullName?.givenName ?? ""
+            let familyName = appleIDCredential.fullName?.familyName ?? ""
+            let fullName = givenName + " " + familyName
+            self.presenter?.loginWithApple(name: fullName, email: email)
+
+        }
+        
+    }
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        self.showMessage(error.localizedDescription)
+    }
+    
 }

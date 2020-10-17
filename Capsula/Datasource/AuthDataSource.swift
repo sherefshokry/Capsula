@@ -12,6 +12,7 @@ public enum AuthDataSource {
     case Register(RegisterRequest)
     case LogIn(LoginRequest)
     case LogInWithfacebook(String)
+    case LogInWithApple(String,String)
     case LogInWithTwitter(String,String)
     case LogInWithGoogle(String)
     case LogOut
@@ -33,6 +34,7 @@ extension AuthDataSource : TargetType {
         case .LogInWithGoogle(_): return "/Google"
         case .LogOut: return "/Logout"
         case .refreshDevice: return "/RefreshDevice"
+        case .LogInWithApple(_,_): return "/Apple"
         }
     }
     
@@ -45,6 +47,7 @@ extension AuthDataSource : TargetType {
         case .LogInWithGoogle(_): return .post
         case .LogOut: return .get
         case .refreshDevice: return .post
+        case .LogInWithApple: return .post
         }
     }
     
@@ -77,12 +80,14 @@ extension AuthDataSource : TargetType {
         case .refreshDevice:
             var params = [String : Any]()
             let defaults = UserDefaults.standard
-            
             params["token"] = defaults.string(forKey: "device_token") ?? ""
             params["deviceType"] = 2
             params["language"] = LocalizationSystem.sharedInstance.getLanguage()
-            
-            
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+         case .LogInWithApple(let name,let email):
+            var params = [String : Any]()
+            params["name"] = name
+            params["email"] = email
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }

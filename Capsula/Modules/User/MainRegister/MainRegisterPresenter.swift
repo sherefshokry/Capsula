@@ -11,6 +11,7 @@
 import Foundation
 
 class MainRegisterPresenter : ViewToPresenterMainRegisterProtocol{
+  
     
     
     var view: PresenterToViewMainRegisterProtocol?
@@ -31,6 +32,12 @@ class MainRegisterPresenter : ViewToPresenterMainRegisterProtocol{
         self.view?.changeState(state: .loading)
         self.interactor?.loginWithTwitter(token : token, secretKey: secretKey)
     }
+    
+    func loginWithApple(name: String, email: String) {
+           self.view?.changeState(state: .loading)
+           self.interactor?.loginWithApple(name: name, email: email)
+      }
+      
     
 }
 

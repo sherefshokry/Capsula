@@ -42,6 +42,7 @@ target 'Capsula' do
    pod 'FBSDKCoreKit'
    pod 'FBSDKLoginKit'
    pod 'FBSDKShareKit'
-   pod 'Cosmos'  
+   pod 'Cosmos'
+   pod 'JWTDecode', '~> 2.4'
    
 end

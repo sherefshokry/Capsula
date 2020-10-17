@@ -19,6 +19,7 @@ protocol ViewToPresenterMainRegisterProtocol: class {
     func loginWithFacebook(token : String)
     func loginWithGoogle(token : String)
     func loginWithTwitter(token : String, secretKey : String)
+    func loginWithApple(name: String, email : String) 
 
 }
 
@@ -31,6 +32,7 @@ protocol PresenterToIntetractorMainRegisterProtocol: class {
     func loginWithFacebook(token : String)
     func loginWithGoogle(token : String)
     func loginWithTwitter(token : String, secretKey : String)
+    func loginWithApple(name: String, email : String) 
 
 }
 

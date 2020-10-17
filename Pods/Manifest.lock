@@ -154,6 +154,7 @@ PODS:
     - GTMSessionFetcher/Core (= 1.4.0)
   - Intercom (5.0.4)
   - IQKeyboardManagerSwift (6.5.5)
+  - JWTDecode (2.5.0)
   - KVNProgress (2.3.5)
   - Lockbox (3.0.6)
   - Mantle (2.1.1):
@@ -211,6 +212,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - Intercom (~> 5.0.0)
   - IQKeyboardManagerSwift
+  - JWTDecode (~> 2.4)
   - KVNProgress
   - Lockbox
   - Mantle
@@ -264,6 +266,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Intercom
     - IQKeyboardManagerSwift
+    - JWTDecode
     - KVNProgress
     - Lockbox
     - Mantle
@@ -330,6 +333,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   Intercom: 52b7523157c0c6b631c0b7adc4d8b2fe3e444ea2
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  JWTDecode: d4c176a28a29f7e6f9abf5c90ad3002f69b98c7c
   KVNProgress: d7046cce142f1aeb740db39dc3cacfe910fac354
   Lockbox: 4291a0b8b1aed35474881c4e592961dec3ca695e
   Mantle: 35238ae6f2e2b2d474fa7b67fee82a59fea71915
@@ -351,6 +355,6 @@ SPEC CHECKSUMS:
   ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 5186f4fc00c6ff53eac022cf6d88ef82a1532b05
+PODFILE CHECKSUM: 177edaa75494271d8454e17b44f8385e3f6f508e
 
 COCOAPODS: 1.9.3

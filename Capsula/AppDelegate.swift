@@ -188,20 +188,20 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
           let productData =  userInfo["product"] as? String ?? ""
           let productDetailsDic = try JSONSerialization.jsonObject(with:
             productData.data(using: .utf8)!, options: []) as? [String:Any] ?? [String:Any]()
-            productItem.imagePath = productDetailsDic["ImagePath"] as? String ?? ""
-            productItem.price = productDetailsDic["Price"] as? Double ?? 0.0
-            productItem.isTreatment = productDetailsDic["IsTreatment"] as? Bool ?? false
+            productItem.imagePath = productDetailsDic["imagePath"] as? String ?? ""
+            productItem.price = productDetailsDic["price"] as? Double ?? 0.0
+            productItem.isTreatment = productDetailsDic["isTreatment"] as? Bool ?? false
             productItem.itemQuantity = 1
-            productItem.mainId = productDetailsDic["MainId"] as? Int ?? 0
-            productItem.offerDesc = productDetailsDic["OfferDesc"] as? String ?? ""
-            productItem.offerType = productDetailsDic["OfferType"] as? Int ?? 0
-            productItem.priceInOffer = productDetailsDic["PriceInOffer"] as? Double ?? 0.0
-            productItem.productDesc = productDetailsDic["ProductDesc"] as? String ?? ""
-            productItem.productId = productDetailsDic["ProductId"] as? Int ?? 0
-            productItem.productName = productDetailsDic["ProductName"] as? String ?? ""
-            productItem.storeId = productDetailsDic["StoreId"] as? Int ?? 0
-            productItem.storeName = productDetailsDic["StoreName"] as? String ?? ""
-            productItem.vat = productDetailsDic["Vat"] as? Int ?? 0
+            productItem.mainId = productDetailsDic["mainId"] as? Int ?? 0
+            productItem.offerDesc = productDetailsDic["offerDesc"] as? String ?? ""
+            productItem.offerType = productDetailsDic["offerType"] as? Int ?? 0
+            productItem.priceInOffer = productDetailsDic["priceInOffer"] as? Double ?? 0.0
+            productItem.productDesc = productDetailsDic["productDesc"] as? String ?? ""
+            productItem.productId = productDetailsDic["productId"] as? Int ?? 0
+            productItem.productName = productDetailsDic["productName"] as? String ?? ""
+            productItem.storeId = productDetailsDic["storeId"] as? Int ?? 0
+            productItem.storeName = productDetailsDic["storeName"] as? String ?? ""
+            productItem.vat = productDetailsDic["vat"] as? Int ?? 0
         }catch {
            print(error)
         }
