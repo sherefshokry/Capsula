@@ -171,7 +171,10 @@ class CartDetailsViewController: ImagePickerViewController {
             self.selectedPaymentMethod = paymentType
             if paymentType == 1 {
                 self.selectedPaymentMethodLabel.text = Strings.shared.cash
-            }else if paymentType == 5 {
+            }else if paymentType == 2 {
+               self.selectedPaymentMethodLabel.text = Strings.shared.applePay
+            }
+            else if paymentType == 5 {
                 self.selectedPaymentMethodLabel.text = Strings.shared.madaPay
             }else if paymentType == 4 {
                 self.selectedPaymentMethodLabel.text = Strings.shared.creditCard
@@ -216,11 +219,9 @@ class CartDetailsViewController: ImagePickerViewController {
                 self.showMessage(Strings.shared.paymentMethodSelection)
             }else{
                 if totalCost > 500.0 && selectedPaymentMethod == 1 {
-                    
-                    
                     self.showMessage(Strings.shared.cashPayment)
                 }else{
-                    if selectedPaymentMethod == 5 || selectedPaymentMethod == 4 {
+                    if selectedPaymentMethod == 5 || selectedPaymentMethod == 2 || selectedPaymentMethod == 4 {
                         self.presenter?.prepareCheckout(paymentMethod: selectedPaymentMethod)
                     }else{
                         self.presenter?.checkout()

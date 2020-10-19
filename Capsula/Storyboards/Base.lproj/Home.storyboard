@@ -953,7 +953,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGE-4b-4RD">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGE-4b-4RD">
                                                         <rect key="frame" x="0.0" y="29" width="267.5" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="textColor" red="0.25490196078431371" green="0.72549019607843135" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -1476,7 +1476,7 @@ Vanilla &amp; Almond Oil</string>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wev-wM-Hed">
-                                        <rect key="frame" x="164" y="-10" width="149" height="108"/>
+                                        <rect key="frame" x="164" y="-10" width="148" height="108"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ani-YR-Mea">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1485,16 +1485,16 @@ Vanilla &amp; Almond Oil</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ssk-d7-oPv">
-                                                <rect key="frame" x="0.0" y="58" width="149" height="50"/>
+                                                <rect key="frame" x="0.0" y="58" width="148" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total RSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0H-pA-qBF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="50"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0H-pA-qBF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1U-kc-f8N">
-                                                        <rect key="frame" x="99" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="98" y="0.0" width="50" height="50"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1966,8 +1966,8 @@ Vanilla &amp; Almond Oil</string>
                                                 <color key="textColor" red="0.21568627450980393" green="0.71372549019607845" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEQ-jO-Hrr">
-                                                <rect key="frame" x="186" y="78" width="28" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEQ-jO-Hrr">
+                                                <rect key="frame" x="186" y="78" width="27.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2769,14 +2769,14 @@ Vanilla &amp; Almond Oil</string>
                                         <rect key="frame" x="110" y="34" width="100" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="550" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BuO-gM-NoN">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-5F-2wO">
-                                                <rect key="frame" x="68" y="0.0" width="32" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-5F-2wO">
+                                                <rect key="frame" x="68.5" y="0.0" width="31.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2949,7 +2949,7 @@ Vanilla &amp; Almond Oil</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3sm-Ei-50h">
-                                <rect key="frame" x="22" y="89.5" width="276" height="167"/>
+                                <rect key="frame" x="22" y="89.5" width="276" height="228"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QW-Vk-oPU">
                                         <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
@@ -3119,8 +3119,8 @@ Vanilla &amp; Almond Oil</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gQ-V1-oEz">
-                                        <rect key="frame" x="0.0" y="167" width="276" height="45"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gQ-V1-oEz">
+                                        <rect key="frame" x="0.0" y="183" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUa-uT-OUo">
                                                 <rect key="frame" x="54" y="14" width="64.5" height="17"/>
@@ -3137,6 +3137,9 @@ Vanilla &amp; Almond Oil</string>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ez-1z-n5Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="276" height="45"/>
+                                                <connections>
+                                                    <action selector="applePressed:" destination="Q8C-g9-ArS" eventType="touchUpInside" id="HEq-cS-1xq"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icApplePay" translatesAutoresizingMaskIntoConstraints="NO" id="flg-24-efx">
                                                 <rect key="frame" x="16" y="7.5" width="30" height="30"/>
@@ -3173,7 +3176,7 @@ Vanilla &amp; Almond Oil</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-GS-fYm">
-                                        <rect key="frame" x="0.0" y="167" width="276" height="45"/>
+                                        <rect key="frame" x="0.0" y="228" width="276" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STC Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKz-Fg-cFx">
                                                 <rect key="frame" x="54" y="14" width="54" height="17"/>
@@ -3228,7 +3231,7 @@ Vanilla &amp; Almond Oil</string>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW0-gh-zBc">
-                                <rect key="frame" x="60" y="272.5" width="200" height="55"/>
+                                <rect key="frame" x="60" y="333.5" width="200" height="55"/>
                                 <color key="backgroundColor" red="0.054901960780000002" green="0.31764705879999999" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="c6X-lp-LNH"/>
@@ -3261,6 +3264,7 @@ Vanilla &amp; Almond Oil</string>
                         <viewLayoutGuide key="safeArea" id="odE-W5-bV2"/>
                     </view>
                     <connections>
+                        <outlet property="appleSelectedIcon" destination="N9h-dy-3bJ" id="iGg-IM-d5H"/>
                         <outlet property="cashSelectedIcon" destination="7s2-cL-spY" id="BV7-Ug-Jgf"/>
                         <outlet property="madaSelectedIcon" destination="kkh-O2-Yi2" id="qGB-d6-Ca0"/>
                         <outlet property="topView" destination="2u4-0d-3QV" id="9NF-HR-Ox1"/>
@@ -4034,14 +4038,14 @@ Vanilla &amp; Almond Oil</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwo-rL-8Sk" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="36.5" width="276" height="165"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJg-xK-MjN">
-                                                                <rect key="frame" x="150" y="49" width="32" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJg-xK-MjN">
+                                                                <rect key="frame" x="150" y="49" width="27.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dr-Ma-o56">
-                                                                <rect key="frame" x="150" y="78" width="32" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dr-Ma-o56">
+                                                                <rect key="frame" x="150" y="78" width="31" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -4084,8 +4088,8 @@ Vanilla &amp; Almond Oil</string>
                                                                     <constraint firstAttribute="width" constant="120" id="Ora-Sd-FKX"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-hR-gUn">
-                                                                <rect key="frame" x="150" y="137" width="35" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-hR-gUn">
+                                                                <rect key="frame" x="150" y="137" width="34.5" height="18"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -4099,8 +4103,8 @@ Vanilla &amp; Almond Oil</string>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBD-nv-lnG">
-                                                                <rect key="frame" x="150" y="107" width="31.5" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBD-nv-lnG">
+                                                                <rect key="frame" x="150" y="107" width="31" height="18"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -5364,14 +5368,14 @@ Vanilla &amp; Almond Oil</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41e-Go-iZP" customClass="AllSidsCardView" customModule="Capsula" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="36.5" width="276" height="147"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-gT-zdX">
-                                                                <rect key="frame" x="150" y="50" width="32" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-gT-zdX">
+                                                                <rect key="frame" x="150" y="50" width="31" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-9w-cdv">
-                                                                <rect key="frame" x="150" y="80" width="32" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-9w-cdv">
+                                                                <rect key="frame" x="150" y="80" width="31" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -5408,8 +5412,8 @@ Vanilla &amp; Almond Oil</string>
                                                                     <constraint firstAttribute="width" constant="120" id="meH-VX-vvg"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-GW-KPC">
-                                                                <rect key="frame" x="150" y="110" width="35" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-GW-KPC">
+                                                                <rect key="frame" x="150" y="110" width="34.5" height="18"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <color key="textColor" red="0.2156862745" green="0.71372549019999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>

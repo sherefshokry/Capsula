@@ -81,6 +81,8 @@ class CartDetailsInteractor : PresenterToIntetractorCartDetailsProtocol {
                              self.presenter?.checkoutFailed(error: catchError.localizedDescription)
                          }
                      case .failure(let error):
+                        
+                        
                          do{
                              if let body = try error.response?.mapJSON(){
                                  let errorData = (body as! [String:Any])

@@ -138,6 +138,8 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
             checkoutSettings.paymentBrands = ["VISA", "MASTER"]
         }else if paymentMethod == 5 {
             checkoutSettings.paymentBrands = ["MADA"]
+        }else if paymentMethod == 2 {
+             checkoutSettings.paymentBrands = ["APPLEPAY"]
         }
         checkoutSettings.storePaymentDetails = .always
         checkoutSettings.theme.confirmationButtonColor = UIColor.init(codeString: "#0E518A")

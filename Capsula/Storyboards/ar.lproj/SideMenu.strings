@@ -57,7 +57,7 @@
 "LSP-sr-Tq2.normalTitle" = "اضافة";
 
 /* Class = "UILabel"; text = "National ID"; ObjectID = "Lgu-Cj-GOu"; */
-"Lgu-Cj-GOu.text" = "الرقم القومي";
+"Lgu-Cj-GOu.text" = "رقم الهوية / رقم الإقامة";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Mwp-5S-su9"; */
 "Mwp-5S-su9.normalTitle" = "التالي";

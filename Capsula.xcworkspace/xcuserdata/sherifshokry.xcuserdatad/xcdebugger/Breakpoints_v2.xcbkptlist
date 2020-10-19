@@ -14,8 +14,8 @@
             filePath = "Capsula/Modules/SideMenu/ManagePaymentMethodVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "didReceiveAsynchronousPaymentCallback()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Capsula/Modules/SideMenu/ManagePaymentMethodVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "didReceiveAsynchronousPaymentCallback()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Capsula/Modules/SideMenu/ManagePaymentMethodVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "didReceiveAsynchronousPaymentCallback()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Capsula/Modules/SideMenu/ManagePaymentMethodVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "didReceiveAsynchronousPaymentCallback()"
             landmarkType = "7">
          </BreakpointContent>
@@ -96,7 +96,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "389">
+                  offsetFromSymbolStart = "324">
                </Location>
                <Location
                   uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
@@ -111,7 +111,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "521">
+                  offsetFromSymbolStart = "412">
                </Location>
                <Location
                   uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
@@ -126,7 +126,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "2611">
+                  offsetFromSymbolStart = "2020">
                </Location>
                <Location
                   uuid = "9825632F-F65F-4846-A81C-E57598931D38 - 4d71653327f5c7a3"
@@ -141,7 +141,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "5052">
+                  offsetFromSymbolStart = "3796">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -174,7 +174,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "389">
+                  offsetFromSymbolStart = "324">
                </Location>
                <Location
                   uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
@@ -189,7 +189,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "521">
+                  offsetFromSymbolStart = "412">
                </Location>
                <Location
                   uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
@@ -204,7 +204,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "2611">
+                  offsetFromSymbolStart = "2020">
                </Location>
                <Location
                   uuid = "0117B294-3D71-4726-B80C-77D512B82735 - 4d71653327f5c7a3"
@@ -219,7 +219,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "226"
                   endingLineNumber = "226"
-                  offsetFromSymbolStart = "5052">
+                  offsetFromSymbolStart = "3796">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -237,6 +237,22 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "addItemToCart()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C1C4E9B-68F3-4C84-88CD-A6A37531DC17"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capsula/Modules/Home/Cart/MainCart/MainCartViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "openPaymentScreen(checkoutID:paymentMethod:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

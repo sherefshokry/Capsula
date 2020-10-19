@@ -6,7 +6,7 @@
 "5or-12-hSc.text" = "الوثائق المطلوبة";
 
 /* Class = "UILabel"; text = "National ID"; ObjectID = "FoL-1T-UzR"; */
-"FoL-1T-UzR.text" = "الرقم القومي";
+"FoL-1T-UzR.text" = "رقم الهوية / رقم الإقامة";
 
 /* Class = "UILabel"; text = "Car Licence"; ObjectID = "Krk-rc-7Ec"; */
 "Krk-rc-7Ec.text" = "رخصة السيارة";

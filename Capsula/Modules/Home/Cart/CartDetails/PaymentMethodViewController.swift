@@ -16,7 +16,7 @@ class PaymentMethodViewController : UIViewController{
     @IBOutlet weak var cashSelectedIcon : UIImageView!
     @IBOutlet weak var visaSelectedIcon : UIImageView!
     @IBOutlet weak var madaSelectedIcon : UIImageView!
-    
+    @IBOutlet weak var appleSelectedIcon : UIImageView!
     
     
     override func viewDidLoad() {
@@ -27,6 +27,8 @@ class PaymentMethodViewController : UIViewController{
             maddaPressed(UIButton())
         }else if paymentType == 4 {
             visaPressed(UIButton())
+        }else if paymentType == 2 {
+            applePressed(UIButton())
         }
         
     }
@@ -41,6 +43,7 @@ class PaymentMethodViewController : UIViewController{
     @IBAction func cashPressed(_ sender : UIButton){
         cashSelectedIcon.image = #imageLiteral(resourceName: "timeline")
         madaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+        appleSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         visaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         paymentType = 1
     }
@@ -49,6 +52,7 @@ class PaymentMethodViewController : UIViewController{
     @IBAction func maddaPressed(_ sender : UIButton){
         cashSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         madaSelectedIcon.image = #imageLiteral(resourceName: "timeline")
+         appleSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         visaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         paymentType = 5
     }
@@ -56,9 +60,18 @@ class PaymentMethodViewController : UIViewController{
     @IBAction func visaPressed(_ sender : UIButton){
         cashSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         madaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+          appleSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         visaSelectedIcon.image = #imageLiteral(resourceName: "timeline")
         paymentType = 4
     }
+    
+    @IBAction func applePressed(_ sender : UIButton){
+             cashSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+             madaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+             visaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+             appleSelectedIcon.image = #imageLiteral(resourceName: "timeline")
+             paymentType = 2
+       }
     
     
     @IBAction func applyPaymentMethodPressed(_ sender : UIButton){

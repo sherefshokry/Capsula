@@ -115,12 +115,10 @@ class SearchItemViewController: UIViewController {
         }
         }
 
-        
       @objc func recieveCartNotification(_ notification: NSNotification){
             updateCartView()
         }
-        
-        
+    
           func updateCartView(){
               let cartItems = Utils.loadLocalCart() ?? []
               if (cartItems.count > 0){

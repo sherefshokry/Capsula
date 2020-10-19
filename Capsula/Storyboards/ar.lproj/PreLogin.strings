@@ -99,7 +99,7 @@
 "jZE-kl-IbR.normalTitle" = "التالي";
 
 /* Class = "UILabel"; text = "National ID"; ObjectID = "kV6-lV-XZy"; */
-"kV6-lV-XZy.text" = "الرقم القومي";
+"kV6-lV-XZy.text" = "رقم الهوية / رقم الإقامة";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "lce-in-DKf"; */
 "lce-in-DKf.text" = "Label";

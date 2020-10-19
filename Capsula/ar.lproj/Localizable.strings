@@ -6,12 +6,12 @@
  Copyright © 2019 BlueCrunch. All rights reserved.
  */
 "Hello" = "مرحباً";
-"Total cost is greater than 500 RSD, so you have to proceed with online payment" = "تكلفة طلبك اعلي من 500 ريال سعودي، ياليت تختار احد وسائل الدفع الالكتروني";
+"Total cost is greater than 500 SAR, so you have to proceed with online payment" = "تكلفة طلبك اعلي من 500 ريال سعودي، ياليت تختار احد وسائل الدفع الالكتروني";
 "Please agree on terms and conditions) (please Pick this photo" =   "فضلا وافق علي الشروط والاحكام";
 "Was" = "كان";
 "Skipped" = "تم تخطية";
 "Avilable at " = "متاح لدي ";
-"RSD" = "ريال";
+"SAR" = "ريال";
 "VAT" = "ضريبة القيمة المضافة";
 "Free Dlivery" = "توصيل مجاني";
 "Offer" = "عرض";
@@ -40,13 +40,13 @@
 "Google Pay" = "جوجل باي";
 "Please login first" = "من فضلك سجل دخول اولا";
 "Citizenship" = "الجنسية";
-"National ID" = "الرقم القومي";
+"National ID" = "رقم الهوية / رقم الإقامة";
 "Bank Account (optional)" = "رقم حسابك البنكي (إختياري)";
 "Full Address" = "عنوانك";
 "required field" = "حقل مطلوب";
 "Terms & conditions" = "الشروط والاحكام";
 "Select your nationality" = "اختر جنسيتك";
-"please enter a valid national id" = "الرجاء ادخال الرقم القومي بشكل صحيح";
+"please enter a valid national id" = "الرجاء ادخال رقم الهوية / رقم الإقامة بشكل صحيح";
 "Car Brand" = "الشركة المصنعة للسيارة";
 "Car Model" = "موديل السيارة";
 "Model Year" = "سنة الصنع";
@@ -82,7 +82,7 @@
 "See All" = "رؤية الكل";
 "Stores" = "المتاجر";
 "Categories" = "التصنيفات";
-" RSD" =  " ريال";
+" SAR" =  " ريال";
 "Clear" = "مسح";
 "password and confirm password are not matched" = "كلمة المرور وتأكيد كلمة المرور غير متشابهين";
 "New Password *" = "كلمة المرور الجديدة *";

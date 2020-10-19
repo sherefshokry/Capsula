@@ -25,7 +25,7 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
     var paymentType = -1
     @IBOutlet weak var visaSelectedIcon : UIImageView!
     @IBOutlet weak var madaSelectedIcon : UIImageView!
-    
+    @IBOutlet weak var appleSelectedIcon : UIImageView!
     
     
     override func viewDidLoad() {
@@ -34,6 +34,8 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
             maddaPressed(UIButton())
         }else if paymentType == 4 {
             visaPressed(UIButton())
+        }else if paymentType == 2 {
+            applePressed(UIButton())
         }
         
     }
@@ -49,15 +51,24 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
     
     @IBAction func maddaPressed(_ sender : UIButton){
         madaSelectedIcon.image = #imageLiteral(resourceName: "timeline")
+        appleSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         visaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         paymentType = 5
     }
     
     @IBAction func visaPressed(_ sender : UIButton){
         madaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+        appleSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
         visaSelectedIcon.image = #imageLiteral(resourceName: "timeline")
         paymentType = 4
     }
+    
+    @IBAction func applePressed(_ sender : UIButton){
+            madaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+            visaSelectedIcon.image = #imageLiteral(resourceName: "icNotSelected")
+            appleSelectedIcon.image = #imageLiteral(resourceName: "timeline")
+            paymentType = 2
+       }
     
     
     @IBAction func applyPaymentMethodPressed(_ sender : UIButton){
@@ -118,6 +129,8 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
             checkoutSettings.paymentBrands = ["VISA", "MASTER"]
         }else if paymentMethod == 5 {
             checkoutSettings.paymentBrands = ["MADA"]
+        }else if paymentMethod == 2 {
+            checkoutSettings.paymentBrands = ["APPLEPAY"]
         }
         checkoutSettings.storePaymentDetails = .always
         checkoutSettings.theme.confirmationButtonColor = UIColor.init(codeString: "#0E518A")

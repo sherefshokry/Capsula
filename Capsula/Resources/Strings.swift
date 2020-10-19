@@ -15,7 +15,7 @@ class Strings: Any {
     var selectLanguage = "Please select language".localize()
     var availableAt = "Avilable at ".localize()
     var was = "Was".localize()
-    var RSD = "RSD".localize()
+    var RSD = "SAR".localize()
     var VAT = "VAT".localize()
     var freeDelivery = "Free Dlivery".localize()
     var offer = "Offer".localize()
@@ -85,7 +85,7 @@ class Strings: Any {
     var arabic = "العربيه"
     var english = "English"
     var clear = "Clear".localize()
-    var rsd = " RSD".localize()
+    var rsd = " SAR".localize()
     var categories = "Categories".localize()
     var stores = "Stores".localize()
     var seeAll = "See All".localize()
