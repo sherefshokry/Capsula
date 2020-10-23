@@ -181,6 +181,7 @@ class MainRegisterViewController: UIViewController {
             let appleIDProvider = ASAuthorizationAppleIDProvider()
             let request = appleIDProvider.createRequest()
             request.requestedScopes = [.fullName, .email]
+            request.nonce = "TEST"
             let authorizationController = ASAuthorizationController(authorizationRequests: [request])
             authorizationController.delegate = self
             authorizationController.performRequests()
@@ -303,11 +304,16 @@ extension MainRegisterViewController : ASAuthorizationControllerDelegate {
             let userIdentifier = appleIDCredential.user
             let identityToken = appleIDCredential.identityToken!
             
+            let ttoken = String(data: identityToken, encoding: .utf8) ?? ""
+            
+            
             let jwt = try! decode(jwt: String(data: identityToken, encoding: .utf8) ?? "")
             let email = jwt.body["email"] as? String ?? ""
             let givenName = appleIDCredential.fullName?.givenName ?? ""
             let familyName = appleIDCredential.fullName?.familyName ?? ""
             let fullName = givenName + " " + familyName
+          
+            
             self.presenter?.loginWithApple(name: fullName, email: email)
 
         }

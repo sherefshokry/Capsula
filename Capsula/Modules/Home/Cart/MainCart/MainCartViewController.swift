@@ -14,7 +14,7 @@ import SafariServices
 
 
 
-class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
+class MainCartViewController: UIViewController, SFSafariViewControllerDelegate,OPPCheckoutProviderDelegate  {
     
     // var initialSetupViewController: PTFWInitialSetupViewController!
     var selectedPaymentMethod = -1
@@ -73,6 +73,8 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
         }
         
         vc.openPaymentScreen = { (checkoutID,paymentMethod) in
+            
+            
             self.selectedPaymentMethod = paymentMethod
             self.openPaymentScreen(checkoutID: checkoutID, paymentMethod: paymentMethod)
         }
@@ -128,7 +130,7 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
     
     func openPaymentScreen(checkoutID : String , paymentMethod : Int){
         
-        self.provider = OPPPaymentProvider(mode: OPPProviderMode.test)
+        self.provider = OPPPaymentProvider(mode: .test)
         
         let checkoutSettings = OPPCheckoutSettings()
         
@@ -139,7 +141,16 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
         }else if paymentMethod == 5 {
             checkoutSettings.paymentBrands = ["MADA"]
         }else if paymentMethod == 2 {
-             checkoutSettings.paymentBrands = ["APPLEPAY"]
+            
+            if OPPPaymentProvider.deviceSupportsApplePay(){
+                print("Support Apple pay hahah")
+            }
+      
+            let paymentRequest = OPPPaymentProvider.paymentRequest(withMerchantIdentifier: "merchant.com.BinoyedSA.Capsula", countryCode: "SA")
+            paymentRequest.supportedNetworks = [PKPaymentNetwork(rawValue: "Visa"),
+            PKPaymentNetwork(rawValue: "MasterCard")]
+            checkoutSettings.paymentBrands = ["APPLEPAY"]
+            checkoutSettings.applePayPaymentRequest = paymentRequest
         }
         checkoutSettings.storePaymentDetails = .always
         checkoutSettings.theme.confirmationButtonColor = UIColor.init(codeString: "#0E518A")
@@ -152,38 +163,83 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate {
         checkoutSettings.theme.secondaryFont = UIFont.systemFont(ofSize: 12.0)
         checkoutSettings.theme.confirmationButtonFont = UIFont.boldSystemFont(ofSize: 16)
         checkoutSettings.theme.errorFont = UIFont.systemFont(ofSize: 12.0)
-        
+
         // Set shopper result URL
         checkoutSettings.shopperResultURL = "com.BinoyedSA.Capsula.payments://result"
         
-        
+      
         let checkoutProvider = OPPCheckoutProvider(paymentProvider: provider!, checkoutID: checkoutID, settings: checkoutSettings)
         
-        // Since version 2.13.0
+        checkoutProvider!.delegate = self
+
+        
         checkoutProvider?.presentCheckout(forSubmittingTransactionCompletionHandler: { (transaction, error) in
+            
+            
+            
+            
             guard let transaction = transaction else {
                 // Handle invalid transaction, check error
+                
+                
+                
                 return
             }
-            
+
             self.transaction = transaction
-            
-            
+
+
             if transaction.type == .synchronous {
+                
+                
                 // If a transaction is synchronous, just request the payment status
                 self.requestPaymentStatus()
             } else if transaction.type == .asynchronous {
+                
+                
                 // If a transaction is asynchronous, you should open transaction.redirectUrl in a browser
                 // Subscribe to notifications to request the payment status when a shopper comes back to the app
                 NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveAsynchronousPaymentCallback), name: Notification.Name(rawValue: "AsyncPaymentCompletedNotificationKey"), object: nil)
                 self.presenterURL(url: self.transaction!.redirectURL!)
             } else {
+                
+                
                 Utils.showResult(presenter: self, success: false, message: "Invalid transaction")
             }})
     }
     
+    func checkoutProvider(_ checkoutProvider: OPPCheckoutProvider, applePayDidSelect shippingMethod: PKShippingMethod, handler completion: @escaping (OPPApplePayRequestShippingMethodUpdate) -> Void) {
+        // You may want to change amount of transaction based on shipping method cost
+    
+//        let update = OPPApplePayRequestShippingMethodUpdate.init(paymentSummaryItems: self.summaryItems)
+//        completion(update)
+    }
+    
+    func checkoutProvider(_ checkoutProvider: OPPCheckoutProvider, applePayDidAuthorizePayment payment: PKPayment, handler completion: @escaping (OPPApplePayRequestAuthorizationResult) -> Void) {
+        var result: OPPApplePayRequestAuthorizationResult
+
+//        // You may want to validate shipping/billing info
+//        if isValidBillingContact(contact: payment.billingContact) {
+//            // Return success to continue the payment
+//            result = OPPApplePayRequestAuthorizationResult.init(status: .success, errors: nil)
+//        } else {
+//            var errors: [Error] = []
+//            if #available(iOS 11.0, *) {
+//                // Since iOS 11 you can pass list of errors in billing/shipping info
+//                let error = PKPaymentRequest.paymentBillingAddressInvalidError(withKey: CNPostalAddressCountryKey, localizedDescription: "Some country error mesage")
+//                errors = [error]
+//            }
+//            result = OPPApplePayRequestAuthorizationResult.init(status: .failure, errors: errors)
+//        }
+   result = OPPApplePayRequestAuthorizationResult.init(status: .success, errors: nil)
+        completion(result)
+    }
+    
+    
+    
+    
+    
     func presenterURL(url: URL) {
-        
         
         self.safariVC = SFSafariViewController(url: url)
         self.safariVC?.delegate = self
