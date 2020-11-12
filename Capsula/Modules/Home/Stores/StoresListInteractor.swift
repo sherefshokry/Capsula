@@ -17,7 +17,7 @@ class StoresListInteractor : PresenterToIntetractorStoresListProtocol {
     private let provider = MoyaProvider<StoresDataSource>()
       
       func getStoresata() {
-          provider.request(.getStoresData) { [weak self] result in
+          provider.request(.getStoresData(1)) { [weak self] result in
                guard let self = self else { return }
                switch result {
                case .success(let response):

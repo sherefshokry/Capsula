@@ -84,10 +84,11 @@ extension AuthDataSource : TargetType {
             params["deviceType"] = 2
             params["language"] = LocalizationSystem.sharedInstance.getLanguage()
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-         case .LogInWithApple(let name,let email):
+         case .LogInWithApple(let name,let token):
             var params = [String : Any]()
-            params["name"] = name
-            params["email"] = email
+            params["userName"] = name
+            params["token"] = token
+            
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }

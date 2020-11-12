@@ -29,6 +29,7 @@ public class RegisterRequest  : Codable {
         params["email"] = email
         params["password"] = password
          params["image"] = image
+        
   //      params["device_token"] = deviceToken
   //      params["device_id"] = Utils.getDeviceID()
   //      params["device_type"] = 1

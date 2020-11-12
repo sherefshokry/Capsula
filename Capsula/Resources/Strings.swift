@@ -102,6 +102,8 @@ class Strings: Any {
     var notExist = "User not registered yet".localize()
     var yes = "Yes".localize()
     var no = "No".localize()
+    var vat_1 = "The order price includes".localize()
+    var vat_2 = "VAT of".localize()
     
     
     struct Fields {

@@ -86,6 +86,7 @@ class MainHomeViewController : UIViewController {
         super.viewDidLoad()
         setHomeData()
         setupCollectionViewLayout()
+        self.presenter?.viewDidLoad()
         self.presenter?.getStoresData()
         self.presenter?.refreshDevice()
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshUserData(_:)),
@@ -190,8 +191,10 @@ extension MainHomeViewController : UICollectionViewDelegate , UICollectionViewDa
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          self.presenter?.didSelectStore(indexPath: indexPath)
      }
-     
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+           self.presenter?.loadPagingData(indexPath: indexPath)
+       }
 }
 
 

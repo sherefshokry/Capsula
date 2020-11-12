@@ -15,7 +15,7 @@ public enum ItemsDataSource {
     case getTopSellingItems
     case getTopRatingItems
     case getFreeDliveryITems
-    case itemsSearch(String,Int)
+    case itemsSearch(String,Int,Int)
     case getItemsDataWithStoreId(Int,Int)
 }
 
@@ -30,8 +30,8 @@ extension ItemsDataSource : TargetType {
              case .getItemsDataWithStoreId(let categoryId, let storeId):
                        return URL(string: "\(Constants.BASE_URL)/Item/GetItemsByStoreCategoryId?categoryId=\(categoryId)&storeId=\(storeId)")!
             
-            case .itemsSearch(let searchText, let filterType):
-               let urlString = "\(Constants.BASE_URL)/Item/ItemsSearch?itemName=\(searchText)&filterType=\(filterType)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            case .itemsSearch(let searchText, let filterType, let page):
+                let urlString = "\(Constants.BASE_URL)/Item/ItemsSearch?itemName=\(searchText)&filterType=\(filterType)&PageNumber=\(page)&PageSize=\(Constants.per_page)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             return URL(string: urlString)!
              default:
                   return URL(string: "\(Constants.BASE_URL)/Item")!
@@ -48,7 +48,7 @@ extension ItemsDataSource : TargetType {
             return "/GetTopRatingItems"
         case .getItemsDataWithCategoryId(_):
             return ""
-        case .itemsSearch(_,_):
+        case .itemsSearch(_,_,_):
             return ""
         case .getFreeDliveryITems:
             return "/GetFreeDeliveryItems"
@@ -67,7 +67,7 @@ extension ItemsDataSource : TargetType {
             return .get
         case .getItemsDataWithCategoryId(_):
             return .get
-        case .itemsSearch(_, _):
+        case .itemsSearch(_, _,_):
             return .get
         case .getFreeDliveryITems:
             return .get
@@ -90,7 +90,7 @@ extension ItemsDataSource : TargetType {
             return .requestPlain
         case .getItemsDataWithCategoryId(_):
             return .requestPlain
-        case .itemsSearch(_, _):
+        case .itemsSearch(_, _,_):
             return .requestPlain
         case .getFreeDliveryITems:
             return .requestPlain

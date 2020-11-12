@@ -26,7 +26,7 @@ class DeliveryOrderCell : UITableViewCell {
         orderAddress.text = order.customerAddress ?? ""
         phoneNumber.text =  order.storeAddress ?? ""
       
-        if order.statusId ?? -1 == 2 {
+        if order.statusId ?? -1 == 5 {
             navigateBtn.isHidden = false
         }else{
             navigateBtn.isHidden = true

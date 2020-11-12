@@ -125,8 +125,6 @@ class SideMenuPresenter : ViewToPresenterSideMenuProtocol{
 extension SideMenuPresenter : InteractorToPresenterSideMenuProtocol {
     
     func logOut() {
-        
-        
            self.view?.changeState(state: .loading)
            self.interactor?.logOut()
        }

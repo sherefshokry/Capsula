@@ -29,6 +29,7 @@ class VerificationInteractor : PresenterToIntetractorVerificationProtocol {
                 self.presenter?.codeFailedToSent(error : result)
                 break
             case .error :
+                
                 self.presenter?.codeFailedToSent(error : result)
                 break
                 
@@ -50,6 +51,7 @@ class VerificationInteractor : PresenterToIntetractorVerificationProtocol {
                 self.presenter?.codeNotValid(error: result as? String ?? "")
                 break
             case .error :
+                
                 self.presenter?.codeNotValid(error: result as? String ?? "")
                 break
                 
@@ -78,6 +80,8 @@ class VerificationInteractor : PresenterToIntetractorVerificationProtocol {
                            self.presenter?.userFailedToRegister(error: catchError.localizedDescription)
                        }
                    case .failure(let error):
+                    
+                    
                        do{
                            if let body = try error.response?.mapJSON(){
                                let errorData = (body as! [String:Any])
@@ -93,6 +97,8 @@ class VerificationInteractor : PresenterToIntetractorVerificationProtocol {
     
     
     func completeProfile(registerRequest: RegisterRequest) {
+        
+        
         userProvider.request(.updateUser(registerRequest)) { [weak self] result in
                     guard let self = self else { return }
                     switch result {
@@ -105,6 +111,8 @@ class VerificationInteractor : PresenterToIntetractorVerificationProtocol {
                             self.presenter?.userFailedToRegister(error: catchError.localizedDescription)
                         }
                     case .failure(let error):
+                        
+                        
                         do{
                             if let body = try error.response?.mapJSON(){
                                 let errorData = (body as! [String:Any])

@@ -5,7 +5,6 @@
 //  Created by SherifShokry on 12/23/19.
 //  Copyright © 2019 SherifShokry. All rights reserved.
 //
-
 import UIKit
 import IQKeyboardManagerSwift
 import GoogleSignIn
@@ -19,8 +18,6 @@ import FirebaseMessaging
 import FirebaseInstanceID
 import Intercom
 
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
     
@@ -28,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
     static let googleSignInId = "\(Constants.KEYS.googleSignInKey).apps.googleusercontent.com"
     let INTERCOM_APP_ID = "zwlcn8xj"
     let INTERCOM_API_KEY = "ios_sdk-55af3668b7fab69cfbd8603ec8bcf1d4bb8ff1a3"
-    
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -62,8 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
             statusBar.backgroundColor = UIColor.init(red: 55/255, green: 182/255, blue: 255/255, alpha: 1)
         }
         
-         Utils.openSplashScreen() 
-        
+        Utils.openSplashScreen()
         
         Intercom.setApiKey(INTERCOM_API_KEY, forAppId: INTERCOM_APP_ID)
         
@@ -73,8 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , MessagingDelegate {
         if Utils.loadUser()?.accessToken ?? "" != "" {
             Intercom.registerUser(withEmail: Utils.loadUser()?.user?.email ?? "")
         }
-        
-        
         
         return true
     }
@@ -173,7 +165,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
+       // let userInfo = notification.request.content.userInfo
+        
         completionHandler([.alert,.sound])
         
     }
@@ -220,9 +213,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     
     
     func notificationResponse(type : String,orderId : String, productDetails : Item){
-        
-        
-        
+    
         switch Int(type) {
          case 6:
             if Utils.loadDeliveryUser() != nil {

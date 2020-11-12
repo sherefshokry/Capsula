@@ -11,15 +11,21 @@
 import Foundation
 
 class CompleteProfilePresenter : ViewToPresenterCompleteProfileProtocol{
-    
+
+
     var view: PresenterToViewCompleteProfileProtocol?
     var interactor: PresenterToIntetractorCompleteProfileProtocol?
     var router: PresenterToRouterCompleteProfileProtocol?
     var user : User = User()
+    var fromApple : Bool = false
     var registerRequest : RegisterRequest = RegisterRequest()
 
     func viewDidLoad(){
         self.view?.setUserData(user : user)
+        if fromApple {
+            self.view?.hideEmail()
+        }
+      
     }
 
     func setNameField(name : String) {

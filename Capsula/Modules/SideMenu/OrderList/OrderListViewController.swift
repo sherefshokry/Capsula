@@ -16,6 +16,8 @@ class OrderListViewController : UIViewController {
     private let provider = MoyaProvider<CheckOutDataSource>()
     @IBOutlet weak var topView  : UIView!
     @IBOutlet weak var tableView : UITableView!
+    var page : Int = 0
+    var isFinishedPaging = false
     var ordersList = [Order]()
     
     override func viewDidLoad() {
@@ -25,6 +27,9 @@ class OrderListViewController : UIViewController {
     }
     
        @objc func reloadOrderList(_ notification: NSNotification){
+          page = 0
+          isFinishedPaging = false
+          ordersList = []
           getOrdersListData()
        }
     
@@ -45,18 +50,32 @@ class OrderListViewController : UIViewController {
         topView.layer.maskedCorners = [.layerMinXMaxYCorner]
     }
     
+    func loadPagingData(indexPath : IndexPath){
+              let count = ordersList.count
+              let newsCount = (count - 1)
+               if indexPath.row == newsCount && !isFinishedPaging {
+                  self.getOrdersListData()
+              }
+    }
     
     
     func getOrdersListData() {
         KVNProgress.show()
-        provider.request(.ordersList) { [weak self] result in
+        let count = ordersList.count
+        page =  ( count / Constants.per_page ) + 1
+        provider.request(.ordersList(page)) { [weak self] result in
             KVNProgress.dismiss()
             guard let self = self else { return }
             switch result {
             case .success(let response):
                 do {
                     let ordersResponse = try response.map(BaseResponse<OrdersResponse>.self)
-                    self.ordersList = ordersResponse.data?.ordersList ?? []
+                    let fetchedData = ordersResponse.data?.ordersList ?? []
+                    if fetchedData.count < Constants.per_page {
+                        self.isFinishedPaging = true
+                    }
+                    self.ordersList.append(contentsOf: fetchedData)
+                    
                     self.tableView.reloadData()
                 } catch(let catchError) {
                     self.showMessage(catchError.localizedDescription)
@@ -93,6 +112,10 @@ extension OrderListViewController : UITableViewDelegate , UITableViewDataSource{
         }
         cell.setData(order: ordersList[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+         self.loadPagingData(indexPath: indexPath)
     }
     
 

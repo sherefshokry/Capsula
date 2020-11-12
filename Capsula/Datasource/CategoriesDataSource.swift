@@ -10,8 +10,8 @@ import Foundation
 import Moya
 
 public enum CategoriesDataSource {
-    case getCategoriesData
-    case getCategoriesDataWithStoreId(Int)
+    case getCategoriesData(Int)
+    case getCategoriesDataWithStoreId(Int,Int)
     case getSubCategoriesData(Int)
     case getSubCategoriesDataByStoreId(Int , Int)
 }
@@ -21,15 +21,16 @@ extension CategoriesDataSource : TargetType {
     public var baseURL: URL {
         
         switch self {
-        case .getCategoriesDataWithStoreId(let storeId):
-           return URL(string: "\(Constants.BASE_URL)/Category/GetCategoriesByStoreId?storeId=\(storeId)")!
+        case .getCategoriesDataWithStoreId(let storeId,let page):
+            return URL(string: "\(Constants.BASE_URL)/Category/GetCategoriesByStoreId?storeId=\(storeId)&PageNumber=\(page)&PageSize=\(Constants.per_page)")!
+        case .getCategoriesData(let page):
+            return URL(string: "\(Constants.BASE_URL)/Category/GetCategories?PageNumber=\(page)&PageSize=\(Constants.per_page)")!
         case .getSubCategoriesData(let categoryId):
            return URL(string: "\(Constants.BASE_URL)/Category/GetSubCategories?categoryId=\(categoryId)")!
         case .getSubCategoriesDataByStoreId(let categoryId,let storeId):
             return URL(string: "\(Constants.BASE_URL)/Category/GetSubCategoriesByStoreId?categoryId=\(categoryId)&storeId=\(storeId)")!
-            
-        default:
-             return URL(string: "\(Constants.BASE_URL)/Category")!
+//        default:
+//             return URL(string: "\(Constants.BASE_URL)/Category")!
         }
         
        
@@ -38,10 +39,10 @@ extension CategoriesDataSource : TargetType {
     public var path: String {
         switch self {
         case .getCategoriesData:
-            return "/GetCategories"
+            return ""
         case .getSubCategoriesData(_):
             return ""
-        case .getCategoriesDataWithStoreId(_):
+        case .getCategoriesDataWithStoreId(_,_):
             return ""
         case .getSubCategoriesDataByStoreId(_, _):
             return ""
@@ -54,7 +55,7 @@ extension CategoriesDataSource : TargetType {
             return .get
         case .getSubCategoriesData(_):
             return .get
-        case .getCategoriesDataWithStoreId(_):
+        case .getCategoriesDataWithStoreId(_,_):
             return .get
         case .getSubCategoriesDataByStoreId(_, _):
             return .get
@@ -71,7 +72,7 @@ extension CategoriesDataSource : TargetType {
             return .requestPlain
         case .getSubCategoriesData(_):
             return .requestPlain
-        case .getCategoriesDataWithStoreId(_):
+        case .getCategoriesDataWithStoreId(_,_):
             return .requestPlain
         case .getSubCategoriesDataByStoreId(_, _):
             return .requestPlain

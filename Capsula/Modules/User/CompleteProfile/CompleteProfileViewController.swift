@@ -93,6 +93,10 @@ class CompleteProfileViewController: UIViewController {
     
 }
 extension CompleteProfileViewController : PresenterToViewCompleteProfileProtocol {
+    func hideEmail() {
+        emailField.field.isEnabled = false
+    }
+    
     func changeState(state: State) {
         self.state = state
     }

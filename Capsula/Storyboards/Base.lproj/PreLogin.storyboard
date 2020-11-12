@@ -269,7 +269,7 @@
                                             <constraint firstAttribute="width" constant="40" id="QEb-iT-rRf"/>
                                             <constraint firstAttribute="height" constant="40" id="dnl-13-O0Z"/>
                                         </constraints>
-                                        <state key="normal" image="icTwitter"/>
+                                        <state key="normal" image="icApple"/>
                                         <connections>
                                             <action selector="twitterPressed:" destination="CfY-e7-5fi" eventType="touchUpInside" id="nmD-ku-GjI"/>
                                         </connections>
@@ -399,7 +399,7 @@
                                             <constraint firstAttribute="height" constant="40" id="RHN-jE-JWC"/>
                                             <constraint firstAttribute="width" constant="40" id="yrv-Sl-5zF"/>
                                         </constraints>
-                                        <state key="normal" image="icTwitter"/>
+                                        <state key="normal" image="icApple"/>
                                         <connections>
                                             <action selector="twitterPressed:" destination="4C9-9s-VoJ" eventType="touchUpInside" id="qeg-iw-YHw"/>
                                         </connections>
@@ -2287,6 +2287,7 @@ you sms to reset you pasword</string>
         </scene>
     </scenes>
     <resources>
+        <image name="icApple" width="125" height="125"/>
         <image name="icBack" width="16" height="27"/>
         <image name="icBackBlue" width="16" height="27"/>
         <image name="icCustomer" width="72" height="79"/>
@@ -2294,7 +2295,6 @@ you sms to reset you pasword</string>
         <image name="icFaceook" width="40" height="40"/>
         <image name="icGoogle" width="40" height="40"/>
         <image name="icPhoto" width="24" height="22"/>
-        <image name="icTwitter" width="40" height="40"/>
         <image name="icUnchecked" width="16" height="16"/>
     </resources>
 </document>

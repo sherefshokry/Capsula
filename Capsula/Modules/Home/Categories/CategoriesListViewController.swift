@@ -134,5 +134,8 @@ extension CategoriesListViewController : UICollectionViewDelegate , UICollection
          self.presenter?.didSelectCategory(indexPath: indexPath)
      }
      
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+              self.presenter?.loadPagingData(indexPath: indexPath)
+    }
     
 }

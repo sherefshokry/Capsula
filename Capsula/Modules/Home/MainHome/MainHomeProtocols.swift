@@ -15,11 +15,14 @@ protocol ViewToPresenterMainHomeProtocol: class {
     var view : PresenterToViewMainHomeProtocol? {get set}
     var interactor : PresenterToIntetractorMainHomeProtocol? {get set}
     var router : PresenterToRouterMainHomeProtocol? {get set}
-    var numberOfRows : Int { get }
+    var  page : Int { get }
+    var  numberOfRows : Int { get }
     func configureStoreCell(cell : StoreCell , indexPath : IndexPath)
     func getStoresData()
     func refreshDevice()
+    func viewDidLoad()
     func didSelectStore(indexPath : IndexPath)
+    func loadPagingData(indexPath : IndexPath)
     
 }
 
@@ -29,7 +32,7 @@ protocol PresenterToViewMainHomeProtocol: class {
 
 protocol PresenterToIntetractorMainHomeProtocol: class {
      var presenter: InteractorToPresenterMainHomeProtocol? { get set }
-     func  getStoresData()
+     func  getStoresData(page: Int)
      func  updateUserData()
      func  refreshDevice()
     
@@ -44,4 +47,5 @@ protocol InteractorToPresenterMainHomeProtocol: class {
     func  storesDataFetchedSuccessfully(storesResponse: [Store])
     func  storesDataFailedToFetch(error : String)
     func  homeDataFailedToFetch(error: String)
+    func stopPagination()
 }

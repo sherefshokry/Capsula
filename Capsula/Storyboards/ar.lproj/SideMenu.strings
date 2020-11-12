@@ -102,7 +102,7 @@
 "Xr0-ja-2xi.text" = "مجموعة";
 
 /* Class = "UILabel"; text = "Total delivery cost in cash"; ObjectID = "ZNO-Wb-oJh"; */
-"ZNO-Wb-oJh.text" = "اجمالي تكلفه التوصيل عند الاستلام";
+"ZNO-Wb-oJh.text" = "اجمالي رسوم التوصيل عند الاستلام";
 
 /* Class = "UILabel"; text = "label"; ObjectID = "Zt3-dW-p0K"; */
 "Zt3-dW-p0K.text" = "label";
@@ -144,7 +144,7 @@
 "fxi-dy-afs.text" = "اضف طريقة دفع";
 
 /* Class = "UILabel"; text = "Total online delivery cost"; ObjectID = "gTP-Wf-9mA"; */
-"gTP-Wf-9mA.text" = "اجمالي تكلفة التوصيل اونلاين";
+"gTP-Wf-9mA.text" = "اجمالي رسوم التوصيل اونلاين";
 
 /* Class = "UILabel"; text = "Edit Personal Details"; ObjectID = "goN-Yd-tJd"; */
 "goN-Yd-tJd.text" = "تعديل المعلومات الشخصية";
@@ -156,7 +156,7 @@
 "hlF-o9-osz.text" = " ";
 
 /* Class = "UILabel"; text = "Cash orders cost"; ObjectID = "iiM-iL-cje"; */
-"iiM-iL-cje.text" = "تكلفة الطلب عند الاستلام";
+"iiM-iL-cje.text" = "سعر الطلب عند الاستلام";
 
 /* Class = "UILabel"; text = " "; ObjectID = "mG7-GN-tJa"; */
 "mG7-GN-tJa.text" = " ";
@@ -183,7 +183,7 @@
 "pzw-em-yyE.text" = "اي تي سي باي";
 
 /* Class = "UILabel"; text = "Total delivery cost"; ObjectID = "qpy-Oh-Fb8"; */
-"qpy-Oh-Fb8.text" = "اجمالي تكلفة التوصيل";
+"qpy-Oh-Fb8.text" = "اجمالي رسوم التوصيل";
 
 /* Class = "UILabel"; text = "Balance"; ObjectID = "raF-dN-Tqa"; */
 "raF-dN-Tqa.text" = "الحساب";

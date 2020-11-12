@@ -16,7 +16,7 @@ struct  WalletItem : Codable {
     let totalDeliveryCostOnlineOrder : Double?
     let totalDeliveryCost : Double?
     let discount : Double?
-    let totalCreditCustomerOrderAmountCash : Double?
+   // let totalCreditCustomerOrderAmountCash : Double?
     let bonuses : Double?
     let compensations : Double?
     let balance : Double?
@@ -25,9 +25,13 @@ struct  WalletItem : Codable {
     let endingBalance  : Double?
     
     enum CodingKeys: String, CodingKey {
-        case countOfCompletedOrders,totalDeliveryCostCashOrder,totalDeliveryCostOnlineOrder
+        case countOfCompletedOrders
+        ,totalDeliveryCostCashOrder
+        ,totalDeliveryCostOnlineOrder
         
-        case totalDeliveryCost,discount,totalCreditCustomerOrderAmountCash,bonuses, compensations
+        case totalDeliveryCost,discount,bonuses, compensations
+        //totalCreditCustomerOrderAmountCash
+        
         
         case balance,payments,collection,endingBalance
     }
@@ -38,7 +42,7 @@ struct  WalletItem : Codable {
         totalDeliveryCostOnlineOrder = 0.0
         totalDeliveryCost = 0.0
         discount = 0.0
-        totalCreditCustomerOrderAmountCash = 0.0
+        //totalCreditCustomerOrderAmountCash = 0.0
         bonuses = 0.0
         compensations = 0.0
         balance = 0.0
@@ -72,8 +76,8 @@ struct  WalletItem : Codable {
         do { discount = try container.decodeIfPresent(.discount) ?? 0.0 }
         catch { discount = 0.0 }
         
-        do { totalCreditCustomerOrderAmountCash = try container.decodeIfPresent(.totalCreditCustomerOrderAmountCash) ?? 0.0 }
-        catch { totalCreditCustomerOrderAmountCash = 0.0 }
+//        do { totalCreditCustomerOrderAmountCash = try container.decodeIfPresent(.totalCreditCustomerOrderAmountCash) ?? 0.0 }
+//        catch { totalCreditCustomerOrderAmountCash = 0.0 }
         
         do { bonuses = try container.decodeIfPresent(.bonuses) ?? 0.0 }
         catch { bonuses = 0.0 }

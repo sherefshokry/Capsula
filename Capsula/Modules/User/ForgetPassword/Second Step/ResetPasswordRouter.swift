@@ -11,7 +11,7 @@ import UIKit
 
     class ResetPasswordRouter : PresenterToRouterResetPasswordProtocol {
         
-        static func createModule(phone : String) -> UIViewController {
+        static func createModule(phone : String,firebaseToken: String) -> UIViewController {
             
             let view = ResetPasswordViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
             let presenter : ViewToPresenterResetPasswordProtocol & InteractorToPresenterResetPasswordProtocol = ResetPasswordPresenter()
@@ -23,6 +23,7 @@ import UIKit
             presenter.view = view
             presenter.router = router
             presenter.phone = phone
+            presenter.firebaseToken = firebaseToken
             interactor.presenter = presenter
             return view
         }

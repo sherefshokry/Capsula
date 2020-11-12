@@ -17,16 +17,21 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
     private let provider = MoyaProvider<HomeDataSource>()
     private let storesProvider = MoyaProvider<StoresDataSource>()
     private let userProvivider = MoyaProvider<AuthDataSource>()
-
-      func  getStoresData() {
-          storesProvider.request(.getStoresData) { [weak self] result in
+    var fetchedData = [Store]()
+    var allStores = [Store]()
+    
+    
+    func  getStoresData(page : Int) {
+          storesProvider.request(.getStoresData(page)) { [weak self] result in
                guard let self = self else { return }
                switch result {
                case .success(let response):
                    do {
                     let storesResponse = try response.map(BaseResponse<StoresResponse>.self)
                     
-                    self.presenter?.storesDataFetchedSuccessfully(storesResponse: storesResponse.data?.storesList ?? [])
+                    self.fetchedData = storesResponse.data?.storesList ?? []
+                    self.handleStoresPagination()
+               
                    } catch(let catchError) {
                        self.presenter?.storesDataFailedToFetch(error: catchError.localizedDescription)
                    }
@@ -98,10 +103,17 @@ class MainHomeInteractor : PresenterToIntetractorMainHomeProtocol {
        }
     
     
+    func handleStoresPagination()  {
+       
+        if self.fetchedData.count < Constants.per_page {
+             self.presenter?.stopPagination()
+         }
+         allStores.append(contentsOf: fetchedData)
+         self.presenter?.storesDataFetchedSuccessfully(storesResponse: allStores)
+     }
     
+     
     
-    
-
 
 }
 

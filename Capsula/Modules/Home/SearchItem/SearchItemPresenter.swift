@@ -16,12 +16,20 @@ class SearchItemPresenter : ViewToPresenterSearchItemProtocol{
     var interactor: PresenterToIntetractorSearchItemProtocol?
     var router: PresenterToRouterSearchItemProtocol?
     var itemsData = [Item]()
+    var page : Int = 0
+    var isFinishedPaging = false
     var filterType = -1
     var searchText = ""
     var numberOfRows : Int {
         return itemsData.count
     }
     
+    func emptyData(){
+          itemsData =  []
+          self.interactor?.emptyAllItems()
+          page = 0
+          isFinishedPaging = false
+      }
     
     func configureItemCell(cell: ItemCell, indexPath: IndexPath) {
         cell.setData(item: itemsData[indexPath.item])
@@ -45,9 +53,19 @@ class SearchItemPresenter : ViewToPresenterSearchItemProtocol{
     }
     
     func itemsSearch() {
+        let count = itemsData.count
+        page =  ( count / Constants.per_page ) + 1
         self.view?.changeState(state: .loading)
-        self.interactor?.itemsSearch(searchText: self.searchText, filterType: self.filterType)
+        self.interactor?.itemsSearch(searchText: self.searchText, filterType: self.filterType, page: page)
     }
+    
+    func loadPagingData(indexPath : IndexPath){
+           let count = itemsData.count
+           let newsCount = (count - 1)
+            if indexPath.row == newsCount && !isFinishedPaging {
+               self.itemsSearch()
+           }
+       }
     
     func didSelectItem(indexPath: IndexPath) {
         self.router?.openItemDetailsScreen(from: self.view, item: itemsData[indexPath.row])
@@ -75,7 +93,9 @@ extension SearchItemPresenter : InteractorToPresenterSearchItemProtocol {
         
         
     }
-    
+    func stopPagination(){
+              isFinishedPaging = true
+        }
     
 }
 

@@ -131,7 +131,7 @@
 "JKA-PX-ho5.text" = "413";
 
 /* Class = "UILabel"; text = "Delivery Cost"; ObjectID = "JPz-Cg-5W3"; */
-"JPz-Cg-5W3.text" = "تكلفة التوصيل";
+"JPz-Cg-5W3.text" = "رسوم التوصيل";
 
 /* Class = "UILabel"; text = "More"; ObjectID = "JeZ-C5-ome"; */
 "JeZ-C5-ome.text" = "المزيد";
@@ -149,7 +149,7 @@
 "Kyp-ai-4rn.text" = "شكرا لك لطلبك من كبسولة";
 
 /* Class = "UILabel"; text = "Delivery Cost"; ObjectID = "Lia-Iz-ZGR"; */
-"Lia-Iz-ZGR.text" = "تكلفة التوصيل";
+"Lia-Iz-ZGR.text" = "رسوم التوصيل";
 
 /* Class = "UILabel"; text = "Order to"; ObjectID = "LuB-23-wRY"; */
 "LuB-23-wRY.text" = "الطلب الي";
@@ -496,3 +496,5 @@
 "zvP-5F-2wO.text" = "ريال";
 "GrW-c2-ieL.text" = "التنبيهات";
 "8Gy-j0-7EQ.text" = "ليس لديك تنبيهات";
+"IOU-PZ-Ilg.text" = "رسوم التوصيل غير خاضعة لضريبة القيمة المضافة";
+"Tqo-6s-JBg.text" = "تحديث";

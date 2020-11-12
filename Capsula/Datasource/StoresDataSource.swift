@@ -11,19 +11,23 @@ import Foundation
 import Moya
 
 public enum StoresDataSource {
-    case getStoresData
+    case getStoresData(Int)
 }
 
 extension StoresDataSource : TargetType {
     
     public var baseURL: URL {
-        return URL(string: "\(Constants.BASE_URL)/Store")!
+    
+          switch self {
+             case .getStoresData(let page) :
+                return URL(string: "\(Constants.BASE_URL)/Store/GetStores?PageNumber=\(page)&PageSize=\(Constants.per_page)")!
+        }
     }
-  
+
     public var path: String {
         switch self {
         case .getStoresData:
-            return "/GetStores"
+            return ""
        }
     }
     

@@ -301,20 +301,20 @@ extension MainRegisterViewController : ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
     
         if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
-            let userIdentifier = appleIDCredential.user
+//            let userIdentifier = appleIDCredential.user
             let identityToken = appleIDCredential.identityToken!
             
-            let ttoken = String(data: identityToken, encoding: .utf8) ?? ""
+            let token = String(data: identityToken, encoding: .utf8) ?? ""
             
             
-            let jwt = try! decode(jwt: String(data: identityToken, encoding: .utf8) ?? "")
-            let email = jwt.body["email"] as? String ?? ""
+//            let jwt = try! decode(jwt: String(data: identityToken, encoding: .utf8) ?? "")
+          //  let email = jwt.body["email"] as? String ?? ""
             let givenName = appleIDCredential.fullName?.givenName ?? ""
             let familyName = appleIDCredential.fullName?.familyName ?? ""
             let fullName = givenName + " " + familyName
-          
+ 
             
-            self.presenter?.loginWithApple(name: fullName, email: email)
+        self.presenter?.loginWithApple(name: fullName, token: token)
 
         }
         
@@ -322,7 +322,7 @@ extension MainRegisterViewController : ASAuthorizationControllerDelegate {
     
     @available(iOS 13.0, *)
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        self.showMessage(error.localizedDescription)
+        //self.showMessage(error.localizedDescription)
     }
     
 }

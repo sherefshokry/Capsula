@@ -19,7 +19,7 @@ protocol ViewToPresenterMainRegisterProtocol: class {
     func loginWithFacebook(token : String)
     func loginWithGoogle(token : String)
     func loginWithTwitter(token : String, secretKey : String)
-    func loginWithApple(name: String, email : String) 
+    func loginWithApple(name: String, token : String)
 
 }
 
@@ -32,13 +32,13 @@ protocol PresenterToIntetractorMainRegisterProtocol: class {
     func loginWithFacebook(token : String)
     func loginWithGoogle(token : String)
     func loginWithTwitter(token : String, secretKey : String)
-    func loginWithApple(name: String, email : String) 
+    func loginWithApple(name: String, token : String)
 
 }
 
 protocol PresenterToRouterMainRegisterProtocol: class  {
     static func createModule(isDeliveryMan : Bool) -> UIViewController
-    func openCompleteProfile(from sourceView: PresenterToViewMainRegisterProtocol?, user : User)
+    func openCompleteProfile(from sourceView: PresenterToViewMainRegisterProtocol?, user : User,fromApple : Bool)
     func openAddAddress(from sourceView: PresenterToViewMainRegisterProtocol?)
     
 }

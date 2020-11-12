@@ -17,6 +17,8 @@ class DeliveryHistoryListVC : UIViewController {
     @IBOutlet weak var topView  : UIView!
     @IBOutlet weak var tableView : UITableView!
     var deliveryOrdersList = [DeliveryOrder]()
+    var page : Int = 0
+    var isFinishedPaging = false
     private let provider = MoyaProvider<DeliveryManDataSource>()
     var filteredDate = Date().toFilterString()
     override func viewDidLoad() {
@@ -38,19 +40,34 @@ class DeliveryHistoryListVC : UIViewController {
         Intercom.setLauncherVisible(false)
     }
     
-
+    func loadPagingData(indexPath : IndexPath){
+               let count = deliveryOrdersList.count
+               let newsCount = (count - 1)
+                if indexPath.row == newsCount && !isFinishedPaging {
+                   self.getFilteredOrdersListData()
+               }
+     }
+     
     
     func getFilteredOrdersListData() {
-         KVNProgress.show()
-        provider.request(.getFilteredOrdersHistory(filteredDate)) { [weak self] result in
+        KVNProgress.show()
+        let count = deliveryOrdersList.count
+        page =  ( count / Constants.per_page ) + 1
+        
+        provider.request(.getFilteredOrdersHistory(filteredDate,page)) { [weak self] result in
              KVNProgress.dismiss()
              guard let self = self else { return }
              switch result {
              case .success(let response):
                  do {
                      let ordersResponse = try response.map(BaseResponse<DeliveryOrdersResponse>.self)
-                     self.deliveryOrdersList = ordersResponse.data?.ordersList ?? []
-                     self.tableView.reloadData()
+                 let fetchedData = ordersResponse.data?.ordersList ?? []
+                    
+                if fetchedData.count < Constants.per_page {
+                        self.isFinishedPaging = true
+                }
+                self.deliveryOrdersList.append(contentsOf: fetchedData)
+                self.tableView.reloadData()
                  } catch(let catchError) {
                      self.showMessage(catchError.localizedDescription)
                  }
@@ -118,6 +135,10 @@ extension DeliveryHistoryListVC : UITableViewDelegate , UITableViewDataSource{
         let vc = DeliveryOrderDetailsVC.instantiateFromStoryBoard(appStoryBoard: .Home)
         vc.order =  deliveryOrdersList[indexPath.row]
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+         self.loadPagingData(indexPath: indexPath)
     }
     
 }

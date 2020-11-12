@@ -89,8 +89,6 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate,O
         return vc
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,12 +104,7 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate,O
         }else{
             self.cartProgressImage.image = UIImage(named: "cart_first")
         }
-        
-        
-        
-        
-        
-        
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,7 +123,7 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate,O
     
     func openPaymentScreen(checkoutID : String , paymentMethod : Int){
         
-        self.provider = OPPPaymentProvider(mode: .test)
+        self.provider = OPPPaymentProvider(mode: OPPProviderMode.live)
         
         let checkoutSettings = OPPCheckoutSettings()
         
@@ -141,6 +134,7 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate,O
         }else if paymentMethod == 5 {
             checkoutSettings.paymentBrands = ["MADA"]
         }else if paymentMethod == 2 {
+            print(OPPPaymentProvider.deviceSupportsApplePay())
             
             if OPPPaymentProvider.deviceSupportsApplePay(){
                 print("Support Apple pay hahah")
@@ -175,9 +169,7 @@ class MainCartViewController: UIViewController, SFSafariViewControllerDelegate,O
         
         checkoutProvider?.presentCheckout(forSubmittingTransactionCompletionHandler: { (transaction, error) in
             
-            
-            
-            
+        
             guard let transaction = transaction else {
                 // Handle invalid transaction, check error
                 

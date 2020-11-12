@@ -17,6 +17,7 @@ class MainRegisterPresenter : ViewToPresenterMainRegisterProtocol{
     var view: PresenterToViewMainRegisterProtocol?
     var interactor: PresenterToIntetractorMainRegisterProtocol?
     var router: PresenterToRouterMainRegisterProtocol?
+    var fromApple = false
     
     func loginWithFacebook(token: String) {
         self.view?.changeState(state: .loading)
@@ -33,9 +34,10 @@ class MainRegisterPresenter : ViewToPresenterMainRegisterProtocol{
         self.interactor?.loginWithTwitter(token : token, secretKey: secretKey)
     }
     
-    func loginWithApple(name: String, email: String) {
+    func loginWithApple(name: String, token: String) {
+           fromApple = true
            self.view?.changeState(state: .loading)
-           self.interactor?.loginWithApple(name: name, email: email)
+           self.interactor?.loginWithApple(name: name, token: token)
       }
       
     
@@ -47,7 +49,7 @@ extension MainRegisterPresenter : InteractorToPresenterMainRegisterProtocol {
         
         self.view?.changeState(state: .ready)
         if userResponse.user?.phone ?? "" == "" {
-            self.router?.openCompleteProfile(from: self.view, user: userResponse.user ?? User())
+            self.router?.openCompleteProfile(from: self.view, user: userResponse.user ?? User(),fromApple : fromApple)
         }else{
             Utils.saveUser(user: userResponse)
             if userResponse.user?.addressList?.count == 0 {
@@ -59,8 +61,6 @@ extension MainRegisterPresenter : InteractorToPresenterMainRegisterProtocol {
     }
     
     func failedToLogin(error: String) {
-        
-        
         self.view?.changeState(state: .error(error))
     }
     

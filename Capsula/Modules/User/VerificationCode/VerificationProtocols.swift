@@ -37,7 +37,7 @@ protocol PresenterToIntetractorVerificationProtocol: class {
 protocol PresenterToRouterVerificationProtocol: class  {
     static func createModule(request : RegisterRequest) -> UIViewController
     static func createModule(phone : String) -> UIViewController
-    func openForgetPasswordSecondStepScreen(from sourceView: PresenterToViewVerificationProtocol?, phone : String)
+    func openForgetPasswordSecondStepScreen(from sourceView: PresenterToViewVerificationProtocol?, phone : String,firebaseToken: String)
     func openAddAddress(from sourceView: PresenterToViewVerificationProtocol?)
   
 }

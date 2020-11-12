@@ -10,7 +10,7 @@ import Moya
 
 public enum UserDataSource {
     case addAddress(String , Double , Double)
-    case resetPassword(String , String)
+    case resetPassword(String , String, String)
     case checkPhoneIsExist(String,String)
     case updateUser(RegisterRequest)
     case updateDefaultAddress(Int)
@@ -33,8 +33,7 @@ extension UserDataSource : TargetType {
     public var path: String {
         switch self {
         case .addAddress(_, _, _):  return "/AddUserAddress"
-            
-        case .resetPassword(_, _): return "/ChangeUserPassword"
+        case .resetPassword(_, _,_): return "/ForgetPassword"
         case .checkPhoneIsExist(_,_): return ""
         case .updateUser(_): return "/UpdateUser"
         case .updateDefaultAddress(let addressId):
@@ -50,7 +49,7 @@ extension UserDataSource : TargetType {
         switch self {
         case .addAddress(_, _, _):
             return .post
-        case .resetPassword(_, _): return .post
+        case .resetPassword(_, _,_): return .post
         case .checkPhoneIsExist(_,_):  return .get
         case .updateUser(_): return .put
         case .updateDefaultAddress(_): return .put
@@ -69,10 +68,11 @@ extension UserDataSource : TargetType {
         switch self {
         case .checkPhoneIsExist(_,_):
             return .requestPlain
-        case .resetPassword(let mobile,let password):
+        case .resetPassword(let mobile,let password,let token):
             var params = [String : Any]()
             params["phoneNumber"] = mobile
             params["newPassword"] = password
+            params["token"] = token
             
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .addAddress(let address,let latitude,let longitude):

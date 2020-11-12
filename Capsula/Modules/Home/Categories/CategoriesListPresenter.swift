@@ -17,6 +17,8 @@ class CategoriesListPresenter : ViewToPresenterCategoriesListProtocol{
     var interactor: PresenterToIntetractorCategoriesListProtocol?
     var router: PresenterToRouterCategoriesListProtocol?
     var categoriesData : [Category] = []
+    var page : Int = 0
+    var isFinishedPaging = false
     var storeId : Int = -1
     var numberOfRows : Int {
         return categoriesData.count
@@ -28,15 +30,26 @@ class CategoriesListPresenter : ViewToPresenterCategoriesListProtocol{
     
     
     func getCategoriesData() {
+        
+        let count = categoriesData.count
+        page =  ( count / Constants.per_page ) + 1
         self.view?.changeState(state: .loading)
         
         if storeId == -1 {
-            self.interactor?.getCategoriesData()
+            self.interactor?.getCategoriesData(page: page)
         }else{
-            
-            self.interactor?.getCategoriesData(storeId: storeId)
+            self.interactor?.getCategoriesData(storeId: storeId, page: page)
         }
         
+    }
+    
+    
+    func loadPagingData(indexPath : IndexPath){
+              let count = categoriesData.count
+              let newsCount = (count - 1)
+               if indexPath.row == newsCount && !isFinishedPaging {
+                  self.getCategoriesData()
+              }
     }
     
     func didSelectCategory(indexPath: IndexPath) {
@@ -56,7 +69,9 @@ extension CategoriesListPresenter : InteractorToPresenterCategoriesListProtocol 
         self.view?.changeState(state: .error(error))
     }
     
-    
+    func stopPagination(){
+              isFinishedPaging = true
+        }
     
 }
 

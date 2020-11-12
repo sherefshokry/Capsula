@@ -16,16 +16,31 @@ class MainHomePresenter : ViewToPresenterMainHomeProtocol{
     var interactor: PresenterToIntetractorMainHomeProtocol?
     var router: PresenterToRouterMainHomeProtocol?
     var storesData : [Store] = []
+    var page : Int = 0
+    var isFinishedPaging = false
+  
+     
+    func viewDidLoad(){
+        if Utils.loadUser()?.accessToken ?? "" != "" {
+                   self.interactor?.updateUserData()
+      }
+    }
+    
     
     func  getStoresData() {
+        let count = storesData.count
+        page =  ( count / Constants.per_page ) + 1
         self.view?.changeState(state: .loading)
-        self.interactor?.getStoresData()
-        
-        if Utils.loadUser()?.accessToken ?? "" != "" {
-            self.interactor?.updateUserData()
-        }
-        
+        self.interactor?.getStoresData(page: page)
       }
+    
+    func loadPagingData(indexPath : IndexPath){
+           let count = storesData.count
+           let newsCount = (count - 1)
+            if indexPath.row == newsCount && !isFinishedPaging {
+               self.getStoresData()
+           }
+       }
     
     
     func refreshDevice(){
@@ -65,4 +80,8 @@ extension MainHomePresenter : InteractorToPresenterMainHomeProtocol {
         self.view?.changeState(state: .error(error))
     }
 
+    func stopPagination(){
+           isFinishedPaging = true
+     }
+    
 }

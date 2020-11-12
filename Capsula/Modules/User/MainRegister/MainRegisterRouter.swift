@@ -32,8 +32,8 @@ class MainRegisterRouter : PresenterToRouterMainRegisterProtocol {
     }
     
     
-    func openCompleteProfile(from sourceView: PresenterToViewMainRegisterProtocol?, user: User) {
-            let vc = CompleteProfileRouter.createModule(user: user)
+    func openCompleteProfile(from sourceView: PresenterToViewMainRegisterProtocol?, user: User,fromApple : Bool) {
+        let vc = CompleteProfileRouter.createModule(user: user, fromApple: fromApple)
                 if let sourceView = sourceView as? UIViewController {
                     sourceView.present(vc, animated: true, completion: nil)
                 }

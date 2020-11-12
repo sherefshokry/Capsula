@@ -73,6 +73,7 @@ class AddAddressViewController : UIViewController {
             }else{
                 
                 KVNProgress.show()
+                
                 provider.request(.addAddress(addressString, latitude, longitude)) { [weak self] result in
                     guard let self = self else { return }
                     switch result {

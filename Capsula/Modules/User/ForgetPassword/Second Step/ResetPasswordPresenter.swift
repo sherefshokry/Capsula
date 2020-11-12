@@ -16,10 +16,11 @@ class ResetPasswordPresenter : ViewToPresenterResetPasswordProtocol{
     var interactor: PresenterToIntetractorResetPasswordProtocol?
     var router: PresenterToRouterResetPasswordProtocol?
     var phone = ""
+    var firebaseToken = ""
        
     func resetPassword(password : String) {
            self.view?.changeState(state: .loading)
-           self.interactor?.resetPassword(phone: phone, password: password)
+           self.interactor?.resetPassword(phone: phone, password: password,firebaseToken: firebaseToken)
        }
 }
 

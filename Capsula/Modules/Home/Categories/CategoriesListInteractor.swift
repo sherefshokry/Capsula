@@ -15,16 +15,22 @@ class CategoriesListInteractor : PresenterToIntetractorCategoriesListProtocol {
     
     var presenter: InteractorToPresenterCategoriesListProtocol?
     private let provider = MoyaProvider<CategoriesDataSource>()
-         
-         func getCategoriesData() {
+    var fetchedData = [Category]()
+    var allCategories = [Category]()
     
-             provider.request(.getCategoriesData) { [weak self] result in
+    
+    func getCategoriesData(page : Int) {
+    
+             provider.request(.getCategoriesData(page)) { [weak self] result in
                   guard let self = self else { return }
                   switch result {
                   case .success(let response):
                       do {
                        let categoriesResponse = try response.map(BaseResponse<CategoriesResponse>.self)
-                     self.presenter?.categoriesDataFetchedSuccessfully(categoriesResponse: categoriesResponse.data?.categoriesList ?? [])
+                       self.fetchedData = categoriesResponse.data?.categoriesList ?? []
+                        self.handleCategoriesPagination()
+                        
+                    
                       } catch(let catchError) {
                           self.presenter?.categoriesDataFailedToFetch(error: catchError.localizedDescription)
                       }
@@ -44,17 +50,16 @@ class CategoriesListInteractor : PresenterToIntetractorCategoriesListProtocol {
     
     
     
-    func getCategoriesData(storeId : Int) {
+    func getCategoriesData(storeId : Int,page : Int) {
         
-        provider.request(.getCategoriesDataWithStoreId(storeId)) { [weak self] result in
+        provider.request(.getCategoriesDataWithStoreId(storeId,page)) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let response):
                     do {
-                        
                      let categoriesResponse = try response.map(BaseResponse<CategoriesResponse>.self)
-                    
-                    self.presenter?.categoriesDataFetchedSuccessfully(categoriesResponse: categoriesResponse.data?.categoriesList ?? [])
+                    self.fetchedData = categoriesResponse.data?.categoriesList ?? []
+                    self.handleCategoriesPagination()
                     } catch(let catchError) {
                         self.presenter?.categoriesDataFailedToFetch(error: catchError.localizedDescription)
                     }
@@ -72,7 +77,17 @@ class CategoriesListInteractor : PresenterToIntetractorCategoriesListProtocol {
             
         }
          
+    func handleCategoriesPagination()  {
+        
+         if self.fetchedData.count < Constants.per_page {
+              self.presenter?.stopPagination()
+          }
+          allCategories.append(contentsOf: fetchedData)
+        self.presenter?.categoriesDataFetchedSuccessfully(categoriesResponse: allCategories)
+      }
     
+    
+     
     
 }
 

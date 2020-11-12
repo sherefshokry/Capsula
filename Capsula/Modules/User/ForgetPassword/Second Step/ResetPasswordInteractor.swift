@@ -15,9 +15,9 @@ class ResetPasswordInteractor : PresenterToIntetractorResetPasswordProtocol {
     var presenter: InteractorToPresenterResetPasswordProtocol?
     private let provider = MoyaProvider<UserDataSource>()
        
-       func resetPassword(phone: String,password : String) {
+    func resetPassword(phone: String,password : String,firebaseToken : String) {
        
-           provider.request(.resetPassword(phone, password)) { [weak self] result in
+           provider.request(.resetPassword(phone, password,firebaseToken)) { [weak self] result in
                guard let self = self else { return }
                switch result {
                case .success(_):

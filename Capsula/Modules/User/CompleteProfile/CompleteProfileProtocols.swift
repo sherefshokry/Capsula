@@ -18,17 +18,20 @@ protocol ViewToPresenterCompleteProfileProtocol: class {
     var interactor : PresenterToIntetractorCompleteProfileProtocol? {get set}
     var router : PresenterToRouterCompleteProfileProtocol? {get set}
     var user : User {set get}
+    var fromApple : Bool {set get}
     func viewDidLoad()
     func setNameField(name : String)
     func setEmailField(email : String)
     func setPhoneFiled(phone : String)
     func checkIfPhoneExist(phone : String)
+   
 }
 
 
 protocol PresenterToViewCompleteProfileProtocol: class {
     func setUserData(user : User)
     func changeState(state : State)
+    func hideEmail()
 }
 
 protocol PresenterToIntetractorCompleteProfileProtocol: class {
@@ -38,7 +41,7 @@ protocol PresenterToIntetractorCompleteProfileProtocol: class {
 }
 
 protocol PresenterToRouterCompleteProfileProtocol: class  {
-    static func createModule(user : User) -> UIViewController
+    static func createModule(user : User,fromApple:  Bool) -> UIViewController
     func openVerificationScreen(from sourceView: PresenterToViewCompleteProfileProtocol?, request : RegisterRequest)
     
 }

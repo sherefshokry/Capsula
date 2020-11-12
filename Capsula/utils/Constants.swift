@@ -24,8 +24,12 @@ class Constants {
         
     }
     
-
-       static var BASE_URL = "http://capsulasa-001-site2.itempurl.com/api"
+       static var BASE_URL = "https://Capsula.cc/api"
+    //"http://capsulasa-001-site2.itempurl.com/api"
+    //"https://Capsula.cc/api"
+    //
+    
+       static var per_page = 40
        static var FACEBOOK_NOTIFICATION = "FACEBOOK_NOTIFICATION"
        static var TWITTER_NOTIFICATION = "TWITTER_NOTIFICATION"
        static var GOOGLE_NOTIFICATION = "GOOGLE_NOTIFICATION"

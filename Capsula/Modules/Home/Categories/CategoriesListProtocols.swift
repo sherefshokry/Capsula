@@ -17,10 +17,12 @@ protocol ViewToPresenterCategoriesListProtocol: class {
     var interactor : PresenterToIntetractorCategoriesListProtocol? {get set}
     var router : PresenterToRouterCategoriesListProtocol? {get set}
     var numberOfRows : Int { get }
+    var  page : Int { get }
     var storeId : Int {set get}
     func configureCategoryCell(cell : CategoryCell , indexPath : IndexPath)
     func getCategoriesData()
     func didSelectCategory(indexPath : IndexPath)
+    func loadPagingData(indexPath : IndexPath)
 }
 
 protocol PresenterToViewCategoriesListProtocol: class {
@@ -29,8 +31,8 @@ protocol PresenterToViewCategoriesListProtocol: class {
 
 protocol PresenterToIntetractorCategoriesListProtocol: class {
     var presenter: InteractorToPresenterCategoriesListProtocol? { get set }
-    func getCategoriesData()
-    func getCategoriesData(storeId : Int)
+    func getCategoriesData(page : Int)
+    func getCategoriesData(storeId : Int,page: Int)
 }
 
 protocol PresenterToRouterCategoriesListProtocol: class  {
@@ -42,4 +44,5 @@ protocol PresenterToRouterCategoriesListProtocol: class  {
 protocol InteractorToPresenterCategoriesListProtocol: class {
    func  categoriesDataFetchedSuccessfully(categoriesResponse: [Category])
    func  categoriesDataFailedToFetch(error : String)
+   func stopPagination()
 }

@@ -18,6 +18,7 @@ protocol ViewToPresenterResetPasswordProtocol: class {
     var interactor : PresenterToIntetractorResetPasswordProtocol? {get set}
     var router : PresenterToRouterResetPasswordProtocol? {get set}
     var phone : String { set get }
+    var firebaseToken : String { set get }
     func resetPassword(password : String)
 }
 
@@ -28,11 +29,11 @@ protocol PresenterToViewResetPasswordProtocol: class {
 
 protocol PresenterToIntetractorResetPasswordProtocol: class {
     var presenter: InteractorToPresenterResetPasswordProtocol? { get set }
-    func resetPassword(phone : String , password : String)
+    func resetPassword(phone : String , password : String,firebaseToken: String)
 }
 
 protocol PresenterToRouterResetPasswordProtocol: class  {
-    static func createModule(phone : String) -> UIViewController
+    static func createModule(phone : String,firebaseToken: String) -> UIViewController
     
 }
 

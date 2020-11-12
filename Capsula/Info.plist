@@ -81,7 +81,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>http://capsula-001-site1.atempurl.com</key>
+			<key>http://capsulasa-001-site2.itempurl.com</key>
 			<dict>
 				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
 				<false/>

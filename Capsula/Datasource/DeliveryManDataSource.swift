@@ -11,7 +11,7 @@ import Moya
 
 public enum DeliveryManDataSource {
     case getOrdersList
-    case getFilteredOrdersHistory(String)
+    case getFilteredOrdersHistory(String,Int)
     case getOrderDetails(Int)
     case startDelivery(Int)
     case finishDelivery(Int)
@@ -22,25 +22,25 @@ extension DeliveryManDataSource : TargetType {
     
     public var baseURL: URL {
             switch self {
-                   case .getFilteredOrdersHistory(let filterDate):
-                    return URL(string: "\(Constants.BASE_URL)/DeliveryMan/GetOrdersHistory?date=\(filterDate)")!
+                   case .getFilteredOrdersHistory(let filterDate,let page):
+                    return URL(string: "\(Constants.BASE_URL)/DeliveryMan/GetOrdersHistory?date=\(filterDate)&PageNumber=\(page)&PageSize=\(Constants.per_page)")!
+            case .getOrdersList:
+                return URL(string: "\(Constants.BASE_URL)/DeliveryMan/GetOrders")!
                    default:
                         return URL(string: "\(Constants.BASE_URL)/DeliveryMan")!
                    }
-        
-       
     }
   
     public var path: String {
         switch self {
         case .getOrdersList:
-            return "/GetOrders"
+            return ""
         case .getOrderDetails(let orderID): return "/GetOrderDetails/\(orderID)"
         case .startDelivery(let orderID):
             return "/StartDelivery/\(orderID)"
         case .finishDelivery(let orderID):
             return "/EndDelivery/\(orderID)"
-        case .getFilteredOrdersHistory(_):
+        case .getFilteredOrdersHistory(_,_):
             return ""
         case .getWallet:
             return "/Wallet"
@@ -57,7 +57,7 @@ extension DeliveryManDataSource : TargetType {
             return .get
         case .finishDelivery(_):
             return .get
-        case .getFilteredOrdersHistory(_):
+        case .getFilteredOrdersHistory(_,_):
             return .get
         case .getWallet:
             return .get
@@ -78,7 +78,7 @@ extension DeliveryManDataSource : TargetType {
             return .requestPlain
         case .finishDelivery(_):
             return .requestPlain
-        case .getFilteredOrdersHistory(_):
+        case .getFilteredOrdersHistory(_,_):
             return .requestPlain
         case .getWallet:
             return .requestPlain

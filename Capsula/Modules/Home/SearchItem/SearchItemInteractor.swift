@@ -15,17 +15,20 @@ class SearchItemInteractor : PresenterToIntetractorSearchItemProtocol {
     var presenter: InteractorToPresenterSearchItemProtocol?
     private let provider = MoyaProvider<ItemsDataSource>()
     private let cartProvider = MoyaProvider<CartDataSource>()
+    var fetchedData = [Item]()
+    var allItems = [Item]()
     
-    func itemsSearch(searchText: String, filterType: Int) {
+    func itemsSearch(searchText: String, filterType: Int,page: Int) {
         
-        provider.request(.itemsSearch(searchText, filterType)) { [weak self] result in
+        provider.request(.itemsSearch(searchText, filterType, page)) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let response):
                     do {
                         let itemsResponse = try response.map(BaseResponse<ItemsResponse>.self)
-                        
-                        self.presenter?.itemsDataFetchedSuccessfully(itemsResponse: itemsResponse.data?.itemsList ?? [])
+                        self.fetchedData = itemsResponse.data?.itemsList ?? []
+                        self.handleItemsPagination()
+                    
                     } catch(let catchError) {
                         self.presenter?.itemsDataFailedToFetch(error: catchError.localizedDescription)
                     }
@@ -75,6 +78,17 @@ class SearchItemInteractor : PresenterToIntetractorSearchItemProtocol {
                              }
            }
       
+    func handleItemsPagination()  {
+        if self.fetchedData.count < Constants.per_page {
+             self.presenter?.stopPagination()
+         }
+         allItems.append(contentsOf: fetchedData)
+         self.presenter?.itemsDataFetchedSuccessfully(itemsResponse: allItems)
+     }
+    
+    func emptyAllItems(){
+           allItems = []
+       }
     
 }
 

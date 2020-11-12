@@ -21,7 +21,10 @@ class BaseDataSource {
                 "Accept-Language": LocalizationSystem.sharedInstance.getLanguage()]
        
         if let user = Utils.loadUser() {
+            
             header["Authorization"] = "Bearer \(user.accessToken ?? "")"
+            
+            
         }
 
             return header

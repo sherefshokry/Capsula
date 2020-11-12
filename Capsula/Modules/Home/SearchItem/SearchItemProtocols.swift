@@ -15,11 +15,14 @@ protocol ViewToPresenterSearchItemProtocol: class {
     var interactor : PresenterToIntetractorSearchItemProtocol? {get set}
     var router : PresenterToRouterSearchItemProtocol? {get set}
     var  numberOfRows : Int { get }
+    var  page : Int { get }
     func configureItemCell(cell : ItemCell , indexPath : IndexPath)
     func setSearchText(searchText : String)
     func setFilterType(type : Int)
     func itemsSearch()
     func didSelectItem(indexPath : IndexPath)
+    func loadPagingData(indexPath : IndexPath)
+    func emptyData()
 }
 
 protocol PresenterToViewSearchItemProtocol: class {
@@ -29,7 +32,8 @@ protocol PresenterToViewSearchItemProtocol: class {
 
 protocol PresenterToIntetractorSearchItemProtocol: class {
     var presenter: InteractorToPresenterSearchItemProtocol? { get set }
-    func itemsSearch(searchText : String , filterType : Int)
+    func itemsSearch(searchText : String , filterType : Int,page: Int)
+    func emptyAllItems()
     func addItemsToCart(itemData : Item)
 }
 
@@ -42,4 +46,6 @@ protocol InteractorToPresenterSearchItemProtocol: class {
    func  itemsDataFetchedSuccessfully(itemsResponse: [Item])
    func  itemsDataFailedToFetch(error : String)
    func  itemsDataAddedToCartSuccessfully(itemsResponse: [Item])
+   func stopPagination()
+  
 }

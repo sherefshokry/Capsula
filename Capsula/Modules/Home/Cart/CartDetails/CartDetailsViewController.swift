@@ -17,6 +17,7 @@ class CartDetailsViewController: ImagePickerViewController {
     
     var presenter : ViewToPresenterCartDetailsProtocol?
     @IBOutlet weak var addressDesc : UILabel!
+    @IBOutlet weak var vatPolicyLabel : UILabel!
     @IBOutlet weak var promoCodeBtn : UIButton!
     @IBOutlet weak var prescriptionImage : UIImageView!
     @IBOutlet weak var insuranceImage : UIImageView!
@@ -247,9 +248,12 @@ extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
         isDeliveryCalculated = true
         itemsCostLabel.text = "\(String(cost.itemsCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
         estimatedTotalLabel.text = "\(String(cost.finalTotalCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
-        VAT.text = "\(String(cost.vatCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
+        let vatCost = "\(String(cost.vatCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
+        let vatPrecentage = String(cost.vatPercentage ?? 0)
+        VAT.text = vatCost
         deliveryCostLabel.text = "\(String(cost.deliveryCost?.rounded(toPlaces: 2) ?? 0.0)) " + Strings.shared.RSD
         self.totalCost = self.totalCost + (cost.deliveryCost ?? 0.0)
+        vatPolicyLabel.text = Strings.shared.vat_1 + " " + vatPrecentage + "%" + " " + Strings.shared.vat_2 + " " + vatCost
     }
     
     
@@ -266,7 +270,6 @@ extension CartDetailsViewController : PresenterToViewCartDetailsProtocol {
     func changeState(state: State) {
         self.state = state
     }
-    
     
     
     

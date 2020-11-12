@@ -18,6 +18,8 @@ class DeliveryHomeVC : UIViewController {
     @IBOutlet weak var tableView   : UITableView!
     var refreshControl = UIRefreshControl()
     var ordersList = [DeliveryOrder]()
+//    var page : Int = 0
+//    var isFinishedPaging = false
     private let provider = MoyaProvider<DeliveryManDataSource>()
     private let userProvivider = MoyaProvider<AuthDataSource>()
     
@@ -46,6 +48,9 @@ class DeliveryHomeVC : UIViewController {
     }
     
     @objc func reloadOrderList(_ notification: NSNotification){
+//        page = 0
+//        isFinishedPaging = false
+//        ordersList = []
         getMyOrders()
     }
     
@@ -80,11 +85,22 @@ class DeliveryHomeVC : UIViewController {
     }
     
     
+    func loadPagingData(indexPath : IndexPath){
+//              let count = ordersList.count
+//              let newsCount = (count - 1)
+//               if indexPath.row == newsCount && !isFinishedPaging {
+//
+//                  self.getMyOrders()
+//              }
+    }
+    
     func  getMyOrders(){
         // if !refreshControl.isRefreshing {
-        KVNProgress.show(withStatus: "", on: self.tableView)
+        KVNProgress.show(withStatus: "", on: self.view)
         //}
-        
+//        let count = ordersList.count
+//        page =  ( count / Constants.per_page ) + 1
+//
         provider.request(.getOrdersList) { [weak self] result in
             KVNProgress.dismiss()
             // self?.refreshControl.endRefreshing()
@@ -93,8 +109,13 @@ class DeliveryHomeVC : UIViewController {
             case .success(let response):
                 do {
                     let ordersResponse = try response.map(BaseResponse<DeliveryOrdersResponse>.self)
+                  ///  let fetchedData = ordersResponse.data?.ordersList ?? []
+//                    if fetchedData.count < Constants.per_page {
+//                        self.isFinishedPaging = true
+//                    }
                     self.ordersList = ordersResponse.data?.ordersList ?? []
                     self.tableView.reloadData()
+                    
                 } catch(let catchError) {
                     self.showMessage(catchError.localizedDescription)
                 }
@@ -174,6 +195,11 @@ extension DeliveryHomeVC : UITableViewDelegate , UITableViewDataSource {
             
         }
         
+    }
+    
+    
+      func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+      //   self.loadPagingData(indexPath: indexPath)
     }
     
     

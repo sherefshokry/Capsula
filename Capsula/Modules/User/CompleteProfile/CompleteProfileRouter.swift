@@ -13,7 +13,7 @@ import UIKit
 
     class CompleteProfileRouter : PresenterToRouterCompleteProfileProtocol {
         
-        static func createModule(user : User) -> UIViewController {
+        static func createModule(user : User,fromApple : Bool) -> UIViewController {
             
             let view = CompleteProfileViewController.instantiateFromStoryBoard(appStoryBoard: .PreLogin)
             let presenter : ViewToPresenterCompleteProfileProtocol & InteractorToPresenterCompleteProfileProtocol = CompleteProfilePresenter()
@@ -25,6 +25,7 @@ import UIKit
             presenter.view = view
             presenter.router = router
             presenter.user = user
+            presenter.fromApple = fromApple
             interactor.presenter = presenter
             return view
         }

@@ -51,7 +51,7 @@ class DeliveryManWalletVC : UIViewController {
         
         
         totalCompletedOrder.text = "\(item.countOfCompletedOrders ?? 0)"
-        totalDeliveryCostInCash.text = "\(item.totalCreditCustomerOrderAmountCash?.rounded(toPlaces: 2) ?? 0) " + Strings.shared.RSD
+//        totalDeliveryCostInCash.text = "\(item.totalCreditCustomerOrderAmountCash?.rounded(toPlaces: 2) ?? 0) " + Strings.shared.RSD
         totalOnlineDeliveryCost.text = "\(item.totalDeliveryCostOnlineOrder?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
         totalDeliveryCost.text = "\(item.totalDeliveryCost?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD
         discounts.text = "\(item.discount?.rounded(toPlaces: 2) ?? 0.0) " + Strings.shared.RSD

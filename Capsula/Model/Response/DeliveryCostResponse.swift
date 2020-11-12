@@ -14,9 +14,10 @@ struct  DeliveryCostResponse : Codable {
     let vatCost : Double?
     let deliveryCost : Double?
     let finalTotalCost : Double?
+    let vatPercentage : Int?
     
     enum CodingKeys: String, CodingKey {
-        case  itemsCost,vatCost,deliveryCost,finalTotalCost
+        case  itemsCost,vatCost,deliveryCost,finalTotalCost,vatPercentage
       }
     
     init(){
@@ -24,6 +25,7 @@ struct  DeliveryCostResponse : Codable {
         vatCost = 0.0
         deliveryCost = 0.0
         finalTotalCost = 0.0
+        vatPercentage = 0
       }
       
       init(from decoder: Decoder) throws {
@@ -36,6 +38,8 @@ struct  DeliveryCostResponse : Codable {
             catch {  deliveryCost = 0.0 }
         do { finalTotalCost = try container.decodeIfPresent(.finalTotalCost) ?? 0.0 }
             catch {  finalTotalCost = 0.0 }
+        do { vatPercentage = try container.decodeIfPresent(.vatPercentage) ?? 0 }
+        catch {  vatPercentage = 0 }
       }
     
     

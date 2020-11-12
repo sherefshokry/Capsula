@@ -171,6 +171,9 @@ extension SearchItemViewController : UICollectionViewDelegate , UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.presenter?.didSelectItem(indexPath: indexPath)
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+              self.presenter?.loadPagingData(indexPath: indexPath)
+          }
     
     
 }
@@ -181,6 +184,8 @@ extension SearchItemViewController : UITextFieldDelegate {
         
         textField.resignFirstResponder()
         self.presenter?.setSearchText(searchText: textField.text ?? "")
+        self.presenter?.emptyData()
+        self.collectionView.reloadData()
         self.presenter?.itemsSearch()
         return true
     }

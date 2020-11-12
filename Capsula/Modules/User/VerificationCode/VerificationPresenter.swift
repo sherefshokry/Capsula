@@ -52,7 +52,7 @@ extension VerificationPresenter : InteractorToPresenterVerificationProtocol {
             
         }else{
             
-            self.router?.openForgetPasswordSecondStepScreen(from: self.view, phone: phoneNumber)
+            self.router?.openForgetPasswordSecondStepScreen(from: self.view, phone: phoneNumber,firebaseToken : firebaseToken)
         }
         
     }

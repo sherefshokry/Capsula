@@ -47,9 +47,9 @@ class VerificationRouter : PresenterToRouterVerificationProtocol {
     
    
     
-    func openForgetPasswordSecondStepScreen(from sourceView: PresenterToViewVerificationProtocol?, phone : String){
+    func openForgetPasswordSecondStepScreen(from sourceView: PresenterToViewVerificationProtocol?, phone : String,firebaseToken: String){
         
-        let vc  = ResetPasswordRouter.createModule(phone: phone)
+        let vc  = ResetPasswordRouter.createModule(phone: phone,firebaseToken: firebaseToken)
         
         if let sourceView = sourceView as? UIViewController {
             sourceView.present(vc,animated: true, completion: nil)

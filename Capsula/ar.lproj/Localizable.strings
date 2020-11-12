@@ -130,4 +130,5 @@
 "Field can't be empty" = "الحقل يجب أن لا يكون فارغ";
 "Please select language" = "من فضلك إختر اللغة";
 " KM" = " كم";
-
+"The order price includes" = "سعر الطلب شامل";
+"VAT of" = "ضريبة قيمة مضافة بقيمة";

@@ -29,7 +29,8 @@ class DeliveryOrderDetailsVC : UIViewController {
     @IBOutlet weak var phoneNumberLabel : UILabel!
     @IBOutlet weak var productDetailsLabel : UILabel!
     @IBOutlet weak var scrollView : UIScrollView!
-    private let refreshControl = UIRefreshControl()
+    @IBOutlet weak var storeAddressBtn: UIButton!
+    @IBOutlet weak var deliveryAddressBtn: UIButton!
     
     var ordersList = [Item]()
     var order = DeliveryOrder()
@@ -38,15 +39,12 @@ class DeliveryOrderDetailsVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getOrderDetailsData()
-        
-        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
 
-        scrollView.refreshControl = refreshControl
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-           Intercom.setLauncherVisible(false)
+        Intercom.setLauncherVisible(false)
     }
     
     
@@ -60,19 +58,13 @@ class DeliveryOrderDetailsVC : UIViewController {
         topView.layer.maskedCorners = [.layerMinXMaxYCorner]
     }
     
-    @objc func didPullToRefresh() {
-         getOrderDetailsData()
-    }
+
     
     
     func getOrderDetailsData() {
-      if !refreshControl.isRefreshing {
-           KVNProgress.show()
-      }
-       
+            KVNProgress.show()
         provider.request(.getOrderDetails(order.id ?? -1)) { [weak self] result in
             KVNProgress.dismiss()
-            self?.refreshControl.endRefreshing()
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -104,26 +96,30 @@ class DeliveryOrderDetailsVC : UIViewController {
         
         let orderStatus =  ordersDetailsResponse.statusId ?? -1
         
-        if orderStatus == 1 {
+        if (orderStatus == 5) {
+            cartViewHeightConstraint.constant = 88
+            cartView.isHidden = false
+            deliveryAddressBtn.isUserInteractionEnabled = true
+            storeAddressBtn.isUserInteractionEnabled = true
+            finishOrderBtn.isHidden = false
+            finishOrderBtn.isEnabled = true
+            startOrderBtn.isHidden = true
+            startOrderBtn.isEnabled = false
+        }else if (orderStatus == 6){
+            //Delivered
+            cartViewHeightConstraint.constant = 0
+            cartView.isHidden = true
+        }
+        else{
             cartViewHeightConstraint.constant = 88
             cartView.isHidden = false
             finishOrderBtn.isHidden = true
             finishOrderBtn.isEnabled = false
             startOrderBtn.isHidden = false
             startOrderBtn.isEnabled = true
-        }else if (orderStatus == 2) {
-            cartViewHeightConstraint.constant = 88
-            cartView.isHidden = false
-            finishOrderBtn.isHidden = false
-            finishOrderBtn.isEnabled = true
-            startOrderBtn.isHidden = true
-            startOrderBtn.isEnabled = false
-        }else{
-            cartViewHeightConstraint.constant = 0
-            cartView.isHidden = true
         }
         
-        
+    
         switch  (ordersDetailsResponse.paymentMethodId ?? 0) {
         case 1:
             paymentMethodType.text = Strings.shared.cash
@@ -148,12 +144,12 @@ class DeliveryOrderDetailsVC : UIViewController {
         }
         
         itemsCost.text =  "\(ordersDetailsResponse.itemsCost ?? 0.0) " + Strings.shared.RSD
-    
+        
         deliveryCost.text = "\(ordersDetailsResponse.vatCost ?? 0.0) " + Strings.shared.RSD
         
         
         totalPrice.text = "\(ordersDetailsResponse.finalTotalCost ?? 0.0) " + Strings.shared.RSD
-       
+        
         
         self.ordersList = ordersDetailsResponse.products ?? []
         self.addressLabel.text = ordersDetailsResponse.customerAddress ?? ""
@@ -184,7 +180,9 @@ class DeliveryOrderDetailsVC : UIViewController {
         
     }
     
-    
+    @IBAction func onRefreshPressed(_ sender : UIButton){
+          getOrderDetailsData()
+    }
     
     @IBAction func startOrderPressed(_ sender : UIButton){
         KVNProgress.show()
@@ -193,8 +191,10 @@ class DeliveryOrderDetailsVC : UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(_):
+                self.storeAddressBtn.isUserInteractionEnabled = true
+                self.deliveryAddressBtn.isUserInteractionEnabled = true
                 self.dismiss(animated: true) {
-                    self.openGoogleMap()
+                    self.openGoogleMap(latitude: self.order.storeLat ?? 0.0, longitude: self.order.storeLong ?? 0.0)
                     NotificationCenter.default.post(name: Notification.Name(Constants.RELOAD_DELIVERY_MAN_ORDERS_LIST), object: nil)
                 }
             case .failure(let error):
@@ -235,17 +235,24 @@ class DeliveryOrderDetailsVC : UIViewController {
     }
     
     
+    @IBAction func openDeliveryAddressOnMap(_ sender : UIButton){
+      self.openGoogleMap(latitude: self.order.customerLat ?? 0.0, longitude: self.order.customerLong ?? 0.0)
+    }
     
-    func openGoogleMap() {
-        
+    @IBAction func openStoreAddressOnMap(_ sender : UIButton){
+         self.openGoogleMap(latitude: self.order.storeLat ?? 0.0, longitude: self.order.storeLong ?? 0.0)
+       }
+    
+    
+    func openGoogleMap(latitude: Double , longitude: Double) {
+      
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {  //if phone has an app
-            
             if let url = URL(string: "comgooglemaps-x-callback://?saddr=&daddr=\(order.customerLat ?? 0.0),\(order.customerLong ?? 0.0)&directionsmode=driving") {
                 UIApplication.shared.open(url, options: [:])
             }}
         else {
             //Open in browser
-            if let urlDestination = URL.init(string: "https://www.google.co.in/maps/dir/?saddr=&daddr=\(order.customerLat ?? 0.0),\(order.customerLong ?? 0.0)&directionsmode=driving") {
+            if let urlDestination = URL.init(string: "https://www.google.co.in/maps/dir/?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving") {
                 UIApplication.shared.open(urlDestination)
             }
         }

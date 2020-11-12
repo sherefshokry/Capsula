@@ -17,6 +17,7 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var topView : UIView!
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var descriptionLabel : UILabel!
+    @IBOutlet weak var offerLabel : UILabel!
     @IBOutlet weak var priceBeforeDiscountLabel : UILabel!
     @IBOutlet weak var priceLabel : UILabel!
     @IBOutlet weak var storeName : UILabel!
@@ -70,10 +71,12 @@ extension ItemDetailsViewController : PresenterToViewItemDetailsProtocol {
         itemImage.sd_setImage(with: URL.init(string: item.imagePath ?? ""))
         titleLabel.text = item.productName ?? ""
         priceLabel.text = "\(item.price ?? 0.0) \(Strings.shared.RSD)"
-        if item.offerType == -1 {
-            descriptionLabel.text = item.productDesc
+        descriptionLabel.text = item.productDesc
+        if item.offerType != -1 {
+         offerLabel.isHidden = false
+         offerLabel.text = item.offerDesc
         }else{
-            descriptionLabel.text = item.offerDesc
+            offerLabel.isHidden = true
         }
         
         if item.storeName ?? "" != ""{

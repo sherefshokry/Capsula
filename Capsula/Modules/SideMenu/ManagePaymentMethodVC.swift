@@ -117,21 +117,28 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
     
     func openPaymentScreen(checkoutID : String , paymentMethod : Int){
        
-        
-        
-        self.provider = OPPPaymentProvider(mode: OPPProviderMode.test)
+        self.provider = OPPPaymentProvider(mode: OPPProviderMode.live)
         
         let checkoutSettings = OPPCheckoutSettings()
         
         // Set available payment brands for your shop
         
-        if paymentMethod == 4 {
-            checkoutSettings.paymentBrands = ["VISA", "MASTER"]
-        }else if paymentMethod == 5 {
-            checkoutSettings.paymentBrands = ["MADA"]
-        }else if paymentMethod == 2 {
-            checkoutSettings.paymentBrands = ["APPLEPAY"]
-        }
+           if paymentMethod == 4 {
+                     checkoutSettings.paymentBrands = ["VISA", "MASTER"]
+                 }else if paymentMethod == 5 {
+                     checkoutSettings.paymentBrands = ["MADA"]
+                 }else if paymentMethod == 2 {
+                     
+                     if OPPPaymentProvider.deviceSupportsApplePay(){
+                         print("Support Apple pay hahah")
+                     }
+               
+                     let paymentRequest = OPPPaymentProvider.paymentRequest(withMerchantIdentifier: "merchant.com.BinoyedSA.Capsula", countryCode: "SA")
+                     paymentRequest.supportedNetworks = [PKPaymentNetwork(rawValue: "Visa"),
+                     PKPaymentNetwork(rawValue: "MasterCard")]
+                     checkoutSettings.paymentBrands = ["APPLEPAY"]
+                     checkoutSettings.applePayPaymentRequest = paymentRequest
+                 }
         checkoutSettings.storePaymentDetails = .always
         checkoutSettings.theme.confirmationButtonColor = UIColor.init(codeString: "#0E518A")
         checkoutSettings.theme.navigationBarBackgroundColor =  UIColor.init(codeString: "#37B6FF")
@@ -173,6 +180,7 @@ class ManagePaymentMethodVC : UIViewController,  SFSafariViewControllerDelegate 
             } else {
                 Utils.showResult(presenter: self, success: false, message: "Invalid transaction")
             }})
+        
     }
     
     func presenterURL(url: URL) {

@@ -13,7 +13,7 @@ public enum CheckOutDataSource {
     case checkout(CheckoutRequest)
     case getDeliveryCost
     case prepareCheckout(Int)
-    case ordersList
+    case ordersList(Int)
     case orderTrackingList(Int)
     case orderDetails(Int)
     case cancelOrder(Int)
@@ -35,6 +35,8 @@ extension CheckOutDataSource : TargetType {
             return URL(string: "\(Constants.BASE_URL)/Order/GetOrderDetails?orderId=\(orderId)")!
         case .saveCard(let paymentMethod , let resourcePath):
               return URL(string: "\(Constants.BASE_URL)/CheckOut/SaveCard?registerMethodType=\(paymentMethod)&resourcePath=\(resourcePath)")!
+        case .ordersList(let page):
+            return URL(string: "\(Constants.BASE_URL)/Order/GetOrders?PageNumber=\(page)&PageSize=\(Constants.per_page)")!
         default:
             return URL(string: "\(Constants.BASE_URL)")!
         }}
@@ -44,7 +46,7 @@ extension CheckOutDataSource : TargetType {
         case .checkout(_):
             return "/CheckOut"
         case .ordersList:
-            return "/Order/GetOrders"
+            return ""
         case .orderTrackingList(_):
             return ""
         case .orderDetails(_):

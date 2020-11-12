@@ -1098,7 +1098,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S1l-kf-hrt">
-                                <rect key="frame" x="16" y="126" width="288" height="381.5"/>
+                                <rect key="frame" x="16" y="126" width="288" height="353.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wDl-CG-DBe">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
@@ -1197,17 +1197,17 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="K74-GW-U1I">
-                                        <rect key="frame" x="0.0" y="194" width="288" height="18"/>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="K74-GW-U1I">
+                                        <rect key="frame" x="0.0" y="189" width="288" height="0.0"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash orders cost" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiM-iL-cje">
-                                                <rect key="frame" x="0.0" y="0.0" width="144" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="144" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py5-z6-jM2">
-                                                <rect key="frame" x="168" y="0.0" width="120" height="18"/>
+                                                <rect key="frame" x="168" y="0.0" width="120" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="cUs-G0-7LQ"/>
                                                 </constraints>
@@ -1218,7 +1218,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="g00-8T-ieK">
-                                        <rect key="frame" x="0.0" y="222" width="288" height="18"/>
+                                        <rect key="frame" x="0.0" y="194" width="288" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonuses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcb-gx-vgP">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="18"/>
@@ -1238,7 +1238,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Amv-dd-fSD">
-                                        <rect key="frame" x="0.0" y="250" width="288" height="18"/>
+                                        <rect key="frame" x="0.0" y="222" width="288" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compensation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6su-qF-wCO">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="18"/>
@@ -1258,7 +1258,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="v9M-ID-zEV">
-                                        <rect key="frame" x="0.0" y="278" width="288" height="18"/>
+                                        <rect key="frame" x="0.0" y="250" width="288" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raF-dN-Tqa">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="18"/>
@@ -1278,7 +1278,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="osK-2A-mqx">
-                                        <rect key="frame" x="0.0" y="306" width="288" height="18"/>
+                                        <rect key="frame" x="0.0" y="278" width="288" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payments" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1l-hJ-WXa">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="18"/>
@@ -1298,7 +1298,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="wXS-a4-xrQ">
-                                        <rect key="frame" x="0.0" y="334" width="288" height="18"/>
+                                        <rect key="frame" x="0.0" y="306" width="288" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr0-ja-2xi">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="18"/>
@@ -1318,7 +1318,7 @@ Integrate into your CMS using our API: just use the RandomText API to return gen
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="m0z-n1-2sz">
-                                        <rect key="frame" x="0.0" y="362" width="288" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="334" width="288" height="19.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final balance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukM-xV-waZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="19.5"/>
